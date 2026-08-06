@@ -55,7 +55,7 @@
                                 <path id="circle-desk" d="M 800,800 m -676,0 a 676,676 0 1,1 1352,0 a 676,676 0 1,1 -1352,0"></path>
                             </defs>
                             <text data-circle-text="" class="h4" text-anchor="middle" fill="currentColor" style="word-spacing: 0rem;">
-                                <textPath href="#circle-desk" startOffset="25%">Three reasons to choose Era</textPath>
+                                <textPath href="#circle-desk" startOffset="25%">Multiple reasons to choose Satyamev Group</textPath>
                             </text>
                         </svg>
                     </div>

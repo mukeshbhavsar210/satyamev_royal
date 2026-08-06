@@ -1,13 +1,13 @@
-<script src="js/jquery-3.5.1.min.dc5e7f18c8.js?site=6a068da7ad91b057365bf967" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="js/webflow.a0aa6ca1.b7683852b8a60d8e.js" type="text/javascript" integrity="sha384-BrZ5RLWViy0IN9p2miOlvxmv2gP1sT/YqoMSDJznd6k1tb7t0mPZus3psGWfkx5f" crossorigin="anonymous"></script>
+<script src="assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
+<script src="assets/js/webflow.a0aa6ca1.b7683852b8a60d8e.js" type="text/javascript" ></script>
 <script src="https://unpkg.com/@barba/core"></script>
-<script src="js/gsap.min.js"></script>
-<script src="js/ScrollTrigger.min.js"></script>
-<script src="js/SplitText.min.js"></script>
-<script src="js/CustomEase.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.21/dist/lenis.css">
-<script src="js/lenis.min.js"></script>
-<script src="js/lottie.min.js"></script>
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/SplitText.min.js"></script>
+<script src="assets/js/CustomEase.min.js"></script>
+<link rel="stylesheet" href="assets/css/lenis.css">
+<script src="assets/js/lenis.min.js"></script>
+<script src="assets/js/lottie.min.js"></script>
 <!-- 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

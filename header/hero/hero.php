@@ -26,20 +26,23 @@
                             <span data-scroll-reveal="h" data-prevent-flicker="" class="a-left" style="visibility: visible;" aria-label="A place">
                                 <div class="span">
                                     <span class="split-word" aria-hidden="true">
-                                        <span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">A</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">p</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">l</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">a</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">c</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">e</span></span> </div></span><div data-prevent-flicker="" data-scroll-reveal="ctn" class="hero-s_tabs" style="visibility: visible; translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;"><a hover-tab="" aria-label="by day" hover-nav-item-l2="" data-tab-trigger="day" href="#" class="nav-item w-inline-block is-active"><div class="nav-item_label"><div hover="text" class="nav-item_label_text"><div class="l2">by day</div></div><div hover="text" class="nav-item_label_text is-2"><div class="l2">by day</div></div></div></a><div class="hero-s_tabs_divider is-day"></div><a hover-tab="" aria-label="by night" hover-nav-item-l2="" data-tab-trigger="night" href="#" class="nav-item w-inline-block"><div class="nav-item_label"><div hover="text" class="nav-item_label_text">
-                            <div class="l2">by night</div>
-                        </div>
-                        <div hover="text" class="nav-item_label_text is-2">
-                            <div class="l2">by night</div>
-                        </div>
+                                        <span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">A</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">p</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">l</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">a</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">c</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">e</span></span> 
+                                    </div>
+                            </span>                                        
+                            <span data-scroll-reveal="h" data-prevent-flicker="" class="a-right" style="visibility: visible;" aria-label="to return to">
+                                <div class="span">
+                                <span class="split-word" aria-hidden="true">
+                                    <span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">o</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">r</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">u</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">r</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">n</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">o</span></span>
+                                </div>
+                            </span>
+                        </h3>
                     </div>
-                </a></div><span data-scroll-reveal="h" data-prevent-flicker="" class="a-right" style="visibility: visible;" aria-label="to return to"><div class="span"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">o</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">r</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">u</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">r</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">n</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">o</span></span></div></span></h3></div>
                 </div>
                 <div class="hero-w_bg" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 10px); transform-origin: 50% 75% 0px;">
                     <div class="hero-w_bg_master">
                         <div class="hero-w_bg_master_img" style="translate: none; rotate: none; scale: none; transform-origin: 50% 0% 0px; transform: translate(0px);">
                             <div class="pins-cms b-desk w-dyn-list">
-                                <div role="list" class="pins-cms_list w-dyn-items">
+                                <div role="list" class="pins-cms_list w-dyn-items">                                    
                                     <?php include 'header/hero/pin01.php'; ?>
                                     <?php include 'header/hero/pin02.php'; ?>
                                     <?php include 'header/hero/pin03.php'; ?>
@@ -62,7 +65,7 @@
                                 <div class="e-auto">
                                     <div hover-btn-circle="" data-magnetic-btn="" hover-nav-item-trigger="" class="btn-circle">
                                         <div data-magnetic-inner="" class="btn-circle_label">
-                                            <a hover-nav-item="" aria-label="View available apartments" href="/apartments.html" class="nav-item w-inline-block">
+                                            <a hover-nav-item="" aria-label="View available apartments" href="apartments.php" class="nav-item w-inline-block">
                                                 <div class="nav-item_label">
                                                     <div class="nav-item_label_text">
                                                         <div hover="text" class="l1" aria-label="View available apartments"><span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">V</span><span class="split-char"
@@ -118,7 +121,7 @@
                                                 <circle cx="104" cy="104" r="103.5" stroke="var(--_colors---base-1000--line)" stroke-width="1" fill="none"></circle>
                                             </svg>
                                         </div>
-                                        <a aria-label="View available apartments" href="apartments.html" class="btn-circle_link w-inline-block"></a>
+                                        <a aria-label="View available apartments" href="apartments.php" class="btn-circle_link w-inline-block"></a>
                                     </div>
                                 </div>
                             </div>
