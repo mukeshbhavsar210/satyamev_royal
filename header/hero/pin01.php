@@ -1,4 +1,4 @@
-<div data-modal-tip-btn="crafted-to-endure" data-pin="crafted-to-endure" floating-tip-trigger="crafted-to-endure" role="listitem" class="pins-cms_list_item w-dyn-item">
+<div data-modal-tip-btn="light-flow" data-pin="light-flow" floating-tip-trigger="light-flow" role="listitem" class="pins-cms_list_item w-dyn-item">
     <div hover-pin="" class="pin">
         <div hover="bg" class="pin_dot">
             <div hover="ico" class="ico-16 theme_on-light">
@@ -17,9 +17,9 @@
     </div>
     <div class="style-css w-embed">
         <style>
-            [data-pin='crafted-to-endure'] {
-                top: 62.5%;
-                left: 57.5%;
+            [data-pin='light-flow'] {
+                top: 58.3%;
+                left: 26.9%;
                 }
         </style>
     </div>

@@ -40,14 +40,6 @@
     display: none;
     }
 
-    ::-moz-selection {
-        color: var(--_colors---other--bg);
-        background: var(--_colors---base-1000--primary);
-        }
     
-    ::selection {
-        color: var(--_colors---other--bg);
-        background: var(--_colors---base-1000--primary);
-        }
 </style>    
 </head>
