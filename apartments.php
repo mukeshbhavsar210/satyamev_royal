@@ -1,6 +1,10 @@
-<?php require 'header.php'; ?>
+<?php require 'header/header.php'; ?>
 
-<body class="body" style=""><div data-barba="wrapper" class="transition-wrapper"><div class="main-css"><div class="style-css w-embed"><style>
+<body class="body" style="">
+  <div data-barba="wrapper" class="transition-wrapper">
+    <div class="main-css">
+      <div class="style-css w-embed">
+      <style>
   :root {
     --dur-s: 0.4s;
     --dur-m: 0.8s;
@@ -19,7 +23,10 @@
     font-size: 1vw;
     background-color: var(--_colors---base-0--primary);
   }
-</style></div><div class="style-css w-embed">y<style>
+</style>
+</div>
+<div class="style-css w-embed">y
+  <style>
   /** -------------------------------------------------
    * COMPONENTS
    * ------------------------------------------------- */

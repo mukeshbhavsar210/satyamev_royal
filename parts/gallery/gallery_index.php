@@ -43,8 +43,9 @@
                         </div>
                         <div class="benefits-cms w-dyn-list">
                             <div role="list" class="benefits-cms_list w-dyn-items">
-                                
-                                
+                                 <?php include 'parts/gallery/slide01.php'; ?>
+                                 <?php include 'parts/gallery/slide02.php'; ?>
+                                 <?php include 'parts/gallery/slide03.php'; ?>                                
                             </div>
                         </div>
                     </div>

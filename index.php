@@ -704,7 +704,7 @@
             <?php include 'header/hero/hero.php'; ?>
 
             <?php include 'parts/section02.php'; ?>
-            <?php include 'parts/section03.php'; ?>
+            <?php include 'parts/gallery/gallery_index.php'; ?>
             <?php include 'parts/section04.php'; ?>
             <?php include 'parts/section05.php'; ?>
             <?php include 'parts/section06.php'; ?>

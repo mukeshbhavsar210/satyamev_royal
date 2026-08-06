@@ -48,7 +48,7 @@
         </div>
     </a>
     <div class="u-4"></div>
-    <a hover-nav-item-l2="" aria-label="Contact" href="/contact" class="nav-item w-inline-block">
+    <a hover-nav-item-l2="" aria-label="Contact" href="contact.php" class="nav-item w-inline-block">
         <div class="nav-item_label">
             <div hover="text" class="nav-item_label_text">
                 <div class="l2">Contact</div>
