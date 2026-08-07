@@ -3,18 +3,18 @@
         <div data-video-playpause="" class="arch-scroll-area">
             <div class="arch-intro-s b-desk" style="translate: none; rotate: none; scale: none; transform: translate(0px);">
                 <div class="w_bg">
-                    <div class="arch-intro-s_bg_l" style="clip-path: polygon(0% 0%, 0% 100%, 44.444% 100%, 44.444% 36.111%, 98.889% 36.111%, 98.889% 99.074%, 44.444% 99.074%, 1.111% 100%, 100% 100%, 100% 0%);"></div>
-                    <div class="arch-intro-s_bg_r" style="clip-path: polygon(0% 0%, 0% 100%, 1.111% 100%, 1.111% 0.926%, 55.556% 0.926%, 55.556% 63.889%, 1.111% 63.889%, 1.111% 100%, 100% 100%, 100% 0%);">
+                    <div class="arch-intro-s_bg_l" style="clip-path: polygon(0% 0%, 0% 100%, 44.444% 100%, 44.444% 26.0793%, 98.889% 26.0793%, 98.889% 89.0417%, 44.444% 89.0417%, 1.111% 100%, 100% 100%, 100% 0%);"></div>
+                    <div class="arch-intro-s_bg_r" style="clip-path: polygon(0% 0%, 0% 100%, 1.111% 100%, 1.111% 10.9583%, 55.556% 10.9583%, 55.556% 73.9207%, 1.111% 73.9207%, 1.111% 100%, 100% 100%, 100% 0%);">
                         <div class="w-embed"></div>
                     </div>
-                    <div class="flower arch-intro-l">
+                    <div class="flower arch-intro-l" style="translate: none; rotate: none; scale: none; transform: rotate(-150deg);">
                         <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" poster="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9a4873ec6185f295d_bougainvillea-flowers_05.avif"
                         class="video">
                             <source src="https://assets.era-residence.com/flowers/bougainvillea-flowers_05.webm" type="video/webm">
                             <source src="https://assets.era-residence.com/flowers/bougainvillea-flowers_05.mov" type="video/mp4">
                         </video>
                     </div>
-                    <div class="flower arch-intro-r">
+                    <div class="flower arch-intro-r" style="translate: none; rotate: none; scale: none; transform: rotate(65deg);">
                         <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" poster="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9f3a19844a4b0caf0_bougainvillea-flowers_07.avif"
                         class="video">
                             <source src="https://assets.era-residence.com/flowers/bougainvillea-flowers_07.webm" type="video/webm">
@@ -27,7 +27,7 @@
                 <div class="arch-s">
                     <div class="arch-s_t">
                         <div class="u-48"></div>
-                        <h2 data-text="h" data-fit-text="" class="h1 a-center" aria-label="Architecture" style="white-space: nowrap; font-size: 326.826px;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">A</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">r</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">c</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">h</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">i</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">c</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">u</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">r</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 50%) rotateY(90deg); opacity: 0;">e</span></span></h2>
+                        <h2 data-text="h" data-fit-text="" class="h1 a-center" aria-label="Architecture" style="white-space: nowrap; font-size: 326.826px;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">A</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">r</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">c</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">h</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">i</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">c</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">u</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">r</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, -50%) rotateY(-90deg); opacity: 0;">e</span></span></h2>
                         <div class="u-32"></div>
                         <div class="grid">
                             <div class="arch-s_desc">
@@ -55,15 +55,15 @@
                                         <a hover-nav-item="" aria-label="Book a call now" href="#" class="nav-item w-inline-block">
                                             <div class="nav-item_label">
                                                 <div class="nav-item_label_text">
-                                                    <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B</span><span class="split-char"
-                                                        aria-hidden="true">o</span><span class="split-char" aria-hidden="true">o</span><span class="split-char" aria-hidden="true">k</span></span>
-                                                        </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span>
-                                                        </span>
-                                                        <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span><span class="split-char"
-                                                        aria-hidden="true">a</span><span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">l</span></span>
-                                                        </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">n</span><span class="split-char"
-                                                        aria-hidden="true">o</span><span class="split-char" aria-hidden="true">w</span></span>
-                                                        </span>
+                                                    <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B</span><span class="split-char" aria-hidden="true">o</span>
+                                                        <span
+                                                        class="split-char" aria-hidden="true">o</span><span class="split-char" aria-hidden="true">k</span></span>
+                                                            </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span>
+                                                            </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span><span class="split-char"
+                                                            aria-hidden="true">a</span><span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">l</span></span>
+                                                            </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">n</span><span class="split-char"
+                                                            aria-hidden="true">o</span><span class="split-char" aria-hidden="true">w</span></span>
+                                                            </span>
                                                     </div>
                                                 </div>
                                                 <div class="nav-item_label_text is-2">
@@ -75,8 +75,8 @@
                                                             </span>
                                                             <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">c</span>
                                                             <span
-                                                            class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">a</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">l</span><span class="split-char"
-                                                                aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">l</span></span>
+                                                            class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">a</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">l</span><span class="split-char" aria-hidden="true"
+                                                                style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">l</span></span>
                                                                 </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">n</span>
                                                                 <span
                                                                 class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">o</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">w</span></span>
@@ -102,8 +102,8 @@
                     </div>
                 </div>
                 <div class="w_bg">
-                    <div data-desk="off" data-parallax="w" class="img-w"><img class="img" src="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02.webp" alt="Modern terrace apartments with green plants, flowering vines, and outdoor seating on a sunny day."
-                        sizes="(max-width: 1920px) 100vw, 1920px" data-parallax="img" loading="eager" srcset="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02-p-500.png 500w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02-p-800.png 800w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02-p-1080.png 1080w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02.webp 1920w"
+                    <div data-desk="off" data-parallax="w" class="img-w"><img class="img" src="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02.webp" alt="Modern terrace apartments with green plants, flowering vines, and outdoor seating on a sunny day." sizes="(max-width: 1920px) 100vw, 1920px"
+                        data-parallax="img" loading="eager" srcset="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02-p-500.png 500w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02-p-800.png 800w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02-p-1080.png 1080w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02.webp 1920w"
                         style="translate: none; rotate: none; scale: none; transform: translate(0px);">
                         <div class="img-over-grad bot _100vh"></div>
                         <div class="img-over-grad bot _100vh"></div>

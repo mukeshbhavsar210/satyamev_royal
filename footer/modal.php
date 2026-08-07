@@ -73,10 +73,12 @@
                                 </div>
                             </div>
                         </a>
+
                         <a data-part="ctn" aria-label="Book a call" hover-link="" data-modal-cta-btn="book-a-call" data-modal-close="mob" href="#" class="link w-inline-block">
                             <div class="link_label">
                                 <div class="link_label_text">
-                                    <div hover="text" class="h6" aria-label="Book a call"><span class="split-line" aria-hidden="true" style="text-align: center;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B</span><span class="split-char" aria-hidden="true">o</span>
+                                    <div hover="text" class="h6" aria-label="Book a call">
+                                        <span class="split-line" aria-hidden="true" style="text-align: center;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B000000</span><span class="split-char" aria-hidden="true">o</span>
                                         <span
                                         class="split-char" aria-hidden="true">o</span><span class="split-char" aria-hidden="true">k</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span>
                                             <span
