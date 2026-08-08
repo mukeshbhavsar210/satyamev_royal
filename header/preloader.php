@@ -1,4 +1,5 @@
-<div data-preloader="" class="preloader theme_on-dark" style="--arch-y: -100vh; --arch-w: 125vw; display: none;">
+<!-- <div data-preloader="" class="preloader theme_on-dark" style="--arch-y: -100vh; --arch-w: 125vw; display: none;"> -->
+<div data-preloader="" class="preloader theme_on-dark">
     <div class="preloader_ctn" >
         <div class="preloader_t">
             <div class="u-48"></div>

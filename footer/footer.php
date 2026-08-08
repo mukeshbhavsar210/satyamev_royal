@@ -24,3 +24,61 @@
 <script type="text/javascript" id="" charset="">
     !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","845813938192979");fbq("track","PageView");
 </script>
+
+<script>
+$(document).ready(function () {
+    var $years = $('.timeline-year');
+    var $slides = $('.timeline-slide');
+    var currentIndex = 0;
+    var totalSlides = $years.length;
+    
+    function showTimeline(index) {
+        if (index < 0) {
+            index = totalSlides - 1;
+        }
+        if (index >= totalSlides) {
+            index = 0;
+        }
+        if (index === currentIndex) { return; }
+
+        var oldIndex = currentIndex;         
+
+        currentIndex = index;
+
+        // Year active class
+        $years.removeClass('active');
+        $years.eq(index).addClass('active');
+
+        // Slide
+        $slides.removeClass('active'); 
+        $slides.eq(index).addClass('active');
+       
+        // Scroll active year into view
+        var $activeYear = $years.eq(index);
+        var $nav = $('.timeline-nav');
+
+        var navScroll =
+            $activeYear.position().left +
+            $nav.scrollLeft() -
+            ($nav.width() / 2) +
+            ($activeYear.outerWidth() / 2);
+
+        $nav.animate({
+            scrollLeft: navScroll
+        }, 400);
+    }
+
+    $years.on('click', function () {
+        var index = parseInt($(this).attr('data-index'));
+        showTimeline(index);
+    });
+    
+    $('.timeline-next').on('click', function () {
+        showTimeline(currentIndex + 1);
+    });   
+
+    $('.timeline-prev').on('click', function () {
+        showTimeline(currentIndex - 1);
+    });
+});
+</script>

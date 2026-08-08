@@ -11,12 +11,12 @@
             <div class="landscape-cover_bg"></div>
         </div>
 
-        <?php include 'header/preloader.php'; ?>
+        <!-- <?php include 'header/preloader.php'; ?> -->
         <!-- <?php include 'header/cookies.php'; ?> -->
         
         <main data-barba-namespace="home" data-barba="container" class="transition-container">
             <div class="theme_on-color">
-                <!-- <?php include 'header/logo.php'; ?> -->
+                <?php include 'header/logo.php'; ?>
                 <div data-theme="" class="header-nav theme_on-color">
                     <div class="header-nav_list f-mob">
                         <div hover-nav-item-l2-trigger="" data-modal-menu-btn="mob" class="btn-menu">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <?php include 'header/book_modal.php'; ?> -->
+                    <?php include 'header/book_modal.php'; ?>                    
                 </div>
                 
                 <div data-theme="" class="s-bar-w theme_on-color">
@@ -89,9 +89,18 @@
             
             <?php include 'header/hero.php'; ?>            
             <?php include 'parts/gallery.php'; ?>
-            <?php include 'parts/timeline.php'; ?>            
-            <?php include 'parts/why.php'; ?>
-            <?php require 'footer/contact.php'; ?>            
+            <?php include 'parts/timeline.php'; ?>
+
+            <!-- <?php include 'parts/cloud_buildings.php'; ?> -->
+            <!-- <?php include 'parts/gallery02.php'; ?> -->
+            <!-- <?php include 'parts/section08.php'; ?> -->
+            <!-- <?php include 'parts/slideshow.php'; ?> -->
+            <!-- <?php include 'parts/view_apartment_btn.php'; ?> -->
+            <!-- <?php include 'parts/section11.php'; ?> -->
+            <!-- <?php include 'parts/section12.php'; ?> -->
+
+            <?php include 'parts/section13.php'; ?>
+            <?php require 'footer/contact_number.php'; ?>            
             <?php require 'footer/modal.php'; ?>
             <?php require 'footer/floating.php'; ?>    
     </main>
