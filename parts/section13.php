@@ -5,10 +5,7 @@
                 <div class="u-272"></div>
                 <div class="grid">
                     <div class="cta-s_title">
-                        <h2 data-scroll-reveal="h" class="h1 a-center">
-                            <span class="split-word">Perfect</span><br>
-                            <span class="split-word">sea views</span>
-                        </h2>
+                        <h2 data-scroll-reveal="h" class="h3 a-center">Why Choose us</h2>                        
                         <div class="u-48"></div>
                         <?php include 'parts/btn.php'; ?>
                     </div>

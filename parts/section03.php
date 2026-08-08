@@ -9,7 +9,7 @@
                             <div class="u-16"></div>
                             <div class="benefit-slide_img"></div>
                             <div class="u-16"></div>
-                            <div data-scroll-reveal="ctn" data-slider="pag" class="pag" style="visibility: visible; translate: none; rotate: none; scale: none; transform: translate(0px, 3.333rem); opacity: 0;">
+                            <div data-scroll-reveal="ctn" data-slider="pag" class="pag" >
                                 <div data-slider="prev" class="pag_prev">
                                     <div class="ico-16">
                                         <div class="ico w-embed">

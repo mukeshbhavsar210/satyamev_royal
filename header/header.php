@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="w-mod-js wf-ambroisefrancoisstd-n4-active wf-sloopscriptthree-n4-active wf-active lenis" style="--_100svh: 643px;">
 <head>
 <meta charset="utf-8">
-<title>Satyamev</title>  
+<title>Satyamev Group</title>  
 <meta content="width=device-width, initial-scale=1" name="viewport">    
 
 <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
@@ -37,9 +37,7 @@
     }
     
     .scrollbar-none::-webkit-scrollbar {
-    display: none;
+        display: none;
     }
-
-    
 </style>    
 </head>

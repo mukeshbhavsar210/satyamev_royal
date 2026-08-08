@@ -1,4 +1,4 @@
-<div data-scroll-reveal="ctn" class="cta-s_title_btn" style="visibility: visible; translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">
+<div data-scroll-reveal="ctn" class="cta-s_title_btn" >
     <div hover-btn-circle="" data-magnetic-btn="" hover-nav-item-trigger="" class="btn-circle">
         <div data-magnetic-inner="" class="btn-circle_label">
             <a hover-nav-item="" href="apartments.php" class="nav-item w-inline-block">
