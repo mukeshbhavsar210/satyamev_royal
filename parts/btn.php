@@ -4,7 +4,7 @@
             <a hover-nav-item="" href="apartments.php" class="nav-item w-inline-block">
                 <div class="nav-item_label">
                     <div class="nav-item_label_text">
-                        <div hover="text" class="l1">View Apartments</div>
+                        <div hover="text" class="l1">View <br />Apartments</div>
                     </div>
                 </div>
             </a>

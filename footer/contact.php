@@ -21,7 +21,7 @@
                                 <div role="list" class="contact-cms_list w-dyn-items">
                                     <div role="listitem" class="contact-cms_list_item w-dyn-item">
                                         <a href="tel:+919824538519" target="_blank" class="nav-item w-inline-block">
-                                            <div class="h2 a-center">+91-98245 38519</div>
+                                            <div class="h3 a-center">+91-98245 38519</div>
                                         </a>
                                     </div>
                                 </div>
@@ -34,8 +34,9 @@
                                     <div class="loc-cms_list_item w-dyn-item">
                                         <h3 class="l1 reg a-center">Corporate Office</h3>
                                         <div class="u-16"></div>
-                                        <p class="l1 reg a-center">Satyamev Group</br>
-                                        301, Anand I-Pride, above Radhe Restaurant Visat-Tapovan Road,</br>
+                                        <h3 class="h5 a-center">Satyamev Group</h3>
+                                        <div class="u-16"></div>
+                                        <p class="l1 reg a-center">301, Anand I-Pride, above Radhe Restaurant Visat-Tapovan Road,</br>
                                         Motera, Ahmedabad – 382424</p>
                                         <div class="u-8"></div>
                                         <p class="l1 reg a-center">+91-9824036846</p>
@@ -48,18 +49,9 @@
                 <div class="footer-s_b">
                     <div class="grid">
                         <div class="footer-s_info">
-                            <div data-text="p" class="l1" >
-                                <span class="split-word" aria-hidden="true">Satyamev Royal</span>                                
-                            </div>
-                            <div data-text="p" class="l1 reg no-wrap">
-                                <span class="split-line-mask" aria-hidden="true" style="text-align: start; overflow: clip;">
-                                    <span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0px);">
-                                        <span class="split-word" aria-hidden="true">© 2026 All rights reserved</span>
-                                        <span class="year"></span>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="u-12"></div>
+                            <div data-text="p" class="l1" >Satyamev Royal</div>
+                            <div data-text="p" class="l1 reg no-wrap">© 2026 All rights reserved</div>
+                            <!-- <div class="u-12"></div>
                             <div data-text="p" class="legal-cms w-dyn-list">
                                 <span class="split-line-mask" aria-hidden="true" style="text-align: start; overflow: clip;">
                                     <span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0px);">                                        
@@ -69,11 +61,7 @@
                                                     <div class="nav-item_label">
                                                         <div class="nav-item_label_text">
                                                             <div hover="text" class="l1" aria-label="Privacy policy">
-                                                                <span class="split-word" aria-hidden="true">
-                                                                    <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true">
-                                                                        <span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px); opacity: 1;">Terms of use</span>
-                                                                    </span>
-                                                                </span>
+                                                                Terms of use
                                                             </div>
                                                         </div>                        
                                                     </div>
@@ -82,30 +70,19 @@
                                         </div>
                                     </span>
                                 </span>
+                            </div> -->
+                        </div>
+                        <div class="footer-s_credits">
+                            <div hover-nav-item-trigger="" class="credits">                                
+                                <div data-text="p" class="l1 reg a-right">
+                                    Made by:<br /> Mukesh Bhavsar
+                                </div>
                             </div>
                         </div>
-
-                <div class="footer-s_credits">
-                    <div hover-nav-item-trigger="" class="credits">
-                        <a aria-label="" href="#" target="_blank" class="credits_link w-inline-block"></a>
-                            <div data-text="p" class="l1 reg a-right" aria-label="Made by">
-                                <span class="split-line-mask" aria-hidden="true" style="text-align: right; overflow: clip;">
-                                    <span class="split-line" aria-hidden="true" style="text-align: right; translate: none; rotate: none; scale: none; transform: translate(0px);">
-                                        <span class="split-word" aria-hidden="true">Made by</span>
-                                    </span>
-                                </span>
-                            </div>                                                    
-                        </a>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="u-48"></div>
-    </div>
-    </div>
-    <div class="footer-w_bg"></div>
-    </div>
-    </div>
+        <div class="u-48"></div>
+    </div>    
 </section>
