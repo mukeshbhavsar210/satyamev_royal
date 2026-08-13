@@ -20,30 +20,71 @@ use App\Filament\Resources\Settings\Pages;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Radio;
+use Filament\Forms\Components\RichEditor;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Grid;
 use Filament\Forms\Form;
 use Filament\Tables;
+use Filament\Navigation\NavigationGroup;
+use UnitEnum;
 
-class SettingResource extends Resource{    
+class SettingResource extends Resource{            
     protected static ?string $model = Setting::class;
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;    
 
-    protected static ?int $navigationSort = 5;
-
-    public static function form(Schema $schema): Schema
-    {
+    public static function form(Schema $schema): Schema {
         return $schema
             ->components([
-                TextInput::make('company_name')->label('Company Name')->required()->maxLength(255)->columnSpan(1),
-                TextInput::make('business_line')->label('Business Line')->required()->maxLength(255)->columnSpan(3),
-                Textarea::make('address')->label('Address')->rows(4)->columnSpanFull(),
-                TextInput::make('phone')->label('Phone')->tel()->maxLength(50)->columnSpan(1),
-                TextInput::make('mobile')->label('Mobile')->tel()->maxLength(50)->columnSpan(1),
-                TextInput::make('punch_line')->label('Punch Line')->maxLength(100)->columnSpan(2),
-                TextInput::make('since')->label('Since')->maxLength(10)->columnSpan(1),
-                TextInput::make('facebook_url')->label('Facebook URL')->url()->placeholder('https://facebook.com/')->columnSpan(2),
-                TextInput::make('instagram_url')->label('Instagram URL')->url()->placeholder('https://instagram.com/')->columnSpan(2),
-                ViewField::make('theme_template')->label('Theme')->view('filament.theme-selector')->columnSpan(2),
-            ])->columns(4);
+                Grid::make(1)
+                    ->columnSpanFull()
+                    ->schema([                        
+                        Section::make('General Settings main')
+                                ->schema([
+                                    TextInput::make('company_name')->label('Company Name'),
+                                    TextInput::make('business_line')->label('Business Line'),
+                                    Textarea::make('address')->label('Address'),
+                                ])
+                                ->collapsible(),                                                            
+                        
+                                Section::make('Contact Details')
+                                    ->schema([
+                                        Grid::make(3)
+                                            ->schema([
+                                                TextInput::make('mobile')
+                                                    ->label('Mobile')
+                                                    ->tel(),
+
+                                                TextInput::make('phone')
+                                                    ->label('Phone')
+                                                    ->tel(),
+                                            ]),
+                                    ])
+                                    ->collapsible(),
+
+                                Section::make('Social Accounts')     
+                                    ->schema([
+                                        Grid::make(2)                           
+                                            ->schema([
+                                                TextInput::make('facebook')->label('Facebook')->url(),
+                                                TextInput::make('instagram')->label('Instagram')->url(),
+                                                TextInput::make('youtube')->label('YouTube')->url(),
+                                                TextInput::make('linkedin')->label('LinkedIn')->url(),
+                                            ]),
+                                        ])
+                                    ->collapsible()
+                                    ->collapsed(),    
+                                    
+                                Section::make('Theme')     
+                                    ->schema([
+                                        Grid::make(2)                           
+                                            ->schema([
+                                                ViewField::make('theme_template')->label('Theme')->view('filament.pages.theme-selector')->columnSpan(2),
+                                            ]),
+                                        ])
+                                    ->collapsible()
+                                    ->collapsed(), 
+                    ]),
+            ]);
     }
 
     public static function table(Table $table): Table {

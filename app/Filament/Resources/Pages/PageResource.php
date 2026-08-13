@@ -69,29 +69,15 @@ class PageResource extends Resource {
                 TextInput::make('meta_title')->maxLength(255),
                 Textarea::make('meta_description')->rows(4),
             ]);
-    }    
-
-    // public static function table(Table $table): Table
-    // {
-    //     return PagesTable::configure($table);
-    // }
+    }   
 
     public static function table(Table $table): Table {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
-    ->searchable()
-    ->sortable(),
-
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
-
-                Tables\Columns\TextColumn::make('status')
-                    ->badge(),
-
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('slug')->searchable(),
+                Tables\Columns\TextColumn::make('status')->badge(),
+                Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable(),
             ])
             ->actions([
                 EditAction::make()->iconButton(),

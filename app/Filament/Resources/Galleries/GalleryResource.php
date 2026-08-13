@@ -26,10 +26,7 @@ use Filament\Navigation\NavigationGroup;
 use UnitEnum;
 
 class GalleryResource extends Resource {
-    protected static ?string $model = Gallery::class;
-    protected static string|UnitEnum|null $navigationGroup = 'Home';
-    protected static ?string $navigationLabel = 'Apartments';
-    protected static ?int $navigationSort = 4;
+    protected static ?string $model = Gallery::class;    
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

@@ -1,6 +1,5 @@
 @php
     $statePath = $getStatePath();
-
     $themes = [
         'default' => [
             'name' => 'Default',
@@ -17,7 +16,6 @@
     ];
 @endphp
 
-<h3>Theme</h3><br />
 <div class="theme-selector">    
     @foreach ($themes as $value => $theme)
         <label class="theme-option">
