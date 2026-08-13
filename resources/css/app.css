@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-
+body { border:2px red solid;}
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';

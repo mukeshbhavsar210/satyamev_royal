@@ -7,12 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Apartment extends Model
 {
     protected $fillable = [
-        'title',
-        'slug',
-        'content',
-        'featured_image',
-        'status',
-        'meta_title',
-        'meta_description',
+        'name',
+        'location',
+        'description',
+        'image',
+        'status',        
     ];
 }

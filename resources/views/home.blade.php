@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')    
+@section('content')
 
 @include('layouts.header.preloader')
 @include('layouts.header.cookies')
@@ -400,7 +400,7 @@
                         </div>
                         <div class="red-line"></div>
                         <h6 data-scroll-reveal="p" data-tab="p" class="h6">
-                            <span class="split-line-mask">Our vision is to create exceptional spaces that inspire better living and lasting value. Every project we undertake reflects our commitment to quality, innovation, transparency, and customer trust. We don't just build buildings—we create communities where families, businesses, and dreams can thrive for generations to come.</span>
+                            <span class="split-line-mask">{{ $settings->ceo_message }}</span>
                         </h6>
                         <div class="u-48"></div>
                         <div class="grid _4-columns">

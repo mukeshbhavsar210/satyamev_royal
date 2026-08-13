@@ -16,6 +16,9 @@ class Setting extends Model
         'instagram_url',
         'punch_line',
         'since',
-        'theme_template'
+        'ceo_message',
+        'theme_template',
+        'primary_color',
+        'secondary_color'
     ];
 }
