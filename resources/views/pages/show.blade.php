@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('content')
+
 @php
     use Illuminate\Support\Facades\Storage;
 @endphp
@@ -11,18 +13,14 @@
             {{ $page->featured_image }}
 
           @if($page->featured_image)
-                <img
-                    src="{{ \Illuminate\Support\Facades\Storage::url($page->featured_image) }}"
-                    alt="{{ $page->title }}"
-                >
+                <img src="{{ \Illuminate\Support\Facades\Storage::url($page->featured_image) }}" alt="{{ $page->title }}" >
             @endif
 
-            <img
-                src="{{ Storage::url($page->featured_image) }}"
-                alt="{{ $page->title }}"
-            >
+            <img src="{{ Storage::url($page->featured_image) }}" alt="{{ $page->title }}" >
             
             {!! $page->content !!}
         </div>
     </div>
+@endsection
+
 @endsection

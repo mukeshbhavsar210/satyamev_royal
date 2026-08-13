@@ -19,7 +19,7 @@ class ApartmentsTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()->iconButton(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

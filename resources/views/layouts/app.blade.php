@@ -41,11 +41,17 @@
     }
 </style>    
 </head>
-
-@include('layouts.header.header')
-
 <body class="body">
-    @yield('content')
+
+<div data-barba="wrapper" class="transition-wrapper">
+    @include('layouts.header.header')
+    
+    <main data-barba-namespace="home" data-barba="container" class="transition-container">
+        @yield('content')
+    </main>
+
+    @include('layouts.footer.footer')
+</div>
 
 <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assets/js/webflow.a0aa6ca1.b7683852b8a60d8e.js') }}" type="text/javascript" ></script>
@@ -73,7 +79,6 @@
 <script type="text/javascript" id="" charset="">
     !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","845813938192979");fbq("track","PageView");
 </script>
-
 <script>
 $(document).ready(function () {
     var $years = $('.timeline-year');
@@ -131,7 +136,6 @@ $(document).ready(function () {
     });
 });
 </script>
-
 
 @yield('customJs')
 

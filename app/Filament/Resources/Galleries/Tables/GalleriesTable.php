@@ -19,11 +19,11 @@ class GalleriesTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()->iconButton(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()->iconButton(),
                 ]),
             ]);
     }

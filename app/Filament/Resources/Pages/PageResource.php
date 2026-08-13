@@ -94,8 +94,8 @@ class PageResource extends Resource {
                     ->sortable(),
             ])
             ->actions([
-                EditAction::make(),
-                DeleteAction::make(),
+                EditAction::make()->iconButton(),
+                DeleteAction::make()->iconButton(),
             ]);
     }
 

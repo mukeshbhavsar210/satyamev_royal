@@ -12,7 +12,7 @@
                 </div>
                 <div class="preloader_logo">                    
                     <div class="preloader_logo_a">
-                        <div data-part="a" class="a2 preloader_a a-center">Satyamev Group</div>
+                        <div data-part="a" class="a2 preloader_a a-center">{{ $settings->company_name }}</div>
                     </div>
                 </div>
                 <div class="preloader_title-r">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="u-32"></div>
-                    <p data-part="p" class="l1 a-center">Since 1997</p>
+                    <p data-part="p" class="l1 a-center">Since {{ $settings->since }}</p>
                 </div>
             </div>
             <div class="u-48"></div>

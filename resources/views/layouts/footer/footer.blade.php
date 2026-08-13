@@ -1,84 +1,71 @@
-<script src="assets/js/jquery-3.5.1.min.js" type="text/javascript"></script>
-<script src="assets/js/webflow.a0aa6ca1.b7683852b8a60d8e.js" type="text/javascript" ></script>
-<script src="https://unpkg.com/@barba/core"></script>
-<script src="assets/js/gsap.min.js"></script>
-<script src="assets/js/ScrollTrigger.min.js"></script>
-<script src="assets/js/SplitText.min.js"></script>
-<script src="assets/js/CustomEase.min.js"></script>
-<link rel="stylesheet" href="assets/css/lenis.css">
-<script src="assets/js/lenis.min.js"></script>
-<script src="assets/js/lottie.min.js"></script>
-<!-- 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        function loadtwc(e) {
-            let t = document.createElement('script');
-            (t.setAttribute('src', e), t.setAttribute('type', 'module'), document.body.appendChild(t));
-        }
-        let src = window.location.host.includes('webflow.io') ? 'https://slater.app/20164.js' : 'https://assets.slater.app/slater/20164.js?v=1.0';
-        loadtwc(src);
-        });
-</script> -->
+<section data-bg="dark" class="section theme_on-dark">
+    <div class="container">
+        <div class="footer-w">
+            <a href="#hero" class="footer-s_s-top w-inline-block">
+                <div class="l2">To top</div>
+                <div class="s-down_arrow w-embed">
+                    <svg width="100%" height="100%" viewBox="0 0 48 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40.6345 9C40.8959 8.45299 41.1486 7.97436 41.3926 7.56411C41.6541 7.15385 41.9068 6.81197 42.1508 6.53846L2.99981 6.53846L2.99981 5.46154L42.1508 5.46154C41.9068 5.17094 41.6541 4.82051 41.3926 4.41026C41.1486 4 40.8959 3.52992 40.6345 3L41.5495 3C42.6475 4.24787 43.7979 5.17094 45.0005 5.76923L45.0005 6.23077C43.7979 6.81197 42.6475 7.73504 41.5495 9L40.6345 9Z"
+                        fill="currentColor"></path>
+                    </svg>
+                </div>
+            </a>
 
-<script src="https://assets.slater.app/slater/20164.js?v=1.0" type="module"></script>
-<script type="text/javascript" id="" charset="">
-    !function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","845813938192979");fbq("track","PageView");
-</script>
-
-<script>
-$(document).ready(function () {
-    var $years = $('.timeline-year');
-    var $slides = $('.timeline-slide');
-    var currentIndex = 0;
-    var totalSlides = $years.length;
-    
-    function showTimeline(index) {
-        if (index < 0) {
-            index = totalSlides - 1;
-        }
-        if (index >= totalSlides) {
-            index = 0;
-        }
-        if (index === currentIndex) { return; }
-
-        var oldIndex = currentIndex;         
-
-        currentIndex = index;
-
-        // Year active class
-        $years.removeClass('active');
-        $years.eq(index).addClass('active');
-
-        // Slide
-        $slides.removeClass('active'); 
-        $slides.eq(index).addClass('active');
-       
-        // Scroll active year into view
-        var $activeYear = $years.eq(index);
-        var $nav = $('.timeline-nav');
-
-        var navScroll =
-            $activeYear.position().left +
-            $nav.scrollLeft() -
-            ($nav.width() / 2) +
-            ($activeYear.outerWidth() / 2);
-
-        $nav.animate({
-            scrollLeft: navScroll
-        }, 400);
-    }
-
-    $years.on('click', function () {
-        var index = parseInt($(this).attr('data-index'));
-        showTimeline(index);
-    });
-    
-    $('.timeline-next').on('click', function () {
-        showTimeline(currentIndex + 1);
-    });   
-
-    $('.timeline-prev').on('click', function () {
-        showTimeline(currentIndex - 1);
-    });
-});
-</script>
+            <div class="footer-s">
+                <div class="footer-s_t"></div>
+                <div class="u-48"></div>
+                <div class="footer-s_c">
+                    <div class="grid">
+                        <div class="footer-s_contact">                            
+                            <div class="contact-cms w-dyn-list">
+                                <div role="list" class="contact-cms_list w-dyn-items">
+                                    <div role="listitem" class="contact-cms_list_item w-dyn-item">
+                                        <a href="tel:+919824538519" target="_blank" class="nav-item w-inline-block">
+                                            <div class="h3 a-center">{{ $settings->phone }}</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-48"></div>
+                        </div>
+                        <div class="footer-s_address">
+                            <div class="loc-cms w-dyn-list">
+                                <div class="loc-cms_list w-dyn-items">
+                                    <div class="loc-cms_list_item w-dyn-item">
+                                        <h3 class="l1 reg a-center">Corporate Office</h3>
+                                        <div class="u-16"></div>
+                                        <h3 class="h5 a-center">{{ $settings->company_name }}</h3>
+                                        <div class="u-16"></div>
+                                        <p class="l1 reg a-center">
+                                            {{ $settings->address }}                                            
+                                            <!-- 301, Anand I-Pride, above Radhe Restaurant Visat-Tapovan Road,</br>
+                                        Motera, Ahmedabad – 382424 -->
+                                    </p>
+                                        <div class="u-8"></div>
+                                        <p class="l1 reg a-center">{{ $settings->mobile }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-s_b">
+                    <div class="grid">
+                        <div class="footer-s_info">
+                            <div data-text="p" class="l1" >{{ $settings->company_name }}</div>
+                            <div data-text="p" class="l1 reg no-wrap">© 2026 All rights reserved</div>                            
+                        </div>
+                        <div class="footer-s_credits">
+                            <div hover-nav-item-trigger="" class="credits">                                
+                                <div data-text="p" class="l1 reg a-right">
+                                    Made by:<br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="u-48"></div>
+    </div>    
+</section>

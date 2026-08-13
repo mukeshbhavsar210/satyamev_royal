@@ -6977,3 +6977,8 @@ figcaption {
 }
 
 @media (max-width: 767px) { .timeline-slide { grid-template-columns: 1fr; gap: 30px; } .timeline-info { padding-right: 0; } .timeline-info h2 { font-size: 30px; } .timeline-info p { font-size: 15px; } }
+
+
+.ongoing { top: 62.5%; left: 57.5%; }
+.upcoming { top: 73.2%; left: 76.6%; }
+.completed { top: 58.3%; left: 26.9%; }

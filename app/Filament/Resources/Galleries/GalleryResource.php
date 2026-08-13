@@ -18,16 +18,18 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
-
 use Filament\Actions\EditAction;
 use Filament\Actions\DeleteAction;
 use Filament\Tables;
-
 use Illuminate\Support\Str;
+use Filament\Navigation\NavigationGroup;
+use UnitEnum;
 
-class GalleryResource extends Resource
-{
+class GalleryResource extends Resource {
     protected static ?string $model = Gallery::class;
+    protected static string|UnitEnum|null $navigationGroup = 'Home';
+    protected static ?string $navigationLabel = 'Apartments';
+    protected static ?int $navigationSort = 4;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
@@ -82,8 +84,8 @@ class GalleryResource extends Resource
 
             ])
             ->actions([
-                EditAction::make(),
-                DeleteAction::make(),
+                EditAction::make()->iconButton(),
+                DeleteAction::make()->iconButton(),
             ])
             ->defaultSort('sort_order');
     }

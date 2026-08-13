@@ -42,6 +42,10 @@
 
 <div class="floating-tips w-dyn-list">
     <div role="list" class="floating-tips_list w-dyn-items">
+        @foreach($floatingTips as $tip)
+                                            
+        @endforeach
+
         <?php foreach ($floatingTips as $tip): ?>
             <div floating-tip="<?= $tip['id']; ?>" role="listitem" class="floating-tip w-dyn-item">
                 <div class="floating-tip-card">

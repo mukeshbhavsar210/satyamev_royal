@@ -13,10 +13,16 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Filament\Navigation\NavigationGroup;
+use UnitEnum;
 
 class ApartmentResource extends Resource
 {
     protected static ?string $model = Apartment::class;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Home';
+    protected static ?string $navigationLabel = 'Apartments';
+    protected static ?int $navigationSort = 3;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
