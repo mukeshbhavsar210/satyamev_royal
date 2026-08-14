@@ -20,6 +20,11 @@ use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Concerns\InteractsWithForms;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Laravel\Facades\Image;
+
 
 class ManageHome extends Page implements HasForms, HasActions {
     use InteractsWithForms;
@@ -30,6 +35,7 @@ class ManageHome extends Page implements HasForms, HasActions {
     protected static ?string $title = 'Home';
     protected string $view = 'filament.pages.manage-home';   
 
+    //Projects
     public function editProjectAction(): Action {
         return Action::make('editProject')
             ->modalHeading(fn (?Project $record) =>
@@ -138,13 +144,37 @@ class ManageHome extends Page implements HasForms, HasActions {
             });
     }
 
+    public function deleteProjectAction(): Action {
+        return Action::make('deleteProject')
+            ->requiresConfirmation()
+            ->modalHeading('Delete Project')
+            ->modalDescription('Are you sure you want to delete this project?')
+            ->color('danger')
 
+            ->action(function (array $data, array $arguments): void {
+
+                $projectId = $arguments['record'] ?? null;
+
+                if (! $projectId) {
+                    return;
+                }
+
+                $project = Project::find($projectId);
+
+                if ($project) {
+                    $project->delete();
+                }
+
+                $this->redirect(static::getUrl());
+            });
+    }
+
+    //Timeline
     public function editTimelineAction(): Action {
         return Action::make('editTimeline')
             ->modalHeading(fn (?Timeline $record) =>
                 $record ? 'Edit Timeline' : 'Add Timeline'
             )
-
             ->modalWidth('4xl')
             ->schema([
                 Grid::make(4)
@@ -153,12 +183,20 @@ class ManageHome extends Page implements HasForms, HasActions {
                         TextInput::make('year')->label('Year')->required()->maxLength(5)->columnSpan(1),
                         TextInput::make('sort_order')->label('Sort Order')->numeric()->default(0)->columnSpan(1),
                         Textarea::make('description')->label('Description')->rows(3)->columnSpan(2),
-                        FileUpload::make('image')->label('Timeline Image')->image()->disk('public')->directory('timeline')->visibility('public')->columnSpan(2),                        
+                        FileUpload::make('image')->label('Timeline Thumb')->image()->disk('public')->directory('timeline')->visibility('public')
+                            ->getUploadedFileNameForStorageUsing(
+                                fn ($file, $get) =>
+                                    \Illuminate\Support\Str::slug($get('title'))
+                                    . '-'
+                                    . $get('year')                                    
+                                    . '.'
+                                    . $file->getClientOriginalExtension()
+                            )
+                            ->columnSpan(2),
                     ]),
             ])
 
             ->fillForm(function (?Timeline $record): array {
-
                 if (! $record) {
                     return [
                         'status' => true,
@@ -177,110 +215,14 @@ class ManageHome extends Page implements HasForms, HasActions {
             })
 
             ->action(function (array $data, ?Timeline $record): void {
-
                 if ($record) {
                     $record->update($data);
                 } else {
                     Timeline::create($data);
                 }
-
                 $this->redirect(static::getUrl());
             });
     }
-
-
-    public function editApartmentAction(): Action {
-        return Action::make('editApartment')
-
-            ->modalHeading(fn (?Apartment $record) =>
-                $record ? 'Edit Apartment' : 'Add Apartment'
-            )
-
-            ->modalWidth('4xl')
-            ->schema([
-                Grid::make(6)
-                    ->schema([
-                        TextInput::make('name')->label('Apartment Name')->required()->maxLength(255)->columnSpan(3),
-                        TextInput::make('location')->label('Location')->maxLength(255)->columnSpan(2),
-                        Select::make('status')->label('Status')
-                            ->options([
-                                '1' => 'Active',
-                                '0' => 'Block',                                
-                            ])->required()->columnSpan(1),
-
-                        Textarea::make('description')->label('Description')->rows(3)->columnSpan(3),
-                        FileUpload::make('image')->label('Apartment Image')->image()->disk('public')->directory('apartments')->visibility('public')->columnSpan(3),                        
-                    ]),
-            ])
-
-            ->fillForm(function (?Apartment $record): array {
-
-                if (! $record) {
-                    return [
-                        'status' => true,
-                    ];
-                }
-
-                return [
-                    'name' => $record->name,
-                    'location' => $record->location,
-                    'description' => $record->description,
-                    'image' => $record->image,
-                    'status' => $record->status,
-                ];
-            })
-
-            ->action(function (array $data, ?Apartment $record): void {
-
-                if ($record) {
-                    $record->update($data);
-                } else {
-                    Apartment::create($data);
-                }
-
-                $this->redirect(static::getUrl());
-            });
-    }
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | DELETE PROJECT
-    |--------------------------------------------------------------------------
-    */
-
-    public function deleteProjectAction(): Action
-{
-    return Action::make('deleteProject')
-        ->requiresConfirmation()
-        ->modalHeading('Delete Project')
-        ->modalDescription('Are you sure you want to delete this project?')
-        ->color('danger')
-
-        ->action(function (array $data, array $arguments): void {
-
-            $projectId = $arguments['record'] ?? null;
-
-            if (! $projectId) {
-                return;
-            }
-
-            $project = Project::find($projectId);
-
-            if ($project) {
-                $project->delete();
-            }
-
-            $this->redirect(static::getUrl());
-        });
-}
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | DELETE TIMELINE
-    |--------------------------------------------------------------------------
-    */
 
     public function deleteTimelineAction(): Action {
         return Action::make('deleteTimeline')
@@ -307,24 +249,105 @@ class ManageHome extends Page implements HasForms, HasActions {
             });
     }
 
+    //Apartments
+    public function editApartmentAction(): Action {
+        return Action::make('editApartment')
+            ->modalHeading(fn (?Apartment $record) =>
+                $record ? 'Edit Apartment' : 'Add Apartment'
+            )
 
-    /*
-    |--------------------------------------------------------------------------
-    | DELETE APARTMENT
-    |--------------------------------------------------------------------------
-    */
+            ->modalWidth('4xl')
+            ->schema([
+                Grid::make(6)
+                    ->schema([
+                        TextInput::make('name')->label('Apartment Name')->required()->maxLength(100)->columnSpan(4),
+                        TextInput::make('size')->label('Size')->maxLength(100)->columnSpan(2),
+                        TextInput::make('location')->label('Location')->maxLength(255)->columnSpan(4),
+                        Select::make('status')->label('Status')
+                            ->options([
+                                '1' => 'Active',
+                                '0' => 'Block',                                
+                            ])->required()->columnSpan(2),
 
-    public function deleteApartmentAction(): Action
-    {
+                        Textarea::make('description')->label('Description')->rows(3)->columnSpan(4),
+                        FileUpload::make('image')->label('Apartment Image')->image()->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '1000:500',
+                            ])
+                            ->disk('public')->directory('apartments')->visibility('public')
+                            ->getUploadedFileNameForStorageUsing(
+                                fn ($file, $get) =>
+                                    Str::slug($get('name'))
+                                    . '-'
+                                    . now()->format('YmdHis')
+                                    . '.'
+                                    . $file->getClientOriginalExtension()
+                            )
+                            ->columnSpan(2),
+                        ]),
+            ])
+
+            ->fillForm(function (?Apartment $record): array {
+
+            if (! $record) {
+                return [
+                    'status' => '1',
+                ];
+            }
+
+            return [
+                'name' => $record->name,
+                'size' => $record->size,
+                'location' => $record->location,
+                'description' => $record->description,
+                'image' => $record->image,
+                'status' => $record->status,
+            ];
+        })
+
+        ->action(function (array $data, ?Apartment $record): void {
+            if ($record) {
+                $record->update($data);
+                $apartment = $record;
+            } else {
+                $apartment = Apartment::create($data);
+            }
+
+            /* Resize/Crop Apartment image to exactly 1000 x 500 pixels */
+            if (!empty($data['image'])) {
+                $imagePath = $data['image'];
+                if (Storage::disk('public')->exists($imagePath)) {
+                    $fullPath = Storage::disk('public')->path($imagePath);
+                    Image::read($fullPath)
+                        ->cover(1000, 500)
+                        ->save($fullPath);
+                }
+            }
+
+            $this->redirect(static::getUrl());
+        });
+    }
+
+    public function deleteApartmentAction(): Action {
         return Action::make('deleteApartment')
             ->requiresConfirmation()
-            ->modalHeading('Delete Apartment')
-            ->modalDescription('Are you sure you want to delete this apartment?')
-            ->color('danger')
-            ->action(function (Apartment $record): void {
-                $record->delete();
+            ->action(function (array $arguments) {
 
-                $this->redirect(static::getUrl());
+                $recordId = $arguments['record'] ?? null;
+
+                if (!$recordId) {
+                    return;
+                }
+
+                $apartment = Apartment::findOrFail($recordId);
+
+                // Delete image from storage
+                if ($apartment->image) {
+                    Storage::disk('public')->delete($apartment->image);
+                }
+
+                // Delete database record
+                $apartment->delete();
             });
     }
 
@@ -341,7 +364,6 @@ class ManageHome extends Page implements HasForms, HasActions {
                 'delete_action' => 'deleteProject',
                 'extra' => null,
             ],
-
             [
                 'heading' => 'Timeline',
                 'model' => Timeline::class,
@@ -352,7 +374,6 @@ class ManageHome extends Page implements HasForms, HasActions {
                 'delete_action' => 'deleteTimeline',
                 'extra' => 'year',
             ],
-
             [
                 'heading' => 'Apartments',
                 'model' => Apartment::class,
