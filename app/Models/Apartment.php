@@ -4,13 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Apartment extends Model
-{
-    protected $fillable = [
-        'name',
-        'location',
-        'description',
-        'image',
-        'status',        
-    ];
+class Apartment extends Model {
+    protected $fillable = [ 'name','location','description','image','size','status', ];
 }

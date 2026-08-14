@@ -257,119 +257,38 @@
                         </div>
                         <div class="benefits-cms w-dyn-list">
                             <div role="list" class="benefits-cms_list w-dyn-items">
-                                @foreach($gallery as $item)
-                                    <div data-reveal-first="" data-slider="slide" role="listitem" class="benefits-cms_list_item w-dyn-item">
+                                @foreach($apartments as $apartment)
+                                    <div data-reveal-first="" data-slider="slide" role="listitem" class="benefits-cms_list_item w-dyn-item" >
                                         <div class="benefit-slide">
                                             <div class="benefit-slide_t">
                                                 <div class="u-48 b-desk"></div>
                                                 <div class="u-272 b-mob"></div>
-                                                @if($item->title)
-                                                    <h4 data-scroll-reveal="h" data-slider="h" class="h4 a-center b-desk">
-                                                        {{ $item->title }}
-                                                    </h4>                                                    
-                                                @endif                                                
-                                            </div>
-
-                                            <div class="benefit-slide_c">                                                
-                                                <div class="benefit-slide_img">
-                                                    <div data-scroll-reveal="slide" data-slider="img" class="img-w">
-                                                        <img src="{{ Storage::url($item->image) }}" alt="{{ $item->title }}" class="img" loading="eager" sizes="100vw" >
-                                                        {{-- <img src="<?= $slide['image']; ?>" loading="eager" alt="<?= $slide['title']; ?>" sizes="100vw" srcset="<?= $slide['srcset']; ?>" class="img" /> --}}
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="benefit-slide_b">                                                
-                                                <div class="grid _8-columns">
-                                                    <div class="benefit-slide_desc">
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">
-                                                            {{-- <b><?= $slide['size']; ?></b> --}}
-                                                        </p>
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">
-                                                            {{-- <?= $slide['label']; ?> --}}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                                
-                                 {{-- <?php
-                                    $slides = [
-                                        [
-                                            'title' => 'Satyamev Chavani',
-                                            'image' => 'assets/images/gallery/cam_01.webp',
-                                            'srcset' => '
-                                                assets/images/gallery/cam_01-p-500.webp 500w,
-                                                assets/images/gallery/cam_01-p-800.webp 800w,
-                                                assets/images/gallery/cam_01-p-1080.webp 1080w,
-                                                assets/images/gallery/cam_01-p-1600.webp 1600w,
-                                                assets/images/gallery/cam_01.webp 1920w',
-                                            'size' => '1170.00 sq.ft. to 1665.00 sq.ft.',
-                                            'label' => 'Shivranjani, Prahladnagar, Ahmedabad.',                                            
-                                        ],
-                                        [
-                                            'title' => 'Satyamev Famosa',
-                                            'image' => 'assets/images/gallery/cam_02.webp',
-                                            'srcset' => '
-                                                assets/images/gallery/cam_02-p-500.webp 500w,
-                                                assets/images/gallery/cam_02-p-800.webp 800w,
-                                                assets/images/gallery/cam_02-p-1080.webp 1080w,
-                                                assets/images/gallery/cam_02-p-1600.webp 1600w,
-                                                assets/images/gallery/cam_02.webp 1920w',
-                                            'size' => '1170.00 sq.ft. to 1665.00 sq.ft.',
-                                            'label' => 'Mansarovar Road, Near Vaisnavdevi to Tragad, Chandkhed, Ahmedabad, Gujarat-382424',
-                                        ],
-                                        [
-                                            'title' => 'Satyamev Royal Parisar',
-                                            'image' => 'assets/images/gallery/cam_03.webp',
-                                            'srcset' => '
-                                                assets/images/gallery/cam_03-p-500.webp 500w,
-                                                assets/images/gallery/cam_03-p-800.webp 800w,
-                                                assets/images/gallery/cam_03-p-1080.webp 1080w,
-                                                assets/images/gallery/cam_03-p-1600.webp 1600w,
-                                                assets/images/gallery/cam_03.webp 1920w',
-                                            'size' => '1170.00 sq.ft. to 1665.00 sq.ft.',
-                                            'label' => 'Mansarovar Road, Near Vaisnavdevi to Tragad, Chandkhed, Ahmedabad, Gujarat-382424',
-                                        ],
-                                    ];
-                                ?>
-
-                                <?php foreach ($slides as $slide): ?>
-                                    <div data-reveal-first="" data-slider="slide" role="listitem" class="benefits-cms_list_item w-dyn-item">
-                                        <div class="benefit-slide">
-                                            <div class="benefit-slide_t">
-                                                <div class="u-48 b-desk"></div>
-                                                <div class="u-272 b-mob"></div>
-                                                <h4 data-scroll-reveal="h" data-slider="h" class="h4 a-center b-desk">
-                                                    <?= $slide['title']; ?>
+                                                <h4 data-scroll-reveal="h" data-slider="h" class="h4 a-center b-desk" >
+                                                    {{ $apartment->name }}
                                                 </h4>
                                             </div>
 
-                                            <div class="benefit-slide_c">                                                
+                                            <div class="benefit-slide_c">
                                                 <div class="benefit-slide_img">
-                                                    <div data-scroll-reveal="slide" data-slider="img" class="img-w">
-                                                        <img src="<?= $slide['image']; ?>" loading="eager" alt="<?= $slide['title']; ?>" sizes="100vw" srcset="<?= $slide['srcset']; ?>" class="img" />
+                                                    <div data-scroll-reveal="slide" data-slider="img" class="img-w" >
+                                                        @if($apartment->image)
+                                                            <img src="{{ Storage::url($apartment->image) }}" loading="eager" alt="{{ $apartment->name }}" sizes="100vw" class="img" >
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="benefit-slide_b">                                                
+                                            <div class="benefit-slide_b">
                                                 <div class="grid _8-columns">
                                                     <div class="benefit-slide_desc">
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">
-                                                            <b><?= $slide['size']; ?></b>
-                                                        </p>
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">
-                                                            <?= $slide['label']; ?>
-                                                        </p>
+                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center"><b>{{ $apartment->size }}</b></p>
+                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">{{ $apartment->location }}</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                <?php endforeach; ?>                                                                  --}}
+                                @endforeach                                                                                                  
                             </div>
                         </div>
                     </div>
@@ -378,6 +297,7 @@
         </div>
     </div>
 </section>
+<!-- gallery end -->
 
 <section class="section z-2 theme_on-brand">
     <div class="container">
@@ -438,6 +358,7 @@
         </div>
     </div>
 </section>
+<!-- CEO message end -->
 
 <section data-bg="light" data-slow-scroll="" class="section clip">
     <div class="container loc">
@@ -467,13 +388,7 @@
                                 <div class="u-160 b-mob"></div>
                                 <div class="grid">
                                     <div class="info-s_lead">
-                                        <h3 data-part="p" class="h4 a-center">
-                                            <span class="split-line-mask">
-                                                <span class="split-line">Our Timeline</span>
-                                            </span>
-                                        </h3>
-
-                                                                                                                     
+                                        <h3 data-part="p" class="h4 a-center">Our Timeline</h3>
                                     </div>
                                 </div>
                                 <div class="u-48 b-mob"></div>
@@ -492,257 +407,47 @@
                     <div class="loc-intro-w">
                         <div class="loc-intro-s">
                             <div class="u-64 b-desk"></div>
-                            <div class="u-160 b-mob"></div>
-                            
+                            <div class="u-160 b-mob"></div>                            
+
                             <div class="grid">
-                                <!-- <div class="loc-path-s_title">
-                                    <h2 class="h4 a-center">
-                                        <span data-scroll-reveal="h" class="loc-path-s_title_line">Our Timeline</span>
-                                        <span data-scroll-reveal="a" class="loc-path-s_title_a a2">yours</span>
-                                        <span data-scroll-reveal="h" class="loc-path-s_title_line">This Year</span>
-                                    </h2>
-                                </div> -->
+                                <div class="other-s_cms">
+                                    @if($timelines->isNotEmpty())
+                                        <div class="timeline">
+                                            <div class="timeline-nav-wrapper">
+                                                <button type="button" class="timeline-arrow timeline-prev">
+                                                    &#10094;
+                                                </button>
 
-                                <div class="other-s_cms">                                    
-                                    @foreach($timelines as $timeline)
-                                    <div class="timeline">
-                                        <div class="timeline-nav-wrapper">                                            
-                                            <button type="button" class="timeline-arrow timeline-prev">
-                                                &#10094;
-                                            </button>
-                                            <div class="timeline-nav">
-                                                {{ $timeline->year }}
-                                                {{-- <?php foreach ($timeline as $index => $item): ?>
-                                                    <button type="button" class="timeline-year h5 <?php echo $index === 0 ? 'active' : ''; ?>"
-                                                        data-index="<?php echo $index; ?>" >
-                                                        {{ $timeline->year }}
-                                                        <?php echo htmlspecialchars($item['year']); ?>
-                                                    </button>
-                                                <?php endforeach; ?> --}}
+                                                <div class="timeline-nav">
+                                                    @foreach($timelines as $index => $timeline)
+                                                        <button type="button" class="timeline-year h5 {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}">{{ $timeline->year }}</button>
+                                                    @endforeach
+                                                </div>
+
+                                                <button type="button" class="timeline-arrow timeline-next">
+                                                    &#10095;
+                                                </button>
                                             </div>
 
-                                            <button type="button" class="timeline-arrow timeline-next">
-                                                &#10095;
-                                            </button>
-                                        </div>
-
-                                        <div class="timeline-content">
-                                            <?php foreach ($timeline as $index => $item): ?>
-                                                <div class="timeline-slide <?php echo $index === 0 ? 'active' : ''; ?>"
-                                                    data-index="<?php echo $index; ?>" >
-
-                                                    <div class="timeline-image">
-                                                        @if($timeline->image)                                                    
-                                                            <img src="{{ Storage::url($timeline->image) }}" alt="{{ $timeline->title }}" >                                                    
-                                                        @endif
-                                                        {{-- <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" > --}}
-                                                    </div>
-
-                                                    <div class="timeline-info">
-                                                        <h4 class="h4">{{ $timeline->title }}</h4>
-                                                        <div class="u-16"></div>
-                                                        <p>{!! $timeline->description !!}</p>
-                                                    </div>
-                                                </div>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div>                                                          
-                                    @endforeach                                    
-
-                                    <?php
-                                        $timeline = [
-                                            [
-                                                'year'  => '1997',
-                                                'title' => 'Satyamev Chaavani',
-                                                'image' => 'assets/images/timeline/timeline01.jpg',
-                                                'description' => 'A haven of contemporary living in Chandkheda, Ahmedabad. Built in 2019, this residential masterpiece offers a perfect blend of comfort and style. Immerse yourself in a world of modern amenities, thoughtfully designed living spaces, and a location that ensures convenience. Welcome to a life of elevated living at Satyamev Royal 3. '
-                                            ],
-                                            [
-                                                'year'  => '1998',
-                                                'title' => 'Satyamev Royal 4',
-                                                'image' => 'assets/images/timeline/timeline02.jpg',
-                                                'description' => 'We completed our first major project and expanded our capabilities.'
-                                            ],
-                                            [
-                                                'year'  => '1999',
-                                                'title' => 'Growing the Team',
-                                                'image' => 'assets/images/timeline/timeline03.jpg',
-                                                'description' => 'Our team grew and we started working with clients across multiple locations.'
-                                            ],
-                                            [
-                                                'year'  => '2000',
-                                                'title' => 'New Office',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We opened our new office and continued expanding the business.'
-                                            ],
-                                            [
-                                                'year'  => '2001',
-                                                'title' => 'Major Expansion',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'The company entered new markets and launched several new projects.'
-                                            ],
-                                            [
-                                                'year'  => '2002',
-                                                'title' => 'New Milestone',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We achieved another important milestone in our journey.'
-                                            ],
-                                            [
-                                                'year'  => '2003',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2004',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2005',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2006',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2007',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2008',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2009',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2010',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2011',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2012',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2013',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2014',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2015',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2016',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2017',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ],
-                                            [
-                                                'year'  => '2018',
-                                                'title' => 'Future Vision',
-                                                'image' => 'assets/images/timeline/timeline.webp',
-                                                'description' => 'We continue to innovate and build towards an exciting future.'
-                                            ]
-                                        ];
-                                    ?>
-                            
-                                    {{-- <div class="timeline">
-                                        <div class="timeline-nav-wrapper">                                            
-                                            <button type="button" class="timeline-arrow timeline-prev">
-                                                &#10094;
-                                            </button>
-                                            <div class="timeline-nav">
-                                                <?php foreach ($timeline as $index => $item): ?>
-                                                    <button type="button" class="timeline-year h5 <?php echo $index === 0 ? 'active' : ''; ?>"
-                                                        data-index="<?php echo $index; ?>" >
-                                                        <?php echo htmlspecialchars($item['year']); ?>
-                                                    </button>
-                                                <?php endforeach; ?>
-                                            </div>
-
-                                            <button type="button" class="timeline-arrow timeline-next">
-                                                &#10095;
-                                            </button>
-                                        </div>
-
-                                        <div class="timeline-content">
-                                            <?php foreach ($timeline as $index => $item): ?>
-                                                <div class="timeline-slide <?php echo $index === 0 ? 'active' : ''; ?>"
-                                                    data-index="<?php echo $index; ?>" >
-
-                                                    <div class="timeline-image">
-                                                        <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" >
-                                                    </div>
-
-                                                    <div class="timeline-info">
-                                                        <h4 class="h4"><?php echo htmlspecialchars($item['title']); ?></h4>
-                                                        <div class="u-16"></div>
-                                                        <p><?php echo htmlspecialchars($item['description']); ?></p>
-                                                    </div>
-                                                </div>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div> --}}
-
-                                    
-                                    <div class="timeline-list">
-                                        @foreach($timelines as $timeline)
-                                            <div class="timeline-item">
-                                                <div class="timeline-year">{{ $timeline->year }}</div>
-                                                <div class="timeline-content">
-                                                    @if($timeline->image)
+                                            <div class="timeline-content">
+                                                @foreach($timelines as $index => $timeline)
+                                                    <div class="timeline-slide {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}" >
                                                         <div class="timeline-image">
-                                                            <img src="{{ Storage::url($timeline->image) }}" alt="{{ $timeline->title }}" >
+                                                            @if($timeline->image)
+                                                                <img src="{{ Storage::url($timeline->image) }}" alt="{{ $timeline->title }}" />
+                                                            @endif
                                                         </div>
-                                                    @endif
-                                                    <h3>{{ $timeline->title }}</h3>
-                                                    <div class="timeline-description">
-                                                        {!! $timeline->description !!}
+
+                                                        <div class="timeline-info">
+                                                            <h4 class="h4">{{ $timeline->title }}</h4>
+                                                            <div class="u-16"></div>
+                                                            <p>{!! $timeline->description !!}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                @endforeach
                                             </div>
-                                        @endforeach
-                                    </div>
+                                        </div>
+                                    @endif
                                 </div>                                                                             
                             </div>                                                                                     
                         </div>                        
@@ -769,6 +474,7 @@
         </div>
     </div>
 </section>
+<!-- Timeline end -->
 
 <section data-bg="color" class="section theme_on-color">
     <div data-footer-clip="" class="container" style="clip-path: inset(0%);">
@@ -814,6 +520,7 @@
         </div>
     </div>
 </section>
+<!-- Why Choose section end -->
 
     {{-- @include('parts.contact') 
     @include('parts.modal')

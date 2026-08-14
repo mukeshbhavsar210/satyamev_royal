@@ -5,15 +5,17 @@ use App\Models\Page;
 use App\Models\Timeline;
 use App\Models\Project;
 use App\Models\Setting;
+use App\Models\Apartment;
 
 Route::get('/', function () {
     $gallery = \App\Models\Gallery::where('status', 1)->orderBy('sort_order')->get();
     $timelines = Timeline::orderBy('sort_order')->get();
     $floatingTips = Project::where('status', 1)->get();
     $projects = Project::where('status', 1)->take(10)->get();
+    $apartments = Apartment::where('status', 1)->take(10)->get();
     $settings = Setting::first();
 
-    return view('home', compact('gallery', 'floatingTips', 'projects', 'timelines', 'settings'));
+    return view('home', compact('gallery', 'floatingTips', 'projects', 'timelines', 'apartments', 'settings'));
 });
 
 Route::get('/{slug}', function ($slug) {
