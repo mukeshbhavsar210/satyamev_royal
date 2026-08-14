@@ -19,7 +19,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Filament\Navigation\NavigationGroup;
-
+use Filament\View\PanelsRenderHook;
+use Illuminate\Support\Facades\Blade;
 
 class AdminPanelProvider extends PanelProvider {    
     public function panel(Panel $panel): Panel
@@ -27,10 +28,16 @@ class AdminPanelProvider extends PanelProvider {
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
+            ->path('admin')   
+            ->renderHook(
+                PanelsRenderHook::HEAD_END,
+                fn (): string => Blade::render(
+                    '<link rel="stylesheet" href="{{ asset("css/admin.css") }}">'
+                ),
+            )         
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Blue,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')

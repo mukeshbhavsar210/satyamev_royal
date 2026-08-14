@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2026 at 08:38 AM
+-- Generation Time: Aug 14, 2026 at 03:26 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,6 +33,7 @@ CREATE TABLE `apartments` (
   `location` varchar(255) NOT NULL,
   `description` longtext DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
+  `size` varchar(100) DEFAULT NULL,
   `status` int(5) DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -42,8 +43,8 @@ CREATE TABLE `apartments` (
 -- Dumping data for table `apartments`
 --
 
-INSERT INTO `apartments` (`id`, `name`, `location`, `description`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Mukesh', 'Tragad', 'Test', 'apartments/01KZXSKY11MS39BNSKT36CMFXN.jpg', 1, '2026-08-13 13:49:59', '2026-08-13 13:49:59');
+INSERT INTO `apartments` (`id`, `name`, `location`, `description`, `image`, `size`, `status`, `created_at`, `updated_at`) VALUES
+(13, 'Shlok Heights', 'Mansarovar Road', 'test', 'apartments/shlok-heights-20260814123612.JPG', '1000', 1, '2026-08-14 07:06:12', '2026-08-14 07:06:12');
 
 -- --------------------------------------------------------
 
@@ -62,10 +63,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab', 'i:1;', 1786689457),
-('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1786689457;', 1786689457),
-('laravel-cache-livewire-rate-limiter:16d36dff9abd246c67dfac3e63b993a169af77e6', 'i:1;', 1786548564),
-('laravel-cache-livewire-rate-limiter:16d36dff9abd246c67dfac3e63b993a169af77e6:timer', 'i:1786548564;', 1786548564);
+('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab', 'i:2;', 1786711377),
+('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1786711376;', 1786711376);
 
 -- --------------------------------------------------------
 
@@ -246,11 +245,9 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `project_name`, `category`, `image`, `location`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Satyamev Famosa', 'upcoming', 'projects/01KZXC8GQY4QQQANH2RX5TJZM9.jpg', 'Tragad Road', 'test', 1, '2026-08-13 09:56:34', '2026-08-13 13:18:19'),
-(3, 'Satyamev Royal Parishar', 'completed', 'projects/01KZXCC6MA1ACESYCKJHBFHFHP.jpg', 'Vaishnodevi Circle', 'test', 1, '2026-08-13 09:58:34', '2026-08-13 13:18:19'),
-(4, 'Satyamev Royal 7', 'ongoing', 'projects/01KZX0GWS20V47MBA09RNEVV6R.jpg', 'Tapovan Circle', 'test', 1, '2026-08-13 06:31:25', '2026-08-13 13:18:19'),
-(10, 'Shlok Heights', 'upcoming', 'projects/thumb/shlok-heights-2026-08-14-063018.jpg', 'Tragad', 'test', 1, '2026-08-14 01:00:18', '2026-08-14 01:00:18'),
-(11, 'Swastik Harmony', 'ongoing', 'projects/thumb/swastik-harmony-2026-08-14-063439.jpg', NULL, NULL, 1, '2026-08-14 01:04:39', '2026-08-14 01:04:39');
+(18, 'Shlok Heights', 'ongoing', 'projects/thumb/shlok-heights-2026-08-14-123658.JPG', 'test', 'test', 1, '2026-08-14 07:06:58', '2026-08-14 07:06:58'),
+(19, 'test', 'upcoming', 'projects/thumb/test-2026-08-14-124059.JPG', 'test', 'test', 1, '2026-08-14 07:10:59', '2026-08-14 07:10:59'),
+(20, 'test 5', 'completed', 'projects/thumb/test-5-2026-08-14-124202.JPG', 'test', 'test', 1, '2026-08-14 07:12:02', '2026-08-14 07:12:02');
 
 -- --------------------------------------------------------
 
@@ -272,9 +269,11 @@ CREATE TABLE `project_images` (
 --
 
 INSERT INTO `project_images` (`id`, `project_id`, `image`, `sort_order`, `created_at`, `updated_at`) VALUES
-(1, 11, 'projects/gallery/swastik-harmony-2026-08-14-063439-6a7eb6ff59b52.jpg', 0, '2026-08-14 01:04:39', '2026-08-14 01:04:39'),
-(2, 11, 'projects/gallery/swastik-harmony-2026-08-14-063439-6a7eb6ff5aff5.jpg', 1, '2026-08-14 01:04:39', '2026-08-14 01:04:39'),
-(3, 11, 'projects/gallery/swastik-harmony-2026-08-14-063439-6a7eb6ff5b8ff.jpg', 2, '2026-08-14 01:04:39', '2026-08-14 01:04:39');
+(36, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab11b5.JPG', 0, '2026-08-14 07:06:59', '2026-08-14 07:06:59'),
+(37, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab2c5d.JPG', 1, '2026-08-14 07:07:00', '2026-08-14 07:07:00'),
+(38, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab594d.JPG', 2, '2026-08-14 07:07:01', '2026-08-14 07:07:01'),
+(39, 19, 'projects/gallery/test-2026-08-14-124059-6a7f0cdbd0aca.JPG', 0, '2026-08-14 07:11:01', '2026-08-14 07:11:01'),
+(40, 20, 'projects/gallery/test-5-2026-08-14-124202-6a7f0d1a4fd06.JPG', 0, '2026-08-14 07:12:03', '2026-08-14 07:12:03');
 
 -- --------------------------------------------------------
 
@@ -296,8 +295,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('NT75p0roA4eXDGOOXrUoHTJspcZGCWRSeNBqbz69', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicjcySVZTMllJbHJkMnNIRnkwd2RoeTZrY1FtUUpqUUV2WUpwYlFyUSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1786682841),
-('YaDHAMJNtkXRnmThk2jn9DnOiMgKuQgYyvnX2HkT', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiV0o1cFdlTDA2Z0dVeHBpZms4MkpMYjNWZExRQjUwNzE5VWFhV2tDeiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGFydG1lbnRzIjtzOjU6InJvdXRlIjtOO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjY0OiI1OTY3YjljYzUxYjIzMmNkY2RkOGUyM2I3ZTgyNWNkYzUxMjhhZjFiZGE4M2ZiMGMzZGY1YWI1YzA2YTFhZTgyIjt9', 1786689467);
+('BAeP0l3NKhfKTrQmwvr74CTEtJKXOAdQjLYwyVS4', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQ0x0blZVdVNjVnRMUGk2NGNqdnBmcW1meER5Q3g3OTBSME1kcUYxdiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9qZWN0cyI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1786713025),
+('haankMwHymFWCGK9nqmhKPRMuH3ZjdzFaNoLoCRB', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiY25VVlZZNHY3Y0dYWXo2aVF6ck9IVjltU1NQbDZzTm9zMUNjUEZtUyI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2NDoiNTk2N2I5Y2M1MWIyMzJjZGNkZDhlMjNiN2U4MjVjZGM1MTI4YWYxYmRhODNmYjBjM2RmNWFiNWMwNmExYWU4MiI7czo2OiJ0YWJsZXMiO2E6Mjp7czo0MDoiZDY0MmIxMDc2YzdjZGRiNGE2NDlhYjIzYjk1M2NhYzJfY29sdW1ucyI7YTo0OntpOjA7YTo3OntzOjQ6InR5cGUiO3M6NjoiY29sdW1uIjtzOjQ6Im5hbWUiO3M6NToiaW1hZ2UiO3M6NToibGFiZWwiO3M6NToiSW1hZ2UiO3M6ODoiaXNIaWRkZW4iO2I6MDtzOjk6ImlzVG9nZ2xlZCI7YjoxO3M6MTI6ImlzVG9nZ2xlYWJsZSI7YjowO3M6MjQ6ImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI7Tjt9aToxO2E6Nzp7czo0OiJ0eXBlIjtzOjY6ImNvbHVtbiI7czo0OiJuYW1lIjtzOjU6InRpdGxlIjtzOjU6ImxhYmVsIjtzOjU6IlRpdGxlIjtzOjg6ImlzSGlkZGVuIjtiOjA7czo5OiJpc1RvZ2dsZWQiO2I6MTtzOjEyOiJpc1RvZ2dsZWFibGUiO2I6MDtzOjI0OiJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiO047fWk6MjthOjc6e3M6NDoidHlwZSI7czo2OiJjb2x1bW4iO3M6NDoibmFtZSI7czoxMDoic29ydF9vcmRlciI7czo1OiJsYWJlbCI7czoxMDoiU29ydCBvcmRlciI7czo4OiJpc0hpZGRlbiI7YjowO3M6OToiaXNUb2dnbGVkIjtiOjE7czoxMjoiaXNUb2dnbGVhYmxlIjtiOjA7czoyNDoiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjtOO31pOjM7YTo3OntzOjQ6InR5cGUiO3M6NjoiY29sdW1uIjtzOjQ6Im5hbWUiO3M6Njoic3RhdHVzIjtzOjU6ImxhYmVsIjtzOjY6IlN0YXR1cyI7czo4OiJpc0hpZGRlbiI7YjowO3M6OToiaXNUb2dnbGVkIjtiOjE7czoxMjoiaXNUb2dnbGVhYmxlIjtiOjA7czoyNDoiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjtOO319czo0MDoiOTc5MmI2ZGU1NzMxNTZlYzA0NWVhODE4ODFiZTNkM2RfY29sdW1ucyI7YTozOntpOjA7YTo3OntzOjQ6InR5cGUiO3M6NjoiY29sdW1uIjtzOjQ6Im5hbWUiO3M6NToidGl0bGUiO3M6NToibGFiZWwiO3M6NToiVGl0bGUiO3M6ODoiaXNIaWRkZW4iO2I6MDtzOjk6ImlzVG9nZ2xlZCI7YjoxO3M6MTI6ImlzVG9nZ2xlYWJsZSI7YjowO3M6MjQ6ImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI7Tjt9aToxO2E6Nzp7czo0OiJ0eXBlIjtzOjY6ImNvbHVtbiI7czo0OiJuYW1lIjtzOjY6InN0YXR1cyI7czo1OiJsYWJlbCI7czo2OiJTdGF0dXMiO3M6ODoiaXNIaWRkZW4iO2I6MDtzOjk6ImlzVG9nZ2xlZCI7YjoxO3M6MTI6ImlzVG9nZ2xlYWJsZSI7YjowO3M6MjQ6ImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI7Tjt9aToyO2E6Nzp7czo0OiJ0eXBlIjtzOjY6ImNvbHVtbiI7czo0OiJuYW1lIjtzOjEwOiJjcmVhdGVkX2F0IjtzOjU6ImxhYmVsIjtzOjEwOiJDcmVhdGVkIGF0IjtzOjg6ImlzSGlkZGVuIjtiOjA7czo5OiJpc1RvZ2dsZWQiO2I6MTtzOjEyOiJpc1RvZ2dsZWFibGUiO2I6MDtzOjI0OiJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiO047fX19fQ==', 1786713322);
 
 -- --------------------------------------------------------
 
@@ -353,7 +352,7 @@ CREATE TABLE `timelines` (
 --
 
 INSERT INTO `timelines` (`id`, `year`, `title`, `image`, `description`, `sort_order`, `created_at`, `updated_at`) VALUES
-(3, '1997', 'Satyamev Royal 7', 'timeline/01KZZFSK1HCBYMMTMYFTHV14AK.jpg', 'test', 1, '2026-08-14 01:06:48', '2026-08-14 01:06:48');
+(4, '1997', 'Satyamev Royal 1', 'timeline/satyamev-royal-1-1997-HoH2Ap.jpg', 'test ', 1, '2026-08-14 01:29:54', '2026-08-14 01:29:54');
 
 -- --------------------------------------------------------
 
@@ -496,7 +495,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `apartments`
 --
 ALTER TABLE `apartments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -532,13 +531,13 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `project_images`
 --
 ALTER TABLE `project_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -550,7 +549,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `timelines`
 --
 ALTER TABLE `timelines`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

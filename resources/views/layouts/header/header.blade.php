@@ -1,5 +1,3 @@
-@include('layouts.header.body_style')
-
 <div class="landscape-cover">
     <div class="landscape-cover_img">
         <img loading="eager" src="assets/images/preloader/landscape.svg" alt="" class="img contain">

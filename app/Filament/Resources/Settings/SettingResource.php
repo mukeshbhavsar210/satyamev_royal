@@ -38,7 +38,7 @@ class SettingResource extends Resource{
                 Grid::make(1)
                     ->columnSpanFull()
                     ->schema([                        
-                        Section::make('General Settings main')
+                        Section::make('Company Details')
                                 ->schema([
                                     TextInput::make('company_name')->label('Company Name'),
                                     TextInput::make('business_line')->label('Business Line'),
