@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class ProjectImage extends Model
-{
-    protected $fillable = [
-        'project_id',
-        'image',
-        'sort_order',
-    ];
+class ProjectImage extends Model {
+    protected $fillable = [ 'project_id', 'image', 'sort_order', ];
 
-    public function project(): BelongsTo
-    {
+    public function project() {
         return $this->belongsTo(Project::class);
     }
+
 }
