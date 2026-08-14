@@ -12,7 +12,6 @@ class Timeline extends Model
         'image',
         'description',
         'sort_order',
-        'status',
     ];
 
     protected $casts = [

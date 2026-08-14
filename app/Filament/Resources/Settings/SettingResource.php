@@ -50,13 +50,8 @@ class SettingResource extends Resource{
                                     ->schema([
                                         Grid::make(3)
                                             ->schema([
-                                                TextInput::make('mobile')
-                                                    ->label('Mobile')
-                                                    ->tel(),
-
-                                                TextInput::make('phone')
-                                                    ->label('Phone')
-                                                    ->tel(),
+                                                TextInput::make('mobile')->label('Mobile')->tel(),
+                                                TextInput::make('phone')->label('Phone')->tel(),
                                             ]),
                                     ])
                                     ->collapsible(),

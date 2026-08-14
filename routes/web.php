@@ -8,7 +8,7 @@ use App\Models\Setting;
 
 Route::get('/', function () {
     $gallery = \App\Models\Gallery::where('status', 1)->orderBy('sort_order')->get();
-    $timelines = Timeline::where('status', 1)->orderBy('sort_order')->get();
+    $timelines = Timeline::orderBy('sort_order')->get();
     $floatingTips = Project::where('status', 1)->get();
     $projects = Project::where('status', 1)->take(10)->get();
     $settings = Setting::first();
