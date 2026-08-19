@@ -7618,3 +7618,69 @@ figcaption {
     .scrollbar-none::-webkit-scrollbar {
         display: none;
     }
+
+
+    .cookie-consent {
+    position: fixed;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.cookie-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cookie-content h4 {
+    margin: 0 0 5px;
+}
+
+.cookie-content p {
+    margin: 0;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.cookie-btn.accept {
+    background: #000;
+    color: #fff;
+}
+
+.cookie-btn.decline {
+    background: #eee;
+    color: #000;
+}
+
+@media (max-width: 600px) {
+    .cookie-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cookie-buttons {
+        justify-content: flex-end;
+    }
+}

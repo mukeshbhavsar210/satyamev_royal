@@ -2,8 +2,8 @@
 
 @section('content')
 
-@include('layouts.header.preloader')
-@include('layouts.header.cookies')
+@include('home.preloader')
+@include('home.cookies')
 
 <section id="hero" class="section clip theme_on-color">
     <div class="container">
@@ -79,13 +79,23 @@
                             </div>
 
                             <div data-tab-content="day" class="hero-w_bg_master_img_day">
-                                <div data-tab="img" class="img-w h-auto">                                    
-                                    <img loading="eager" alt="" sizes="(max-width: 1920px) 100vw, 1920px" class="img h-auto hero-img"
-                                        src="assets/images/hero/hero_default.webp" srcset="assets/images/hero/hero_500.webp 500w, 
-                                        assets/images/hero/hero_800.webp 800w, 
-                                        assets/images/hero/hero_1080.webp 1080w, 
-                                        assets/images/hero/hero_1600.webp 1600w, 
-                                        assets/images/hero/hero_1920.webp 1920w" />
+                                <div data-tab="img" class="img-w h-auto">
+                                    @php
+                                        $hero = setting('hero', []);
+                                    @endphp                                
+
+                                    @if (!empty($hero))
+                                        <img loading="eager" alt="" sizes="(max-width: 1920px) 100vw, 1920px" class="img h-auto hero-img"
+                                            src="{{ Storage::url($hero['1920'] ?? $hero['1080'] ?? '') }}"
+                                            srcset="
+                                                @if(isset($hero['500'])){{ Storage::url($hero['500']) }} 500w,@endif
+                                                @if(isset($hero['800'])){{ Storage::url($hero['800']) }} 800w,@endif
+                                                @if(isset($hero['1080'])){{ Storage::url($hero['1080']) }} 1080w,@endif
+                                                @if(isset($hero['1600'])){{ Storage::url($hero['1600']) }} 1600w,@endif
+                                                @if(isset($hero['1920'])){{ Storage::url($hero['1920']) }} 1920w,@endif
+                                            "
+                                        />
+                                    @endif
                                 </div>
                             </div>
 
@@ -337,13 +347,23 @@
                 <div class="img-w h-auto quote-w_bg_img">
                     <div class="img-over-grad from-bot bot _4x b-desk"></div>
                     <div class="img-over-grad from-bot bot _4x b-desk"></div>
-                    <img class="img h-auto quote-w_bg_img" src="assets/images/gallery/cam_05_alpha.webp" alt=""
-                        sizes="(max-width: 1920px) 100vw, 1920px" data-parallax="img-out" loading="eager" 
-                        srcset="assets/images/gallery/cam_05_alpha-p-500.png 500w, 
-                        assets/images/gallery/cam_05_alpha-p-800.png 800w, 
-                        assets/images/gallery/cam_05_alpha-p-1080.png 1080w, 
-                        assets/images/gallery/cam_05_alpha.webp 1920w"
-                    >
+
+                    @php
+                        $gallery = setting('gallery', []);
+                    @endphp                                
+
+                    @if (!empty($gallery))
+                        <img loading="eager" alt="" sizes="(max-width: 1920px) 100vw, 1920px" class="img h-auto hero-img"
+                            src="{{ Storage::url($gallery['1920'] ?? $gallery['1080'] ?? '') }}"
+                            srcset="
+                                @if(isset($gallery['500'])){{ Storage::url($gallery['500']) }} 500w,@endif
+                                @if(isset($gallery['800'])){{ Storage::url($gallery['800']) }} 800w,@endif
+                                @if(isset($gallery['1080'])){{ Storage::url($gallery['1080']) }} 1080w,@endif
+                                @if(isset($gallery['1600'])){{ Storage::url($gallery['1600']) }} 1600w,@endif
+                                @if(isset($gallery['1920'])){{ Storage::url($gallery['1920']) }} 1920w,@endif
+                            "
+                        />
+                    @endif                   
                 </div>
             </div>
             <div class="w_themes">
@@ -511,7 +531,32 @@
             </div>
             <div class="w_bg">
                 <div data-parallax="w" class="img-w">
-                    <img data-parallax="img" loading="eager" alt="" src="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920.webp" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-500.png 500w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-800.png 800w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1080.png 1080w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png 1600w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920.webp 1920w" class="img-p">
+                    @php
+                        $why = setting('gallery', []);
+                    @endphp                                
+
+                    @if (!empty($why))
+                        <img loading="eager" alt="" sizes="(max-width: 1920px) 100vw, 1920px" class="img-p"
+                            src="{{ Storage::url($why['1920'] ?? $why['1080'] ?? '') }}"
+                            srcset="
+                                @if(isset($why['500'])){{ Storage::url($why['500']) }} 500w,@endif
+                                @if(isset($why['800'])){{ Storage::url($why['800']) }} 800w,@endif
+                                @if(isset($why['1080'])){{ Storage::url($why['1080']) }} 1080w,@endif
+                                @if(isset($why['1600'])){{ Storage::url($why['1600']) }} 1600w,@endif
+                                @if(isset($why['1920'])){{ Storage::url($why['1920']) }} 1920w,@endif
+                            "
+                        />
+                    @endif
+
+                    <!-- <img data-parallax="img" loading="eager" alt="" 
+                    src="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920.webp" 
+                    sizes="(max-width: 1920px) 100vw, 1920px" 
+                    srcset="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-500.png 500w, 
+                    https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-800.png 800w, 
+                    https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1080.png 1080w, 
+                    https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png 1600w, 
+                    https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920.webp 1920w" class="img-p"> -->
+
                     <div class="img-over-grad from-top _4x"></div>
                     <div class="img-over-grad"></div>
                     <div class="img-over-grad"></div>
