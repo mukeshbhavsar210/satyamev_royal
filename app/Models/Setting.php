@@ -19,6 +19,16 @@ class Setting extends Model
         'ceo_message',
         'theme_template',
         'primary_color',
-        'secondary_color'
+        'secondary_color',
+        'preloader',
+        'hero',
+        'gallery',
+        'why'
+    ];
+
+    protected $casts = [
+        'hero' => 'array',
+        'gallery' => 'array',
+        'why' => 'array',
     ];
 }

@@ -15,7 +15,7 @@ Route::get('/', function () {
     $apartments = Apartment::where('status', 1)->take(10)->get();
     $settings = Setting::first();
 
-    return view('home', compact('gallery', 'floatingTips', 'projects', 'timelines', 'apartments', 'settings'));
+    return view('home.index', compact('gallery', 'floatingTips', 'projects', 'timelines', 'apartments', 'settings'));
 });
 
 Route::get('/{slug}', function ($slug) {
