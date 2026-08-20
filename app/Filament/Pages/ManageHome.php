@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use App\Models\Apartment;
 use App\Models\Project;
 use App\Models\Timeline;
+use App\Models\Slide;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
@@ -34,171 +35,6 @@ class ManageHome extends Page implements HasForms, HasActions {
     protected static ?string $title = 'Home';
     protected string $view = 'filament.pages.manage-home';   
 
-    //Projects
-    protected function projectFormSchema(): array {
-        return [
-            Grid::make(6)
-                ->schema([
-                    TextInput::make('project_name')->label('Project Name')->required()
-                        ->maxLength(255)->columnSpan(3),
-
-                    Select::make('category')->label('Category')->placeholder('Select Category')
-                        ->options([
-                            'ongoing'   => 'Ongoing',
-                            'upcoming'  => 'Upcoming',
-                            'completed' => 'Completed',
-                        ])
-                        ->required()->columnSpan(2),
-                    
-                    Select::make('status')->label('Status')->placeholder('Select')
-                        ->options([
-                            '1' => 'Active',
-                            '0' => 'Block',
-                        ])
-                        ->columnSpan(1),
-                    
-                    Textarea::make('description')->label('Project Details')->rows(3)->columnSpan(3),
-                    TextInput::make('location')->label('Location')->maxLength(255)->columnSpan(3),
-                    FileUpload::make('gallery')->label('Image Gallery')->image()->multiple()->reorderable()->appendFiles()
-                            ->imageEditor()
-                            ->imageEditorAspectRatios([
-                                '1000:500',
-                            ])
-                            ->disk('public')
-                            ->directory('projects/gallery')
-                            ->visibility('public')
-                            ->getUploadedFileNameForStorageUsing(
-                                fn ($file, $get) =>
-                                    \Illuminate\Support\Str::slug($get('project_name'))
-                                    . '-'
-                                    . now()->format('Y-m-d-His')
-                                    . '-'
-                                    . uniqid()
-                                    . '.'
-                                    . $file->getClientOriginalExtension()
-                            )
-                            ->columnSpan(3),
-
-                    FileUpload::make('image')->label('Thumb')->image()->imageEditor()
-                            ->imageEditorAspectRatios([
-                                '1000:500',
-                            ])
-                            ->disk('public')
-                            ->directory('projects/thumb')
-                            ->visibility('public')
-                            ->getUploadedFileNameForStorageUsing(
-                                fn ($file, $get) =>
-                                    \Illuminate\Support\Str::slug($get('project_name'))
-                                    . '-'
-                                    . now()->format('Y-m-d-His')
-                                    . '.'
-                                    . $file->getClientOriginalExtension()
-                            )
-                            ->columnSpan(3),
-                ]),
-        ];
-    }
-
-    public function addProjectAction(): Action {
-        return Action::make('addProject')
-            ->label('Add Project')
-            ->modalHeading('Add Project')
-            ->modalWidth('4xl')
-            ->schema($this->projectFormSchema())
-            ->action(function (array $data) {
-                $project = Project::create([
-                    'project_name' => $data['project_name'],
-                    'category'     => $data['category'],
-                    'location'     => $data['location'],
-                    'description'  => $data['description'],
-                    'image'        => $data['image'] ?? null,
-                    'status'       => $data['status'],
-                ]);
-
-                // Resize thumbnail
-                if (!empty($data['image'])) {
-                    $this->resizeImage($data['image']);
-                }
-
-                // Save gallery
-                foreach ($data['gallery'] ?? [] as $index => $image) {
-                    $this->resizeImage($image);
-                    $project->images()->create([
-                        'image'      => $image,
-                        'sort_order' => $index,
-                    ]);
-                }
-            });
-        }    
-
-    public function editProjectAction(): Action {
-        return Action::make('editProject')
-            ->modalHeading('Edit Project')
-            ->modalWidth('4xl')
-
-            ->schema($this->projectFormSchema())
-
-            ->mountUsing(function ($form, $arguments) {
-
-                // Check what was passed
-                $projectId = $arguments['projectId'] ?? null;
-
-                if (! $projectId) {
-                    return;
-                }
-
-                $project = Project::findOrFail($projectId);
-
-                $form->fill([
-                    'project_name' => $project->project_name,
-                    'category'     => $project->category,
-                    'location'     => $project->location,
-                    'description'  => $project->description,
-                    'image'        => $project->image,
-                    'gallery'      => $project->images()
-                        ->orderBy('sort_order')
-                        ->pluck('image')
-                        ->toArray(),
-                    'status'       => (string) $project->status,
-                ]);
-            })
-
-            ->action(function (array $data, $arguments) {
-
-                $projectId = $arguments['projectId'] ?? null;
-
-                if (! $projectId) {
-                    return;
-                }
-
-                $project = Project::findOrFail($projectId);
-
-                $project->update([
-                    'project_name' => $data['project_name'],
-                    'category'     => $data['category'],
-                    'location'     => $data['location'],
-                    'description'  => $data['description'],
-                    'image'        => $data['image'] ?? $project->image,
-                    'status'       => $data['status'],
-                ]);
-
-                // Update gallery
-                $project->images()->delete();
-
-                foreach ($data['gallery'] ?? [] as $index => $image) {
-                    if (Storage::disk('public')->exists($image)) {
-                        $fullPath = Storage::disk('public')->path($image);
-                        Image::read($fullPath)->cover(1000, 500)->save($fullPath);
-                    }
-
-                    $project->images()->create([
-                        'image'      => $image,
-                        'sort_order' => $index,
-                    ]);
-                }
-            });
-    }
-    
     //Timeline
     protected function timelineFormSchema(): array {
         return [
@@ -440,6 +276,129 @@ class ManageHome extends Page implements HasForms, HasActions {
             });
     }    
 
+    //Slides
+    protected function slideFormSchema(): array {
+        return [
+            Grid::make(4)
+                ->schema([
+                    Grid::make(1)
+                        ->schema([
+                            TextInput::make('title')->label('Slide Title')->required()->maxLength(255),
+                            TextInput::make('description')->label('Description'),                            
+                            FileUpload::make('image')
+                                    ->label('Slide Image')
+                                    ->image()
+                                    ->imageEditor()
+                                    ->imageEditorAspectRatios([
+                                        '1920:700',
+                                    ])
+                                    ->disk('public')
+                                    ->directory('settings/slides')
+                                    ->visibility('public')
+                                    ->getUploadedFileNameForStorageUsing(
+                                        fn ($file, $get) =>
+                                            Str::slug($get('title'))
+                                            . '-'
+                                            . now()->format('YmdHis')
+                                            . '.'
+                                            . $file->getClientOriginalExtension()
+                                    ),
+                        ])->columnSpan(3),
+                    Grid::make(1)
+                        ->schema([
+                            TextInput::make('size')->label('Size'),
+                            TextInput::make('sort_order')->label('Sort Order')->numeric()->default(1),
+                            Select::make('status')
+                                ->label('Status')
+                                ->options([
+                                    '1' => 'Active',
+                                    '0' => 'Block',
+                                ])
+                                ->default('1')->required(),
+                        ])->columnSpan(1),
+                ]),
+        ];
+    }
+
+    public function addSlideAction(): Action {
+        return Action::make('addSlide')
+            ->label('Add Slide')
+            ->modalHeading('Add Slide')
+            ->modalWidth('4xl')
+            ->schema($this->slideFormSchema())
+
+            ->action(function (array $data): void {
+
+                $slide = Slide::create([
+                    'title'       => $data['title'],
+                    'image'       => $data['image'] ?? null,
+                    'description' => $data['description'] ?? null,
+                    'sort_order'  => $data['sort_order'] ?? 0,
+                    'status'      => $data['status'] ?? '1',
+                ]);
+
+                // Resize slide image
+                if (!empty($data['image'])) {
+                    $this->resizeImage($data['image']);
+                }
+
+                $this->redirect(static::getUrl());
+            });
+    }
+
+    public function editSlideAction(): Action {
+        return Action::make('editSlide')
+            ->modalHeading('Edit Slide')
+            ->modalWidth('4xl')
+            ->schema($this->slideFormSchema())
+
+            ->mountUsing(function ($form, $arguments) {
+
+                $slideId = $arguments['slideId'] ?? null;
+
+                if (!$slideId) {
+                    return;
+                }
+
+                $slide = Slide::findOrFail($slideId);
+
+                $form->fill([
+                    'title'       => $slide->title,
+                    'image'       => $slide->image,
+                    'description' => $slide->description,
+                    'sort_order'  => $slide->sort_order,
+                    'status'      => (string) $slide->status,
+                ]);
+            })
+
+            ->action(function (array $data, $arguments): void {
+
+                $slideId = $arguments['slideId'] ?? null;
+
+                if (!$slideId) {
+                    return;
+                }
+
+                $slide = Slide::findOrFail($slideId);
+
+                $slide->update([
+                    'title'       => $data['title'],
+                    'image'       => $data['image'] ?? $slide->image,
+                    'description' => $data['description'] ?? null,
+                    'sort_order'  => $data['sort_order'] ?? 0,
+                    'status'      => $data['status'] ?? '1',
+                ]);
+
+                // Resize image only when supplied
+                if (!empty($data['image'])) {
+                    $this->resizeImage($data['image']);
+                }
+
+                $this->redirect(static::getUrl());
+            });
+    }
+
+
     public function deleteRecordAction(): Action {
         return Action::make('deleteRecord')
             ->requiresConfirmation()
@@ -491,20 +450,7 @@ class ManageHome extends Page implements HasForms, HasActions {
     }
 
     public function getCardSections(): array {
-        return [
-            [
-                'heading' => 'Projects',
-                'singular' => 'Project',
-                'model' => Project::class,
-                'orderBy' => 'id',
-                'title' => 'project_name',
-                'add_action' => 'addProject',
-                'edit_action' => 'editProject',
-                'edit_argument' => 'projectId',
-                'delete_action' => 'deleteRecord',
-                'delete_argument'=> 'projectId',
-                'extra' => null,
-            ],
+        return [           
             [
                 'heading' => 'Timeline',
                 'singular' => 'Timeline',
@@ -531,6 +477,19 @@ class ManageHome extends Page implements HasForms, HasActions {
                 'delete_argument'=> 'apartmentId',
                 'extra' => null,
             ],
+            [
+            'heading' => 'Slides',
+            'singular' => 'Slide',
+            'model' => Slide::class,
+            'orderBy' => 'sort_order',
+            'title' => 'title',
+            'add_action' => 'addSlide',
+            'edit_action' => 'editSlide',
+            'edit_argument' => 'slideId',
+            'delete_action' => 'deleteRecord',
+            'delete_argument' => 'slideId',
+            'extra' => null,
+        ],
         ];
     }
 

@@ -1,61 +1,57 @@
 <x-filament-panels::page>
-    @foreach($this->getCardSections() as $section)
-        <x-filament::section collapsible :collapsed="$loop->index !== 0">
-            <x-slot name="heading">
-                {{ $section['heading'] }}
-            </x-slot>
+    <x-filament::section>
+        <div x-data="{ activeTab: 'timeline' }" class="project-tabs">
+            <div class="tabs">
+                <button type="button" @click="activeTab = 'timeline'"
+                    :class="{ 'active': activeTab === 'timeline' }"
+                    class="tab-button"
+                >Timeline</button>
 
-            <div class="card-wrapper">                
-                <x-filament::button
-                    wire:click="mountAction('{{ $section['add_action'] }}')"
-                    icon="heroicon-o-plus"
-                    class="edit-btn"
-                >
-                    Add {{ $section['singular'] ?? rtrim($section['heading'], 's') }}
-                </x-filament::button>
+                <button type="button" @click="activeTab = 'slide'"
+                    :class="{ 'active': activeTab === 'slide' }" class="tab-button"
+                >Slides</button>
+            </div>
 
-                @if($section['model'] === \App\Models\Project::class)
-                    <div x-data="{ activeTab: 'ongoing' }" class="project-tabs" >
-                        <div class="tabs">
-                            <button type="button"
-                                @click="activeTab = 'ongoing'"
-                                :class="{ 'active': activeTab === 'ongoing' }"
-                                class="tab-button">
-                                Ongoing
-                            </button>
+            <div x-show="activeTab === 'timeline'" class="cards">
+                @foreach($this->getCardSections() as $section)
+                    @if($section['model'] === \App\Models\Timeline::class)
+                        <div class="card-wrapper">
+                            <x-filament::button
+                                wire:click="mountAction('{{ $section['add_action'] }}')"
+                                icon="heroicon-o-plus" class="edit-btn"
+                            >Add {{ $section['singular'] ?? 'Timeline' }}
+                            </x-filament::button>
 
-                            <button type="button" @click="activeTab = 'upcoming'"
-                                :class="{ 'active': activeTab === 'upcoming' }"
-                                class="tab-button" >
-                                Upcoming
-                            </button>
+                            <div class="cards">
+                                @foreach(
+                                    $section['model']::orderBy($section['orderBy'])->get()
+                                    as $record
+                                )
 
-                            <button type="button" @click="activeTab = 'completed'"
-                                :class="{ 'active': activeTab === 'completed' }"
-                                class="tab-button" >
-                                Completed
-                            </button>
+                                    @include('filament.project-card', [
+                                        'record' => $record,
+                                        'section' => $section,
+                                    ])
+                                @endforeach
+                            </div>
                         </div>
+                    @endif
+                @endforeach
+            </div>            
 
-                        <div x-show="activeTab === 'ongoing'" class="cards">
-                            @foreach(
-                                $section['model']::where('category', 'ongoing')
-                                    ->orderBy($section['orderBy'])
-                                    ->get()
-                                as $record
-                            )
-                                @include('filament.project-card', [
-                                    'record' => $record,
-                                    'section' => $section,
-                                ])
-                            @endforeach
-                        </div>
+        <div x-show="activeTab === 'slide'" class="cards">            
+            @foreach($this->getCardSections() as $section)
+                @if($section['model'] === \App\Models\Slide::class)
+                    <div class="card-wrapper">
+                        <x-filament::button
+                            wire:click="mountAction('{{ $section['add_action'] }}')"
+                            icon="heroicon-o-plus" class="edit-btn"
+                            >Add {{ $section['singular'] ?? 'Slide' }}
+                        </x-filament::button>
 
-                        <div x-show="activeTab === 'upcoming'" class="cards" >
+                        <div class="cards">
                             @foreach(
-                                $section['model']::where('category', 'upcoming')
-                                    ->orderBy($section['orderBy'])
-                                    ->get()
+                                $section['model']::orderBy($section['orderBy'])->get()
                                 as $record
                             )
 
@@ -65,39 +61,13 @@
                                 ])
                             @endforeach
                         </div>
-
-                        <div x-show="activeTab === 'completed'" class="cards" >
-                            @foreach(
-                                $section['model']::where('category', 'completed')
-                                    ->orderBy($section['orderBy'])
-                                    ->get()
-                                as $record
-                            )
-
-                                @include('filament.project-card', [
-                                    'record' => $record,
-                                    'section' => $section,
-                                ])
-                            @endforeach
-                        </div>
-                    </div>                
-                @else
-                    <div class="cards">
-                        @foreach(
-                            $section['model']::orderBy($section['orderBy'])->get()
-                            as $record
-                        )
-                            @include('filament.project-card', [
-                                'record' => $record,
-                                'section' => $section,
-                            ])
-                        @endforeach
                     </div>
                 @endif
-            </div>
-        </x-filament::section>
-    @endforeach
-
-    <x-filament-actions::modals />
+            @endforeach
+        </div>
+    </div>
+    </x-filament::section>
+    
+<x-filament-actions::modals />
 
 </x-filament-panels::page>

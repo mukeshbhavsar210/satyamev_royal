@@ -2930,7 +2930,7 @@ figcaption {
 .l1 {
   font-family: var(--_fonts---font-body);
   color: var(--_colors---base-1000--primary);
-  font-size: var(--_fonts---l1--size);
+  font-size: 10px;
   line-height: var(--_fonts---l1--line-height);
   letter-spacing: var(--_fonts---l1--letter-spacing);
   text-transform: uppercase;
@@ -6084,8 +6084,8 @@ figcaption {
 }
 .lot-s_media_layout_img-prim {
   margin-bottom: var(--_units---u-48);
-  padding-right: var(--_units---u-64);
-  padding-left: var(--_units---u-64);
+  padding-right: var(--_units---u-24);
+  padding-left: var(--_units---u-24);
   cursor: pointer;
   height: calc(
     var(--_special-units---100vh) - var(--_units---u-48) - var(--_units---u-160) -
