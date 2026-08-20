@@ -2,8 +2,8 @@
 
 @section('content')
 
-@include('home.preloader')
-@include('home.cookies')
+@include('layouts.header.preloader')
+@include('layouts.header.cookies')
 
 <section id="hero" class="section clip theme_on-color">
     <div class="container">
@@ -15,14 +15,14 @@
                     <div class="grid">
                         <div class="hero-s_logo">
                             <h1 data-prevent-flicker="" data-scroll-reveal="h" class="h3 a-center">
-                                {{ $settings->punch_line }}                                
+                                {{ setting('punch_line1') }}<br />{{ setting('punch_line2') }}
                             </h1>
                             <div class="hero-s_logo_a">
-                                <h2 data-prevent-flicker="" data-scroll-reveal="a" class="a2">{{ $settings->company_name }}</h2>
+                                <h2 data-prevent-flicker="" data-scroll-reveal="a" class="a2">{{ setting('company_name') }}</h2>
                             </div>
                         
                             <div class="u-24"></div>
-                            <h3 data-prevent-flicker="" data-scroll-reveal="h" class="h6 a-center">Since {{ $settings->since }}</h3>                            
+                            <h3 data-prevent-flicker="" data-scroll-reveal="h" class="h6 a-center">Since {{ setting('since') }}</h3>
                         </div>
                     
                         <span data-tab-trigger="day"></span>
@@ -155,7 +155,7 @@
                         <div data-scroll-reveal="p" class="l1 a-center"  aria-label="Costa">
                             <span class="split-line-mask" aria-hidden="true" >
                                 <span class="split-line" aria-hidden="true" >
-                                    <span class="split-word" aria-hidden="true">Building Trust</span>
+                                    <span class="split-word" aria-hidden="true">{{ setting('punch_line1') }}</span>
                                 </span>
                             </span>
                         </div>
@@ -179,9 +179,7 @@
                         </div>
                     </div>
                     <div class="info-s_logo_r">
-                        <div data-scroll-reveal="p" class="l1 a-center"  aria-label="del Sol">
-                            Brick by Brick                            
-                        </div>
+                        <div data-scroll-reveal="p" class="l1 a-center"  aria-label="del Sol">{{ setting('punch_line2') }}</div>
                     </div>
                 </div>
                 <div class="u-48"></div>
@@ -202,7 +200,7 @@
                                 <path id="circle-desk" d="M 800,800 m -676,0 a 676,676 0 1,1 1352,0 a 676,676 0 1,1 -1352,0"></path>
                             </defs>
                             <text data-circle-text="" class="h4" text-anchor="middle" fill="currentColor">
-                                <textPath href="#circle-desk" startOffset="25%">More than 25 years of Experiences</textPath>
+                                <textPath href="#circle-desk" startOffset="25%">{{ setting('experience_line') }}</textPath>
                             </text>
                         </svg>
                     </div>
@@ -212,7 +210,7 @@
                                 <path id="circle-mob" d="M 208,208 m -160,0 a 160,160 0 1,1 320,0 a 160,160 0 1,1 -320,0"></path>
                             </defs>
                             <text data-circle-text="" class="h4" text-anchor="middle" fill="currentColor">
-                                <textPath href="#circle-mob" startOffset="25%">More than 25 years of Experiences</textPath>
+                                <textPath href="#circle-mob" startOffset="25%">{{ setting('experience_line') }}</textPath>
                             </text>
                         </svg>
                     </div>
@@ -267,22 +265,22 @@
                         </div>
                         <div class="benefits-cms w-dyn-list">
                             <div role="list" class="benefits-cms_list w-dyn-items">
-                                @foreach($apartments as $apartment)
+                                @foreach($slides as $slide)
                                     <div data-reveal-first="" data-slider="slide" role="listitem" class="benefits-cms_list_item w-dyn-item" >
                                         <div class="benefit-slide">
                                             <div class="benefit-slide_t">
                                                 <div class="u-48 b-desk"></div>
                                                 <div class="u-272 b-mob"></div>
                                                 <h4 data-scroll-reveal="h" data-slider="h" class="h4 a-center b-desk" >
-                                                    {{ $apartment->name }}
+                                                    {{ $slide->name }}
                                                 </h4>
                                             </div>
 
                                             <div class="benefit-slide_c">
                                                 <div class="benefit-slide_img">
                                                     <div data-scroll-reveal="slide" data-slider="img" class="img-w" >
-                                                        @if($apartment->image)
-                                                            <img src="{{ Storage::url($apartment->image) }}" loading="eager" alt="{{ $apartment->name }}" sizes="100vw" class="img" >
+                                                        @if($slide->image)
+                                                            <img src="{{ Storage::url($slide->image) }}" loading="eager" alt="{{ $slide->name }}" sizes="100vw" class="img" >
                                                         @endif
                                                     </div>
                                                 </div>
@@ -291,8 +289,8 @@
                                             <div class="benefit-slide_b">
                                                 <div class="grid _8-columns">
                                                     <div class="benefit-slide_desc">
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center"><b>{{ $apartment->size }}</b></p>
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">{{ $apartment->location }}</p>
+                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center"><b>Size: {{ $slide->size }}</b></p>
+                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">{{ $slide->description }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -330,12 +328,12 @@
                         </div>
                         <div class="red-line"></div>
                         <h6 data-scroll-reveal="p" data-tab="p" class="h6">
-                            <span class="split-line-mask">{{ $settings->ceo_message }}</span>
+                            <span class="split-line-mask">{{ setting('ceo_message') }}</span>
                         </h6>
                         <div class="u-48"></div>
                         <div class="grid _4-columns">
                             <div class="quote-s_author">
-                                <div data-scroll-reveal="p" class="l1">Parimal Patel</div>
+                                <div data-scroll-reveal="p" class="l1">{{ setting('ceo_name') }}</div>
                                 <div data-scroll-reveal="p" class="l1 reg">CEO</div>
                             </div>
                         </div>
@@ -347,7 +345,6 @@
                 <div class="img-w h-auto quote-w_bg_img">
                     <div class="img-over-grad from-bot bot _4x b-desk"></div>
                     <div class="img-over-grad from-bot bot _4x b-desk"></div>
-
                     @php
                         $gallery = setting('gallery', []);
                     @endphp                                
@@ -495,77 +492,6 @@
     </div>
 </section>
 <!-- Timeline end -->
-
-<section data-bg="color" class="section theme_on-color">
-    <div data-footer-clip="" class="container" style="clip-path: inset(0%);">
-        <div class="cta-w">
-            <div class="cta-s">
-                <div class="u-272"></div>
-                <div class="grid">
-                    <div class="cta-s_title">
-                        <h2 data-scroll-reveal="h" class="h3 a-center">Why <br />Choose us</h2>                        
-                        <div class="u-48"></div>
-                        <div data-scroll-reveal="ctn" class="cta-s_title_btn" >
-                            <div hover-btn-circle="" data-magnetic-btn="" hover-nav-item-trigger="" class="btn-circle">
-                                <div data-magnetic-inner="" class="btn-circle_label">
-                                    <a hover-nav-item="" href="apartments.php" class="nav-item w-inline-block">
-                                        <div class="nav-item_label">
-                                            <div class="nav-item_label_text">
-                                                <div hover="text" class="l1">Completed <br />Projects</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="btn-circle_bg w-embed">
-                                    <svg data-circle="" viewBox="0 0 208 208" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                                        <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(-150 104 104)" style="stroke-dasharray: 27.1179px, 650.31px;"></circle>
-                                        <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(30 104 104)" style="stroke-dasharray: 27.1179px, 650.31px;"></circle>
-                                        <circle cx="104" cy="104" r="103.5" stroke="var(--_colors---base-1000--line)" stroke-width="1" fill="none"></circle>
-                                    </svg>
-                                </div>
-                                <a href="projects" class="btn-circle_link w-inline-block"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w_bg">
-                <div data-parallax="w" class="img-w">
-                    @php
-                        $why = setting('gallery', []);
-                    @endphp                                
-
-                    @if (!empty($why))
-                        <img loading="eager" alt="" sizes="(max-width: 1920px) 100vw, 1920px" class="img-p"
-                            src="{{ Storage::url($why['1920'] ?? $why['1080'] ?? '') }}"
-                            srcset="
-                                @if(isset($why['500'])){{ Storage::url($why['500']) }} 500w,@endif
-                                @if(isset($why['800'])){{ Storage::url($why['800']) }} 800w,@endif
-                                @if(isset($why['1080'])){{ Storage::url($why['1080']) }} 1080w,@endif
-                                @if(isset($why['1600'])){{ Storage::url($why['1600']) }} 1600w,@endif
-                                @if(isset($why['1920'])){{ Storage::url($why['1920']) }} 1920w,@endif
-                            "
-                        />
-                    @endif
-
-                    <!-- <img data-parallax="img" loading="eager" alt="" 
-                    src="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920.webp" 
-                    sizes="(max-width: 1920px) 100vw, 1920px" 
-                    srcset="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-500.png 500w, 
-                    https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-800.png 800w, 
-                    https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1080.png 1080w, 
-                    https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png 1600w, 
-                    https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920.webp 1920w" class="img-p"> -->
-
-                    <div class="img-over-grad from-top _4x"></div>
-                    <div class="img-over-grad"></div>
-                    <div class="img-over-grad"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Why Choose section end -->
 
     {{-- @include('parts.contact') 
     @include('parts.modal')

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2026 at 03:17 PM
+-- Generation Time: Aug 20, 2026 at 05:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,12 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `apartments` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `location` varchar(255) NOT NULL,
-  `description` longtext DEFAULT NULL,
+  `project_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `apartment_name` varchar(255) NOT NULL,
+  `category` enum('ongoing','upcoming','completed') NOT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `size` varchar(100) DEFAULT NULL,
-  `status` int(5) DEFAULT 1,
+  `location` varchar(255) DEFAULT NULL,
+  `rooms` int(5) DEFAULT NULL,
+  `area` int(5) DEFAULT NULL,
+  `units` int(5) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `completion` varchar(20) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -43,8 +48,36 @@ CREATE TABLE `apartments` (
 -- Dumping data for table `apartments`
 --
 
-INSERT INTO `apartments` (`id`, `name`, `location`, `description`, `image`, `size`, `status`, `created_at`, `updated_at`) VALUES
-(13, 'Shlok Heights', 'Mansarovar Road', 'test', 'apartments/shlok-heights-20260814123612.JPG', '1000', 1, '2026-08-14 07:06:12', '2026-08-14 07:06:12');
+INSERT INTO `apartments` (`id`, `project_id`, `apartment_name`, `category`, `image`, `location`, `rooms`, `area`, `units`, `description`, `completion`, `status`, `created_at`, `updated_at`) VALUES
+(18, 2, 'Shlok Heights', 'ongoing', 'projects/thumb/shlok-heights-2026-08-14-123658.JPG', 'Mansarovar Road, New Chandkheda', 3, 1800, NULL, 'test 3', 'April 2026', 1, '2026-08-14 07:06:58', '2026-08-20 09:04:10'),
+(19, 1, 'Swastik Marvella', 'upcoming', 'projects/thumb/test-2026-08-14-124059.JPG', 'test', NULL, NULL, NULL, 'test', NULL, 1, '2026-08-14 07:10:59', '2026-08-20 09:04:32'),
+(20, NULL, 'Keerthi Royal Palms', 'completed', 'projects/thumb/test-5-2026-08-14-124202.JPG', 'test', NULL, NULL, NULL, 'test', NULL, 1, '2026-08-14 07:12:02', '2026-08-14 07:12:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `apartment_images`
+--
+
+CREATE TABLE `apartment_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `apartment_id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `apartment_images`
+--
+
+INSERT INTO `apartment_images` (`id`, `apartment_id`, `image`, `sort_order`, `created_at`, `updated_at`) VALUES
+(39, 19, 'projects/gallery/test-2026-08-14-124059-6a7f0cdbd0aca.JPG', 0, '2026-08-14 07:11:01', '2026-08-14 07:11:01'),
+(40, 20, 'projects/gallery/test-5-2026-08-14-124202-6a7f0d1a4fd06.JPG', 0, '2026-08-14 07:12:03', '2026-08-14 07:12:03'),
+(53, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab11b5.JPG', 0, '2026-08-20 06:46:18', '2026-08-20 06:46:18'),
+(54, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab2c5d.JPG', 1, '2026-08-20 06:46:19', '2026-08-20 06:46:19'),
+(55, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab594d.JPG', 2, '2026-08-20 06:46:19', '2026-08-20 06:46:19');
 
 -- --------------------------------------------------------
 
@@ -63,8 +96,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab', 'i:1;', 1787125807),
-('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1787125807;', 1787125807);
+('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab', 'i:2;', 1787236167),
+('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1787236167;', 1787236167);
 
 -- --------------------------------------------------------
 
@@ -93,31 +126,6 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `galleries`
---
-
-CREATE TABLE `galleries` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `image` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  `sort_order` int(11) NOT NULL DEFAULT 0,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `galleries`
---
-
-INSERT INTO `galleries` (`id`, `title`, `image`, `description`, `sort_order`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Slide 01', 'gallery/01KZNYPTMNFB012QR6795YNVR4.JPG', 'slide 1 description', 0, 1, '2026-08-10 08:15:01', '2026-08-10 08:15:01'),
-(2, 'Slide 02', 'gallery/Slide 02-2026-08-10.JPG', 'test', 2, 1, '2026-08-10 08:17:27', '2026-08-10 08:17:27');
 
 -- --------------------------------------------------------
 
@@ -180,7 +188,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2026_08_10_140559_create_timelines_table', 5),
 (8, '2026_08_12_113754_create_projects_table', 6),
 (9, '2026_08_12_113800_create_project_images_table', 6),
-(10, '2026_08_12_153959_create_settings_table', 7);
+(10, '2026_08_12_153959_create_settings_table', 7),
+(11, '2026_08_20_071008_rename_galleries_table_to_slides_table', 8),
+(12, '2026_08_20_141110_rename_projects_table_to_apartments_table', 9),
+(13, '2026_08_20_141239_rename_project_images_table_to_apartment_images_table', 10),
+(14, '2026_08_20_141820_create_projects_table', 11),
+(15, '2026_08_20_142057_add_project_id_to_apartments_table', 12),
+(16, '2026_08_20_142217_add_project_id_to_apartments_table', 13),
+(17, '2026_08_20_145303_rename_project_id_to_apartment_id_in_apartment_images_table', 14);
 
 -- --------------------------------------------------------
 
@@ -207,8 +222,7 @@ CREATE TABLE `pages` (
 
 INSERT INTO `pages` (`id`, `title`, `slug`, `content`, `featured_image`, `status`, `meta_title`, `meta_description`, `created_at`, `updated_at`) VALUES
 (3, 'Apartments', 'apartments', '<p>test</p>', NULL, 'published', 'te', 'te', '2026-08-10 07:15:16', '2026-08-13 10:00:56'),
-(7, 'Home', 'home', '<p>test</p>', 'home-2026-08-10.JPG', 'published', 'test', 'test', '2026-08-10 08:01:49', '2026-08-10 08:01:49'),
-(8, 'Projects', 'projects', '<p>test</p>', NULL, 'published', NULL, NULL, '2026-08-13 11:28:12', '2026-08-13 11:28:12');
+(7, 'Home', 'home', '<p>test</p>', 'home-2026-08-10.JPG', 'published', 'test', 'test', '2026-08-10 08:01:49', '2026-08-10 08:01:49');
 
 -- --------------------------------------------------------
 
@@ -231,11 +245,6 @@ CREATE TABLE `password_reset_tokens` (
 CREATE TABLE `projects` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `project_name` varchar(255) NOT NULL,
-  `category` enum('ongoing','upcoming','completed') NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `location` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -244,36 +253,9 @@ CREATE TABLE `projects` (
 -- Dumping data for table `projects`
 --
 
-INSERT INTO `projects` (`id`, `project_name`, `category`, `image`, `location`, `description`, `status`, `created_at`, `updated_at`) VALUES
-(18, 'Shlok Heights', 'ongoing', 'projects/thumb/shlok-heights-2026-08-14-123658.JPG', 'test', 'test', 1, '2026-08-14 07:06:58', '2026-08-14 07:06:58'),
-(19, 'test', 'upcoming', 'projects/thumb/test-2026-08-14-124059.JPG', 'test', 'test', 1, '2026-08-14 07:10:59', '2026-08-14 07:10:59'),
-(20, 'test 5', 'completed', 'projects/thumb/test-5-2026-08-14-124202.JPG', 'test', 'test', 1, '2026-08-14 07:12:02', '2026-08-14 07:12:02');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `project_images`
---
-
-CREATE TABLE `project_images` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `project_id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `sort_order` int(11) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `project_images`
---
-
-INSERT INTO `project_images` (`id`, `project_id`, `image`, `sort_order`, `created_at`, `updated_at`) VALUES
-(36, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab11b5.JPG', 0, '2026-08-14 07:06:59', '2026-08-14 07:06:59'),
-(37, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab2c5d.JPG', 1, '2026-08-14 07:07:00', '2026-08-14 07:07:00'),
-(38, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab594d.JPG', 2, '2026-08-14 07:07:01', '2026-08-14 07:07:01'),
-(39, 19, 'projects/gallery/test-2026-08-14-124059-6a7f0cdbd0aca.JPG', 0, '2026-08-14 07:11:01', '2026-08-14 07:11:01'),
-(40, 20, 'projects/gallery/test-5-2026-08-14-124202-6a7f0d1a4fd06.JPG', 0, '2026-08-14 07:12:03', '2026-08-14 07:12:03');
+INSERT INTO `projects` (`id`, `project_name`, `created_at`, `updated_at`) VALUES
+(1, 'Satyamev Royal 1', NULL, NULL),
+(2, 'Satyamev Royal 2', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -295,9 +277,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('jlOisAsPrlOfsIpmWKSNwmKseWd65R7j6nwSlxp6', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.133.0 Chrome/148.0.7778.280 Electron/42.8.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRUJSQ2U5ZElSSlFoenZld2ZKVDdjUzZlMDMzS0tYcXk5a3E1elNZMSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1787141894),
-('xZ2IjagVsymhUogP0aiK90218JhIr9cdLujtJ38R', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiYVViQlpYMnZmUjRnMUtPMWtkMXp6VzFtVkg0TXdJcUdEQVZHWEJsZyI7czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2NDoiNTk2N2I5Y2M1MWIyMzJjZGNkZDhlMjNiN2U4MjVjZGM1MTI4YWYxYmRhODNmYjBjM2RmNWFiNWMwNmExYWU4MiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1787145430),
-('YqC8O7KLdUVPVfa39s6D0UdIEOMu3eTCRrllMkvp', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiREhPQUc0bzU0WVN5R3BhUG5oTnROZGZGZVpzdVY2WHp1elBQeFdmRiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1787141895);
+('cHejRm90Vhuy9rtIWRPPP5Y7yF2yfl41fFwBGnMI', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiRmUwMFBtZ1JsV0NzVU4yc0VZanFFbGJMdWVkSkhPS0pZcU1TdzFtViI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGFydG1lbnRzLzE4IjtzOjU6InJvdXRlIjtzOjE4OiJhcGFydG1lbnRzLmRldGFpbHMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjY0OiI1OTY3YjljYzUxYjIzMmNkY2RkOGUyM2I3ZTgyNWNkYzUxMjhhZjFiZGE4M2ZiMGMzZGY1YWI1YzA2YTFhZTgyIjtzOjg6ImZpbGFtZW50IjthOjA6e319', 1787238045),
+('QFZ8mLpEgkCDqeCMPGF3ZdFeHd8uSTsUl8yezkm5', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiM1c4cmNsSEJ0RmpMbDJqZ1pNTms3cU85MlFxTVA1S0JvWmRDemoySCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9qZWN0cyI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2NDoiNTk2N2I5Y2M1MWIyMzJjZGNkZDhlMjNiN2U4MjVjZGM1MTI4YWYxYmRhODNmYjBjM2RmNWFiNWMwNmExYWU4MiI7fQ==', 1787227098),
+('SFNkFidezMnHo4um0EneUgc6qt1DfBHfUngIohH5', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSGZOYkwxd2x4amNNZkp1eFU4MmtEdzV0NG11VG9PVm5ET0pMQkdtdiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1787227128);
 
 -- --------------------------------------------------------
 
@@ -308,22 +290,30 @@ INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, 
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `company_name` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `mobile` varchar(255) DEFAULT NULL,
-  `address` text DEFAULT NULL,
+  `email` varchar(25) NOT NULL,
+  `phone` varchar(11) DEFAULT NULL,
+  `mobile` varchar(11) DEFAULT NULL,
+  `address_line1` varchar(100) DEFAULT NULL,
+  `address_line2` varchar(100) DEFAULT NULL,
+  `foreign_office` varchar(100) DEFAULT NULL,
   `business_line` varchar(255) DEFAULT NULL,
   `facebook_url` varchar(255) DEFAULT NULL,
   `instagram_url` varchar(255) DEFAULT NULL,
   `theme_template` enum('default','modern','classic') NOT NULL DEFAULT 'default',
-  `punch_line` varchar(100) DEFAULT NULL,
+  `punch_line1` varchar(25) DEFAULT NULL,
+  `punch_line2` varchar(25) DEFAULT NULL,
+  `experience_line` varchar(100) DEFAULT NULL,
   `ceo_message` varchar(700) DEFAULT NULL,
+  `ceo_name` varchar(25) DEFAULT NULL,
   `since` varchar(20) DEFAULT NULL,
   `hero` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
   `gallery` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`gallery`)),
   `why` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`why`)),
+  `showcase` longtext DEFAULT NULL,
   `primary_color` varchar(10) DEFAULT NULL,
   `secondary_color` varchar(10) DEFAULT NULL,
   `preloader` int(5) NOT NULL DEFAULT 1,
+  `preloader_color` varchar(10) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -332,8 +322,34 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `company_name`, `phone`, `mobile`, `address`, `business_line`, `facebook_url`, `instagram_url`, `theme_template`, `punch_line`, `ceo_message`, `since`, `hero`, `gallery`, `why`, `primary_color`, `secondary_color`, `preloader`, `created_at`, `updated_at`) VALUES
-(1, 'Satyamev Group', '+91-9824538519', '+91-9824036846', 'Satyamev Group 301, Anand I-Pride, above Radhe Restaurant Visat-Tapovan Road, Motera, Ahmedabad – 382424', 'Satyamev Group is a leading property developer, committed to creating exceptional living and working spaces in Gujarat.', 'http://www.facebook.com', 'http://www.facebook.com', 'default', 'Building Trust Brick by Brick', 'Our vision is to create exceptional spaces that inspire better living and lasting value. Every project we undertake reflects our commitment to quality, innovation, transparency, and customer trust. We don&#039;t just build buildings—we create communities where families, businesses, and dreams can thrive for generations to come.', '1997', '{\"500\":\"settings\\/hero\\/hero_500.webp\",\"800\":\"settings\\/hero\\/hero_800.webp\",\"1080\":\"settings\\/hero\\/hero_1080.webp\",\"1600\":\"settings\\/hero\\/hero_1600.webp\",\"1920\":\"settings\\/hero\\/hero_1920.webp\"}', '{\"500\":\"settings\\/why\\/why500.webp\",\"800\":\"settings\\/why\\/why800.webp\",\"1080\":\"settings\\/why\\/why1080.webp\",\"1600\":\"settings\\/why\\/why1600.webp\",\"1920\":\"settings\\/why\\/why1920.webp\"}', '{\"500\":\"settings\\/why\\/why500.webp\",\"800\":\"settings\\/why\\/why800.webp\",\"1080\":\"settings\\/why\\/why1080.webp\",\"1600\":\"settings\\/why\\/why1600.webp\",\"1920\":\"settings\\/why\\/why1920.webp\"}', '#ff0101', '#0608e0', 1, '2026-08-12 14:49:50', '2026-08-19 02:19:14');
+INSERT INTO `settings` (`id`, `company_name`, `email`, `phone`, `mobile`, `address_line1`, `address_line2`, `foreign_office`, `business_line`, `facebook_url`, `instagram_url`, `theme_template`, `punch_line1`, `punch_line2`, `experience_line`, `ceo_message`, `ceo_name`, `since`, `hero`, `gallery`, `why`, `showcase`, `primary_color`, `secondary_color`, `preloader`, `preloader_color`, `created_at`, `updated_at`) VALUES
+(1, 'Satyamev Group', 'info@satyamevgroup.com', '9824036846', '9824538519', 'Satyamev Group 301, Anand I-Pride, above Radhe Restaurant,', 'Visat-Tapovan Road, Motera, Ahmedabad – 380019.', '200-4170 Still Creek Drive, Burnaby BC V5C 6C6, Canada', 'Satyamev Group is a leading property developer, committed to creating exceptional living and working spaces in Gujarat.', 'http://www.facebook.com', 'http://www.facebook.com', 'default', 'Building Trust', 'Brick by Brick', 'More than 25 years of Experiences', 'Our vision is to create exceptional spaces that inspire better living and lasting value. Every project we undertake reflects our commitment to quality, innovation, transparency, and customer trust. We don&#039;t just build buildings—we create communities where families, businesses, and dreams can thrive for generations to come.', 'Jay Patel', '1997', '{\"500\":\"settings\\/hero\\/hero_500.webp\",\"800\":\"settings\\/hero\\/hero_800.webp\",\"1080\":\"settings\\/hero\\/hero_1080.webp\",\"1600\":\"settings\\/hero\\/hero_1600.webp\",\"1920\":\"settings\\/hero\\/hero_1920.webp\"}', '{\"500\":\"settings\\/why\\/why500.webp\",\"800\":\"settings\\/why\\/why800.webp\",\"1080\":\"settings\\/why\\/why1080.webp\",\"1600\":\"settings\\/why\\/why1600.webp\",\"1920\":\"settings\\/why\\/why1920.webp\"}', '{\"500\":\"settings\\/why\\/why500.webp\",\"800\":\"settings\\/why\\/why800.webp\",\"1080\":\"settings\\/why\\/why1080.webp\",\"1600\":\"settings\\/why\\/why1600.webp\",\"1920\":\"settings\\/why\\/why1920.webp\"}', '{\"500\":\"settings\\/showcase\\/showcase500.webp\",\"800\":\"settings\\/showcase\\/showcase800.webp\",\"1080\":\"settings\\/showcase\\/showcase1080.webp\",\"1600\":\"settings\\/showcase\\/showcase1600.webp\",\"1920\":\"settings\\/showcase\\/showcase1920.webp\"}', '#000000', '#FFFFFF', 1, '#340c24', '2026-08-12 14:49:50', '2026-08-20 08:19:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slides`
+--
+
+CREATE TABLE `slides` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `size` varchar(11) DEFAULT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT 0,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `slides`
+--
+
+INSERT INTO `slides` (`id`, `title`, `image`, `description`, `size`, `sort_order`, `status`, `created_at`, `updated_at`) VALUES
+(3, 'Test Slide 1', 'settings/slides/test-slide-1-20260820073443.JPG', 'test', '1200', 1, 1, '2026-08-20 02:04:43', '2026-08-20 02:04:43'),
+(4, 'Test 2', 'settings/slides/test-2-20260820074308.JPG', 'test', '1500', 2, 1, '2026-08-20 02:13:08', '2026-08-20 02:13:08');
 
 -- --------------------------------------------------------
 
@@ -391,7 +407,15 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 -- Indexes for table `apartments`
 --
 ALTER TABLE `apartments`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `apartments_project_id_foreign` (`project_id`);
+
+--
+-- Indexes for table `apartment_images`
+--
+ALTER TABLE `apartment_images`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `project_images_project_id_foreign` (`apartment_id`);
 
 --
 -- Indexes for table `cache`
@@ -413,12 +437,6 @@ ALTER TABLE `cache_locks`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
-
---
--- Indexes for table `galleries`
---
-ALTER TABLE `galleries`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `jobs`
@@ -459,13 +477,6 @@ ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `project_images`
---
-ALTER TABLE `project_images`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `project_images_project_id_foreign` (`project_id`);
-
---
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
@@ -477,6 +488,12 @@ ALTER TABLE `sessions`
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `slides`
+--
+ALTER TABLE `slides`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -500,19 +517,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `apartments`
 --
 ALTER TABLE `apartments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `apartment_images`
+--
+ALTER TABLE `apartment_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `galleries`
---
-ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -524,7 +541,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -536,19 +553,19 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `project_images`
---
-ALTER TABLE `project_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `slides`
+--
+ALTER TABLE `slides`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `timelines`
@@ -567,10 +584,16 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints for table `project_images`
+-- Constraints for table `apartments`
 --
-ALTER TABLE `project_images`
-  ADD CONSTRAINT `project_images_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE;
+ALTER TABLE `apartments`
+  ADD CONSTRAINT `apartments_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `apartment_images`
+--
+ALTER TABLE `apartment_images`
+  ADD CONSTRAINT `project_images_project_id_foreign` FOREIGN KEY (`apartment_id`) REFERENCES `apartments` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

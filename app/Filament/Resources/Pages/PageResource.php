@@ -25,13 +25,10 @@ use Illuminate\Support\Str;
 
 class PageResource extends Resource {
     protected static ?string $model = Page::class;
-
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
     protected static ?string $recordTitleAttribute = 'Page';
 
-    public static function form(Schema $schema): Schema
-    {
+    public static function form(Schema $schema): Schema {
         //return PageForm::configure($schema);
 
         return $schema

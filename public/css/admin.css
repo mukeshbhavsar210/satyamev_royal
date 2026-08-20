@@ -188,7 +188,7 @@
     background-color: #1d4ed8 !important;
 }
 
-.project-tabs { margin-top: 10px; }
+.mt-10 { margin-top: 10px; }
 .project-tabs .tabs {
     display: flex;
     gap: 20px;
@@ -199,3 +199,7 @@
 .project-tabs .tab-button { padding: 10px 0; border-radius: 0; border: 0; font-size: 14px; background: transparent; cursor: pointer; font-weight: 500; color: #666; border-bottom: 2px solid transparent; }
 .project-tabs .tab-button.active { border-bottom-color: #000; color: #000; }
 .project-tabs .cards { margin-top: 10px; }
+
+.set-default-btn { margin-top: 27px !important; }
+
+.fi-fo-field-label-content { color: #666 !important; font-weight: normal !important; }
