@@ -10,7 +10,7 @@
 <body class="body">
 
 <div data-barba="wrapper" class="transition-wrapper">
-    @include('layouts.header.header')      
+    @include('layouts.header.header')
     
     <main data-barba-namespace="home" data-barba="container" class="transition-container">
         @yield('content')

@@ -5,6 +5,7 @@
 <main data-barba-namespace="contact" data-barba="container" class="transition-container">    
   <section data-bg="light" class="section clip">
     <div class="container">
+      @include('layouts.header.flower_video')
       <div class="lot-w">
         <div class="lot-s">
           <div class="lot-s_info">
@@ -127,80 +128,7 @@
     </div>
   </section>
 
-  <div class="amen-scroll-area">
-    <div class="scroll-area_screen">
-      <section class="section clip theme_on-color">
-        <div class="container">
-          <div class="amen-w" style="opacity: 1;">
-            <div class="amen-s">
-              <div data-tabs-hilight="ver" data-tabs="" class="amen-s_cms">
-                <div class="amen-cms w-dyn-list" style="translate: none; rotate: none; scale: none; transform: translate(0px);">
-                  <div role="list" class="amen-cms_list w-dyn-items">
-                    <div data-reveal-first="" data-tab-content="gated-community" role="listitem" class="amen-cms_list_item w-dyn-item is-active">
-                      <div data-parallax="w" class="amen-slide">                        
-                        <div class="amen-slide_img">
-                          <div data-tab="slide" class="img-w">
-                            <div class="img-w">
-                                @php
-                                    $showcase = setting('showcase', []);
-                                @endphp
-
-                                @if (!empty($showcase))
-                                    <img loading="eager" alt="Showcase" sizes="(max-width: 1920px) 100vw, 1920px" class="img-p"
-                                        src="{{ Storage::url($showcase['1920'] ?? $showcase['1080'] ?? '') }}"
-                                        srcset="
-                                            @if(isset($showcase['500'])){{ Storage::url($showcase['500']) }} 500w,@endif
-                                            @if(isset($showcase['800'])){{ Storage::url($showcase['800']) }} 800w,@endif
-                                            @if(isset($showcase['1080'])){{ Storage::url($showcase['1080']) }} 1080w,@endif
-                                            @if(isset($showcase['1600'])){{ Storage::url($showcase['1600']) }} 1600w,@endif
-                                            @if(isset($showcase['1920'])){{ Storage::url($showcase['1920']) }} 1920w,@endif
-                                        "
-                                    />
-                                @endif                                 
-                            </div>
-                            <div class="img-over-grad from-top"></div>
-                            <div class="img-over-grad from-bot _4x bot"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>                   
-                  </div>
-                </div>
-                
-                <div class="amm-s_cms_btn-w b-desk">
-                  <div class="grid">
-                    <div data-scroll-reveal="ctn" class="amm-s_cms_btn" >
-                      <div data-modal-cta-btn="book-a-call" data-magnetic-btn="" hover-nav-item-trigger="" hover-btn-circle="" class="btn-circle">
-                        <div data-magnetic-inner="" class="btn-circle_label">
-                          <a hover-nav-item="" aria-label="Book a call now" href="#" class="nav-item w-inline-block">
-                            <div class="nav-item_label">
-                              <div class="nav-item_label_text">
-                                <div hover="text" class="l1" aria-label="Book a call now">Book a Call Now</div>
-                              </div>
-                              <div class="nav-item_label_text is-2">
-                                <div hover="text" class="l1" aria-label="Book a call now">Book a Call Now</div>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                        <div class="btn-circle_bg w-embed">
-                          <svg data-circle="" viewBox="0 0 208 208" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                            <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(-150 104 104)" style="stroke-dasharray: 27.1179px, 650.31px;"></circle>
-                            <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(30 104 104)" style="stroke-dasharray: 27.1179px, 650.31px;"></circle>
-                            <circle cx="104" cy="104" r="103.5" stroke="var(--_colors---base-1000--line)" stroke-width="1" fill="none"></circle>
-                          </svg>
-                        </div>
-                        <a aria-label="Book a call now" href="#" class="btn-circle_link w-inline-block"></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+  @include('apartments.showcase')
 
     <div class="hero_themes">
       <div data-bg="color" class="hero_themes_color"></div>
@@ -208,74 +136,7 @@
     </div>
   </div>
 
-  <section class="section arch clip">
-    <div class="container">
-      <div class="other-title-w">
-        <div class="other-title-s">
-          <div class="other-title-s_t">
-            <div class="u-160"></div>
-            <div class="grid">
-              <div class="other-title-s_title">
-                <p data-scroll-reveal="h" class="h3 a-center" style="visibility: visible;" aria-label="similar options">                    
-                  <span class="split-word" >                    
-                    <span class="split-char">s</span>
-                    <span class="split-char">i</span>
-                    <span class="split-char">m</span>
-                    <span class="split-char">i</span>
-                    <span class="split-char">l</span>
-                    <span class="split-char">a</span>
-                    <span class="split-char">r</span>
-                  </span>
-                  <span class="split-word" >
-                    <span class="split-char">o</span>
-                    <span class="split-char">p</span>
-                    <span class="split-char">t</span>
-                    <span class="split-char">i</span>
-                    <span class="split-char">o</span>
-                    <span class="split-char">n</span>
-                    <span class="split-char">s</span>
-                  </span>
-                </p>
-              </div>
-            </div>
-            <div class="u-48"></div>
-          </div>
-          <div class="divider">
-            <div data-scroll-reveal="line" class="line-v" style="visibility: visible; clip-path: inset(0%);"></div>
-          </div>
-          <div class="other-title-s_b">
-            <div class="u-48"></div>
-            <div class="grid">
-              <div class="s_title">
-                <p data-scroll-reveal="p" class="l1 a-center" style="visibility: visible;" aria-label="Other apartments that might suit your needs">
-                  <span class="split-line-mask"  style="text-align: center; overflow: clip;">
-                    <span class="split-line"  style="text-align: center; translate: none; rotate: none; scale: none; transform: translate(0px);">
-                      <span class="split-word" >Other</span>
-                      <span class="split-word" >apartments</span>
-                    </span>
-                  </span>
-                  <span class="split-line-mask"  style="text-align: center; overflow: clip;">
-                    <span class="split-line"  style="text-align: center; translate: none; rotate: none; scale: none; transform: translate(0px);">
-                      <span class="split-word" >that</span>
-                      <span class="split-word" >might</span>
-                      <span class="split-word" >suit</span>
-                      <span class="split-word" >your</span>
-                    </span>
-                  </span>
-                  <span class="split-line-mask"  style="text-align: center; overflow: clip;">
-                    <span class="split-line"  style="text-align: center; translate: none; rotate: none; scale: none; transform: translate(0px);">
-                      <span class="split-word" >needs</span>
-                    </span>
-                  </span>
-                </p>
-              </div>
-            </div>
-            <div class="u-16"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  @include('apartments.arch')
 
   <section data-bg="light" class="section z-2 clip">
     <div class="container">
@@ -374,5 +235,4 @@
     </div>
   </section>
 </main>
-
 @endsection
