@@ -7684,3 +7684,5 @@ figcaption {
         justify-content: flex-end;
     }
 }
+
+.page-content { border:2px red solid;}

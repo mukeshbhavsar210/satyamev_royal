@@ -2,121 +2,7 @@
 
 @section('content')
 
-<main data-barba-namespace="contact" data-barba="container" class="transition-container">  
-  <div data-theme="" class="header-nav theme_on-color">    
-    <div class="header-nav_list f-desk">
-      <a hover-link="" aria-label="Select  an Apartment" href="/apartments" aria-current="page" class="link w-inline-block w--current">
-        <div class="link_label">
-          <div class="link_label_text">
-            <div hover="text" class="h6" aria-label="Select an Apartment">
-              <span class="split-line" aria-hidden="true" >
-                <span class="split-word" aria-hidden="true">
-                  <span class="split-char" aria-hidden="true">S</span>
-                  <span class="split-char" aria-hidden="true">e</span>
-                  <span class="split-char" aria-hidden="true">l</span>
-                  <span class="split-char" aria-hidden="true">e</span>
-                  <span class="split-char" aria-hidden="true">c</span>
-                  <span class="split-char" aria-hidden="true">t</span>
-                </span>
-                <span class="link_line"></span>
-              </span>
-              <span class="split-line" aria-hidden="true">
-                <span class="split-word" aria-hidden="true">
-                  <span class="split-char" aria-hidden="true">a</span>
-                  <span class="split-char" aria-hidden="true">n</span>
-                </span>
-                <span class="split-word" aria-hidden="true">
-                  <span class="split-char" aria-hidden="true">A</span>
-                  <span class="split-char" aria-hidden="true">p</span>
-                  <span class="split-char" aria-hidden="true">a</span>
-                  <span class="split-char" aria-hidden="true">r</span>
-                  <span class="split-char" aria-hidden="true">t</span>
-                  <span class="split-char" aria-hidden="true">m</span>
-                  <span class="split-char" aria-hidden="true">e</span>
-                  <span class="split-char" aria-hidden="true">n</span>
-                  <span class="split-char" aria-hidden="true">t</span>
-                </span>
-                <span class="link_line" ></span>
-              </span>
-            </div>
-          </div>
-          <div class="link_label_text is-2">
-            <div hover="text" class="h6" aria-label="Select an Apartment">
-              <span class="split-word" aria-hidden="true">
-                <span class="split-char" aria-hidden="true" >S</span>
-                <span class="split-char" aria-hidden="true" >e</span>
-                <span class="split-char" aria-hidden="true" >l</span>
-                <span class="split-char" aria-hidden="true" >e</span>
-                <span class="split-char" aria-hidden="true" >c</span>
-                <span class="split-char" aria-hidden="true" >t</span>
-              </span>
-              <br>
-              <span class="split-word" aria-hidden="true">
-                <span class="split-char" aria-hidden="true" >a</span>
-                <span class="split-char" aria-hidden="true" >n</span>
-              </span>
-              <span class="split-word" aria-hidden="true">
-                <span class="split-char" aria-hidden="true" >A</span>
-                <span class="split-char" aria-hidden="true" >p</span>
-                <span class="split-char" aria-hidden="true" >a</span>
-                <span class="split-char" aria-hidden="true" >r</span>
-                <span class="split-char" aria-hidden="true" >t</span>
-                <span class="split-char" aria-hidden="true" >m</span>
-                <span class="split-char" aria-hidden="true" >e</span>
-                <span class="split-char" aria-hidden="true" >n</span>
-                <span class="split-char" aria-hidden="true" >t</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </a>
-      <div class="u-24"></div>
-      <a data-modal-cta-btn="book-a-call" aria-label="Book a call" hover-nav-item-l2="" href="#" class="nav-item w-inline-block">
-        <div class="nav-item_label">
-          <div hover="text" class="nav-item_label_text">
-            <div class="l2">Book a call</div>
-          </div>
-          <div hover="text" class="nav-item_label_text is-2">
-            <div class="l2">Book a call</div>
-          </div>
-        </div>
-      </a>
-      <div class="u-4"></div>
-      <a hover-nav-item-l2="" aria-label="Contact" href="/contact" class="nav-item w-inline-block">
-        <div class="nav-item_label">
-          <div hover="text" class="nav-item_label_text">
-            <div class="l2">Contact</div>
-          </div>
-          <div hover="text" class="nav-item_label_text is-2">
-            <div class="l2">Contact</div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div data-theme="" class="header-cramps theme_on-light">
-    <a hover-tab="" aria-label="Home" hover-nav-item-l2="" data-crumb-item="" href="/" class="nav-item w-inline-block">
-      <div class="nav-item_label">
-        <div hover="text" class="nav-item_label_text">
-          <div class="l2">Home</div>
-        </div>
-        <div hover="text" class="nav-item_label_text is-2">
-          <div class="l2">Home</div>
-        </div>
-      </div>
-    </a>
-    <div class="l2 text-disabled">/</div>
-    <a hover-tab="" aria-label="Select an Apartment" hover-nav-item-l2="" data-crumb-item="" href="#" class="nav-item w-inline-block is-active">
-      <div class="nav-item_label">
-        <div hover="text" class="nav-item_label_text">
-          <div class="l2">Select an Apartment</div>
-        </div>
-        <div hover="text" class="nav-item_label_text is-2">
-          <div class="l2">Select an Apartment</div>
-        </div>
-      </div>
-    </a>
-  </div>
+<main data-barba-namespace="contact" data-barba="container" class="transition-container">
   <section class="section clip">
     <div class="container">
       <div class="apart-w">
@@ -198,135 +84,23 @@
                 @endforeach
                 </div>
               </div>
-
-              <div class="apart-cms w-dyn-list">
-                <div role="list" class="apart-cms_list w-dyn-items">
-                  <div role="listitem" class="apart-cms_list_item w-dyn-item"></div>
-                  <div role="listitem" class="apart-cms_list_item w-dyn-item"></div>
-                  <div role="listitem" class="apart-cms_list_item w-dyn-item"></div>
-                </div>
-              </div>
-
-              <div data-filter-empty="" class="apart-s_cms_empty" style="display: none;">
-                <div class="apart-s_cms_decor">
-                  <div data-wf--decor--variant="med" class="decor">
-                    <div class="frame_l-tb w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
-                      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="50%" y1="0%" x2="50%" y2="100%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
-                      </svg>
-                    </div>
-                    <div class="frame_lt w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
-                      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0%" y1="100%" x2="100%" y2="0%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
-                      </svg>
-                    </div>
-                    <div class="frame_t-lr w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
-                      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0%" y1="50%" x2="100%" y2="50%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
-                      </svg>
-                    </div>
-                    <div class="frame_rt w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
-                      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0%" y1="0%" x2="100%" y2="100%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
-                      </svg>
-                    </div>
-                    <div class="frame_r-tb w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
-                      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="50%" y1="0%" x2="50%" y2="100%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
-                      </svg>
-                    </div>
-                    <div class="frame_rb w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
-                      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0%" y1="100%" x2="100%" y2="0%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
-                      </svg>
-                    </div>
-                    <div class="frame_b-lr w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
-                      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0%" y1="50%" x2="100%" y2="50%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
-                      </svg>
-                    </div>
-                    <div class="frame_lb w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
-                      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="0%" y1="0%" x2="100%" y2="100%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="grid _9-columns">
-                  <div class="apart-s_cms_empty_info">
-                    <div class="apart-s_cms_empty_title">
-                      <div class="c1 a-center">nothing found</div>
-                    </div>
-                    <div class="u-24"></div>
-                    <div class="p1 a-center">We didn't find anything for your request. Please, try changing your&nbsp;search settings</div>
-                  </div>
-                </div>
-              </div>
-              <div class="u-16"></div>
             </div>
           </div>
           <div class="u-160"></div>
         </div>
-        <div data-video-playpause="" data-parallax="ctn-down" class="flower apart" style="translate: none; rotate: none; scale: none; transform: translate(0%, 0.082%) translate3d(0px, 0px, 0px) rotate(29.9999deg);">
-          <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" poster="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9a4873ec6185f295d_bougainvillea-flowers_05.avif" class="video">
-            <source src="https://assets.era-residence.com/flowers/bougainvillea-flowers_05.webm" type="video/webm">
-            <source src="https://assets.era-residence.com/flowers/bougainvillea-flowers_05.mov" type="video/mp4">
-          </video>
-        </div>
-        <div class="apart_themes">
-          <div class="themes_row">
-            <div data-bg="light" class="apart_themes_light-1"></div>
-            <div data-bg="color" class="apart_themes_color-1"></div>
-          </div>
-          <div data-bg="light" class="apart_themes_light-2"></div>
-        </div>
-      </div>
+
+        @include('layouts.header.flower_video')
+
+        @include('apartments.arch')
+    </div>
     </div>
   </section>
+
   <section data-bg="color" class="section theme_on-color">
     <div data-footer-clip="" class="container" style="clip-path: inset(0%);">
       <div class="cta-w">
         <div class="cta-s">
-          <div class="u-48"></div>
-          <div class="grid">
-            <div class="cta-s_desc">
-              <p data-scroll-reveal="p" class="l1 a-center" aria-label="A short conversation is enough to understand which apartment fits your use case — whether it is a family second home, a longer stay, or a place to return to year after year.">
-                A short conversation is enough to understand which apartment fits your use
-                
-                <span class="split-line-mask" aria-hidden="true" >
-                  <span class="split-line" aria-hidden="true" >
-                    <span class="split-word" aria-hidden="true">case</span>
-                    <span class="split-word" aria-hidden="true">—</span>
-                    <span class="split-word" aria-hidden="true">whether</span>
-                    <span class="split-word" aria-hidden="true">it</span>
-                    <span class="split-word" aria-hidden="true">is</span>
-                    <span class="split-word" aria-hidden="true">a</span>
-                    <span class="split-word" aria-hidden="true">family</span>
-                    <span class="split-word" aria-hidden="true">second</span>
-                    <span class="split-word" aria-hidden="true">home,</span>
-                    <span class="split-word" aria-hidden="true">a</span>
-                    <span class="split-word" aria-hidden="true">longer</span>
-                    <span class="split-word" aria-hidden="true">stay,</span>
-                    <span class="split-word" aria-hidden="true">or</span>
-                    <span class="split-word" aria-hidden="true">a</span>
-                    <span class="split-word" aria-hidden="true">place</span>
-                    <span class="split-word" aria-hidden="true">to</span>
-                    <span class="split-word" aria-hidden="true">return</span>
-                    <span class="split-word" aria-hidden="true">to</span>
-                  </span>
-                </span>
-                <span class="split-line-mask" aria-hidden="true" >
-                  <span class="split-line" aria-hidden="true" >
-                    <span class="split-word" aria-hidden="true">year</span>
-                    <span class="split-word" aria-hidden="true">after</span>
-                    <span class="split-word" aria-hidden="true">year.</span>
-                  </span>
-                </span>
-              </p>
-            </div>
-          </div>
-          <div class="u-272"></div>
+         
           <div class="grid">
             <div class="cta-s_title">
               <h2 data-scroll-reveal="h" class="h1 a-center" aria-label="Perfect sea views">

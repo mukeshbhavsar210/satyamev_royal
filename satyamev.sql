@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2026 at 05:01 PM
+-- Generation Time: Aug 26, 2026 at 04:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,9 +49,10 @@ CREATE TABLE `apartments` (
 --
 
 INSERT INTO `apartments` (`id`, `project_id`, `apartment_name`, `category`, `image`, `location`, `rooms`, `area`, `units`, `description`, `completion`, `status`, `created_at`, `updated_at`) VALUES
-(18, 2, 'Shlok Heights', 'ongoing', 'projects/thumb/shlok-heights-2026-08-14-123658.JPG', 'Mansarovar Road, New Chandkheda', 3, 1800, NULL, 'test 3', 'April 2026', 1, '2026-08-14 07:06:58', '2026-08-20 09:04:10'),
 (19, 1, 'Swastik Marvella', 'upcoming', 'projects/thumb/test-2026-08-14-124059.JPG', 'test', NULL, NULL, NULL, 'test', NULL, 1, '2026-08-14 07:10:59', '2026-08-20 09:04:32'),
-(20, NULL, 'Keerthi Royal Palms', 'completed', 'projects/thumb/test-5-2026-08-14-124202.JPG', 'test', NULL, NULL, NULL, 'test', NULL, 1, '2026-08-14 07:12:02', '2026-08-14 07:12:02');
+(20, NULL, 'Keerthi Royal Palms', 'completed', 'projects/thumb/test-5-2026-08-14-124202.JPG', 'test', NULL, NULL, NULL, 'test', NULL, 1, '2026-08-14 07:12:02', '2026-08-14 07:12:02'),
+(32, 1, 'Shlok Heights', 'ongoing', 'apartments/thumb/shlok-heights-2026-08-21.JPG', 'test', 3, 3, 3, 'test', '2026-08', 1, '2026-08-21 06:14:53', '2026-08-21 06:14:53'),
+(34, 1, 'Swastik Marvella', 'ongoing', 'apartments/thumb/swastik-marvella-2026-08-21.JPG', 'test', 3, 3, 3, 'test', '2026-08', 1, '2026-08-21 06:21:49', '2026-08-21 06:21:49');
 
 -- --------------------------------------------------------
 
@@ -73,11 +74,10 @@ CREATE TABLE `apartment_images` (
 --
 
 INSERT INTO `apartment_images` (`id`, `apartment_id`, `image`, `sort_order`, `created_at`, `updated_at`) VALUES
-(39, 19, 'projects/gallery/test-2026-08-14-124059-6a7f0cdbd0aca.JPG', 0, '2026-08-14 07:11:01', '2026-08-14 07:11:01'),
-(40, 20, 'projects/gallery/test-5-2026-08-14-124202-6a7f0d1a4fd06.JPG', 0, '2026-08-14 07:12:03', '2026-08-14 07:12:03'),
-(53, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab11b5.JPG', 0, '2026-08-20 06:46:18', '2026-08-20 06:46:18'),
-(54, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab2c5d.JPG', 1, '2026-08-20 06:46:19', '2026-08-20 06:46:19'),
-(55, 18, 'projects/gallery/shlok-heights-2026-08-14-123658-6a7f0beab594d.JPG', 2, '2026-08-20 06:46:19', '2026-08-20 06:46:19');
+(82, 34, 'apartments/gallery/swastik-marvella-2026-08-21-iHV.JPG', 0, '2026-08-21 06:21:49', '2026-08-21 06:21:49'),
+(83, 34, 'apartments/gallery/swastik-marvella-2026-08-21-yMd.JPG', 1, '2026-08-21 06:21:50', '2026-08-21 06:21:50'),
+(84, 34, 'apartments/gallery/swastik-marvella-2026-08-21-keZ.JPG', 2, '2026-08-21 06:21:50', '2026-08-21 06:21:50'),
+(85, 34, 'apartments/gallery/swastik-marvella-2026-08-21-nVi.JPG', 3, '2026-08-21 06:21:51', '2026-08-21 06:21:51');
 
 -- --------------------------------------------------------
 
@@ -96,8 +96,10 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab', 'i:2;', 1787236167),
-('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1787236167;', 1787236167);
+('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab', 'i:3;', 1787751983),
+('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1787751982;', 1787751983),
+('laravel-cache-livewire-rate-limiter:16d36dff9abd246c67dfac3e63b993a169af77e6', 'i:1;', 1787752432),
+('laravel-cache-livewire-rate-limiter:16d36dff9abd246c67dfac3e63b993a169af77e6:timer', 'i:1787752432;', 1787752432);
 
 -- --------------------------------------------------------
 
@@ -195,7 +197,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2026_08_20_141820_create_projects_table', 11),
 (15, '2026_08_20_142057_add_project_id_to_apartments_table', 12),
 (16, '2026_08_20_142217_add_project_id_to_apartments_table', 13),
-(17, '2026_08_20_145303_rename_project_id_to_apartment_id_in_apartment_images_table', 14);
+(17, '2026_08_20_145303_rename_project_id_to_apartment_id_in_apartment_images_table', 14),
+(18, '2026_08_26_103504_create_page_images_table', 15);
 
 -- --------------------------------------------------------
 
@@ -221,8 +224,29 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `title`, `slug`, `content`, `featured_image`, `status`, `meta_title`, `meta_description`, `created_at`, `updated_at`) VALUES
-(3, 'Apartments', 'apartments', '<p>test</p>', NULL, 'published', 'te', 'te', '2026-08-10 07:15:16', '2026-08-13 10:00:56'),
-(7, 'Home', 'home', '<p>test</p>', 'home-2026-08-10.JPG', 'published', 'test', 'test', '2026-08-10 08:01:49', '2026-08-10 08:01:49');
+(20, 'Work', 'work', '<p>t</p>', 'pages/work-2026-08-26.JPG', 'published', NULL, 't', '2026-08-26 08:15:43', '2026-08-26 08:15:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page_images`
+--
+
+CREATE TABLE `page_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `page_id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `page_images`
+--
+
+INSERT INTO `page_images` (`id`, `page_id`, `image`, `sort_order`, `created_at`, `updated_at`) VALUES
+(26, 20, 'pages/images/XJQkWz-500.webp', 0, '2026-08-26 08:15:43', '2026-08-26 08:33:11');
 
 -- --------------------------------------------------------
 
@@ -277,9 +301,12 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('cHejRm90Vhuy9rtIWRPPP5Y7yF2yfl41fFwBGnMI', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiRmUwMFBtZ1JsV0NzVU4yc0VZanFFbGJMdWVkSkhPS0pZcU1TdzFtViI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hcGFydG1lbnRzLzE4IjtzOjU6InJvdXRlIjtzOjE4OiJhcGFydG1lbnRzLmRldGFpbHMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjY0OiI1OTY3YjljYzUxYjIzMmNkY2RkOGUyM2I3ZTgyNWNkYzUxMjhhZjFiZGE4M2ZiMGMzZGY1YWI1YzA2YTFhZTgyIjtzOjg6ImZpbGFtZW50IjthOjA6e319', 1787238045),
-('QFZ8mLpEgkCDqeCMPGF3ZdFeHd8uSTsUl8yezkm5', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiM1c4cmNsSEJ0RmpMbDJqZ1pNTms3cU85MlFxTVA1S0JvWmRDemoySCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzA6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9wcm9qZWN0cyI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2NDoiNTk2N2I5Y2M1MWIyMzJjZGNkZDhlMjNiN2U4MjVjZGM1MTI4YWYxYmRhODNmYjBjM2RmNWFiNWMwNmExYWU4MiI7fQ==', 1787227098),
-('SFNkFidezMnHo4um0EneUgc6qt1DfBHfUngIohH5', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSGZOYkwxd2x4amNNZkp1eFU4MmtEdzV0NG11VG9PVm5ET0pMQkdtdiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1787227128);
+('CW0v5Re6nRG3umGEemt2y1yFgzCF6cwgMIr5GqmN', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRGE5Y1g5eFR4WXJKR0V3Q0xoN25KeklwS2xKdmQ2cmRXR285ckFMSSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9sb2dpbiI7czo1OiJyb3V0ZSI7czoyNToiZmlsYW1lbnQuYWRtaW4uYXV0aC5sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1787747813),
+('LRwHjzTG173FWJvEvuWZQYshC6CySVX3OaC2Wq57', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoibEFxS1RpcmJIVjlXc2tOZlM1RHk0dzRvdWc0ZGt2dUxmTXEyTWx1TyI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjI6e3M6MzoidXJsIjtzOjMwOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvcHJvamVjdHMiO3M6NToicm91dGUiO047fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjQ6IjU5NjdiOWNjNTFiMjMyY2RjZGQ4ZTIzYjdlODI1Y2RjNTEyOGFmMWJkYTgzZmIwYzNkZjVhYjVjMDZhMWFlODIiO3M6ODoiZmlsYW1lbnQiO2E6MDp7fX0=', 1787753334),
+('mTmxZvzevL0yn9mAxS7pFvnnaaZaQXwkK6AZ32PS', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiblZCdlU2dmhJeHJ4SEx2bDR0b3hyaWFXT2FhdHNSM1d0aVRyVWVIRyI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9sb2dpbiI7czo1OiJyb3V0ZSI7czoyNToiZmlsYW1lbnQuYWRtaW4uYXV0aC5sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1787746957),
+('oUZw6VSq6rpsQqn2WFvhS25ja5zUoeGwqXTUydfJ', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSmFXaU1kUW9QajVLQ3pURVA1SE9RYWV6TUZ3TGN2RmswQ3VEbmhRSyI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9sb2dpbiI7czo1OiJyb3V0ZSI7czoyNToiZmlsYW1lbnQuYWRtaW4uYXV0aC5sb2dpbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1787747095),
+('pg3L72yxdcSzwzEQnTMfw6dQNdHL76pkQNqsyAsW', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiWjRtdDlNUVlVMnRSM21meFJEV1ZidzdMM2dtd21LaDRCMkdTc0IwaCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9wYWdlcy8yMC9lZGl0IjtzOjU6InJvdXRlIjtzOjM1OiJmaWxhbWVudC5hZG1pbi5yZXNvdXJjZXMucGFnZXMuZWRpdCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjQ6IjU5NjdiOWNjNTFiMjMyY2RjZGQ4ZTIzYjdlODI1Y2RjNTEyOGFmMWJkYTgzZmIwYzNkZjVhYjVjMDZhMWFlODIiO3M6NjoidGFibGVzIjthOjE6e3M6NDA6Ijk3OTJiNmRlNTczMTU2ZWMwNDVlYTgxODgxYmUzZDNkX2NvbHVtbnMiO2E6Mzp7aTowO2E6Nzp7czo0OiJ0eXBlIjtzOjY6ImNvbHVtbiI7czo0OiJuYW1lIjtzOjU6InRpdGxlIjtzOjU6ImxhYmVsIjtzOjU6IlRpdGxlIjtzOjg6ImlzSGlkZGVuIjtiOjA7czo5OiJpc1RvZ2dsZWQiO2I6MTtzOjEyOiJpc1RvZ2dsZWFibGUiO2I6MDtzOjI0OiJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiO047fWk6MTthOjc6e3M6NDoidHlwZSI7czo2OiJjb2x1bW4iO3M6NDoibmFtZSI7czo2OiJzdGF0dXMiO3M6NToibGFiZWwiO3M6NjoiU3RhdHVzIjtzOjg6ImlzSGlkZGVuIjtiOjA7czo5OiJpc1RvZ2dsZWQiO2I6MTtzOjEyOiJpc1RvZ2dsZWFibGUiO2I6MDtzOjI0OiJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiO047fWk6MjthOjc6e3M6NDoidHlwZSI7czo2OiJjb2x1bW4iO3M6NDoibmFtZSI7czoxMDoiY3JlYXRlZF9hdCI7czo1OiJsYWJlbCI7czoxMDoiQ3JlYXRlZCBhdCI7czo4OiJpc0hpZGRlbiI7YjowO3M6OToiaXNUb2dnbGVkIjtiOjE7czoxMjoiaXNUb2dnbGVhYmxlIjtiOjA7czoyNDoiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjtOO319fXM6ODoiZmlsYW1lbnQiO2E6MDp7fX0=', 1787752329),
+('rObNIxfqMZXZf7eAZHVUz7KHi9ndTzEKygGtFPvn', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:154.0) Gecko/20100101 Firefox/154.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWnlhS1JiZGVodnZBV3dLQTY0eTVHOVp0N2FmRGRBUEJRakdiMWVUTyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMzoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWluL3BhZ2VzIjt9czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9wYWdlcyI7czo1OiJyb3V0ZSI7czozNjoiZmlsYW1lbnQuYWRtaW4ucmVzb3VyY2VzLnBhZ2VzLmluZGV4Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1787747812);
 
 -- --------------------------------------------------------
 
@@ -348,8 +375,10 @@ CREATE TABLE `slides` (
 --
 
 INSERT INTO `slides` (`id`, `title`, `image`, `description`, `size`, `sort_order`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'Test Slide 1', 'settings/slides/test-slide-1-20260820073443.JPG', 'test', '1200', 1, 1, '2026-08-20 02:04:43', '2026-08-20 02:04:43'),
-(4, 'Test 2', 'settings/slides/test-2-20260820074308.JPG', 'test', '1500', 2, 1, '2026-08-20 02:13:08', '2026-08-20 02:13:08');
+(4, 'Test 2', 'settings/slides/test-2-20260820074308.JPG', 'test', '1500', 2, 1, '2026-08-20 02:13:08', '2026-08-20 02:13:08'),
+(5, 'Slide 3', 'settings/slides/slide-3-20260821071024.JPG', 'test', NULL, 1, 1, '2026-08-21 01:40:24', '2026-08-21 01:40:24'),
+(6, 'Test 1', 'settings/slides/test-1-20260821072756.JPG', 'test', NULL, 1, 1, '2026-08-21 01:57:56', '2026-08-21 01:57:56'),
+(7, 'Test 4', 'settings/slides/test-4-20260821074237.JPG', 'test', NULL, 1, 1, '2026-08-21 02:12:37', '2026-08-21 02:12:37');
 
 -- --------------------------------------------------------
 
@@ -373,7 +402,7 @@ CREATE TABLE `timelines` (
 --
 
 INSERT INTO `timelines` (`id`, `year`, `title`, `image`, `description`, `sort_order`, `created_at`, `updated_at`) VALUES
-(4, '1997', 'Satyamev Royal 1', 'timeline/satyamev-royal-1-1997-HoH2Ap.jpg', 'test ', 1, '2026-08-14 01:29:54', '2026-08-14 01:29:54');
+(9, '1998', 'Satyamev Royal 7', 'timeline/satyamev-royal-7-1998.JPG', 'test', 0, '2026-08-21 01:39:49', '2026-08-21 01:39:49');
 
 -- --------------------------------------------------------
 
@@ -465,6 +494,13 @@ ALTER TABLE `pages`
   ADD UNIQUE KEY `pages_slug_unique` (`slug`);
 
 --
+-- Indexes for table `page_images`
+--
+ALTER TABLE `page_images`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `page_images_page_id_foreign` (`page_id`);
+
+--
 -- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -517,13 +553,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `apartments`
 --
 ALTER TABLE `apartments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `apartment_images`
 --
 ALTER TABLE `apartment_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -541,13 +577,19 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `page_images`
+--
+ALTER TABLE `page_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `projects`
@@ -565,13 +607,13 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `slides`
 --
 ALTER TABLE `slides`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `timelines`
 --
 ALTER TABLE `timelines`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -594,6 +636,12 @@ ALTER TABLE `apartments`
 --
 ALTER TABLE `apartment_images`
   ADD CONSTRAINT `project_images_project_id_foreign` FOREIGN KEY (`apartment_id`) REFERENCES `apartments` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `page_images`
+--
+ALTER TABLE `page_images`
+  ADD CONSTRAINT `page_images_page_id_foreign` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
