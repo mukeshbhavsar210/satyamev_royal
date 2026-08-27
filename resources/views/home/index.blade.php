@@ -13,9 +13,9 @@
                     <div class="u-272 b-mob"></div>                    
                     <div class="grid">
                         <div class="hero-s_logo">
-                            <h1 data-prevent-flicker="" data-scroll-reveal="h" class="h3 a-center">
+                            <h3 data-prevent-flicker="" data-scroll-reveal="h" class="h4 a-center">
                                 {{ setting('punch_line1') }}<br />{{ setting('punch_line2') }}
-                            </h1>
+                            </h3>
                             <div class="hero-s_logo_a">
                                 <h2 data-prevent-flicker="" data-scroll-reveal="a" class="a2">{{ setting('company_name') }}</h2>
                             </div>
@@ -383,90 +383,111 @@
                             <div class="loc-info-s_c">
                                 <div class="grid">
                                     <div class="s_title">
-                                        <h2 data-part="p" class="l1 a-center">
-                                            <span class="split-line-mask"  >
-                                                <span class="split-line" >
-                                                    <span class="split-word" >Our</span>
-                                                    <span class="split-word" >Journey</span>
-                                                </span>
-                                            </span>
-                                        </h2>
+                                        <h2 data-part="p" class="l1 a-center">Our Journey</h2>
                                     </div>
                                 </div>
                                 <div class="u-24 b-desk"></div>
                                 <div class="u-160 b-mob"></div>
                                 <div class="grid">
                                     <div class="info-s_lead">
-                                        <h3 data-part="p" class="h4 a-center">Our Timeline</h3>
+                                        <h3 class="h3 a-center">Timeline</h3>
+                                    </div>                                    
+                                </div>
+                                <div class="u-24 b-desk"></div>
+                                <div class="u-48 b-mob"></div>
+                                <div class="grid">
+                                    <div class="s_title">
+                                        <h2 data-part="p" class="l1 a-center">Since 1997</h2>
+                                    </div>
+                                    <div class="u-24 b-desk"></div>                                    
+                                </div>                                
+                            </div>                            
+                            
+                            <div class="loc-info-s_b">
+                                <div class="grid">
+                                    <div class="info-s_desc">                                        
+                                        <div class="u-32"></div>
+                                        <div class="s_logo">
+                                            <div data-part="ctn" class="logo_symbol ico-48" >
+                                                <div class="logo w-embed">
+                                                    @include('parts.flowers.flower')                                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="u-48 b-mob"></div>
+                                <div class="u-48"></div>
                             </div>
-                            <div class="loc-info-s_b"></div>
                         </div>
                         <div data-parallax="ctn-down" class="flower loc-info" >
                             @include('parts.flowers.flower_lt')
                         </div>
-                    </div>  
+                    </div>                      
 
-                    <div class="loc-intro-w">
-                        <div class="loc-intro-s">
-                            <div class="u-64 b-desk"></div>
-                            <div class="u-160 b-mob"></div>                            
+                    <div class="loc-path-w">
+                        <div class="loc-path-s2">
+                            <div class="loc-path-s_t">
+                                <div class="u-48 b-desk"></div>
+                                <div class="u-160 b-mob"></div>
+                            </div>
 
-                            <div class="grid">
-                                <div class="other-s_cms">
-                                    @if($timelines->isNotEmpty())
-                                        <div class="timeline">
-                                            <div class="timeline-nav-wrapper">
-                                                <button type="button" class="timeline-arrow timeline-prev">
-                                                    &#10094;
-                                                </button>
+                            <div class="flower loc-intro">
+                                @include('parts.flowers.flower_lb')
+                            </div>                                                     
+                            
+                            <div class="other-s_cms">
+                                <h3 class="h3">Timeline</h3>
+                                <div class="u-24"></div>
 
-                                                <div class="timeline-nav">
-                                                    @foreach($timelines as $index => $timeline)
-                                                        <button type="button" class="timeline-year h5 {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}">{{ $timeline->year }}</button>
-                                                    @endforeach
-                                                </div>
+                                <div class="other-cms w-dyn-list">
+                                    <div role="listitem" class="other-cms_list w-dyn-items">
+                                        @foreach($timelines as $index => $timeline)
+                                            <div class="other-cms_list_item w-dyn-item">
+                                                <div class="other-card {{ $index === 0 ? 'is-active' : '' }}" data-index="{{ $index }}" data-accordion-card="">
+                                                    <div class="other-card_name">
+                                                        <div class="other-card_name_label">
+                                                            <h4 data-scroll-reveal="h" class="timeline-title">
+                                                                {{ $timeline->year }}
+                                                            </h4>
 
-                                                <button type="button" class="timeline-arrow timeline-next">
-                                                    &#10095;
-                                                </button>
-                                            </div>
-
-                                            <div class="timeline-content">
-                                                @foreach($timelines as $index => $timeline)
-                                                    <div class="timeline-slide {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}" >
-                                                        <div class="timeline-image">
-                                                            @if($timeline->image)
-                                                                <img src="{{ Storage::url($timeline->image) }}" alt="{{ $timeline->title }}" />
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="timeline-info">
-                                                            <h4 class="h4">{{ $timeline->title }}</h4>
-                                                            <div class="u-16"></div>
-                                                            <p>{!! $timeline->description !!}</p>
+                                                            <div data-scroll-reveal="ctn" data-ico-plus="" class="other-card_ico" >
+                                                                <div class="ico-16">
+                                                                    <div class="ico w-embed">
+                                                                        <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                                                            <path d="M8 2.66602C8.36819 2.66602 8.66699 2.96579 8.66699 3.33398V7.33301H12.667L12.8008 7.34668C13.1046 7.40886 13.3339 7.67787 13.334 8C13.334 8.36803 13.035 8.66673 12.667 8.66699H8.66699V12.667C8.66673 13.035 8.36803 13.334 8 13.334C7.63205 13.3339 7.33327 13.0349 7.33301 12.667V8.66699H3.33398C2.96579 8.66699 2.66602 8.36819 2.66602 8C2.6661 7.63188 2.96585 7.33301 3.33398 7.33301H7.33301V3.33398C7.33301 2.96585 7.63188 2.6661 8 2.66602Z"
+                                                                                fill="currentColor" ></path>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                @endforeach
+
+                                                    <div data-accordion-card="content" class="other-card_info">                                                                                                                        
+                                                        <div class="other-card_info_desc">
+                                                            @if($timeline->image)
+                                                                <img src="{{ Storage::url($timeline->image) }}" alt="{{ $timeline->title }}" >
+                                                            @endif
+
+                                                            <h5 class="h5">{{ $timeline->title }}</h5>
+                                                            <div class="u-16 b-desk"></div>
+                                                            <p>{!! $timeline->description !!}</p>                                                                
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endif
-                                </div>                                                                             
-                            </div>                                                                                     
-                        </div>                        
+                                        @endforeach                                          
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="flower loc-intro">
-                            @include('parts.flowers.flower_lb')
-                        </div> 
-
-                        <div class="loc-path-w_flower">
-                            <div class="flower loc-path">
-                                @include('parts.flowers.flower_rt')
+                            <div class="loc-path-w_flower">
+                                <div class="flower loc-path">
+                                    @include('parts.flowers.flower_rt2')
+                                </div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div data-slow-scroll="" class="slow-scroll-trigger"></div>
