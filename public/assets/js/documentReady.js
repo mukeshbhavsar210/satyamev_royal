@@ -1,4 +1,16 @@
 $(document).ready(function () {    
+    
+    $('.timeline-year').on('click', function () {
+        let index = $(this).data('index');
+
+        $('.other-card').removeClass('is-active');
+        $('.other-card[data-index="' + index + '"]').addClass('is-active');
+
+        $('.timeline-year').removeClass('active');
+        $(this).addClass('active');
+    });
+
+
     function hideCookieConsent(value) {
         // Store cookie for 365 days
         document.cookie =

@@ -212,8 +212,8 @@ class Configuration extends Page implements HasForms, HasActions {
         return [
             Grid::make(4)
                 ->schema([
-                    TextInput::make('title')->label('Title')->required()->maxLength(255)->columnSpan(2),
                     TextInput::make('year')->label('Year')->required()->maxLength(5)->columnSpan(1),
+                    TextInput::make('title')->label('Title')->required()->maxLength(255)->columnSpan(2),                    
                     TextInput::make('sort_order')->label('Sort Order')->numeric()->default(0)->columnSpan(1),
                     Textarea::make('description')->label('Description')->rows(3)->columnSpan(2),
                     FileUpload::make('image')->label('Timeline Thumb')->image()->disk('public')->directory('timeline')->visibility('public')
