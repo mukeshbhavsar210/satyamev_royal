@@ -1,4 +1,4 @@
-<div data-modal-menu="mob" class="modal menu theme_on-dark" style="display: none;">
+<div data-modal-menu="mob" class="modal menu theme_on-dark" >
     <div class="modal_c">
         <div data-modal-container="" class="modal_menu">
             <div class="modal_menu_t">
@@ -16,27 +16,27 @@
             <div class="modal_menu_c">
                 <div class="grid">
                     <div class="modal_menu_list">
-                        <a data-part="ctn" aria-label="Home" hover-link="" data-modal-close="mob" href="/" aria-current="page" class="link w-inline-block w--current">
+                        <a data-part="ctn"  hover-link="" data-modal-close="mob" href="/" aria-current="page" class="link w-inline-block w--current">
                             <div class="link_label">
                                 <div class="link_label_text">
-                                    <div hover="text" class="h6" aria-label="Home"><span class="split-line" aria-hidden="true" style="text-align: center;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">H</span><span class="split-char" aria-hidden="true">o</span>
+                                    <div hover="text" class="h6" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">H</span><span class="split-char" aria-hidden="true">o</span>
                                         <span
-                                        class="split-char" aria-hidden="true">m</span><span class="split-char" aria-hidden="true">e</span></span><span class="link_line" style="translate: none; rotate: none; scale: none; transform-origin: 100% 50% 0px; transform: translate(0px);"></span></span>
+                                        class="split-char" aria-hidden="true">m</span><span class="split-char" aria-hidden="true">e</span></span><span class="link_line" ></span></span>
                                     </div>
                                 </div>
                                 <div class="link_label_text is-2">
-                                    <div hover="text" class="h6" aria-label="Home"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">H</span>
+                                    <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >H</span>
                                         <span
-                                        class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">o</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">m</span><span class="split-char"
-                                            aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">e</span></span>
+                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >m</span><span class="split-char"
+                                            aria-hidden="true" >e</span></span>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                        <a data-part="ctn" aria-label="Select an Apartment" hover-link="" data-modal-close="mob" href="/apartments" class="link w-inline-block">
+                        <a data-part="ctn"  hover-link="" data-modal-close="mob" href="/apartments" class="link w-inline-block">
                             <div class="link_label">
                                 <div class="link_label_text">
-                                    <div hover="text" class="h6" aria-label="Select an Apartment"><span class="split-line" aria-hidden="true" style="text-align: center;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">S</span><span class="split-char" aria-hidden="true">e</span>
+                                    <div hover="text" class="h6" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">S</span><span class="split-char" aria-hidden="true">e</span>
                                         <span
                                         class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">c</span><span class="split-char" aria-hidden="true">t</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span>
                                             <span
@@ -46,76 +46,76 @@
                                                 class="split-char" aria-hidden="true">r</span><span class="split-char" aria-hidden="true">t</span><span class="split-char" aria-hidden="true">m</span><span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">n</span>
                                                     <span
                                                     class="split-char" aria-hidden="true">t</span>
-                                                        </span><span class="link_line" style="translate: none; rotate: none; scale: none; transform-origin: 100% 50% 0px; transform: translate(0px);"></span></span>
+                                                        </span><span class="link_line" ></span></span>
                                     </div>
                                 </div>
                                 <div class="link_label_text is-2">
-                                    <div hover="text" class="h6" aria-label="Select an Apartment"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">S</span>
+                                    <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >S</span>
                                         <span
-                                        class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">l</span><span class="split-char"
-                                            aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">c</span>
+                                        class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char"
+                                            aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >c</span>
                                             <span
-                                            class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">t</span>
-                                                </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">a</span>
+                                            class="split-char" aria-hidden="true" >t</span>
+                                                </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span>
                                                 <span
-                                                class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">n</span>
-                                                    </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">A</span>
+                                                class="split-char" aria-hidden="true" >n</span>
+                                                    </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >A</span>
                                                     <span
-                                                    class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">p</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">a</span><span class="split-char"
-                                                        aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">r</span><span class="split-char" aria-hidden="true"
-                                                        style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">m</span>
+                                                    class="split-char" aria-hidden="true" >p</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char"
+                                                        aria-hidden="true" >r</span><span class="split-char" aria-hidden="true"
+                                                        >t</span><span class="split-char" aria-hidden="true" >m</span>
                                                         <span
-                                                        class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">n</span>
+                                                        class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >n</span>
                                                             <span
-                                                            class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">t</span>
+                                                            class="split-char" aria-hidden="true" >t</span>
                                                                 </span>
                                     </div>
                                 </div>
                             </div>
                         </a>
 
-                        <a data-part="ctn" aria-label="Book a call" hover-link="" data-modal-cta-btn="book-a-call" data-modal-close="mob" href="#" class="link w-inline-block">
+                        <a data-part="ctn"  hover-link="" data-modal-cta-btn="book-a-call" data-modal-close="mob" href="#" class="link w-inline-block">
                             <div class="link_label">
                                 <div class="link_label_text">
-                                    <div hover="text" class="h6" aria-label="Book a call">
-                                        <span class="split-line" aria-hidden="true" style="text-align: center;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B000000</span><span class="split-char" aria-hidden="true">o</span>
+                                    <div hover="text" class="h6" >
+                                        <span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B000000</span><span class="split-char" aria-hidden="true">o</span>
                                         <span
                                         class="split-char" aria-hidden="true">o</span><span class="split-char" aria-hidden="true">k</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span>
                                             <span
-                                            class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">l</span></span><span class="link_line" style="translate: none; rotate: none; scale: none; transform-origin: 100% 50% 0px; transform: translate(0px);"></span></span>
+                                            class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">l</span></span><span class="link_line" ></span></span>
                                     </div>
                                 </div>
                                 <div class="link_label_text is-2">
-                                    <div hover="text" class="h6" aria-label="Book a call"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">B</span>
+                                    <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >B</span>
                                         <span
-                                        class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">o</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">o</span><span class="split-char"
-                                            aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">k</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">a</span></span>
-                                            <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">c</span>
+                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >o</span><span class="split-char"
+                                            aria-hidden="true" >k</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span></span>
+                                            <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >c</span>
                                             <span
-                                            class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">a</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">l</span><span class="split-char"
-                                                aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">l</span></span>
+                                            class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char"
+                                                aria-hidden="true" >l</span></span>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                        <a data-part="ctn" aria-label="Contact" hover-link="" data-modal-close="mob" href="/contact" class="link w-inline-block">
+                        <a data-part="ctn"  hover-link="" data-modal-close="mob" href="/contact" class="link w-inline-block">
                             <div class="link_label">
                                 <div class="link_label_text">
-                                    <div hover="text" class="h6" aria-label="Contact"><span class="split-line" aria-hidden="true" style="text-align: center;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">C</span><span class="split-char" aria-hidden="true">o</span>
+                                    <div hover="text" class="h6" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">C</span><span class="split-char" aria-hidden="true">o</span>
                                         <span
                                         class="split-char" aria-hidden="true">n</span><span class="split-char" aria-hidden="true">t</span><span class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">c</span><span class="split-char" aria-hidden="true">t</span></span>
                                             <span
-                                            class="link_line" style="translate: none; rotate: none; scale: none; transform-origin: 100% 50% 0px; transform: translate(0px);"></span>
+                                            class="link_line" ></span>
                                                 </span>
                                     </div>
                                 </div>
                                 <div class="link_label_text is-2">
-                                    <div hover="text" class="h6" aria-label="Contact"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">C</span>
+                                    <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >C</span>
                                         <span
-                                        class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">o</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">n</span><span class="split-char"
-                                            aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">a</span>
+                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char"
+                                            aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >a</span>
                                             <span
-                                            class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">c</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">t</span></span>
+                                            class="split-char" aria-hidden="true" >c</span><span class="split-char" aria-hidden="true" >t</span></span>
                                     </div>
                                 </div>
                             </div>

@@ -39,7 +39,7 @@
                             </div>
                             <div class="loc-info-s_b"></div>
                         </div>
-                        <div data-parallax="ctn-down" class="flower loc-info" style="translate: none; rotate: none; scale: none; transform: translate(0%, -10%);">
+                        <div data-parallax="ctn-down" class="flower loc-info" >
                             <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" 
                                 poster="assets/media/flowers_01.avif" class="video">
                                 <source src="assets/media/flowers_01.webm" type="video/webm">
@@ -314,7 +314,7 @@
                         </div> 
 
                         <div class="loc-path-w_flower">
-                            <div class="flower loc-path" style="translate: none; rotate: none; scale: none; transform: rotate(180deg) scale(1, -1);">
+                            <div class="flower loc-path" >
                                 <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" poster="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe988f8dc3c9bb1647a_bougainvillea-flowers_03.avif" class="video">
                                     <source src="assets/media/bougainvillea-flowers_03.webm" type="video/webm">
                                     <source src="assets/media/bougainvillea-flowers_03.mov" type="video/mp4">

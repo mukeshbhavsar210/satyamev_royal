@@ -2,7 +2,7 @@
     <div class="scroll-area_screen">
         <section class="section clip theme_on-color">
             <div class="container">
-                <div class="amen-w" style="opacity: 1;">
+                <div class="amen-w" >
                     <div class="amen-s">
                         <div data-tabs-hilight="ver" data-tabs="" class="amen-s_cms">
                             <div class="amen-cms w-dyn-list" >
@@ -82,7 +82,7 @@
                                 </div> 
 
                                 <!-- <div role="list" class="amen-cms_list w-dyn-items">
-                                    <div data-reveal-first="" data-tab-content="gated-community" role="listitem" class="amen-cms_list_item w-dyn-item is-active" style="z-index: 1; position: relative; display: block;">
+                                    <div data-reveal-first="" data-tab-content="gated-community" role="listitem" class="amen-cms_list_item w-dyn-item is-active" >
                                         <div data-parallax="w" class="amen-slide">
                                             <div class="amen-slide_b">
                                                 <div class="grid">
@@ -104,8 +104,8 @@
                                                 <div class="u-48"></div>
                                             </div>
                                             <div class="amen-slide_img">
-                                                <div data-tab="slide" class="img-w" style="clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);">
-                                                    <div class="img-w" style="translate: none; rotate: none; scale: none; transform: translate(0px);">
+                                                <div data-tab="slide" class="img-w" >
+                                                    <div class="img-w" >
                                                         <img data-parallax="img-in" loading="eager" alt="" 
                                                         src="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1512e5b24991c76981118b_era-residence-gated-community.webp" 
                                                         sizes="100vw" 
@@ -121,100 +121,100 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div data-reveal-first="" data-tab-content="swimming-pool-2" role="listitem" class="amen-cms_list_item w-dyn-item" style="z-index: 0; position: absolute; display: none;">
+                                    <div data-reveal-first="" data-tab-content="swimming-pool-2" role="listitem" class="amen-cms_list_item w-dyn-item" >
                                         <div data-parallax="w" class="amen-slide">
                                             <div class="amen-slide_b">
                                                 <div class="grid">
                                                     <div class="amen-slide_title">
-                                                        <h3 data-tab="p" class="l1" aria-label="Swimming Pool"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">Swimming</span> <span class="split-word" aria-hidden="true">Pool</span></span></span></h3>
+                                                        <h3 data-tab="p" class="l1" aria-label="Swimming Pool"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Swimming</span> <span class="split-word" aria-hidden="true">Pool</span></span></span></h3>
                                                         <div class="u-32"></div>
                                                     </div>
                                                     <div class="amen-slide_desc w-clearfix">
                                                         <div class="red-line"></div>
-                                                        <h4 data-tab="p" class="h5" aria-label="Saltwater swimming pool, Children’s pool, Sauna, jacuzzi and wellness shower"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">Saltwater</span> <span class="split-word" aria-hidden="true">swimming</span> <span class="split-word" aria-hidden="true">pool,</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">Children’s</span> <span class="split-word" aria-hidden="true">pool,</span> <span class="split-word" aria-hidden="true">Sauna,</span> <span class="split-word" aria-hidden="true">jacuzzi</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">wellness</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">shower</span></span></span></h4></div>
+                                                        <h4 data-tab="p" class="h5" aria-label="Saltwater swimming pool, Children’s pool, Sauna, jacuzzi and wellness shower"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Saltwater</span> <span class="split-word" aria-hidden="true">swimming</span> <span class="split-word" aria-hidden="true">pool,</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Children’s</span> <span class="split-word" aria-hidden="true">pool,</span> <span class="split-word" aria-hidden="true">Sauna,</span> <span class="split-word" aria-hidden="true">jacuzzi</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">wellness</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">shower</span></span></span></h4></div>
                                                 </div>
                                                 <div class="u-48"></div>
                                             </div>
                                             <div class="amen-slide_img">
-                                                <div data-tab="slide" class="img-w" style="clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);">
-                                                    <div class="img-w" style="translate: none; rotate: none; scale: none; transform: translate(-25%, 0%) scale(1.5);">
+                                                <div data-tab="slide" class="img-w" >
+                                                    <div class="img-w" >
                                                         <img data-parallax="img-in" loading="eager" alt="" src="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool.webp" sizes="100vw" srcset="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool-p-500.webp 500w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool-p-800.webp 800w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool-p-1080.webp 1080w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool-p-1600.webp 1600w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool.webp 1920w"
-                                                        class="img-p" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 10px);"></div>
+                                                        class="img-p" ></div>
                                                     <div class="img-over-grad from-top"></div>
                                                     <div class="img-over-grad from-bot _4x bot"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div data-reveal-first="" data-tab-content="swimming-pool" role="listitem" class="amen-cms_list_item w-dyn-item" style="z-index: 0; position: absolute; display: none;">
+                                    <div data-reveal-first="" data-tab-content="swimming-pool" role="listitem" class="amen-cms_list_item w-dyn-item" >
                                         <div data-parallax="w" class="amen-slide">
                                             <div class="amen-slide_b">
                                                 <div class="grid">
                                                     <div class="amen-slide_title">
-                                                        <h3 data-tab="p" class="l1" aria-label="Parking area"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">Parking</span> <span class="split-word" aria-hidden="true">area</span></span></span></h3>
+                                                        <h3 data-tab="p" class="l1" aria-label="Parking area"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Parking</span> <span class="split-word" aria-hidden="true">area</span></span></span></h3>
                                                         <div class="u-32"></div>
                                                     </div>
                                                     <div class="amen-slide_desc w-clearfix">
                                                         <div class="red-line"></div>
-                                                        <h4 data-tab="p" class="h5" aria-label="Each parking space includes pre-installation for optional EV charging."><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">Each</span> <span class="split-word" aria-hidden="true">parking</span> <span class="split-word" aria-hidden="true">space</span> <span class="split-word" aria-hidden="true">includes</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">pre-installation</span> <span class="split-word" aria-hidden="true">for</span> <span class="split-word" aria-hidden="true">optional</span> <span class="split-word" aria-hidden="true">EV</span> <span class="split-word" aria-hidden="true">charging.</span></span></span></h4></div>
+                                                        <h4 data-tab="p" class="h5" aria-label="Each parking space includes pre-installation for optional EV charging."><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Each</span> <span class="split-word" aria-hidden="true">parking</span> <span class="split-word" aria-hidden="true">space</span> <span class="split-word" aria-hidden="true">includes</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">pre-installation</span> <span class="split-word" aria-hidden="true">for</span> <span class="split-word" aria-hidden="true">optional</span> <span class="split-word" aria-hidden="true">EV</span> <span class="split-word" aria-hidden="true">charging.</span></span></span></h4></div>
                                                 </div>
                                                 <div class="u-48"></div>
                                             </div>
                                             <div class="amen-slide_img">
-                                                <div data-tab="slide" class="img-w" style="clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);">
-                                                    <div class="img-w" style="translate: none; rotate: none; scale: none; transform: translate(-25%, 0%) scale(1.5);">
+                                                <div data-tab="slide" class="img-w" >
+                                                    <div class="img-w" >
                                                         <img data-parallax="img-in" loading="eager" alt="" src="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1573fc640c344ee0705819_era-residence-parking.webp" sizes="100vw" srcset="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1573fc640c344ee0705819_era-residence-parking-p-500.png 500w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1573fc640c344ee0705819_era-residence-parking-p-800.png 800w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1573fc640c344ee0705819_era-residence-parking.webp 1920w"
-                                                        class="img-p" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 10px);"></div>
+                                                        class="img-p" ></div>
                                                     <div class="img-over-grad from-top"></div>
                                                     <div class="img-over-grad from-bot _4x bot"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div data-reveal-first="" data-tab-content="spa-gym" role="listitem" class="amen-cms_list_item w-dyn-item" style="z-index: 0; position: absolute; display: none;">
+                                    <div data-reveal-first="" data-tab-content="spa-gym" role="listitem" class="amen-cms_list_item w-dyn-item" >
                                         <div data-parallax="w" class="amen-slide">
                                             <div class="amen-slide_b">
                                                 <div class="grid">
                                                     <div class="amen-slide_title">
-                                                        <h3 data-tab="p" class="l1" aria-label="Spa &amp; gym"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">Spa</span> <span class="split-word" aria-hidden="true">&amp;</span> <span class="split-word" aria-hidden="true">gym</span></span></span></h3>
+                                                        <h3 data-tab="p" class="l1" aria-label="Spa &amp; gym"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Spa</span> <span class="split-word" aria-hidden="true">&amp;</span> <span class="split-word" aria-hidden="true">gym</span></span></span></h3>
                                                         <div class="u-32"></div>
                                                     </div>
                                                     <div class="amen-slide_desc w-clearfix">
                                                         <div class="red-line"></div>
-                                                        <h4 data-tab="p" class="h5" aria-label="Designed exclusively for residents and their guests, the amenities at ERA encourage a slower and more balanced Mediterranean lifestyle"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">Designed</span> <span class="split-word" aria-hidden="true">exclusively</span> <span class="split-word" aria-hidden="true">for</span> <span class="split-word" aria-hidden="true">residents</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">their</span> <span class="split-word" aria-hidden="true">guests,</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">amenities</span> <span class="split-word" aria-hidden="true">at</span> <span class="split-word" aria-hidden="true">ERA</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">encourage</span> <span class="split-word" aria-hidden="true">a</span> <span class="split-word" aria-hidden="true">slower</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">more</span> <span class="split-word" aria-hidden="true">balanced</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">Mediterranean</span> <span class="split-word" aria-hidden="true">lifestyle</span></span></span></h4></div>
+                                                        <h4 data-tab="p" class="h5" aria-label="Designed exclusively for residents and their guests, the amenities at ERA encourage a slower and more balanced Mediterranean lifestyle"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Designed</span> <span class="split-word" aria-hidden="true">exclusively</span> <span class="split-word" aria-hidden="true">for</span> <span class="split-word" aria-hidden="true">residents</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">their</span> <span class="split-word" aria-hidden="true">guests,</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">amenities</span> <span class="split-word" aria-hidden="true">at</span> <span class="split-word" aria-hidden="true">ERA</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">encourage</span> <span class="split-word" aria-hidden="true">a</span> <span class="split-word" aria-hidden="true">slower</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">more</span> <span class="split-word" aria-hidden="true">balanced</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Mediterranean</span> <span class="split-word" aria-hidden="true">lifestyle</span></span></span></h4></div>
                                                 </div>
                                                 <div class="u-48"></div>
                                             </div>
                                             <div class="amen-slide_img">
-                                                <div data-tab="slide" class="img-w" style="clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);">
-                                                    <div class="img-w" style="translate: none; rotate: none; scale: none; transform: translate(-25%, 0%) scale(1.5);">
+                                                <div data-tab="slide" class="img-w" >
+                                                    <div class="img-w" >
                                                         <img data-parallax="img-in" loading="eager" alt="" src="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-%26-gym.webp" sizes="100vw" srcset="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-%26-gym-p-500.webp 500w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-%26-gym-p-800.webp 800w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-%26-gym-p-1080.webp 1080w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-%26-gym-p-1600.webp 1600w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-%26-gym.webp 1920w"
-                                                        class="img-p" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 10px);"></div>
+                                                        class="img-p" ></div>
                                                     <div class="img-over-grad from-top"></div>
                                                     <div class="img-over-grad from-bot _4x bot"></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div data-reveal-first="" data-tab-content="landscaping" role="listitem" class="amen-cms_list_item w-dyn-item" style="z-index: 0; position: absolute; display: none;">
+                                    <div data-reveal-first="" data-tab-content="landscaping" role="listitem" class="amen-cms_list_item w-dyn-item" >
                                         <div data-parallax="w" class="amen-slide">
                                             <div class="amen-slide_b">
                                                 <div class="grid">
                                                     <div class="amen-slide_title">
-                                                        <h3 data-tab="p" class="l1" aria-label="Landscaping"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">Landscaping</span></span></span></h3>
+                                                        <h3 data-tab="p" class="l1" aria-label="Landscaping"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Landscaping</span></span></span></h3>
                                                         <div class="u-32"></div>
                                                     </div>
                                                     <div class="amen-slide_desc w-clearfix">
                                                         <div class="red-line"></div>
-                                                        <h4 data-tab="p" class="h5" aria-label="The landscaping concept was designed to soften the architecture and strengthen the connection between the residences and the Mediterranean environment."><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">The</span> <span class="split-word" aria-hidden="true">landscaping</span> <span class="split-word" aria-hidden="true">concept</span> <span class="split-word" aria-hidden="true">was</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">designed</span> <span class="split-word" aria-hidden="true">to</span> <span class="split-word" aria-hidden="true">soften</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">architecture</span> <span class="split-word" aria-hidden="true">and</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">strengthen</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">connection</span> <span class="split-word" aria-hidden="true">between</span> <span class="split-word" aria-hidden="true">the</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: start; translate: none; rotate: none; scale: none; transform: translate(0%, -110%);"><span class="split-word" aria-hidden="true">residences</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">Mediterranean</span> <span class="split-word" aria-hidden="true">environment.</span></span></span></h4></div>
+                                                        <h4 data-tab="p" class="h5" aria-label="The landscaping concept was designed to soften the architecture and strengthen the connection between the residences and the Mediterranean environment."><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">The</span> <span class="split-word" aria-hidden="true">landscaping</span> <span class="split-word" aria-hidden="true">concept</span> <span class="split-word" aria-hidden="true">was</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">designed</span> <span class="split-word" aria-hidden="true">to</span> <span class="split-word" aria-hidden="true">soften</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">architecture</span> <span class="split-word" aria-hidden="true">and</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">strengthen</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">connection</span> <span class="split-word" aria-hidden="true">between</span> <span class="split-word" aria-hidden="true">the</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">residences</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">Mediterranean</span> <span class="split-word" aria-hidden="true">environment.</span></span></span></h4></div>
                                                 </div>
                                                 <div class="u-48"></div>
                                             </div>
                                             <div class="amen-slide_img">
-                                                <div data-tab="slide" class="img-w" style="clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);">
-                                                    <div class="img-w" style="translate: none; rotate: none; scale: none; transform: translate(-25%, 0%) scale(1.5);">
+                                                <div data-tab="slide" class="img-w" >
+                                                    <div class="img-w" >
                                                         <img data-parallax="img-in" loading="eager" alt="" src="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151382fb101ce2ca9db288_era-residence-landscaping.webp" sizes="100vw" srcset="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151382fb101ce2ca9db288_era-residence-landscaping-p-500.png 500w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151382fb101ce2ca9db288_era-residence-landscaping-p-800.png 800w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151382fb101ce2ca9db288_era-residence-landscaping-p-1080.png 1080w, https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151382fb101ce2ca9db288_era-residence-landscaping.webp 1920w"
-                                                        class="img-p" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 10px);"></div>
+                                                        class="img-p" ></div>
                                                     <div class="img-over-grad from-top"></div>
                                                     <div class="img-over-grad from-bot _4x bot"></div>
                                                 </div>
@@ -265,44 +265,44 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div data-scroll-reveal="line" class="amm-s_cms_tabs_line" style="visibility: visible; clip-path: inset(0%);">
-                                            <div data-tab-hilight="" class="amm-s_cms_tabs_line_hilight" style="translate: none; rotate: none; scale: none; height: 34px; transform: translate(0px);"></div>
+                                        <div data-scroll-reveal="line" class="amm-s_cms_tabs_line" >
+                                            <div data-tab-hilight="" class="amm-s_cms_tabs_line_hilight" ></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="amm-s_cms_btn-w b-desk">
                                 <div class="grid">
-                                    <div data-scroll-reveal="ctn" class="amm-s_cms_btn" style="visibility: visible; translate: none; rotate: none; scale: none; transform: translate(0px); opacity: 1;">
+                                    <div data-scroll-reveal="ctn" class="amm-s_cms_btn" >
                                         <div data-modal-cta-btn="book-a-call" data-magnetic-btn="" hover-nav-item-trigger="" hover-btn-circle="" class="btn-circle">
                                             <div data-magnetic-inner="" class="btn-circle_label">
                                                 <a hover-nav-item="" aria-label="Book a call now" href="#" class="nav-item w-inline-block">
                                                     <div class="nav-item_label">
                                                         <div class="nav-item_label_text">
-                                                            <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B</span><span class="split-char"
+                                                            <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B</span><span class="split-char"
                                                                 aria-hidden="true">o</span><span class="split-char" aria-hidden="true">o</span><span class="split-char" aria-hidden="true">k</span></span>
-                                                                </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span>
-                                                                </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span><span class="split-char"
+                                                                </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span>
+                                                                </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span><span class="split-char"
                                                                 aria-hidden="true">a</span><span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">l</span></span>
-                                                                </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">n</span><span class="split-char"
+                                                                </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">n</span><span class="split-char"
                                                                 aria-hidden="true">o</span><span class="split-char" aria-hidden="true">w</span></span>
                                                                 </span>
                                                             </div>
                                                         </div>
                                                         <div class="nav-item_label_text is-2">
-                                                            <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">B</span>
+                                                            <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >B</span>
                                                                 <span
-                                                                class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">o</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">o</span><span class="split-char" aria-hidden="true"
-                                                                    style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">k</span></span>
-                                                                    </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">a</span></span>
+                                                                class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true"
+                                                                    >k</span></span>
+                                                                    </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span></span>
                                                                     </span>
-                                                                    <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">c</span>
+                                                                    <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >c</span>
                                                                     <span
-                                                                    class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">a</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">l</span><span class="split-char" aria-hidden="true"
-                                                                        style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">l</span></span>
-                                                                        </span> <span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">n</span>
+                                                                    class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char" aria-hidden="true"
+                                                                        >l</span></span>
+                                                                        </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >n</span>
                                                                         <span
-                                                                        class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">o</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">w</span></span>
+                                                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >w</span></span>
                                                                             </span>
                                                             </div>
                                                         </div>
@@ -311,8 +311,8 @@
                                             </div>
                                             <div class="btn-circle_bg w-embed">
                                                 <svg data-circle="" viewBox="0 0 208 208" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                                                    <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(-150 104 104)" style="stroke-dasharray: 27.1179px, 650.31px;"></circle>
-                                                    <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(30 104 104)" style="stroke-dasharray: 27.1179px, 650.31px;"></circle>
+                                                    <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(-150 104 104)" ></circle>
+                                                    <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(30 104 104)" ></circle>
 
                                                     <circle cx="104" cy="104" r="103.5" stroke="var(--_colors---base-1000--line)" stroke-width="1" fill="none"></circle>
                                                 </svg>

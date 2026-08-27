@@ -1,6 +1,6 @@
 
 <section data-bg="color" class="section theme_on-color">
-    <div data-footer-clip="" class="container" style="clip-path: inset(0%);">
+    <div data-footer-clip="" class="container" >
         <div class="cta-w">
             <div class="cta-s">
                 <div class="u-272"></div>
@@ -21,8 +21,8 @@
                                 </div>
                                 <div class="btn-circle_bg w-embed">
                                     <svg data-circle="" viewBox="0 0 208 208" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                                        <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(-150 104 104)" style="stroke-dasharray: 27.1179px, 650.31px;"></circle>
-                                        <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(30 104 104)" style="stroke-dasharray: 27.1179px, 650.31px;"></circle>
+                                        <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(-150 104 104)" ></circle>
+                                        <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(30 104 104)" ></circle>
                                         <circle cx="104" cy="104" r="103.5" stroke="var(--_colors---base-1000--line)" stroke-width="1" fill="none"></circle>
                                     </svg>
                                 </div>

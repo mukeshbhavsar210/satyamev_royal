@@ -1,4 +1,4 @@
-            <a data-reset="" aria-label="Reset" hover-nav-item-l2="" href="#" class="nav-item w-inline-block is-disabled">
+            <a data-reset="" hover-nav-item-l2="" href="#" class="nav-item w-inline-block is-disabled">
                 <div class="nav-item_label">
                     <div hover="text" class="nav-item_label_text">
                         <div class="l2">Reset</div>

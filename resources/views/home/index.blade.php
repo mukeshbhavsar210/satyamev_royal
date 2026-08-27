@@ -3,7 +3,6 @@
 @section('content')
 
 @include('layouts.header.preloader')
-@include('layouts.header.cookies')
 
 <section id="hero" class="section clip theme_on-color">
     <div class="container">
@@ -147,10 +146,10 @@
                 <div class="u-272 b-mob"></div>
                 <div class="s_logo">
                     <div class="info-s_logo_l">
-                        <div data-scroll-reveal="p" class="l1 a-center"  aria-label="Costa">
-                            <span class="split-line-mask" aria-hidden="true" >
-                                <span class="split-line" aria-hidden="true" >
-                                    <span class="split-word" aria-hidden="true">{{ setting('punch_line1') }}</span>
+                        <div data-scroll-reveal="p" class="l1 a-center">
+                            <span class="split-line-mask"  >
+                                <span class="split-line"  >
+                                    <span class="split-word" >{{ setting('punch_line1') }}</span>
                                 </span>
                             </span>
                         </div>
@@ -174,12 +173,12 @@
                         </div>
                     </div>
                     <div class="info-s_logo_r">
-                        <div data-scroll-reveal="p" class="l1 a-center"  aria-label="del Sol">{{ setting('punch_line2') }}</div>
+                        <div data-scroll-reveal="p" class="l1 a-center">{{ setting('punch_line2') }}</div>
                     </div>
                 </div>
                 <div class="u-48"></div>
                 <div class="divider">
-                    <div data-scroll-reveal="line" class="line-v" style="visibility: visible; clip-path: inset(0%);"></div>
+                    <div data-scroll-reveal="line" class="line-v" ></div>
                 </div>
                 <div class="u-48"></div>
                 <div class="grid">
@@ -239,7 +238,7 @@
                                     </div>
                                 </div>
                                 <div class="pag_progress">
-                                    <div data-slider="progress" class="pag_progress_fill" style="width: 43.2%;"></div>
+                                    <div data-slider="progress" class="pag_progress_fill" ></div>
                                 </div>
                                 <div data-slider="next" class="pag_next">
                                     <div class="pag_prev_label">
@@ -258,22 +257,22 @@
                         </div>
                         <div class="benefits-cms w-dyn-list">
                             <div role="list" class="benefits-cms_list w-dyn-items">
-                                @foreach($slides as $slide)
+                                @foreach($apartments as $value)
                                     <div data-reveal-first="" data-slider="slide" role="listitem" class="benefits-cms_list_item w-dyn-item" >
                                         <div class="benefit-slide">
                                             <div class="benefit-slide_t">
-                                                <div class="u-48 b-desk"></div>
+                                                <div class="u-24 b-desk"></div>
                                                 <div class="u-272 b-mob"></div>
-                                                <h4 data-scroll-reveal="h" data-slider="h" class="h4 a-center b-desk" >
-                                                    {{ $slide->name }}
+                                                <h4 data-scroll-reveal="h" data-slider="h" class="h4 a-center b-desk">
+                                                    {{ $value->apartment_name }}
                                                 </h4>
                                             </div>
 
                                             <div class="benefit-slide_c">
                                                 <div class="benefit-slide_img">
                                                     <div data-scroll-reveal="slide" data-slider="img" class="img-w" >
-                                                        @if($slide->image)
-                                                            <img src="{{ Storage::url($slide->image) }}" loading="eager" alt="{{ $slide->title }}" sizes="100vw" class="img" >
+                                                        @if($value->image)
+                                                            <img src="{{ Storage::url($value->image) }}" loading="eager" alt="{{ $value->title }}" sizes="100vw" class="img" >
                                                         @endif
                                                     </div>
                                                 </div>
@@ -282,8 +281,8 @@
                                             <div class="benefit-slide_b">
                                                 <div class="grid _8-columns">
                                                     <div class="benefit-slide_desc">
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center"><b>Size: {{ $slide->size }}</b></p>
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">{{ $slide->description }}</p>
+                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center"><b>Size: {{ $value->area }}</b></p>
+                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">{{ $value->location }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -372,7 +371,7 @@
 
 <section data-bg="light" data-slow-scroll="" class="section clip">
     <div class="container loc">
-        <div data-video-playpause="" data-scroll-horizontal="" class="loc-scroll-area" style="height: 4279px;">
+        <div data-video-playpause="" data-scroll-horizontal="" class="loc-scroll-area">
             <div class="loc-scroll-area_screen">
                 <div class="loc-scroll-area_track">
                     <div data-parallax="w" class="loc-info-w">
@@ -385,10 +384,10 @@
                                 <div class="grid">
                                     <div class="s_title">
                                         <h2 data-part="p" class="l1 a-center">
-                                            <span class="split-line-mask" aria-hidden="true" >
-                                                <span class="split-line" aria-hidden="true">
-                                                    <span class="split-word" aria-hidden="true">Our</span>
-                                                    <span class="split-word" aria-hidden="true">Journey</span>
+                                            <span class="split-line-mask"  >
+                                                <span class="split-line" >
+                                                    <span class="split-word" >Our</span>
+                                                    <span class="split-word" >Journey</span>
                                                 </span>
                                             </span>
                                         </h2>
@@ -405,12 +404,8 @@
                             </div>
                             <div class="loc-info-s_b"></div>
                         </div>
-                        <div data-parallax="ctn-down" class="flower loc-info" style="translate: none; rotate: none; scale: none; transform: translate(0%, -10%);">
-                            <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" 
-                                poster="assets/media/flowers_01.avif" class="video">
-                                <source src="assets/media/flowers_01.webm" type="video/webm">
-                                <source src="assets/media/flowers_01.mov" type="video/mp4">
-                            </video>
+                        <div data-parallax="ctn-down" class="flower loc-info" >
+                            @include('parts.flowers.flower_lt')
                         </div>
                     </div>  
 
@@ -463,18 +458,12 @@
                         </div>                        
 
                         <div class="flower loc-intro">
-                            <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" poster="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe941e5e917a8f84c4a_bougainvillea-flowers_02.avif" class="video">
-                                <source src="assets/media/bougainvillea-flowers_02.webm" type="video/webm">
-                                <source src="assets/media/bougainvillea-flowers_02.mov" type="video/mp4">
-                            </video>
+                            @include('parts.flowers.flower_lb')
                         </div> 
 
                         <div class="loc-path-w_flower">
-                            <div class="flower loc-path" style="translate: none; rotate: none; scale: none; transform: rotate(180deg) scale(1, -1);">
-                                <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" poster="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe988f8dc3c9bb1647a_bougainvillea-flowers_03.avif" class="video">
-                                    <source src="assets/media/bougainvillea-flowers_03.webm" type="video/webm">
-                                    <source src="assets/media/bougainvillea-flowers_03.mov" type="video/mp4">
-                                </video>
+                            <div class="flower loc-path">
+                                @include('parts.flowers.flower_rt')
                             </div>
                         </div>
                     </div>                    

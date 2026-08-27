@@ -1,41 +1,41 @@
 <div class="header-nav_list f-desk">
 
-    <!-- <a hover-link="" aria-label="Select  an Apartment" href="/apartments" class="link w-inline-block">
+    <!-- <a hover-link=""  href="/apartments" class="link w-inline-block">
     <div class="link_label">
         <div class="link_label_text">
-            <div hover="text" class="h6" aria-label="Select an Apartment">
-                <span class="split-line" aria-hidden="true" style="text-align: right;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">S</span><span class="split-char" aria-hidden="true">e</span>
-                <span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">c</span><span class="split-char" aria-hidden="true">t</span></span> <span class="link_line" style="translate: none; rotate: none; scale: none; transform-origin: 100% 50% 0px; transform: translate(0px);"></span></span>
-                    <span class="split-line" aria-hidden="true" style="text-align: right;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">n</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">A</span>
+            <div hover="text" class="h6" >
+                <span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">S</span><span class="split-char" aria-hidden="true">e</span>
+                <span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">c</span><span class="split-char" aria-hidden="true">t</span></span> <span class="link_line" ></span></span>
+                    <span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">n</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">A</span>
                         <span class="split-char" aria-hidden="true">p</span><span class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">r</span><span class="split-char" aria-hidden="true">t</span><span class="split-char" aria-hidden="true">m</span>
-                            <span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">n</span><span class="split-char" aria-hidden="true">t</span></span><span class="link_line" style="translate: none; rotate: none; scale: none; transform-origin: 100% 50% 0px; transform: translate(0px);"></span></span>
+                            <span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">n</span><span class="split-char" aria-hidden="true">t</span></span><span class="link_line" ></span></span>
             </div>
         </div>
         <div class="link_label_text is-2">
-            <div hover="text" class="h6" aria-label="Select an Apartment"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">S</span>
+            <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >S</span>
                 <span
-                class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">l</span><span class="split-char"
-                    aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">c</span>
+                class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char"
+                    aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >c</span>
                     <span
-                    class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">t</span>
+                    class="split-char" aria-hidden="true" >t</span>
                         </span>
-                        <br><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">a</span>
+                        <br><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span>
                         <span
-                        class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">n</span>
-                            </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">A</span>
+                        class="split-char" aria-hidden="true" >n</span>
+                            </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >A</span>
                             <span
-                            class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">p</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">a</span><span class="split-char"
-                                aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">r</span><span class="split-char" aria-hidden="true"
-                                style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">t</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">m</span>
+                            class="split-char" aria-hidden="true" >p</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char"
+                                aria-hidden="true" >r</span><span class="split-char" aria-hidden="true"
+                                >t</span><span class="split-char" aria-hidden="true" >m</span>
                                 <span
-                                class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">e</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">n</span><span class="split-char"
-                                    aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0%, 25%) translate(-0.4em) rotateY(90deg); opacity: 0;">t</span></span>
+                                class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char"
+                                    aria-hidden="true" >t</span></span>
             </div>
         </div>
     </div>
 </a> -->
 
-    <a data-modal-cta-btn="book-a-call" aria-label="Book a call" hover-nav-item-l2="" href="#" class="nav-item w-inline-block">
+    <a data-modal-cta-btn="book-a-call"  hover-nav-item-l2="" href="#" class="nav-item w-inline-block">
         <div class="nav-item_label">
             <div hover="text" class="nav-item_label_text">
                 <div class="l3">Book a call</div>
@@ -46,7 +46,7 @@
         </div>
     </a>
     <div class="u-8"></div>
-    <a hover-nav-item-l2="" aria-label="Contact" href="contact.php" class="nav-item w-inline-block">
+    <a hover-nav-item-l2=""  href="contact.php" class="nav-item w-inline-block">
         <div class="nav-item_label">
             <div hover="text" class="nav-item_label_text">
                 <div class="l3">Contact</div>
@@ -65,7 +65,7 @@
                 <div data-lenis-scroll="" data-modal-container="" class="modal_cta_c lenis">
                     <div class="modal_cta_close">
                         <div data-modal-close="" hover-btn="" class="btn-ico">
-                            <a aria-label="Label" href="#" class="btn-ico_link w-inline-block"></a>
+                            <a href="#" class="btn-ico_link w-inline-block"></a>
                             <div hover="ico" class="btn_ico">
                                 <div class="ico-16">
                                     <div class="ico w-embed">
@@ -83,7 +83,7 @@
                     </div>
 
                     <div id="book-a-call" class="modal_cta_form w-form">
-                        <form id="wf-form-Book-a-call" name="wf-form-Book-a-call" data-name="Book a call" method="post" class="form_block" data-wf-page-id="6a068da7ad91b057365bf968" data-wf-element-id="029ceda9-d3d8-57d0-9f94-1e73d2fa398c" aria-label="Book a call">
+                        <form id="wf-form-Book-a-call" name="wf-form-Book-a-call" data-name="Book a call" method="post" class="form_block" data-wf-page-id="6a068da7ad91b057365bf968" data-wf-element-id="029ceda9-d3d8-57d0-9f94-1e73d2fa398c" >
                             <div class="modal_cta_l">
                                 <div class="modal_cta_l_t">                                    
                                     <h1 class="a2_title b-desk">Book a call</h1>
@@ -153,22 +153,22 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a data-form-btn="" hover-btn="" hover-nav-item="" aria-label="Submit" data-wf--btn--variant="sec" href="#" class="btn w-inline-block">
+                                        <a data-form-btn="" hover-btn="" hover-nav-item=""  data-wf--btn--variant="sec" href="#" class="btn w-inline-block">
                                             <div class="btn_label">
                                                 <div class="btn_label_text">
-                                                    <div hover="text" class="l1" aria-label="Submit"><span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">S</span><span class="split-char" aria-hidden="true">u</span>
+                                                    <div hover="text" class="l1" ><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">S</span><span class="split-char" aria-hidden="true">u</span>
                                                         <span
                                                         class="split-char" aria-hidden="true">b</span><span class="split-char" aria-hidden="true">m</span><span class="split-char" aria-hidden="true">i</span><span class="split-char" aria-hidden="true">t</span></span>
                                                             </span>
                                                     </div>
                                                 </div>
                                                 <div class="btn_label_text is-2">
-                                                    <div hover="text" class="l1" aria-label="Submit"><span class="split-word-mask" aria-hidden="true" style="overflow: clip;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">S</span>
+                                                    <div hover="text" class="l1" ><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >S</span>
                                                         <span
-                                                        class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">u</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">b</span><span class="split-char" aria-hidden="true"
-                                                            style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">m</span><span class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">i</span>
+                                                        class="split-char" aria-hidden="true" >u</span><span class="split-char" aria-hidden="true" >b</span><span class="split-char" aria-hidden="true"
+                                                            >m</span><span class="split-char" aria-hidden="true" >i</span>
                                                             <span
-                                                            class="split-char" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 100%);">t</span>
+                                                            class="split-char" aria-hidden="true" >t</span>
                                                                 </span>
                                                                 </span>
                                                     </div>
@@ -182,7 +182,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="form_success w-form-done" tabindex="-1" role="region" aria-label="Book a call success">
+                        <div class="form_success w-form-done" tabindex="-1" role="region" >
                             <div class="form_success_c">
                                 <div class="form_success_title">
                                     <p class="l1 a-center">We’ve received your request</p>
@@ -196,7 +196,7 @@
                                     <div class="social-cms w-dyn-list">
                                         <div data-comma-list="" role="list" class="social-cms_list w-dyn-items">
                                             <div role="listitem" class="social-cms_list_item w-dyn-item">
-                                                <a aria-label="Linkedin" hover-social="" href="https://www.linkedin.com/company/eraresidenceestepona/?viewAsMember=true" target="_blank" class="social-btn w-inline-block">
+                                                <a  hover-social="" href="https://www.linkedin.com/company/eraresidenceestepona/?viewAsMember=true" target="_blank" class="social-btn w-inline-block">
                                                     <div hover="ico" class="ico-16">
                                                         <div class="ico w-embed">
                                                             <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -211,7 +211,7 @@
                                                 </a>
                                             </div>
                                             <div role="listitem" class="social-cms_list_item w-dyn-item">
-                                                <a aria-label="Facebook" hover-social="" href="https://www.facebook.com/era.residence.estepona" target="_blank" class="social-btn w-inline-block">
+                                                <a  hover-social="" href="https://www.facebook.com/era.residence.estepona" target="_blank" class="social-btn w-inline-block">
                                                     <div hover="ico" class="ico-16">
                                                         <div class="ico w-embed">
                                                             <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +225,7 @@
                                                 </a>
                                             </div>
                                             <div role="listitem" class="social-cms_list_item w-dyn-item">
-                                                <a aria-label="Instagram" hover-social="" href="https://www.instagram.com/era.residence.estepona" target="_blank" class="social-btn w-inline-block">
+                                                <a  hover-social="" href="https://www.instagram.com/era.residence.estepona" target="_blank" class="social-btn w-inline-block">
                                                     <div hover="ico" class="ico-16">
                                                         <div class="ico w-embed">
                                                             <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -245,7 +245,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form_error theme_on-dark w-form-fail" tabindex="-1" role="region" aria-label="Book a call failure">
+                        <div class="form_error theme_on-dark w-form-fail" tabindex="-1" role="region" >
                             <div class="l1 a-center">Oops! Something went wrong while submitting the form.</div>
                         </div>
                     </div>

@@ -4,13 +4,13 @@
             <div class="apart-info-s">
                 <div class="u-48"></div>
                 <div class="divider">
-                    <div data-scroll-reveal="line" class="line-v" style="visibility: visible; clip-path: inset(0% 0% 100%);"></div>
+                    <div data-scroll-reveal="line" class="line-v" ></div>
                 </div>
                 <div class="u-48"></div>
                 <div class="grid">
                     <div class="s_title">
-                        <p data-scroll-reveal="p" class="l1 a-center"  aria-label="A place to live — to return year after year"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: center; translate: none; rotate: none; scale: none; transform: translate(0%, 110%);"><span class="split-word" aria-hidden="true">A</span>                                        <span class="split-word" aria-hidden="true">place</span> <span class="split-word" aria-hidden="true">to</span> <span class="split-word" aria-hidden="true">live</span> <span class="split-word" aria-hidden="true">—</span>                                        <span class="split-word" aria-hidden="true">to</span> </span>
-                            </span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: center; translate: none; rotate: none; scale: none; transform: translate(0%, 110%);"><span class="split-word" aria-hidden="true">return</span>                                        <span class="split-word" aria-hidden="true">year</span> <span class="split-word" aria-hidden="true">after</span> <span class="split-word" aria-hidden="true">year</span></span>
+                        <p data-scroll-reveal="p" class="l1 a-center"  ><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >A</span>                                        <span class="split-word" >place</span> <span class="split-word" >to</span> <span class="split-word" >live</span> <span class="split-word" >—</span>                                        <span class="split-word" >to</span> </span>
+                            </span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >return</span>                                        <span class="split-word" >year</span> <span class="split-word" >after</span> <span class="split-word" >year</span></span>
                             </span>
                         </p>
                     </div>
@@ -18,7 +18,7 @@
                 <div class="u-160"></div>
                 <div class="grid">
                     <div class="info-s_lead">
-                        <h3 data-scroll-reveal="p" class="h4 a-center"  aria-label="Residences range from 104 to 244 sq.m., offering spacious single level and duplex layouts with generous terraces and rooftop solariums."><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: center; translate: none; rotate: none; scale: none; transform: translate(0%, 110%);"><span class="split-word" aria-hidden="true">Residences</span> <span class="split-word" aria-hidden="true">range</span> <span class="split-word" aria-hidden="true">from</span> <span class="split-word" aria-hidden="true">104</span> <span class="split-word" aria-hidden="true">to</span> <span class="split-word" aria-hidden="true">244</span> <span class="split-word" aria-hidden="true">sq.m.,</span> <span class="split-word" aria-hidden="true">offering</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: center; translate: none; rotate: none; scale: none; transform: translate(0%, 110%);"><span class="split-word" aria-hidden="true">spacious</span> <span class="split-word" aria-hidden="true">single</span> <span class="split-word" aria-hidden="true">level</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">duplex</span> <span class="split-word" aria-hidden="true">layouts</span> <span class="split-word" aria-hidden="true">with</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" style="text-align: center; translate: none; rotate: none; scale: none; transform: translate(0%, 110%);"><span class="split-word" aria-hidden="true">generous</span> <span class="split-word" aria-hidden="true">terraces</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">rooftop</span> <span class="split-word" aria-hidden="true">solariums.</span></span></span></h3></div>
+                        <h3 data-scroll-reveal="p" class="h4 a-center"  ><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Residences</span> <span class="split-word" >range</span> <span class="split-word" >from</span> <span class="split-word" >104</span> <span class="split-word" >to</span> <span class="split-word" >244</span> <span class="split-word" >sq.m.,</span> <span class="split-word" >offering</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >spacious</span> <span class="split-word" >single</span> <span class="split-word" >level</span> <span class="split-word" >and</span> <span class="split-word" >duplex</span> <span class="split-word" >layouts</span> <span class="split-word" >with</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >generous</span> <span class="split-word" >terraces</span> <span class="split-word" >and</span> <span class="split-word" >rooftop</span> <span class="split-word" >solariums.</span></span></span></h3></div>
                 </div>
                 <div class="u-160"></div>
                 <div class="grid">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="u-48"></div>
             </div>
-            <div data-parallax="ctn-down" class="flower apart-info" style="translate: none; rotate: none; scale: none; transform: translate(0%, -10%) scale(1, -1);">
+            <div data-parallax="ctn-down" class="flower apart-info" >
                 <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" poster="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe98eb07b9ca5b07e84_bougainvillea-flowers_04.avif"
                 class="video">
                     <source src="https://assets.era-residence.com/flowers/bougainvillea-flowers_04.webm" type="video/webm">
