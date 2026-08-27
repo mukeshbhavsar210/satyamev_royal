@@ -5,7 +5,7 @@
 <main data-barba-namespace="contact" data-barba="container" class="transition-container">    
   <section data-bg="light" class="section clip">
     <div class="container">
-      @include('layouts.header.flower_video')
+      @include('layouts.header.right_flower_video')
       <div class="lot-w">
         <div class="lot-s">
           <div class="lot-s_info">
@@ -58,20 +58,20 @@
                   <div class="u-48 b-mob"></div>
                   <div class="u-16 b-desk"></div>
                   <div class="btn-list">
-                    <a data-modal-cta-btn="book-a-call" hover-btn="" hover-nav-item="" aria-label="Submit a request" data-wf--btn--variant="sec" href="#" class="btn w-inline-block">
+                    <a data-modal-cta-btn="book-a-call" hover-btn="" hover-nav-item="" data-wf--btn--variant="sec" href="#" class="btn w-inline-block">
                       <div class="btn_label">
                         <div class="btn_label_text">
-                          <div hover="text" class="l1" aria-label="Submit a request">Submit a Request</div>
+                          <div hover="text" class="l1">Submit a Request</div>
                         </div>                       
                       </div>
                       <div class="btn_bg">
                         <div hover="bg" class="btn_bg_fill"></div>
                       </div>
                     </a>
-                    <a aria-label="pdf" hover-btn="" hover-nav-item="" data-wf--btn--variant="sec-circle" href="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a3526a9f0bb965967883ea1_011apt_compressed.pdf" class="btn w-variant-9f3f61aa-a2e8-bef6-01f9-2f3463919d6d w-inline-block">
+                    <a hover-btn="" hover-nav-item="" data-wf--btn--variant="sec-circle" href="https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a3526a9f0bb965967883ea1_011apt_compressed.pdf" class="btn w-variant-9f3f61aa-a2e8-bef6-01f9-2f3463919d6d w-inline-block">
                       <div class="btn_label">
                         <div class="btn_label_text">
-                          <div hover="text" class="l1" aria-label="pdf">PDF</div>
+                          <div hover="text" class="l1">PDF</div>
                         </div>                        
                       </div>
                       <div class="btn_bg">
@@ -82,7 +82,7 @@
                   <div class="u-48"></div>
                 </div>
                 <div class="lot-s_info_line is-top">
-                  <div data-scroll-reveal="line" class="line-v" style="visibility: visible; clip-path: inset(0%);"></div>
+                  <div data-scroll-reveal="line" class="line-v" ></div>
                 </div>
               </div>
             </div>
@@ -217,10 +217,10 @@
             <div class="u-32"></div>
 
             <div class="btn-list center">
-              <a aria-label="View all" hover-btn="" hover-nav-item="" data-wf--btn--variant="sec" href="/apartments" class="btn w-inline-block">
+              <a hover-btn="" hover-nav-item="" data-wf--btn--variant="sec" href="/apartments" class="btn w-inline-block">
                 <div class="btn_label">
                   <div class="btn_label_text">
-                    <div hover="text" class="l1" aria-label="View all">View All</div>
+                    <div hover="text" class="l1">View All</div>
                   </div>                  
                 </div>
                 <div class="btn_bg">

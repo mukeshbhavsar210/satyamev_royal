@@ -12,7 +12,7 @@ Route::get('/', function () {
     $slides = Slide::where('status', 1)->orderBy('sort_order')->get();
     $timelines = Timeline::orderBy('sort_order')->get();
     $floatingTips = Apartment::where('status', 1)->get();
-    $apartments = Apartment::where('status', 1)->take(10)->get();       
+    $apartments = Apartment::where('status', 1)->where('category', 'ongoing')->take(5)->get();
 
     return view('home.index', compact('slides', 'floatingTips', 'apartments', 'timelines'));
 });

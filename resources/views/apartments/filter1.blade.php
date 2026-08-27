@@ -7,7 +7,7 @@
         <div data-select="btn" class="filter_select_btn">
             <div class="l2 reg">Status</div>
             <div class="filter_select_btn_label">
-                <a hover-nav-item-l2="" aria-label="All" href="#" class="nav-item w-inline-block">
+                <a hover-nav-item-l2=""  href="#" class="nav-item w-inline-block">
                     <div class="nav-item_label">
                         <div hover="text" class="nav-item_label_text">
                             

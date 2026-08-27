@@ -29,10 +29,10 @@
                         <div class="l1 a-center mob_a-left">This website uses cookies to ensure you get the best experience on website.</div>
                         <div class="u-24"></div>
                         <div class="cookies_card_btn-list">
-                            <a data-cookies="accept" aria-label="Accept" hover-link="" href="#" class="link w-inline-block">
+                            <a data-cookies="accept"  hover-link="" href="#" class="link w-inline-block">
                                 <div class="link_label">
                                     <div class="link_label_text">
-                                        <div hover="text" class="h6" aria-label="Accept">
+                                        <div hover="text" class="h6" >
                                             <span class="split-line" aria-hidden="true">
                                                 <span class="split-word" aria-hidden="true">
                                                     <span class="split-char" aria-hidden="true">A</span>
@@ -47,7 +47,7 @@
                                         </div>
                                     </div>
                                     <div class="link_label_text is-2">
-                                        <div hover="text" class="h6" aria-label="Accept">
+                                        <div hover="text" class="h6" >
                                             <span class="split-word" aria-hidden="true">
                                                 <span class="split-char" aria-hidden="true" >A</span>
                                                 <span class="split-char" aria-hidden="true" >c</span>
@@ -61,11 +61,11 @@
                                 </div>
                             </a>
                             <div class="h6">/</div>
-                            <a data-cookies="decline" aria-label="Decline" hover-link="" href="#" class="link w-inline-block">
+                            <a data-cookies="decline"  hover-link="" href="#" class="link w-inline-block">
                                 <div class="link_label">
                                     <div class="link_label_text">
-                                        <div hover="text" class="h6" aria-label="Decline">
-                                            <span class="split-line" aria-hidden="true" style="text-align: start;"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">D</span><span class="split-char" aria-hidden="true">e</span>
+                                        <div hover="text" class="h6" >
+                                            <span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">D</span><span class="split-char" aria-hidden="true">e</span>
                                             <span
                                             class="split-char" aria-hidden="true">c</span>
                                             <span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">i</span><span class="split-char" aria-hidden="true">n</span><span class="split-char" aria-hidden="true">e</span></span>
@@ -75,7 +75,7 @@
                                         </div>
                                     </div>
                                     <div class="link_label_text is-2">
-                                        <div hover="text" class="h6" aria-label="Decline"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >D</span>
+                                        <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >D</span>
                                             <span
                                             class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >c</span><span class="split-char"
                                                 aria-hidden="true" >l</span><span class="split-char" aria-hidden="true"

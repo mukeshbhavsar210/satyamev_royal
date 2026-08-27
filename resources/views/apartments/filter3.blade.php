@@ -3,7 +3,7 @@
         <div data-select="btn" class="filter_select_btn">
             <div class="l2 reg">Sort by</div>
             <div class="filter_select_btn_label">
-                <a hover-nav-item-l2="" aria-label="Relevant" href="#" class="nav-item w-inline-block">
+                <a hover-nav-item-l2=""  href="#" class="nav-item w-inline-block">
                     <div class="nav-item_label">
                         <div hover="text" class="nav-item_label_text">
                         <div data-select="value" class="l2">Relevant</div>

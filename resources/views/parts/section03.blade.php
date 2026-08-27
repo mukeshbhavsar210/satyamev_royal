@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div class="pag_progress">
-                                    <div data-slider="progress" class="pag_progress_fill" style="width: 43.2%;"></div>
+                                    <div data-slider="progress" class="pag_progress_fill" ></div>
                                 </div>
                                 <div data-slider="next" class="pag_next">
                                     <div class="pag_prev_label">

@@ -5,7 +5,7 @@
                 <div class="u-48"></div>
                 <div class="grid">
                     <div class="s_title">
-                        <p data-scroll-reveal="p" class="l1 a-center"  aria-label="A place to live — to return year after year"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">A</span>                            <span class="split-word" aria-hidden="true">place</span> <span class="split-word" aria-hidden="true">to</span> <span class="split-word" aria-hidden="true">live</span> <span class="split-word" aria-hidden="true">—</span>
+                        <p data-scroll-reveal="p" class="l1 a-center"  ><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">A</span>                            <span class="split-word" aria-hidden="true">place</span> <span class="split-word" aria-hidden="true">to</span> <span class="split-word" aria-hidden="true">live</span> <span class="split-word" aria-hidden="true">—</span>
                             <span
                             class="split-word" aria-hidden="true">to</span>
                                 </span>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="u-48"></div>
                 <div class="divider">
-                    <div data-scroll-reveal="line" class="line-v" style="visibility: visible; clip-path: inset(0%);"></div>
+                    <div data-scroll-reveal="line" class="line-v" ></div>
                 </div>
                 <div class="u-64"></div>
                 <div class="grid">
@@ -27,7 +27,7 @@
                                     <div data-accordion-card="" class="other-card">
                                         <div class="other-card_name">
                                             <div class="other-card_name_label">
-                                                <h4 data-scroll-reveal="h" class="h3 a-center"  aria-label="Developer"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >D</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >v</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >p</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >r</span></span></h4>
+                                                <h4 data-scroll-reveal="h" class="h3 a-center"  ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >D</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >v</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >p</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >r</span></span></h4>
                                                 <div data-scroll-reveal="ctn" data-ico-plus="" class="other-card_ico" >
                                                     <div class="ico-16">
                                                         <div class="ico w-embed">
@@ -40,7 +40,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div data-accordion-card="content" class="other-card_info" style="overflow: hidden; height: 0px;">
+                                        <div data-accordion-card="content" class="other-card_info" >
                                             <div class="u-32"></div>
                                             <div class="grid _6-columns">
                                                 <div class="other-card_info_desc">
@@ -59,7 +59,7 @@
                                     <div data-accordion-card="" class="other-card">
                                         <div class="other-card_name">
                                             <div class="other-card_name_label">
-                                                <h4 data-scroll-reveal="h" class="h3 a-center"  aria-label="Sales &amp; Marketing"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >S</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >s</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >&amp;</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >M</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >r</span><span class="split-char" aria-hidden="true" >k</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >i</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char" aria-hidden="true" >g</span></span></h4>
+                                                <h4 data-scroll-reveal="h" class="h3 a-center"  ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >S</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >s</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >&amp;</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >M</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >r</span><span class="split-char" aria-hidden="true" >k</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >i</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char" aria-hidden="true" >g</span></span></h4>
                                                 <div data-scroll-reveal="ctn" data-ico-plus="" class="other-card_ico" >
                                                     <div class="ico-16">
                                                         <div class="ico w-embed">
@@ -72,7 +72,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div data-accordion-card="content" class="other-card_info" style="overflow: hidden; height: 0px;">
+                                        <div data-accordion-card="content" class="other-card_info" >
                                             <div class="u-32"></div>
                                             <div class="grid _6-columns">
                                                 <div class="other-card_info_desc">
@@ -93,7 +93,7 @@
                                     <div data-accordion-card="" class="other-card">
                                         <div class="other-card_name">
                                             <div class="other-card_name_label">
-                                                <h4 data-scroll-reveal="h" class="h3 a-center"  aria-label="License obtained"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >L</span><span class="split-char" aria-hidden="true" >i</span><span class="split-char" aria-hidden="true" >c</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char" aria-hidden="true" >s</span><span class="split-char" aria-hidden="true" >e</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >b</span><span class="split-char" aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >i</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >d</span></span></h4>
+                                                <h4 data-scroll-reveal="h" class="h3 a-center"  ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >L</span><span class="split-char" aria-hidden="true" >i</span><span class="split-char" aria-hidden="true" >c</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char" aria-hidden="true" >s</span><span class="split-char" aria-hidden="true" >e</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >b</span><span class="split-char" aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >i</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >d</span></span></h4>
                                                 <div data-scroll-reveal="ctn" data-ico-plus="" class="other-card_ico" >
                                                     <div class="ico-16">
                                                         <div class="ico w-embed">
@@ -106,7 +106,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div data-accordion-card="content" class="other-card_info" style="overflow: hidden; height: 0px;">
+                                        <div data-accordion-card="content" class="other-card_info" >
                                             <div class="u-32"></div>
                                             <div class="grid _6-columns">
                                                 <div class="other-card_info_desc">
@@ -126,7 +126,7 @@
                                     <div data-accordion-card="" class="other-card">
                                         <div class="other-card_name">
                                             <div class="other-card_name_label">
-                                                <h4 data-scroll-reveal="h" class="h3 a-center"  aria-label="2026"><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >2</span><span class="split-char" aria-hidden="true" >0</span><span class="split-char" aria-hidden="true" >2</span><span class="split-char" aria-hidden="true" >6</span></span></h4>
+                                                <h4 data-scroll-reveal="h" class="h3 a-center"  ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >2</span><span class="split-char" aria-hidden="true" >0</span><span class="split-char" aria-hidden="true" >2</span><span class="split-char" aria-hidden="true" >6</span></span></h4>
                                                 <div data-scroll-reveal="ctn" data-ico-plus="" class="other-card_ico" >
                                                     <div class="ico-16">
                                                         <div class="ico w-embed">
@@ -139,7 +139,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div data-accordion-card="content" class="other-card_info" style="overflow: hidden; height: 0px;">
+                                        <div data-accordion-card="content" class="other-card_info" >
                                             <div class="u-32"></div>
                                             <div class="grid _6-columns">
                                                 <div class="other-card_info_desc">
@@ -161,7 +161,7 @@
                 </div>
                 <div class="u-160"></div>
             </div>
-            <div data-parallax="ctn-down" class="flower other" style="translate: none; rotate: none; scale: none; transform: translate(0%, -0.5699%) translate3d(0px, 0px, 0px) rotate(45deg);">
+            <div data-parallax="ctn-down" class="flower other" >
                 <video muted="" playsinline="playsinline" loop="" disablepictureinpicture="" webkit-playsinline="webkit-playsinline" poster="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9f3a19844a4b0caf0_bougainvillea-flowers_07.avif"
                 class="video">
                     <source src="https://assets.era-residence.com/flowers/bougainvillea-flowers_07.webm" type="video/webm">

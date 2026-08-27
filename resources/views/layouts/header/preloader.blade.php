@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="preloader_title-r">
-                    <div data-part="h" class="c1 a-center" aria-label="del Sol">
+                    <div data-part="h" class="c1 a-center" >
                         <span class="split-word" aria-hidden="true">
                             <span class="split-char" aria-hidden="true" >Creating <br />Legacies</span>
                         </span>
