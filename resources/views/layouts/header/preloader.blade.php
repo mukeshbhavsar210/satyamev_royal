@@ -40,8 +40,8 @@
                 </div>
                 <div class="preloader_title-r">
                     <div data-part="h" class="c1 a-center" >
-                        <span class="split-word" aria-hidden="true">
-                            <span class="split-char" aria-hidden="true" >Creating <br />Legacies</span>
+                        <span class="split-word" >
+                            <span class="split-char"  >Creating <br />Legacies</span>
                         </span>
                     </div>
                 </div>

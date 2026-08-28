@@ -93,10 +93,10 @@
                                                     <div class="amen-slide_desc w-clearfix">
                                                         <div class="red-line"></div>
                                                         <h4 data-scroll-reveal="p" data-tab="p" class="h5">
-                                                            <span class="split-line-mask" aria-hidden="true" >
-                                                                <span class="split-line" aria-hidden="true" >
-                                                                    <span class="split-word" aria-hidden="true">Instead</span> <span class="split-word" aria-hidden="true">of</span> <span class="split-word" aria-hidden="true">corridors,</span> <span class="split-word" aria-hidden="true">walking</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">paths</span> <span class="split-word" aria-hidden="true">connect</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">apartments</span> <span class="split-word" aria-hidden="true">—</span> <span class="split-word" aria-hidden="true">making</span> <span class="split-word" aria-hidden="true">Era</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Residence</span> <span class="split-word" aria-hidden="true">feel</span> <span class="split-word" aria-hidden="true">closer</span> <span class="split-word" aria-hidden="true">to</span> <span class="split-word" aria-hidden="true">a</span> <span class="split-word" aria-hidden="true">group</span> <span class="split-word" aria-hidden="true">of</span> <span class="split-word" aria-hidden="true">private</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">homes</span> <span class="split-word" aria-hidden="true">than</span> <span class="split-word" aria-hidden="true">a</span> 
-                                                                    <span class="split-word" aria-hidden="true">standard</span></span>
+                                                            <span class="split-line-mask"  >
+                                                                <span class="split-line"  >
+                                                                    <span class="split-word" >Instead</span> <span class="split-word" >of</span> <span class="split-word" >corridors,</span> <span class="split-word" >walking</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >paths</span> <span class="split-word" >connect</span> <span class="split-word" >the</span> <span class="split-word" >apartments</span> <span class="split-word" >—</span> <span class="split-word" >making</span> <span class="split-word" >Era</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Residence</span> <span class="split-word" >feel</span> <span class="split-word" >closer</span> <span class="split-word" >to</span> <span class="split-word" >a</span> <span class="split-word" >group</span> <span class="split-word" >of</span> <span class="split-word" >private</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >homes</span> <span class="split-word" >than</span> <span class="split-word" >a</span> 
+                                                                    <span class="split-word" >standard</span></span>
                                                                 </span>
                                                             </h4>
                                                     </div>
@@ -126,12 +126,12 @@
                                             <div class="amen-slide_b">
                                                 <div class="grid">
                                                     <div class="amen-slide_title">
-                                                        <h3 data-tab="p" class="l1" aria-label="Swimming Pool"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Swimming</span> <span class="split-word" aria-hidden="true">Pool</span></span></span></h3>
+                                                        <h3 data-tab="p" class="l1" aria-label="Swimming Pool"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Swimming</span> <span class="split-word" >Pool</span></span></span></h3>
                                                         <div class="u-32"></div>
                                                     </div>
                                                     <div class="amen-slide_desc w-clearfix">
                                                         <div class="red-line"></div>
-                                                        <h4 data-tab="p" class="h5" aria-label="Saltwater swimming pool, Children’s pool, Sauna, jacuzzi and wellness shower"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Saltwater</span> <span class="split-word" aria-hidden="true">swimming</span> <span class="split-word" aria-hidden="true">pool,</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Children’s</span> <span class="split-word" aria-hidden="true">pool,</span> <span class="split-word" aria-hidden="true">Sauna,</span> <span class="split-word" aria-hidden="true">jacuzzi</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">wellness</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">shower</span></span></span></h4></div>
+                                                        <h4 data-tab="p" class="h5" aria-label="Saltwater swimming pool, Children’s pool, Sauna, jacuzzi and wellness shower"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Saltwater</span> <span class="split-word" >swimming</span> <span class="split-word" >pool,</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Children’s</span> <span class="split-word" >pool,</span> <span class="split-word" >Sauna,</span> <span class="split-word" >jacuzzi</span> <span class="split-word" >and</span> <span class="split-word" >wellness</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >shower</span></span></span></h4></div>
                                                 </div>
                                                 <div class="u-48"></div>
                                             </div>
@@ -151,12 +151,12 @@
                                             <div class="amen-slide_b">
                                                 <div class="grid">
                                                     <div class="amen-slide_title">
-                                                        <h3 data-tab="p" class="l1" aria-label="Parking area"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Parking</span> <span class="split-word" aria-hidden="true">area</span></span></span></h3>
+                                                        <h3 data-tab="p" class="l1" aria-label="Parking area"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Parking</span> <span class="split-word" >area</span></span></span></h3>
                                                         <div class="u-32"></div>
                                                     </div>
                                                     <div class="amen-slide_desc w-clearfix">
                                                         <div class="red-line"></div>
-                                                        <h4 data-tab="p" class="h5" aria-label="Each parking space includes pre-installation for optional EV charging."><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Each</span> <span class="split-word" aria-hidden="true">parking</span> <span class="split-word" aria-hidden="true">space</span> <span class="split-word" aria-hidden="true">includes</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">pre-installation</span> <span class="split-word" aria-hidden="true">for</span> <span class="split-word" aria-hidden="true">optional</span> <span class="split-word" aria-hidden="true">EV</span> <span class="split-word" aria-hidden="true">charging.</span></span></span></h4></div>
+                                                        <h4 data-tab="p" class="h5" aria-label="Each parking space includes pre-installation for optional EV charging."><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Each</span> <span class="split-word" >parking</span> <span class="split-word" >space</span> <span class="split-word" >includes</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >pre-installation</span> <span class="split-word" >for</span> <span class="split-word" >optional</span> <span class="split-word" >EV</span> <span class="split-word" >charging.</span></span></span></h4></div>
                                                 </div>
                                                 <div class="u-48"></div>
                                             </div>
@@ -176,12 +176,12 @@
                                             <div class="amen-slide_b">
                                                 <div class="grid">
                                                     <div class="amen-slide_title">
-                                                        <h3 data-tab="p" class="l1" aria-label="Spa &amp; gym"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Spa</span> <span class="split-word" aria-hidden="true">&amp;</span> <span class="split-word" aria-hidden="true">gym</span></span></span></h3>
+                                                        <h3 data-tab="p" class="l1" aria-label="Spa &amp; gym"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Spa</span> <span class="split-word" >&amp;</span> <span class="split-word" >gym</span></span></span></h3>
                                                         <div class="u-32"></div>
                                                     </div>
                                                     <div class="amen-slide_desc w-clearfix">
                                                         <div class="red-line"></div>
-                                                        <h4 data-tab="p" class="h5" aria-label="Designed exclusively for residents and their guests, the amenities at ERA encourage a slower and more balanced Mediterranean lifestyle"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Designed</span> <span class="split-word" aria-hidden="true">exclusively</span> <span class="split-word" aria-hidden="true">for</span> <span class="split-word" aria-hidden="true">residents</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">their</span> <span class="split-word" aria-hidden="true">guests,</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">amenities</span> <span class="split-word" aria-hidden="true">at</span> <span class="split-word" aria-hidden="true">ERA</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">encourage</span> <span class="split-word" aria-hidden="true">a</span> <span class="split-word" aria-hidden="true">slower</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">more</span> <span class="split-word" aria-hidden="true">balanced</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Mediterranean</span> <span class="split-word" aria-hidden="true">lifestyle</span></span></span></h4></div>
+                                                        <h4 data-tab="p" class="h5" aria-label="Designed exclusively for residents and their guests, the amenities at ERA encourage a slower and more balanced Mediterranean lifestyle"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Designed</span> <span class="split-word" >exclusively</span> <span class="split-word" >for</span> <span class="split-word" >residents</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >and</span> <span class="split-word" >their</span> <span class="split-word" >guests,</span> <span class="split-word" >the</span> <span class="split-word" >amenities</span> <span class="split-word" >at</span> <span class="split-word" >ERA</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >encourage</span> <span class="split-word" >a</span> <span class="split-word" >slower</span> <span class="split-word" >and</span> <span class="split-word" >more</span> <span class="split-word" >balanced</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Mediterranean</span> <span class="split-word" >lifestyle</span></span></span></h4></div>
                                                 </div>
                                                 <div class="u-48"></div>
                                             </div>
@@ -201,12 +201,12 @@
                                             <div class="amen-slide_b">
                                                 <div class="grid">
                                                     <div class="amen-slide_title">
-                                                        <h3 data-tab="p" class="l1" aria-label="Landscaping"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Landscaping</span></span></span></h3>
+                                                        <h3 data-tab="p" class="l1" aria-label="Landscaping"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Landscaping</span></span></span></h3>
                                                         <div class="u-32"></div>
                                                     </div>
                                                     <div class="amen-slide_desc w-clearfix">
                                                         <div class="red-line"></div>
-                                                        <h4 data-tab="p" class="h5" aria-label="The landscaping concept was designed to soften the architecture and strengthen the connection between the residences and the Mediterranean environment."><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">The</span> <span class="split-word" aria-hidden="true">landscaping</span> <span class="split-word" aria-hidden="true">concept</span> <span class="split-word" aria-hidden="true">was</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">designed</span> <span class="split-word" aria-hidden="true">to</span> <span class="split-word" aria-hidden="true">soften</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">architecture</span> <span class="split-word" aria-hidden="true">and</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">strengthen</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">connection</span> <span class="split-word" aria-hidden="true">between</span> <span class="split-word" aria-hidden="true">the</span> </span></span><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">residences</span> <span class="split-word" aria-hidden="true">and</span> <span class="split-word" aria-hidden="true">the</span> <span class="split-word" aria-hidden="true">Mediterranean</span> <span class="split-word" aria-hidden="true">environment.</span></span></span></h4></div>
+                                                        <h4 data-tab="p" class="h5" aria-label="The landscaping concept was designed to soften the architecture and strengthen the connection between the residences and the Mediterranean environment."><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >The</span> <span class="split-word" >landscaping</span> <span class="split-word" >concept</span> <span class="split-word" >was</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >designed</span> <span class="split-word" >to</span> <span class="split-word" >soften</span> <span class="split-word" >the</span> <span class="split-word" >architecture</span> <span class="split-word" >and</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >strengthen</span> <span class="split-word" >the</span> <span class="split-word" >connection</span> <span class="split-word" >between</span> <span class="split-word" >the</span> </span></span><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >residences</span> <span class="split-word" >and</span> <span class="split-word" >the</span> <span class="split-word" >Mediterranean</span> <span class="split-word" >environment.</span></span></span></h4></div>
                                                 </div>
                                                 <div class="u-48"></div>
                                             </div>
@@ -230,35 +230,35 @@
                                             <div role="list" class="amen-tabs-cms_list w-dyn-items">
                                                 <div role="listitem" class="amen-tabs-cms_list_item w-dyn-item">
                                                     <div data-tab="" data-tab-trigger="gated-community" class="amen-tab is-active">
-                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Gated community"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Gated</span>                                                            <span class="split-word" aria-hidden="true">community</span></span>
+                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Gated community"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Gated</span>                                                            <span class="split-word" >community</span></span>
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div role="listitem" class="amen-tabs-cms_list_item w-dyn-item">
                                                     <div data-tab="" data-tab-trigger="swimming-pool-2" class="amen-tab">
-                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Swimming Pool"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Swimming</span>                                                            <span class="split-word" aria-hidden="true">Pool</span></span>
+                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Swimming Pool"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Swimming</span>                                                            <span class="split-word" >Pool</span></span>
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div role="listitem" class="amen-tabs-cms_list_item w-dyn-item">
                                                     <div data-tab="" data-tab-trigger="swimming-pool" class="amen-tab">
-                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Parking area"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Parking</span>                                                            <span class="split-word" aria-hidden="true">area</span></span>
+                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Parking area"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Parking</span>                                                            <span class="split-word" >area</span></span>
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div role="listitem" class="amen-tabs-cms_list_item w-dyn-item">
                                                     <div data-tab="" data-tab-trigger="spa-gym" class="amen-tab">
-                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Spa &amp; gym"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Spa</span>                                                            <span class="split-word" aria-hidden="true">&amp;</span> <span class="split-word" aria-hidden="true">gym</span></span>
+                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Spa &amp; gym"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Spa</span>                                                            <span class="split-word" >&amp;</span> <span class="split-word" >gym</span></span>
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div role="listitem" class="amen-tabs-cms_list_item w-dyn-item">
                                                     <div data-tab="" data-tab-trigger="landscaping" class="amen-tab">
-                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Landscaping"><span class="split-line-mask" aria-hidden="true" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true">Landscaping</span></span>
+                                                        <div data-scroll-reveal="p" class="h5"  aria-label="Landscaping"><span class="split-line-mask"  ><span class="split-line"  ><span class="split-word" >Landscaping</span></span>
                                                             </span>
                                                         </div>
                                                     </div>
@@ -279,30 +279,30 @@
                                                 <a hover-nav-item="" aria-label="Book a call now" href="#" class="nav-item w-inline-block">
                                                     <div class="nav-item_label">
                                                         <div class="nav-item_label_text">
-                                                            <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B</span><span class="split-char"
-                                                                aria-hidden="true">o</span><span class="split-char" aria-hidden="true">o</span><span class="split-char" aria-hidden="true">k</span></span>
-                                                                </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span>
-                                                                </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span><span class="split-char"
-                                                                aria-hidden="true">a</span><span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">l</span></span>
-                                                                </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">n</span><span class="split-char"
-                                                                aria-hidden="true">o</span><span class="split-char" aria-hidden="true">w</span></span>
+                                                            <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >B</span><span class="split-char"
+                                                                >o</span><span class="split-char" >o</span><span class="split-char" >k</span></span>
+                                                                </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >a</span></span>
+                                                                </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >c</span><span class="split-char"
+                                                                >a</span><span class="split-char" >l</span><span class="split-char" >l</span></span>
+                                                                </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >n</span><span class="split-char"
+                                                                >o</span><span class="split-char" >w</span></span>
                                                                 </span>
                                                             </div>
                                                         </div>
                                                         <div class="nav-item_label_text is-2">
-                                                            <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >B</span>
+                                                            <div hover="text" class="l1" aria-label="Book a call now"><span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >B</span>
                                                                 <span
-                                                                class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true"
+                                                                class="split-char"  >o</span><span class="split-char"  >o</span><span class="split-char" 
                                                                     >k</span></span>
-                                                                    </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span></span>
+                                                                    </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >a</span></span>
                                                                     </span>
-                                                                    <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >c</span>
+                                                                    <span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >c</span>
                                                                     <span
-                                                                    class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char" aria-hidden="true"
+                                                                    class="split-char"  >a</span><span class="split-char"  >l</span><span class="split-char" 
                                                                         >l</span></span>
-                                                                        </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >n</span>
+                                                                        </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >n</span>
                                                                         <span
-                                                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >w</span></span>
+                                                                        class="split-char"  >o</span><span class="split-char"  >w</span></span>
                                                                             </span>
                                                             </div>
                                                         </div>

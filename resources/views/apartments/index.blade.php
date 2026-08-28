@@ -3,7 +3,7 @@
 @section('content')
 
 <main data-barba-namespace="contact" data-barba="container" class="transition-container">
-  <section class="section clip">
+  <section class="section clip">    
     <div class="container">
       <div class="apart-w">
         <div class="apart-s">
@@ -12,261 +12,195 @@
           <div class="grid">
             <div data-sort="" data-filter="" class="apart-s_cms">
               <div class="apart-s_title">
-                <h1 data-prevent-flicker="" data-scroll-reveal="h" class="h1 a-center mob_a-left" >
-                  <span class="split-word" >
-                    <span class="split-char"  >A</span>
-                    <span class="split-char"  >p</span>
-                    <span class="split-char"  >a</span>
-                    <span class="split-char"  >r</span>
-                    <span class="split-char"  >t</span>
-                    <span class="split-char"  >m</span>
-                    <span class="split-char"  >e</span>
-                    <span class="split-char"  >n</span>
-                    <span class="split-char"  >t</span>
-                    <span class="split-char"  >s</span>                    
-                  </span>
-                </h1>
-                <div data-prevent-flicker="" data-filter-count="" data-scroll-reveal="h" class="h1 a-right b-desk" >25</div>
+                <h2>Apartments</h2>
+                <h3>{{ $apartments->count() }}</h3>
               </div>
               <div class="u-16"></div>
 
-              <div data-prevent-flicker="" data-scroll-reveal="ctn" class="apart-s_cms_filter" >
+              <div class="apart-s_cms_filter" >
                 <div class="apart-s_cms_filter_c">
                   <div class="grid _9-columns">
-                      @include('apartments.filter1')
-                      @include('apartments.filter2')
-                      @include('apartments.filter3')
-                      @include('apartments.filter4')
+                    @php
+                      $filters = [
+                          'status' => [
+                              'title' => 'Status',
+                              'items' => [
+                                  '' => 'All',
+                                  'ongoing' => 'Ongoing',
+                                  'completed' => 'Completed',
+                                  'upcoming' => 'Upcoming',
+                              ],
+                          ],
+
+                          'bed' => [
+                              'title' => 'Bedrooms',
+                              'items' => [
+                                  '' => 'All',                                  
+                                  '2' => '2',
+                                  '3' => '3',
+                                  '4' => '4',
+                              ],
+                          ],
+
+                          'sort_by' => [
+                              'title' => 'Sort By',
+                              'items' => [
+                                  'relevant' => 'Relevant',
+                                  'smallest_area' => 'Smallest Area',
+                                  'largest_area' => 'Largest Area',
+                              ],
+                          ],
+                      ];
+                  @endphp
+
+                  @foreach ($filters as $filterKey => $filter)
+                    @php
+                        $currentValue = request($filterKey);
+                        $currentLabel = $filter['items'][$currentValue ?? ''] ?? $filter['title'];
+                    @endphp
+
+                    <div class="apart-s_cms_filter_item {{ $loop->last ? 'is-last' : '' }}">
+                        <div data-select="" class="filter_select">
+                            <div data-select="btn" class="filter_select_btn">
+                                <div class="l2 reg">{{ $filter['title'] }}</div>
+                                <div class="filter_select_btn_label apartment-filter-dropdown">
+                                    <div class="filter-dropdown-menu filter_select_drop-down">
+                                        <div class="filter_select_drop-down_list">
+                                            <div class="cms w-dyn-list">
+                                                <div class="filter_select_drop-down_list w-dyn-items">
+                                                    @foreach ($filter['items'] as $value => $label)
+                                                        <div class="cms_list_item w-dyn-item">
+                                                            <div class="filter_select_drop-down_list_item no-padd">
+                                                                <div class="l1">
+                                                                    <a href="/apartments?{{ $filterKey }}={{ $value }}"
+                                                                      data-filter="{{ $filterKey }}" data-value="{{ $value }}"
+                                                                      class="nav-item w-inline-block {{ $currentValue == $value ? 'is-active' : '' }}">
+                                                                        {{ $label }}
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- Selected value --}}
+                                    <a hover-nav-item-l2="" href="#" class="filter-dropdown-toggle nav-item w-inline-block">
+                                        <div class="nav-item_label">
+                                            <div hover="text" class="nav-item_label_text">
+                                                <div data-select="value" class="l2">
+                                                    <span class="selected-filter">{{ $currentLabel }}</span>
+                                                </div>
+                                            </div>
+                                            <div hover="text" class="nav-item_label_text is-2">
+                                                <div data-select="value" class="l2">
+                                                    <span class="selected-filter">{{ $currentLabel }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div hover="ico" class="ico-12">
+                                            <div class="ico w-embed">
+                                                <svg width="100%"
+                                                    height="100%"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+
+                                                    <path d="M17.1166 8.11436C17.6048 7.62682 18.3982 7.62641 18.8862 8.11436C19.3741 8.60232 19.3737 9.39569 18.8862 9.88389L12.8862 15.8839C12.398 16.372 11.6048 16.372 11.1166 15.8839L5.11662 9.88389C4.62846 9.39574 4.62846 8.60252 5.11662 8.11436C5.60483 7.62682 6.3982 7.62641 6.88615 8.11436L12.0014 13.2296L17.1166 8.11436Z"
+                                                          fill="currentColor">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        @if ($loop->last)
+                            <a href="/apartments" class="reset-filters nav-item w-inline-block">
+                              <div class="nav-item_label">
+                                  <div hover="text" class="nav-item_label_text">
+                                      <div class="l2">Reset</div>
+                                  </div>
+                                  <div hover="text" class="nav-item_label_text is-2">
+                                      <div class="l2">Reset</div>
+                                  </div>
+                              </div>
+                          </a>
+                        @endif
+                    </div>
+                @endforeach
+              </div>
+          </div>
+
+            <div class="apart-s_cms_decor">
+                <div data-wf--decor--variant="med" class="decor">
+                    <div class="frame_l-tb w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="50%" y1="0%" x2="50%" y2="100%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
+                        </svg>
+                    </div>
+                    <div class="frame_lt w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0%" y1="100%" x2="100%" y2="0%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
+                        </svg>
+                    </div>
+                    <div class="frame_t-lr w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0%" y1="50%" x2="100%" y2="50%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
+                        </svg>
+                        </div>
+                        <div class="frame_rt w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0%" y1="0%" x2="100%" y2="100%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
+                        </svg>
+                        </div>
+                        <div class="frame_r-tb w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="50%" y1="0%" x2="50%" y2="100%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
+                        </svg>
+                        </div>
+                        <div class="frame_rb w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0%" y1="100%" x2="100%" y2="0%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
+                        </svg>
+                    </div>
+                    <div class="frame_b-lr w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0%" y1="50%" x2="100%" y2="50%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
+                        </svg>
+                    </div>
+                    <div class="frame_lb w-variant-db77920b-274b-9558-1ced-34e87f5b7d94 w-embed">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="0%" y1="0%" x2="100%" y2="100%" stroke-width="1" stroke="currentColor" vector-effect="non-scaling-stroke"></line>
+                        </svg>
+                    </div>
                   </div>
                 </div>
               </div>              
-              
-              <div class="u-16 b-desk"></div>
-              <div class="u-8 b-mob"></div>
-
-              <div data-prevent-flicker="" data-scroll-reveal="ctn" class="apart-cms w-dyn-list">
-                <div data-sort-list="" data-filter-list="" role="list" class="apart-cms_list w-dyn-items">
                 
-                @foreach($apartments as $apartment)
-                  <div class="apart-cms_list_item w-dyn-item">
-                    <a data-sort-relevant="1" hover-apart-card="" href="{{ route('apartments.details', $apartment->id) }}" class="apart-card w-inline-block">
-                      <div class="apart-card_c">                                 
-                        <div class="apart-card_b">
-                          <div class="apart-card_info">
-                            <h3 class="h5">{{ $apartment->apartment_name }}</h3>                             
-                          </div>              
-                          <div class="u-16"></div>            
-                          <h2 class="l2 a-center">{{ $apartment->project?->project_name }}</h2>                          
-                        </div>
-
-                        <div class="apart-card_img">
-                          <div class="apart-card_img_prim">
-                            @if($apartment->image)
-                                <img src="{{ asset('storage/' . $apartment->image) }}" loading="eager" alt="" sizes="100vw" alt="{{ $apartment->apartment_name }}" class="img contain">
-                            @else
-                                <span>No image</span>
-                            @endif                           
-                          </div>
-                        </div>                        
-                        
-                        <div class="apart-card_t">
-                          <h2 data-type="ground-floor-basement" class="l2 a-center">Ground floor + basement</h2>
-                          <div class="u-4"></div>
-                            <p id="" class="l2 reg a-center">
-                              <span>Completion: </span>
-                              <span>{{ \Carbon\Carbon::parse($apartment->completion)->format('F Y') }}</span>
-                            </p>
-                        </div>
-                      </div>                      
-                      <div hover="shadow" class="apart-card_shadow"></div>
-                    </a>
+                <div class="u-16 b-desk"></div>
+                <div class="u-8 b-mob"></div>
+                
+                <div class="apart-cms w-dyn-list">
+                  <div class="apart-cms_list w-dyn-items" id="apartments-list">                  
+                      @include('apartments.list', ['apartments' => $apartments])                  
                   </div>
-                @endforeach
                 </div>
               </div>
             </div>
+            <div class="u-160"></div>
           </div>
-          <div class="u-160"></div>
-        </div>
-
-        @include('layouts.header.right_flower_video')
-
-        @include('apartments.arch')
-    </div>
-    </div>
-  </section>
-
-  <section data-bg="color" class="section theme_on-color">
-    <div data-footer-clip="" class="container" >
-      <div class="cta-w">
-        <div class="cta-s">
-         
-          <div class="grid">
-            <div class="cta-s_title">
-              <h2 data-scroll-reveal="h" class="h1 a-center">
-                <span class="split-word" >
-                  <span class="split-char"  >P</span>
-                  <span class="split-char"  >e</span>
-                  <span class="split-char"  >r</span>
-                  <span class="split-char"  >f</span>
-                  <span class="split-char"  >e</span>
-                  <span class="split-char"  >c</span>
-                  <span class="split-char"  >t</span>
-                </span>
-                <br>
-                <span class="split-word" >
-                  <span class="split-char"  >s</span>
-                  <span class="split-char"  >e</span>
-                  <span class="split-char"  >a</span>
-                </span>
-                <span class="split-word" >
-                  <span class="split-char"  >v</span>
-                  <span class="split-char"  >i</span>
-                  <span class="split-char"  >e</span>
-                  <span class="split-char"  >w</span>
-                  <span class="split-char"  >s</span>
-                </span>
-              </h2>
-              <div class="u-32"></div>
-              <h3 data-scroll-reveal="h" class="c1 a-center">
-                <span class="split-word" >
-                  <span class="split-char"  >F</span>
-                  <span class="split-char"  >r</span>
-                  <span class="split-char"  >o</span>
-                  <span class="split-char"  >m</span>
-                </span>
-                <span class="split-word" >
-                  <span class="split-char"  >r</span>
-                  <span class="split-char"  >o</span>
-                  <span class="split-char"  >o</span>
-                  <span class="split-char"  >f</span>
-                  <span class="split-char"  >t</span>
-                  <span class="split-char"  >o</span>
-                  <span class="split-char"  >p</span>
-                </span>
-                <span class="split-word" >
-                  <span class="split-char"  >t</span>
-                  <span class="split-char"  >e</span>
-                  <span class="split-char"  >r</span>
-                  <span class="split-char"  >r</span>
-                  <span class="split-char"  >a</span>
-                  <span class="split-char"  >c</span>
-                  <span class="split-char"  >e</span>
-                  <span class="split-char"  >s</span>
-                </span>
-              </h3>
-              <div class="u-160"></div>
-              <div data-scroll-reveal="ctn" class="cta-s_title_btn" >
-                <div hover-btn-circle="" data-magnetic-btn="" hover-nav-item-trigger="" class="btn-circle">
-                  <div data-magnetic-inner="" class="btn-circle_label">
-                    <a hover-nav-item="" href="/apartments" aria-current="page" class="nav-item w-inline-block w--current">
-                      <div class="nav-item_label">
-                        <div class="nav-item_label_text">
-                          <div hover="text" class="l1" >
-                            <span class="split-word-mask"  >
-                              <span class="split-word" >
-                                <span class="split-char" >V</span>
-                                <span class="split-char" >i</span>
-                                <span class="split-char" >e</span>
-                                <span class="split-char" >w</span>
-                              </span>
-                            </span>
-                            <span class="split-word-mask"  >
-                              <span class="split-word" >
-                                <span class="split-char" >a</span>
-                                <span class="split-char" >v</span>
-                                <span class="split-char" >a</span>
-                                <span class="split-char" >i</span>
-                                <span class="split-char" >l</span>
-                                <span class="split-char" >a</span>
-                                <span class="split-char" >b</span>
-                                <span class="split-char" >l</span>
-                                <span class="split-char" >e</span>
-                              </span>
-                            </span>
-                            <span class="split-word-mask"  >
-                              <span class="split-word" >
-                                <span class="split-char" >a</span>
-                                <span class="split-char" >p</span>
-                                <span class="split-char" >a</span>
-                                <span class="split-char" >r</span>
-                                <span class="split-char" >t</span>
-                                <span class="split-char" >m</span>
-                                <span class="split-char" >e</span>
-                                <span class="split-char" >n</span>
-                                <span class="split-char" >t</span>
-                                <span class="split-char" >s</span>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                        <div class="nav-item_label_text is-2">
-                          <div hover="text" class="l1" >
-                            <span class="split-word-mask"  >
-                              <span class="split-word" >
-                                <span class="split-char"  >V</span>
-                                <span class="split-char"  >i</span>
-                                <span class="split-char"  >e</span>
-                                <span class="split-char"  >w</span>
-                              </span>
-                            </span>
-                            <span class="split-word-mask"  >
-                              <span class="split-word" >
-                                <span class="split-char"  >a</span>
-                                <span class="split-char"  >v</span>
-                                <span class="split-char"  >a</span>
-                                <span class="split-char"  >i</span>
-                                <span class="split-char"  >l</span>
-                                <span class="split-char"  >a</span>
-                                <span class="split-char"  >b</span>
-                                <span class="split-char"  >l</span>
-                                <span class="split-char"  >e</span>
-                              </span>
-                            </span>
-                            <span class="split-word-mask"  >
-                              <span class="split-word" >
-                                <span class="split-char"  >a</span>
-                                <span class="split-char"  >p</span>
-                                <span class="split-char"  >a</span>
-                                <span class="split-char"  >r</span>
-                                <span class="split-char"  >t</span>
-                                <span class="split-char"  >m</span>
-                                <span class="split-char"  >e</span>
-                                <span class="split-char"  >n</span>
-                                <span class="split-char"  >t</span>
-                                <span class="split-char"  >s</span>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="btn-circle_bg w-embed">
-                    <svg data-circle="" viewBox="0 0 208 208" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                      <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(-150 104 104)" ></circle>
-                      <circle data-arc="" cx="104" cy="104" r="103.5" stroke="currentColor" stroke-width="1" fill="none" transform="rotate(30 104 104)" ></circle>
-                      <circle cx="104" cy="104" r="103.5" stroke="var(--_colors---base-1000--line)" stroke-width="1" fill="none"></circle>
-                    </svg>
-                  </div>
-                  <a href="/apartments" aria-current="page" class="btn-circle_link w-inline-block w--current"></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w_bg">
-          <div data-parallax="w" class="img-w">
-            <img data-parallax="img" loading="eager" alt="" src="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a1571e51d50c8bcf5f4bb3d_era-residence-garden-2.webp" sizes="(max-width: 1920px) 100vw, 1920px" srcset="https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a1571e51d50c8bcf5f4bb3d_era-residence-garden-2-p-500.png 500w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a1571e51d50c8bcf5f4bb3d_era-residence-garden-2-p-800.png 800w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a1571e51d50c8bcf5f4bb3d_era-residence-garden-2-p-1080.png 1080w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a1571e51d50c8bcf5f4bb3d_era-residence-garden-2-p-1600.png 1600w, https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a1571e51d50c8bcf5f4bb3d_era-residence-garden-2.webp 1920w" class="img-p" >
-            <div class="img-over-grad from-top _4x"></div>
-            <div class="img-over-grad"></div>
-            <div class="img-over-grad"></div>
-          </div>
+          <div data-video-playpause="" data-parallax="ctn-down" class="flower apart" >
+            @include('parts.flowers.flower_rt')
         </div>
       </div>
     </div>
   </section>
- 
 </main>
     
 @endsection

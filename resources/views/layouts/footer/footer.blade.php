@@ -11,7 +11,7 @@
                         <div data-scroll-reveal="ctn" class="cta-s_title_btn" >
                             <div hover-btn-circle="" data-magnetic-btn="" hover-nav-item-trigger="" class="btn-circle">
                                 <div data-magnetic-inner="" class="btn-circle_label">
-                                    <a hover-nav-item="" href="projects" class="nav-item w-inline-block">
+                                    <a hover-nav-item="" href="apartments" class="nav-item w-inline-block">
                                         <div class="nav-item_label">
                                             <div class="nav-item_label_text">
                                                 <div hover="text" class="l1">Completed <br />Projects</div>
@@ -26,16 +26,16 @@
                                         <circle cx="104" cy="104" r="103.5" stroke="var(--_colors---base-1000--line)" stroke-width="1" fill="none"></circle>
                                     </svg>
                                 </div>
-                                <a href="projects" class="btn-circle_link w-inline-block"></a>
+                                <a href="apartments" class="btn-circle_link w-inline-block"></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="w_bg">
-                <div data-parallax="w" class="img-w">
+                <div data-parallax="w" class="img-w mukesh">
                     @php
-                        $why = setting('gallery', []);
+                        $why = setting('why', []);
                     @endphp                                
 
                     @if (!empty($why))

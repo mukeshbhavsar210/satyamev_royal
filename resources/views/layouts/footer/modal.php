@@ -19,16 +19,16 @@
                         <a data-part="ctn"  hover-link="" data-modal-close="mob" href="/" aria-current="page" class="link w-inline-block w--current">
                             <div class="link_label">
                                 <div class="link_label_text">
-                                    <div hover="text" class="h6" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">H</span><span class="split-char" aria-hidden="true">o</span>
+                                    <div hover="text" class="h6" ><span class="split-line"  ><span class="split-word" ><span class="split-char" >H</span><span class="split-char" >o</span>
                                         <span
-                                        class="split-char" aria-hidden="true">m</span><span class="split-char" aria-hidden="true">e</span></span><span class="link_line" ></span></span>
+                                        class="split-char" >m</span><span class="split-char" >e</span></span><span class="link_line" ></span></span>
                                     </div>
                                 </div>
                                 <div class="link_label_text is-2">
-                                    <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >H</span>
+                                    <div hover="text" class="h6" ><span class="split-word" ><span class="split-char"  >H</span>
                                         <span
-                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >m</span><span class="split-char"
-                                            aria-hidden="true" >e</span></span>
+                                        class="split-char"  >o</span><span class="split-char"  >m</span><span class="split-char"
+                                             >e</span></span>
                                     </div>
                                 </div>
                             </div>
@@ -36,38 +36,38 @@
                         <a data-part="ctn"  hover-link="" data-modal-close="mob" href="/apartments" class="link w-inline-block">
                             <div class="link_label">
                                 <div class="link_label_text">
-                                    <div hover="text" class="h6" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">S</span><span class="split-char" aria-hidden="true">e</span>
+                                    <div hover="text" class="h6" ><span class="split-line"  ><span class="split-word" ><span class="split-char" >S</span><span class="split-char" >e</span>
                                         <span
-                                        class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">c</span><span class="split-char" aria-hidden="true">t</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span>
+                                        class="split-char" >l</span><span class="split-char" >e</span><span class="split-char" >c</span><span class="split-char" >t</span></span> <span class="split-word" ><span class="split-char" >a</span>
                                             <span
-                                            class="split-char" aria-hidden="true">n</span>
-                                                </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">A</span><span class="split-char" aria-hidden="true">p</span><span class="split-char" aria-hidden="true">a</span>
+                                            class="split-char" >n</span>
+                                                </span> <span class="split-word" ><span class="split-char" >A</span><span class="split-char" >p</span><span class="split-char" >a</span>
                                                 <span
-                                                class="split-char" aria-hidden="true">r</span><span class="split-char" aria-hidden="true">t</span><span class="split-char" aria-hidden="true">m</span><span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">n</span>
+                                                class="split-char" >r</span><span class="split-char" >t</span><span class="split-char" >m</span><span class="split-char" >e</span><span class="split-char" >n</span>
                                                     <span
-                                                    class="split-char" aria-hidden="true">t</span>
+                                                    class="split-char" >t</span>
                                                         </span><span class="link_line" ></span></span>
                                     </div>
                                 </div>
                                 <div class="link_label_text is-2">
-                                    <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >S</span>
+                                    <div hover="text" class="h6" ><span class="split-word" ><span class="split-char"  >S</span>
                                         <span
-                                        class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char"
-                                            aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >c</span>
+                                        class="split-char"  >e</span><span class="split-char"  >l</span><span class="split-char"
+                                             >e</span><span class="split-char"  >c</span>
                                             <span
-                                            class="split-char" aria-hidden="true" >t</span>
-                                                </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span>
+                                            class="split-char"  >t</span>
+                                                </span> <span class="split-word" ><span class="split-char"  >a</span>
                                                 <span
-                                                class="split-char" aria-hidden="true" >n</span>
-                                                    </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >A</span>
+                                                class="split-char"  >n</span>
+                                                    </span> <span class="split-word" ><span class="split-char"  >A</span>
                                                     <span
-                                                    class="split-char" aria-hidden="true" >p</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char"
-                                                        aria-hidden="true" >r</span><span class="split-char" aria-hidden="true"
-                                                        >t</span><span class="split-char" aria-hidden="true" >m</span>
+                                                    class="split-char"  >p</span><span class="split-char"  >a</span><span class="split-char"
+                                                         >r</span><span class="split-char" 
+                                                        >t</span><span class="split-char"  >m</span>
                                                         <span
-                                                        class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >n</span>
+                                                        class="split-char"  >e</span><span class="split-char"  >n</span>
                                                             <span
-                                                            class="split-char" aria-hidden="true" >t</span>
+                                                            class="split-char"  >t</span>
                                                                 </span>
                                     </div>
                                 </div>
@@ -78,22 +78,22 @@
                             <div class="link_label">
                                 <div class="link_label_text">
                                     <div hover="text" class="h6" >
-                                        <span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B000000</span><span class="split-char" aria-hidden="true">o</span>
+                                        <span class="split-line"  ><span class="split-word" ><span class="split-char" >B000000</span><span class="split-char" >o</span>
                                         <span
-                                        class="split-char" aria-hidden="true">o</span><span class="split-char" aria-hidden="true">k</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span>
+                                        class="split-char" >o</span><span class="split-char" >k</span></span> <span class="split-word" ><span class="split-char" >a</span></span> <span class="split-word" ><span class="split-char" >c</span>
                                             <span
-                                            class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">l</span></span><span class="link_line" ></span></span>
+                                            class="split-char" >a</span><span class="split-char" >l</span><span class="split-char" >l</span></span><span class="link_line" ></span></span>
                                     </div>
                                 </div>
                                 <div class="link_label_text is-2">
-                                    <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >B</span>
+                                    <div hover="text" class="h6" ><span class="split-word" ><span class="split-char"  >B</span>
                                         <span
-                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >o</span><span class="split-char"
-                                            aria-hidden="true" >k</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span></span>
-                                            <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >c</span>
+                                        class="split-char"  >o</span><span class="split-char"  >o</span><span class="split-char"
+                                             >k</span></span> <span class="split-word" ><span class="split-char"  >a</span></span>
+                                            <span class="split-word" ><span class="split-char"  >c</span>
                                             <span
-                                            class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char"
-                                                aria-hidden="true" >l</span></span>
+                                            class="split-char"  >a</span><span class="split-char"  >l</span><span class="split-char"
+                                                 >l</span></span>
                                     </div>
                                 </div>
                             </div>
@@ -101,21 +101,21 @@
                         <a data-part="ctn"  hover-link="" data-modal-close="mob" href="/contact" class="link w-inline-block">
                             <div class="link_label">
                                 <div class="link_label_text">
-                                    <div hover="text" class="h6" ><span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">C</span><span class="split-char" aria-hidden="true">o</span>
+                                    <div hover="text" class="h6" ><span class="split-line"  ><span class="split-word" ><span class="split-char" >C</span><span class="split-char" >o</span>
                                         <span
-                                        class="split-char" aria-hidden="true">n</span><span class="split-char" aria-hidden="true">t</span><span class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">c</span><span class="split-char" aria-hidden="true">t</span></span>
+                                        class="split-char" >n</span><span class="split-char" >t</span><span class="split-char" >a</span><span class="split-char" >c</span><span class="split-char" >t</span></span>
                                             <span
                                             class="link_line" ></span>
                                                 </span>
                                     </div>
                                 </div>
                                 <div class="link_label_text is-2">
-                                    <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >C</span>
+                                    <div hover="text" class="h6" ><span class="split-word" ><span class="split-char"  >C</span>
                                         <span
-                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char"
-                                            aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >a</span>
+                                        class="split-char"  >o</span><span class="split-char"  >n</span><span class="split-char"
+                                             >t</span><span class="split-char"  >a</span>
                                             <span
-                                            class="split-char" aria-hidden="true" >c</span><span class="split-char" aria-hidden="true" >t</span></span>
+                                            class="split-char"  >c</span><span class="split-char"  >t</span></span>
                                     </div>
                                 </div>
                             </div>

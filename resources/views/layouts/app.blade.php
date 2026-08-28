@@ -19,7 +19,9 @@
 </div>
 
 <script src="{{ asset('assets/js/jquery-3.5.1.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/js/effects.js') }}"></script>
+@if (!Route::is('apartments'))
+    <script src="{{ asset('assets/js/effects.js') }}"></script>
+@endif
 <script src="{{ asset('assets/js/gsap.min.js') }}"></script>
 <script src="{{ asset('assets/js/ScrollTrigger.min.js') }}"></script>
 <script src="{{ asset('assets/js/SplitText.min.js') }}"></script>

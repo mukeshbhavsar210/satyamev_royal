@@ -4,32 +4,32 @@
     <div class="link_label">
         <div class="link_label_text">
             <div hover="text" class="h6" >
-                <span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">S</span><span class="split-char" aria-hidden="true">e</span>
-                <span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">c</span><span class="split-char" aria-hidden="true">t</span></span> <span class="link_line" ></span></span>
-                    <span class="split-line" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">n</span></span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">A</span>
-                        <span class="split-char" aria-hidden="true">p</span><span class="split-char" aria-hidden="true">a</span><span class="split-char" aria-hidden="true">r</span><span class="split-char" aria-hidden="true">t</span><span class="split-char" aria-hidden="true">m</span>
-                            <span class="split-char" aria-hidden="true">e</span><span class="split-char" aria-hidden="true">n</span><span class="split-char" aria-hidden="true">t</span></span><span class="link_line" ></span></span>
+                <span class="split-line"  ><span class="split-word" ><span class="split-char" >S</span><span class="split-char" >e</span>
+                <span class="split-char" >l</span><span class="split-char" >e</span><span class="split-char" >c</span><span class="split-char" >t</span></span> <span class="link_line" ></span></span>
+                    <span class="split-line"  ><span class="split-word" ><span class="split-char" >a</span><span class="split-char" >n</span></span> <span class="split-word" ><span class="split-char" >A</span>
+                        <span class="split-char" >p</span><span class="split-char" >a</span><span class="split-char" >r</span><span class="split-char" >t</span><span class="split-char" >m</span>
+                            <span class="split-char" >e</span><span class="split-char" >n</span><span class="split-char" >t</span></span><span class="link_line" ></span></span>
             </div>
         </div>
         <div class="link_label_text is-2">
-            <div hover="text" class="h6" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >S</span>
+            <div hover="text" class="h6" ><span class="split-word" ><span class="split-char"  >S</span>
                 <span
-                class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char"
-                    aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >c</span>
+                class="split-char"  >e</span><span class="split-char"  >l</span><span class="split-char"
+                     >e</span><span class="split-char"  >c</span>
                     <span
-                    class="split-char" aria-hidden="true" >t</span>
+                    class="split-char"  >t</span>
                         </span>
-                        <br><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span>
+                        <br><span class="split-word" ><span class="split-char"  >a</span>
                         <span
-                        class="split-char" aria-hidden="true" >n</span>
-                            </span> <span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >A</span>
+                        class="split-char"  >n</span>
+                            </span> <span class="split-word" ><span class="split-char"  >A</span>
                             <span
-                            class="split-char" aria-hidden="true" >p</span><span class="split-char" aria-hidden="true" >a</span><span class="split-char"
-                                aria-hidden="true" >r</span><span class="split-char" aria-hidden="true"
-                                >t</span><span class="split-char" aria-hidden="true" >m</span>
+                            class="split-char"  >p</span><span class="split-char"  >a</span><span class="split-char"
+                                 >r</span><span class="split-char" 
+                                >t</span><span class="split-char"  >m</span>
                                 <span
-                                class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >n</span><span class="split-char"
-                                    aria-hidden="true" >t</span></span>
+                                class="split-char"  >e</span><span class="split-char"  >n</span><span class="split-char"
+                                     >t</span></span>
             </div>
         </div>
     </div>
@@ -156,19 +156,19 @@
                                         <a data-form-btn="" hover-btn="" hover-nav-item=""  data-wf--btn--variant="sec" href="#" class="btn w-inline-block">
                                             <div class="btn_label">
                                                 <div class="btn_label_text">
-                                                    <div hover="text" class="l1" ><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">S</span><span class="split-char" aria-hidden="true">u</span>
+                                                    <div hover="text" class="l1" ><span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >S</span><span class="split-char" >u</span>
                                                         <span
-                                                        class="split-char" aria-hidden="true">b</span><span class="split-char" aria-hidden="true">m</span><span class="split-char" aria-hidden="true">i</span><span class="split-char" aria-hidden="true">t</span></span>
+                                                        class="split-char" >b</span><span class="split-char" >m</span><span class="split-char" >i</span><span class="split-char" >t</span></span>
                                                             </span>
                                                     </div>
                                                 </div>
                                                 <div class="btn_label_text is-2">
-                                                    <div hover="text" class="l1" ><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >S</span>
+                                                    <div hover="text" class="l1" ><span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >S</span>
                                                         <span
-                                                        class="split-char" aria-hidden="true" >u</span><span class="split-char" aria-hidden="true" >b</span><span class="split-char" aria-hidden="true"
-                                                            >m</span><span class="split-char" aria-hidden="true" >i</span>
+                                                        class="split-char"  >u</span><span class="split-char"  >b</span><span class="split-char" 
+                                                            >m</span><span class="split-char"  >i</span>
                                                             <span
-                                                            class="split-char" aria-hidden="true" >t</span>
+                                                            class="split-char"  >t</span>
                                                                 </span>
                                                                 </span>
                                                     </div>

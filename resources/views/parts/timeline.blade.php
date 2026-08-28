@@ -13,10 +13,10 @@
                                 <div class="grid">
                                     <div class="s_title">
                                         <h2 data-part="p" class="l1 a-center">
-                                            <span class="split-line-mask" aria-hidden="true" >
-                                                <span class="split-line" aria-hidden="true">
-                                                    <span class="split-word" aria-hidden="true">Our</span>
-                                                    <span class="split-word" aria-hidden="true">Journey</span>
+                                            <span class="split-line-mask"  >
+                                                <span class="split-line" >
+                                                    <span class="split-word" >Our</span>
+                                                    <span class="split-word" >Journey</span>
                                                 </span>
                                             </span>
                                         </h2>
