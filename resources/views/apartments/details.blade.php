@@ -5,7 +5,7 @@
 <main data-barba-namespace="contact" data-barba="container" class="transition-container">    
   <section data-bg="light" class="section clip">
     <div class="container">
-      @include('layouts.header.right_flower_video')
+      <!-- @include('parts.flowers.flower_rt') -->
       <div class="lot-w">
         <div class="lot-s">
           <div class="lot-s_info">
@@ -15,15 +15,14 @@
                   <div class="u-48"></div>
                   <div class="u-272 b-mob"></div>
                   <div class="lot-s_info_header_num">
-                    <h1 class="h3">{{ $apartment->apartment_name }}</h1>                    
+                    <h3 class="h3">{{ $apartment->apartment_name }}</h3>
                   </div>
-                  <!-- <div class="u-16"></div>
-                  <h2 class="l2">Project Name: {{ $apartment->project?->project_name }}</h2> -->
-                  <div class="u-16"></div>
-                  <h3 class="l2">
-                    <span>Address: {{ $apartment->location }}</span>
+                  <div class="u-24"></div>                  
+                  <h3 class="l2"><span>{{ $apartment->location }}</span></h3>
+                  <div class="u-4"></div>
+                  <h3 class="l2 reg">
+                    <span>Completion: </span><span>{{ $apartment->completion }}</span>
                   </h3>
-                  <div class="u-16"></div>
                 </div>
                 <div data-lenis-scroll="" class="lot-s_info_t scrollbar-none lenis">
                   <div class="u-64"></div>
@@ -235,4 +234,8 @@
     </div>
   </section>
 </main>
+@endsection
+
+@section('customJs')
+    <script src="{{ asset('assets/js/effects.js') }}"></script>
 @endsection

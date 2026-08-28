@@ -18,7 +18,8 @@
                             <div class="apart-s_title">
                                 <h1 data-prevent-flicker="" data-scroll-reveal="h" class="h1 a-center mob_a-left">
                                     {{ $page->title }}
-                                </h1>                                
+                                </h1>        
+                                {!! $page->content !!}                        
                             </div>
                         </div>
                     </div>                 
@@ -49,9 +50,8 @@
                                         <a hover-nav-item=""  href="/apartments" aria-current="page" class="nav-item w-inline-block w--current">
                                             <div class="nav-item_label">
                                                 <div class="nav-item_label_text">
-                                                    <div hover="text" class="l1" >
-                                                      View Apartments</div>
-                                                </div>                                                
+                                                    <div hover="text" class="l1" >View Apartments</div>
+                                                </div>
                                             </div>
                                         </a>
                                     </div>
@@ -74,6 +74,7 @@
                         @if($page->featured_image)
                             <img src="{{ \Illuminate\Support\Facades\Storage::url($page->featured_image) }}" alt="{{ $page->title }}" loading="eager" alt="Showcase" sizes="(max-width: 1920px) 100vw, 1920px" class="img-p">
                         @endif
+
                         <div class="img-over-grad from-top _4x"></div>
                         <div class="img-over-grad"></div>
                         <div class="img-over-grad"></div>
@@ -82,84 +83,66 @@
             </div>
         </div>
     </section>                                                 
-@php
-    $pageImages = $page->images ?? collect();
-@endphp
+                @php
+                        $pageImages = $page->images ?? collect();
+                    @endphp
 
-@if ($pageImages->isNotEmpty())
-    @foreach ($pageImages as $pageImage)
-        @php
-            $filename = pathinfo($pageImage->image, PATHINFO_FILENAME);
+                    @if ($pageImages->isNotEmpty())
 
-            // Remove size suffix: -500, -800, -1080, etc.
-            $baseName = preg_replace('/-\d+$/', '', $filename);
+                        <div class="timeline-images">
 
-            $directory = dirname($pageImage->image);
-            $extension = pathinfo($pageImage->image, PATHINFO_EXTENSION);
+                            @foreach ($pageImages as $pageImage)
 
-            $sizes = [500, 800, 1080, 1600, 1920];
+                                @php
+                                    $filename = pathinfo($pageImage->image, PATHINFO_FILENAME);
 
-            $srcset = [];
+                                    // Remove size suffix: -500, -800, -1080, etc.
+                                    $baseName = preg_replace('/-\d+$/', '', $filename);
 
-            foreach ($sizes as $size) {
+                                    $directory = dirname($pageImage->image);
+                                    $extension = pathinfo($pageImage->image, PATHINFO_EXTENSION);
 
-                $sizeFile = "{$baseName}-{$size}.{$extension}";
-                $sizePath = "{$directory}/{$sizeFile}";
+                                    $sizes = [500, 800, 1080, 1600, 1920];
 
-                if (Storage::disk('public')->exists($sizePath)) {
-                    $srcset[] = Storage::url($sizePath) . " {$size}w";
-                }
-            }
+                                    $srcset = [];
 
-            // Prefer 1920, then 1600, etc.
-            $mainImage = null;
+                                    foreach ($sizes as $size) {
 
-            foreach ([1920, 1600, 1080, 800, 500] as $size) {
+                                        $sizeFile = "{$baseName}-{$size}.{$extension}";
+                                        $sizePath = "{$directory}/{$sizeFile}";
 
-                $sizeFile = "{$baseName}-{$size}.{$extension}";
-                $sizePath = "{$directory}/{$sizeFile}";
+                                        if (Storage::disk('public')->exists($sizePath)) {
+                                            $srcset[] = Storage::url($sizePath) . " {$size}w";
+                                        }
+                                    }
 
-                if (Storage::disk('public')->exists($sizePath)) {
-                    $mainImage = $sizePath;
-                    break;
-                }
-            }
+                                    // Prefer 1920, then 1600, etc.
+                                    $mainImage = null;
 
-            // Generate div1, div2, div3...
-            $divClass = 'div' . $loop->iteration;
-        @endphp
+                                    foreach ([1920, 1600, 1080, 800, 500] as $size) {
+                                        $sizeFile = "{$baseName}-{$size}.{$extension}";
+                                        $sizePath = "{$directory}/{$sizeFile}";
 
-        @if ($mainImage)
-            <div class="{{ $divClass }}">
-                <div class="amen-scroll-area">
-                  <div class="scroll-area_screen">
-                    <section class="section clip theme_on-color">
-                      <div class="container">
-                        <div class="amen-w" >
-                          <div class="amen-s">
-                            <div data-tabs-hilight="ver" data-tabs="" class="amen-s_cms">
-                              <div class="amen-cms w-dyn-list" >
-                                <div role="list" class="amen-cms_list w-dyn-items">
-                                  <div data-reveal-first="" data-tab-content="gated-community" role="listitem" class="amen-cms_list_item w-dyn-item is-active">
-                                    <div data-parallax="w" class="amen-slide">                        
-                                      <div class="amen-slide_img">
-                                        <div data-tab="slide" class="img-w">
-                                          <div class="img-w"> 
-                                              <img loading="lazy" alt="{{ $page->title }}" sizes="(max-width: 1920px) 100vw, 1920px" class="img-p"
-                                                  src="{{ Storage::url($mainImage) }}" srcset="{{ implode(', ', $srcset) }}" />
+                                        if (Storage::disk('public')->exists($sizePath)) {
+                                            $mainImage = $sizePath;
+                                            break;
+                                        }
+                                    }
 
-                                                  <div class="img-over-grad from-top"></div>
-                                              <div class="img-over-grad from-bot _4x bot"></div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>                   
+                                    $divClass = 'div' . $loop->iteration;
+                                @endphp
+
+                                @if ($mainImage)
+                                    <div class=" timeline-image-item" >
+                                        <img loading="lazy" alt="{{ $page->title }}"
+                                            sizes="(max-width: 1920px) 100vw, 1920px" class="img-p"
+                                            src="{{ Storage::url($mainImage) }}" srcset="{{ implode(', ', $srcset) }}"
+                                        >
                                     </div>
-                                  </div>
-                                </div>
-                            @endif
-                        @endforeach
-                    @endif                                                              
+                                @endif
+                            @endforeach
+                        </div>
+                    @endif    
                 </div>
     
                   <div class="amm-s_cms_btn-w b-desk">
@@ -197,7 +180,7 @@
         </section>
       </div>  
 
-    <section class="section arch clip">
+    <!-- <section class="section arch clip">
       <div class="container">
         <div class="other-title-w">
           <div class="other-title-s">
@@ -225,8 +208,8 @@
           </div>
         </div>
       </div>
-  </section>
-
+  </section> -->
+<!-- 
 <section class="section clip">
     <div class="container">
         <div data-video-playpause="" class="arch-scroll-area">
@@ -248,7 +231,7 @@
                 <div class="arch-s">
                     <div class="arch-s_t">
                         <div class="u-48"></div>
-                        <h2 data-text="h" data-fit-text="" class="h1 a-center" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >A</span><span class="split-char" aria-hidden="true" >r</span><span class="split-char" aria-hidden="true" >c</span><span class="split-char" aria-hidden="true" >h</span><span class="split-char" aria-hidden="true" >i</span><span class="split-char" aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >c</span><span class="split-char" aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >u</span><span class="split-char" aria-hidden="true" >r</span><span class="split-char" aria-hidden="true" >e</span></span></h2>
+                        <h2 data-text="h" data-fit-text="" class="h1 a-center" ><span class="split-word" ><span class="split-char"  >A</span><span class="split-char"  >r</span><span class="split-char"  >c</span><span class="split-char"  >h</span><span class="split-char"  >i</span><span class="split-char"  >t</span><span class="split-char"  >e</span><span class="split-char"  >c</span><span class="split-char"  >t</span><span class="split-char"  >u</span><span class="split-char"  >r</span><span class="split-char"  >e</span></span></h2>
                         <div class="u-32"></div>
                         <div class="grid">
                             <div class="arch-s_desc">
@@ -268,31 +251,31 @@
                                         <a hover-nav-item=""  href="#" class="nav-item w-inline-block">
                                             <div class="nav-item_label">
                                                 <div class="nav-item_label_text">
-                                                    <div hover="text" class="l1" ><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B</span><span class="split-char" aria-hidden="true">o</span>
+                                                    <div hover="text" class="l1" ><span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >B</span><span class="split-char" >o</span>
                                                         <span
-                                                        class="split-char" aria-hidden="true">o</span><span class="split-char" aria-hidden="true">k</span></span>
-                                                            </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span>
-                                                            </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span><span class="split-char"
-                                                            aria-hidden="true">a</span><span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">l</span></span>
-                                                            </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">n</span><span class="split-char"
-                                                            aria-hidden="true">o</span><span class="split-char" aria-hidden="true">w</span></span>
+                                                        class="split-char" >o</span><span class="split-char" >k</span></span>
+                                                            </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >a</span></span>
+                                                            </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >c</span><span class="split-char"
+                                                            >a</span><span class="split-char" >l</span><span class="split-char" >l</span></span>
+                                                            </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >n</span><span class="split-char"
+                                                            >o</span><span class="split-char" >w</span></span>
                                                             </span>
                                                     </div>
                                                 </div>
                                                 <div class="nav-item_label_text is-2">
-                                                    <div hover="text" class="l1" ><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >B</span>
+                                                    <div hover="text" class="l1" ><span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >B</span>
                                                         <span
-                                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true"
+                                                        class="split-char"  >o</span><span class="split-char"  >o</span><span class="split-char" 
                                                             >k</span></span>
-                                                            </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span></span>
+                                                            </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >a</span></span>
                                                             </span>
-                                                            <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >c</span>
+                                                            <span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >c</span>
                                                             <span
-                                                            class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char" aria-hidden="true"
+                                                            class="split-char"  >a</span><span class="split-char"  >l</span><span class="split-char" 
                                                                 >l</span></span>
-                                                                </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >n</span>
+                                                                </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >n</span>
                                                                 <span
-                                                                class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >w</span></span>
+                                                                class="split-char"  >o</span><span class="split-char"  >w</span></span>
                                                                     </span>
                                                     </div>
                                                 </div>
@@ -331,6 +314,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 @endsection

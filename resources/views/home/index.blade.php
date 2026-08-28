@@ -13,19 +13,30 @@
                     <div class="u-272 b-mob"></div>                    
                     <div class="grid">
                         <div class="hero-s_logo">
-                            <h3 data-prevent-flicker="" data-scroll-reveal="h" class="h4 a-center">
-                                {{ setting('punch_line1') }}<br />{{ setting('punch_line2') }}
+                            <h3 data-prevent-flicker="" data-scroll-reveal="h" class="h1 a-center">
+                                <span class="split-word">Satyamev</span><br />
+                                <span class="split-word">Group</span>
                             </h3>
                             <div class="hero-s_logo_a">
-                                <h2 data-prevent-flicker="" data-scroll-reveal="a" class="a2">{{ setting('company_name') }}</h2>
-                            </div>
-                        
-                            <div class="u-24"></div>
-                            <h3 data-prevent-flicker="" data-scroll-reveal="h" class="h6 a-center">Since {{ setting('since') }}</h3>
+                                <h2 data-prevent-flicker="" data-scroll-reveal="a" class="a2">Since {{ setting('since') }}</h2>
+                            </div>                            
+                            <!-- <h3 data-prevent-flicker="" data-scroll-reveal="h" class="h6 a-center">Since {{ setting('since') }}</h3> -->
                         </div>
-                    
+
+                        <div class="u-24"></div>
                         <span data-tab-trigger="day"></span>
                         <div class="hero-s_tabs_divider is-day"></div>
+                    </div>
+                    <div class="u-48"></div>
+                    <div class="grid">
+                        <h3 class="hero-s_title h5">                            
+                            <span data-scroll-reveal="h" data-prevent-flicker="" class="a-left">
+                                <div class="span">{{ setting('punch_line1') }}</div>
+                            </span>                            
+                            <span data-scroll-reveal="h" data-prevent-flicker="" class="a-right">
+                                <div class="span">{{ setting('punch_line2') }}</div>
+                            </span>
+                        </h3>
                     </div>
                 </div>
                 <div class="hero-w_bg">
@@ -215,81 +226,83 @@
 <section data-bg="light" data-snap="" class="section z-2 theme_on-brand">
     <div class="container">
         <div class="benefits-w">
-            <div class="benefits-s">
-                <div class="grid fill">
-                    <div data-slider="" class="benefits-s_cms">
-                        <div class="benefits-s_cms_pag">
-                            <div class="u-48"></div>
-                            <div class="u-16"></div>
-                            <div class="benefit-slide_img"></div>
-                            <div class="u-16"></div>
-                            <div data-scroll-reveal="ctn" data-slider="pag" class="pag" >
-                                <div data-slider="prev" class="pag_prev">
-                                    <div class="ico-16">
-                                        <div class="ico w-embed">
-                                            <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M10.4717 12.4717C10.2113 12.7321 9.78866 12.7321 9.52831 12.4717L5.52831 8.47173C5.26796 8.21138 5.26796 7.78872 5.52831 7.52837L9.52831 3.52837C9.78866 3.26802 10.2113 3.26802 10.4717 3.52837C10.732 3.78872 10.732 4.21138 10.4717 4.47173L6.94335 8.00005L10.4717 11.5284C10.732 11.7887 10.732 12.2114 10.4717 12.4717Z"
-                                                fill="currentColor"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div class="pag_prev_label">
-                                        <div data-slider="current" class="l1">3</div>
+            <div class="benefits-s">                
+                <div data-slider="" class="benefits-s_cms">
+                    <div class="benefits-s_cms_pag">
+                        <div class="u-48"></div>
+                        <div class="u-16"></div>
+                        <div class="benefit-slide_img"></div>
+                        <div class="u-16"></div>
+                        <div data-scroll-reveal="ctn" data-slider="pag" class="pag" >
+                            <div data-slider="prev" class="pag_prev">
+                                <div class="ico-16">
+                                    <div class="ico w-embed">
+                                        <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10.4717 12.4717C10.2113 12.7321 9.78866 12.7321 9.52831 12.4717L5.52831 8.47173C5.26796 8.21138 5.26796 7.78872 5.52831 7.52837L9.52831 3.52837C9.78866 3.26802 10.2113 3.26802 10.4717 3.52837C10.732 3.78872 10.732 4.21138 10.4717 4.47173L6.94335 8.00005L10.4717 11.5284C10.732 11.7887 10.732 12.2114 10.4717 12.4717Z"
+                                            fill="currentColor"></path>
+                                        </svg>
                                     </div>
                                 </div>
-                                <div class="pag_progress">
-                                    <div data-slider="progress" class="pag_progress_fill" ></div>
+                                <div class="pag_prev_label">
+                                    <div data-slider="current" class="l1">3</div>
                                 </div>
-                                <div data-slider="next" class="pag_next">
-                                    <div class="pag_prev_label">
-                                        <div data-slider="next-num" class="l1">1</div>
-                                    </div>
-                                    <div class="ico-16">
-                                        <div class="ico w-embed">
-                                            <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.52833 3.52827C5.78868 3.26792 6.21134 3.26792 6.47169 3.52827L10.4717 7.52827C10.732 7.78862 10.732 8.21128 10.4717 8.47163L6.47169 12.4716C6.21134 12.732 5.78868 12.732 5.52833 12.4716C5.26798 12.2113 5.26798 11.7886 5.52833 11.5283L9.05665 7.99995L5.52833 4.47163C5.26798 4.21128 5.26798 3.78862 5.52833 3.52827Z"
-                                                fill="currentColor"></path>
-                                            </svg>
-                                        </div>
+                            </div>
+                            <div class="pag_progress">
+                                <div data-slider="progress" class="pag_progress_fill" ></div>
+                            </div>
+                            <div data-slider="next" class="pag_next">
+                                <div class="pag_prev_label">
+                                    <div data-slider="next-num" class="l1">1</div>
+                                </div>
+                                <div class="ico-16">
+                                    <div class="ico w-embed">
+                                        <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5.52833 3.52827C5.78868 3.26792 6.21134 3.26792 6.47169 3.52827L10.4717 7.52827C10.732 7.78862 10.732 8.21128 10.4717 8.47163L6.47169 12.4716C6.21134 12.732 5.78868 12.732 5.52833 12.4716C5.26798 12.2113 5.26798 11.7886 5.52833 11.5283L9.05665 7.99995L5.52833 4.47163C5.26798 4.21128 5.26798 3.78862 5.52833 3.52827Z"
+                                            fill="currentColor"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="benefits-cms w-dyn-list">
-                            <div role="list" class="benefits-cms_list w-dyn-items">
-                                @foreach($apartments as $value)
-                                    <div data-reveal-first="" data-slider="slide" role="listitem" class="benefits-cms_list_item w-dyn-item" >
-                                        <div class="benefit-slide">
-                                            <div class="benefit-slide_t">
-                                                <div class="u-24 b-desk"></div>
-                                                <div class="u-272 b-mob"></div>
-                                                <h4 data-scroll-reveal="h" data-slider="h" class="h4 a-center b-desk">
-                                                    {{ $value->apartment_name }}
-                                                </h4>
-                                            </div>
+                    </div>
+                    <div class="benefits-cms w-dyn-list">
+                        <div role="list" class="benefits-cms_list w-dyn-items">
+                            @foreach($apartments as $value)
+                                <div data-reveal-first="" data-slider="slide" role="listitem" class="benefits-cms_list_item w-dyn-item" >
+                                    <div class="benefit-slide">
+                                        <div class="benefit-slide_t">
+                                            <div class="u-24 b-desk"></div>
+                                            <div class="u-272 b-mob"></div>
+                                            <h4 data-scroll-reveal="h" data-slider="h" class="h3 a-center b-desk">
+                                                {{ $value->apartment_name }}
+                                            </h4>
+                                        </div>
 
-                                            <div class="benefit-slide_c">
-                                                <div class="benefit-slide_img">
-                                                    <div data-scroll-reveal="slide" data-slider="img" class="img-w" >
-                                                        @if($value->image)
+                                        <div class="benefit-slide_c">
+                                            <div class="u-24 b-desk"></div>
+                                            <div class="benefit-slide_img">
+                                                <div data-scroll-reveal="slide" data-slider="img" class="img-w" >
+                                                    @if($value->image)
+                                                        <a href="/apartments">
                                                             <img src="{{ Storage::url($value->image) }}" loading="eager" alt="{{ $value->title }}" sizes="100vw" class="img" >
-                                                        @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="benefit-slide_b">
-                                                <div class="grid _8-columns">
-                                                    <div class="benefit-slide_desc">
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center"><b>Size: {{ $value->area }}</b></p>
-                                                        <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">{{ $value->location }}</p>
-                                                    </div>
+                                                        </a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="u-48 b-desk"></div>
+                                        <div class="u-48 b-desk"></div>
+
+                                        <div class="benefit-slide_b">                                                
+                                            <div class="benefit-slide_desc">
+                                                <p data-scroll-reveal="p" data-slider="p" class="p1 a-center"><b>Size: {{ $value->area }}</b></p>
+                                                <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">Location: {{ $value->location }}</p>
+                                            </div>                                                
+                                        </div>                                            
                                     </div>
-                                @endforeach                                                                                                  
-                            </div>
+                                </div>
+                            @endforeach                                                                                                  
                         </div>
                     </div>
                 </div>
@@ -425,7 +438,7 @@
                     </div>                      
 
                     <div class="loc-path-w">
-                        <div class="loc-path-s2">
+                        <div class="loc-path-s">
                             <div class="loc-path-s_t">
                                 <div class="u-48 b-desk"></div>
                                 <div class="u-160 b-mob"></div>
@@ -435,49 +448,46 @@
                                 @include('parts.flowers.flower_lb')
                             </div>                                                     
                             
-                            <div class="other-s_cms">
-                                <h3 class="h3">Timeline</h3>
+                            <div class="other-s_cms">                                
                                 <div class="u-24"></div>
-
+                                
                                 <div class="other-cms w-dyn-list">
-                                    <div role="listitem" class="other-cms_list w-dyn-items">
-                                        @foreach($timelines as $index => $timeline)
-                                            <div class="other-cms_list_item w-dyn-item">
-                                                <div class="other-card {{ $index === 0 ? 'is-active' : '' }}" data-index="{{ $index }}" data-accordion-card="">
-                                                    <div class="other-card_name">
-                                                        <div class="other-card_name_label">
-                                                            <h4 data-scroll-reveal="h" class="timeline-title">
-                                                                {{ $timeline->year }}
-                                                            </h4>
+                                    <div class="timeline-wrapper">                                        
+                                        <button type="button" class="timeline-nav timeline-prev" aria-label="Previous year">
+                                            &#10094;
+                                        </button>
+                                        
+                                        <div class="timeline-years-wrap">
+                                            <div class="timeline-years">
+                                                @foreach($timelines as $index => $timeline)
+                                                    <div class="timeline-year {{ $index === 0 ? 'is-active' : '' }}" data-index="{{ $index }}" >
+                                                        <h4 class="h4">{{ $timeline->year }}</h4>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
 
-                                                            <div data-scroll-reveal="ctn" data-ico-plus="" class="other-card_ico" >
-                                                                <div class="ico-16">
-                                                                    <div class="ico w-embed">
-                                                                        <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                                                            <path d="M8 2.66602C8.36819 2.66602 8.66699 2.96579 8.66699 3.33398V7.33301H12.667L12.8008 7.34668C13.1046 7.40886 13.3339 7.67787 13.334 8C13.334 8.36803 13.035 8.66673 12.667 8.66699H8.66699V12.667C8.66673 13.035 8.36803 13.334 8 13.334C7.63205 13.3339 7.33327 13.0349 7.33301 12.667V8.66699H3.33398C2.96579 8.66699 2.66602 8.36819 2.66602 8C2.6661 7.63188 2.96585 7.33301 3.33398 7.33301H7.33301V3.33398C7.33301 2.96585 7.63188 2.6661 8 2.66602Z"
-                                                                                fill="currentColor" ></path>
-                                                                        </svg>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                        <button type="button" class="timeline-nav timeline-next" aria-label="Next year">
+                                            &#10095;
+                                        </button>
+
+                                        <div class="timeline-content">
+                                            @foreach($timelines as $index => $timeline)
+                                                <div class="timeline-item {{ $index === 0 ? 'is-active' : '' }}" data-index="{{ $index }}" >
+                                                    <div class="timeline-image">
+                                                        @if($timeline->image)
+                                                            <img src="{{ Storage::url($timeline->image) }}" lt="{{ $timeline->title }}" />
+                                                        @endif
                                                     </div>
 
-                                                    <div data-accordion-card="content" class="other-card_info">                                                                                                                        
-                                                        <div class="other-card_info_desc">
-                                                            @if($timeline->image)
-                                                                <img src="{{ Storage::url($timeline->image) }}" alt="{{ $timeline->title }}" >
-                                                            @endif
-
-                                                            <h5 class="h5">{{ $timeline->title }}</h5>
-                                                            <div class="u-16 b-desk"></div>
-                                                            <p>{!! $timeline->description !!}</p>                                                                
-                                                        </div>
+                                                    <div class="timeline-info">
+                                                        <h4 class="h4">{{ $timeline->title }}</h4>
+                                                        <p>{!! $timeline->description !!}</p>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach                                          
-                                    </div>
+                                            @endforeach
+                                        </div>
+                                    </div>                                                                    
                                 </div>
                             </div>
 
@@ -498,6 +508,5 @@
 
     {{-- @include('parts.contact') 
     @include('parts.modal')
-    @include('parts.floating')   --}}
-    
+    @include('parts.floating')   --}}    
 @endsection

@@ -1,4 +1,4 @@
-<div class="image-card">
+<div class="image-card {{ $section['heading'] == 'Apartments' ? 'apartment' : 'timeline' }}">
     <div class="image-thumb">
         @if($record->image)
             <img src="{{ asset('storage/' . $record->image) }}" alt="{{ $record->{$section['title']} }}" >

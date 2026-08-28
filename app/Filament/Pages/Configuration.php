@@ -4,7 +4,6 @@ namespace App\Filament\Pages;
 
 use App\Models\Apartment;
 use App\Models\Timeline;
-use App\Models\Slide;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
@@ -299,126 +298,7 @@ class Configuration extends Page implements HasForms, HasActions {
 
                 $this->redirect(static::getUrl());
             });
-    }               
-
-    //Slides
-    protected function slideFormSchema(): array {
-        return [
-            Grid::make(4)
-                ->schema([
-                    Grid::make(1)
-                        ->schema([
-                            TextInput::make('title')->label('Slide Title')->required()->maxLength(255),
-                            TextInput::make('description')->label('Description'),                            
-                            FileUpload::make('image')->label('Slide Image')->image()->imageEditor()
-                                    ->imageEditorAspectRatios([
-                                        '1920:700',
-                                    ])
-                                    ->disk('public')
-                                    ->directory('settings/slides')
-                                    ->visibility('public')
-                                    ->getUploadedFileNameForStorageUsing(
-                                        fn ($file, $get) =>
-                                            Str::slug($get('title'))
-                                            . '-'
-                                            . now()->format('YmdHis')
-                                            . '.'
-                                            . $file->getClientOriginalExtension()
-                                    ),
-                        ])->columnSpan(3),
-                    Grid::make(1)
-                        ->schema([
-                            TextInput::make('size')->label('Size'),
-                            TextInput::make('sort_order')->label('Sort Order')->numeric()->default(1),
-                            Select::make('status')
-                                ->label('Status')
-                                ->options([
-                                    '1' => 'Active',
-                                    '0' => 'Block',
-                                ])
-                                ->default('1')->required(),
-                        ])->columnSpan(1),
-                ]),
-        ];
-    }
-
-    public function addSlideAction(): Action {
-        return Action::make('addSlide')
-            ->label('Add Slide')
-            ->modalHeading('Add Slide')
-            ->modalWidth('4xl')
-            ->schema($this->slideFormSchema())
-
-            ->action(function (array $data): void {
-
-                $slide = Slide::create([
-                    'title'       => $data['title'],
-                    'image'       => $data['image'] ?? null,
-                    'description' => $data['description'] ?? null,
-                    'sort_order'  => $data['sort_order'] ?? 0,
-                    'status'      => $data['status'] ?? '1',
-                ]);
-
-                // Resize slide image
-                if (!empty($data['image'])) {
-                    $this->resizeImage($data['image']);
-                }
-
-                $this->redirect(static::getUrl());
-            });
-    }
-
-    public function editSlideAction(): Action {
-        return Action::make('editSlide')
-            ->modalHeading('Edit Slide')
-            ->modalWidth('4xl')
-            ->schema($this->slideFormSchema())
-
-            ->mountUsing(function ($form, $arguments) {
-
-                $slideId = $arguments['slideId'] ?? null;
-
-                if (!$slideId) {
-                    return;
-                }
-
-                $slide = Slide::findOrFail($slideId);
-
-                $form->fill([
-                    'title'       => $slide->title,
-                    'image'       => $slide->image,
-                    'description' => $slide->description,
-                    'sort_order'  => $slide->sort_order,
-                    'status'      => (string) $slide->status,
-                ]);
-            })
-
-            ->action(function (array $data, $arguments): void {
-
-                $slideId = $arguments['slideId'] ?? null;
-
-                if (!$slideId) {
-                    return;
-                }
-
-                $slide = Slide::findOrFail($slideId);
-
-                $slide->update([
-                    'title'       => $data['title'],
-                    'image'       => $data['image'] ?? $slide->image,
-                    'description' => $data['description'] ?? null,
-                    'sort_order'  => $data['sort_order'] ?? 0,
-                    'status'      => $data['status'] ?? '1',
-                ]);
-
-                // Resize image only when supplied
-                if (!empty($data['image'])) {
-                    $this->resizeImage($data['image']);
-                }
-
-                $this->redirect(static::getUrl());
-            });
-    }
+    }                 
         
     public function deleteRecordAction(): Action {
         return Action::make('deleteRecord')
@@ -495,20 +375,7 @@ class Configuration extends Page implements HasForms, HasActions {
                 'delete_action' => 'deleteRecord',
                 'delete_argument'=> 'timelineId',
                 'extra' => 'year',
-            ],
-            [
-                'heading' => 'Slides',
-                'singular' => 'Slide',
-                'model' => Slide::class,
-                'orderBy' => 'sort_order',
-                'title' => 'title',
-                'add_action' => 'addSlide',
-                'edit_action' => 'editSlide',
-                'edit_argument' => 'slideId',
-                'delete_action' => 'deleteRecord',
-                'delete_argument' => 'slideId',
-                'extra' => null,
-            ],
+            ]
         ];
     }
 

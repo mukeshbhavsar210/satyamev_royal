@@ -27,7 +27,7 @@
                 <div class="arch-s">
                     <div class="arch-s_t">
                         <div class="u-48"></div>
-                        <h2 data-text="h" data-fit-text="" class="h1 a-center" aria-label="Architecture" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >A</span><span class="split-char" aria-hidden="true" >r</span><span class="split-char" aria-hidden="true" >c</span><span class="split-char" aria-hidden="true" >h</span><span class="split-char" aria-hidden="true" >i</span><span class="split-char" aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >e</span><span class="split-char" aria-hidden="true" >c</span><span class="split-char" aria-hidden="true" >t</span><span class="split-char" aria-hidden="true" >u</span><span class="split-char" aria-hidden="true" >r</span><span class="split-char" aria-hidden="true" >e</span></span></h2>
+                        <h2 data-text="h" data-fit-text="" class="h1 a-center" aria-label="Architecture" ><span class="split-word" ><span class="split-char"  >A</span><span class="split-char"  >r</span><span class="split-char"  >c</span><span class="split-char"  >h</span><span class="split-char"  >i</span><span class="split-char"  >t</span><span class="split-char"  >e</span><span class="split-char"  >c</span><span class="split-char"  >t</span><span class="split-char"  >u</span><span class="split-char"  >r</span><span class="split-char"  >e</span></span></h2>
                         <div class="u-32"></div>
                         <div class="grid">
                             <div class="arch-s_desc">
@@ -55,31 +55,31 @@
                                         <a hover-nav-item=""  href="#" class="nav-item w-inline-block">
                                             <div class="nav-item_label">
                                                 <div class="nav-item_label_text">
-                                                    <div hover="text" class="l1" ><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">B</span><span class="split-char" aria-hidden="true">o</span>
+                                                    <div hover="text" class="l1" ><span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >B</span><span class="split-char" >o</span>
                                                         <span
-                                                        class="split-char" aria-hidden="true">o</span><span class="split-char" aria-hidden="true">k</span></span>
-                                                            </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">a</span></span>
-                                                            </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">c</span><span class="split-char"
-                                                            aria-hidden="true">a</span><span class="split-char" aria-hidden="true">l</span><span class="split-char" aria-hidden="true">l</span></span>
-                                                            </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true">n</span><span class="split-char"
-                                                            aria-hidden="true">o</span><span class="split-char" aria-hidden="true">w</span></span>
+                                                        class="split-char" >o</span><span class="split-char" >k</span></span>
+                                                            </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >a</span></span>
+                                                            </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >c</span><span class="split-char"
+                                                            >a</span><span class="split-char" >l</span><span class="split-char" >l</span></span>
+                                                            </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char" >n</span><span class="split-char"
+                                                            >o</span><span class="split-char" >w</span></span>
                                                             </span>
                                                     </div>
                                                 </div>
                                                 <div class="nav-item_label_text is-2">
-                                                    <div hover="text" class="l1" ><span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >B</span>
+                                                    <div hover="text" class="l1" ><span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >B</span>
                                                         <span
-                                                        class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true"
+                                                        class="split-char"  >o</span><span class="split-char"  >o</span><span class="split-char" 
                                                             >k</span></span>
-                                                            </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >a</span></span>
+                                                            </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >a</span></span>
                                                             </span>
-                                                            <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >c</span>
+                                                            <span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >c</span>
                                                             <span
-                                                            class="split-char" aria-hidden="true" >a</span><span class="split-char" aria-hidden="true" >l</span><span class="split-char" aria-hidden="true"
+                                                            class="split-char"  >a</span><span class="split-char"  >l</span><span class="split-char" 
                                                                 >l</span></span>
-                                                                </span> <span class="split-word-mask" aria-hidden="true" ><span class="split-word" aria-hidden="true"><span class="split-char" aria-hidden="true" >n</span>
+                                                                </span> <span class="split-word-mask"  ><span class="split-word" ><span class="split-char"  >n</span>
                                                                 <span
-                                                                class="split-char" aria-hidden="true" >o</span><span class="split-char" aria-hidden="true" >w</span></span>
+                                                                class="split-char"  >o</span><span class="split-char"  >w</span></span>
                                                                     </span>
                                                     </div>
                                                 </div>
