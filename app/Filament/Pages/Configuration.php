@@ -42,8 +42,8 @@ class Configuration extends Page implements HasForms, HasActions {
                 ->schema([
                     Grid::make(1)
                         ->schema([
-                            TextInput::make('title')->label('Project Title 2')->required()->maxLength(255),
-                            TextInput::make('description')->label('Description'),                            
+                            TextInput::make('title')->label('Project Title')->required()->maxLength(255),
+                            TextInput::make('description')->label('Description'),
                             FileUpload::make('image')->label('Project Image')->image()->imageEditor()
                                     ->imageEditorAspectRatios([
                                         '1920:700',
@@ -128,7 +128,6 @@ class Configuration extends Page implements HasForms, HasActions {
             })
 
             ->action(function (array $data, $arguments): void {
-
                 $projectId = $arguments['projectId'] ?? null;
 
                 if (!$projectId) {
