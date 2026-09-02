@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Apartment extends Model {
-    protected $fillable = [ 'project_id','apartment_name','category','image','location','rooms','area','units','description','completion','status'];
+    protected $fillable = [ 'project_id','apartment_name','category','image','rooms','area','description','show'];
 
     public function images(): HasMany{
         return $this->hasMany(ApartmentImage::class, 'apartment_id');
@@ -19,4 +19,13 @@ class Apartment extends Model {
     public function apartment() {
         return $this->belongsTo(Apartment::class, 'apartment_id');
     }
+
+    // public function project() {
+    //     return $this->belongsTo(Project::class);
+    // }
+
+    public function project()
+{
+    return $this->belongsTo(Project::class, 'project_id');
+}
 }
