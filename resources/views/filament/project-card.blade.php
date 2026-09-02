@@ -16,17 +16,19 @@
                 )"
             >Edit
             </x-filament::button>
-
-            <x-filament::button class="delete-btn" color="danger"
-                wire:click="mountAction(
-                    '{{ $section['delete_action'] }}',
-                    {
-                        model: '{{ addslashes($section['model']) }}',
-                        recordId: {{ $record->id }}
-                    }
-                )"
-            >Delete
-            </x-filament::button>
+            
+            @if(auth()->user()?->role === 'admin')
+                <x-filament::button class="delete-btn" color="danger"
+                    wire:click="mountAction(
+                        '{{ $section['delete_action'] }}',
+                        {
+                            model: '{{ addslashes($section['model']) }}',
+                            recordId: {{ $record->id }}
+                        }
+                    )"
+                >Delete
+                </x-filament::button>
+            @endif
         </div>
     </div>
 

@@ -12,72 +12,111 @@
             </x-filament::button>
 
             <div class="card-wrapper">                                          
-                @if($section['model'] === \App\Models\Apartment::class)                                        
-                    <div x-data="{ activeTab: 'ongoing' }" class="project-tabs mt-10" >
+                @if($section['model'] === \App\Models\Apartment::class)
+                    @php
+                        $categories = \App\Models\Project::query()
+                            ->whereNotNull('category')
+                            ->whereIn('category', ['ongoing', 'upcoming', 'completed'])
+                            ->distinct()->pluck('category');
+                    @endphp
+
+                    <div x-data="{ activeTab: '{{ $categories->first() ?? 'ongoing' }}' }" class="project-tabs mt-10">                        
                         <div class="tabs">
-                            <button type="button"
-                                @click="activeTab = 'ongoing'"
-                                :class="{ 'active': activeTab === 'ongoing' }"
-                                class="tab-button">
-                                Ongoing
-                            </button>
-
-                            <button type="button" @click="activeTab = 'upcoming'"
-                                :class="{ 'active': activeTab === 'upcoming' }"
-                                class="tab-button" >
-                                Upcoming
-                            </button>
-
-                            <button type="button" @click="activeTab = 'completed'"
-                                :class="{ 'active': activeTab === 'completed' }"
-                                class="tab-button" >
-                                Completed
-                            </button>
+                            @foreach($categories as $category)
+                                <button type="button" @click="activeTab = '{{ $category }}'"
+                                    :class="{ 'active': activeTab === '{{ $category }}' }"
+                                    class="tab-button">
+                                    {{ ucfirst($category) }}
+                                </button>
+                            @endforeach
                         </div>
 
-                        <div x-show="activeTab === 'ongoing'" class="cards">
-                            @foreach(
-                                $section['model']::where('category', 'ongoing')
-                                    ->orderBy($section['orderBy'])
-                                    ->get()
-                                as $record
-                            )
+                        @foreach($categories as $category)
+                            <div x-show="activeTab === '{{ $category }}'" class="cards" >
+                                @foreach(
+                                    $section['model']::with('project')
+                                        ->whereHas('project', function ($query) use ($category) {
+                                            $query->where('category', $category);
+                                        })
+                                        ->orderBy($section['orderBy'])
+                                        ->get()
+                                    as $record
+                                )
                                 @include('filament.project-card', [
                                     'record' => $record,
                                     'section' => $section,
                                 ])
                             @endforeach
                         </div>
+                    @endforeach
+                </div>
 
-                        <div x-show="activeTab === 'upcoming'" class="cards" >
-                            @foreach(
-                                $section['model']::where('category', 'upcoming')
-                                    ->orderBy($section['orderBy'])
-                                    ->get()
-                                as $record
-                            )
-
-                                @include('filament.project-card', [
-                                    'record' => $record,
-                                    'section' => $section,
-                                ])
-                            @endforeach
-                        </div>
-
-                        <div x-show="activeTab === 'completed'" class="cards" >
-                            @foreach(
-                                $section['model']::where('category', 'completed')
-                                    ->orderBy($section['orderBy'])
-                                    ->get()
-                                as $record
-                            )
-
-                                @include('filament.project-card', [
-                                    'record' => $record,
-                                    'section' => $section,
-                                ])
-                            @endforeach
-                        </div>
+                @elseif($section['model'] === \App\Models\Project::class)
+                    <div class="project-table">
+                        <table class="project-table">
+                            <thead>
+                                <tr>
+                                    <th width="90">Image</th>
+                                    <th>Title</th>                                    
+                                    <th width="140">Category</th>
+                                    <th>RERA</th>
+                                    <th width="140">PDF</th>                                    
+                                    <th width="80">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($section['model']::get() as $record)
+                                    <tr>                                        
+                                        <td >
+                                            @if($record->image)
+                                                <img src="{{ Storage::url($record->image) }}" alt="{{ $record->title }}" class="thumb" >
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <p><b>{{ $record->title }}</b></p>
+                                            <p>{{ $record->location }}</p>
+                                        </td>                                                                                                                        
+                                        <td>{{ $record->category }}</td>
+                                        <td>{{ $record->rera ?? '-' }}</td>
+                                        <td>
+                                            @if($record->pdf)
+                                                <a href="{{ Storage::url($record->pdf) }}" download>PDF</a>
+                                            @else
+                                                -
+                                            @endif
+                                        </td>                                        
+                                         <td class="project-table_actions">                                            
+                                            <x-filament::button
+                                                size="sm"
+                                                wire:click="mountAction(
+                                                    '{{ $section['edit_action'] }}',
+                                                    {
+                                                        model: '{{ addslashes($section['model']) }}',
+                                                        recordId: {{ $record->id }}
+                                                    }
+                                                )"
+                                            >Edit
+                                            </x-filament::button>
+                                            
+                                            @if(auth()->user()?->role === 'admin')
+                                                <x-filament::button
+                                                    color="danger"
+                                                    size="sm"
+                                                    wire:click="mountAction(
+                                                        '{{ $section['delete_action'] }}',
+                                                        {
+                                                            model: '{{ addslashes($section['model']) }}',
+                                                            recordId: {{ $record->id }}
+                                                        }
+                                                    )"
+                                                >Delete
+                                                </x-filament::button>
+                                            @endif
+                                        </td>
+                                    </tr>                                    
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 @else
                     <div class="cards">
@@ -87,12 +126,10 @@
                                 'section' => $section,
                             ])
                         @endforeach
-                    </div>                                   
+                    </div>
                 @endif
             </div>
         </x-filament::section>
     @endforeach
-
     <x-filament-actions::modals />
-
 </x-filament-panels::page>

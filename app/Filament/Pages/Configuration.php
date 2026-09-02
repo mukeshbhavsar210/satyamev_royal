@@ -4,6 +4,7 @@ namespace App\Filament\Pages;
 
 use App\Models\Apartment;
 use App\Models\Timeline;
+use App\Models\Project;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
@@ -33,6 +34,126 @@ class Configuration extends Page implements HasForms, HasActions {
     protected static ?string $navigationLabel = 'Configuration';
     protected static ?string $title = 'Configuration';
     protected string $view = 'filament.configuration';
+
+    //Projects
+    protected function projectFormSchema(): array {
+        return [
+            Grid::make(4)
+                ->schema([
+                    Grid::make(1)
+                        ->schema([
+                            TextInput::make('title')->label('Project Title 2')->required()->maxLength(255),
+                            TextInput::make('description')->label('Description'),                            
+                            FileUpload::make('image')->label('Project Image')->image()->imageEditor()
+                                    ->imageEditorAspectRatios([
+                                        '1920:700',
+                                    ])
+                                    ->disk('public')
+                                    ->directory('settings/projects')
+                                    ->visibility('public')
+                                    ->getUploadedFileNameForStorageUsing(
+                                        fn ($file, $get) =>
+                                            Str::slug($get('title'))
+                                            . '-'
+                                            . now()->format('YmdHis')
+                                            . '.'
+                                            . $file->getClientOriginalExtension()
+                                    ),
+                        ])->columnSpan(3),
+                    Grid::make(1)
+                        ->schema([
+                            TextInput::make('size')->label('Size'),
+                            TextInput::make('sort_order')->label('Sort Order')->numeric()->default(1),
+                            Select::make('status')
+                                ->label('Status')
+                                ->options([
+                                    '1' => 'Active',
+                                    '0' => 'Block',
+                                ])
+                                ->default('1')->required(),
+                        ])->columnSpan(1),
+                ]),
+        ];
+    }
+
+    public function addProjectAction(): Action {
+        return Action::make('addProject')
+            ->label('Add Project')
+            ->modalHeading('Add Project')
+            ->modalWidth('4xl')
+            ->schema($this->projectFormSchema())
+
+            ->action(function (array $data): void {
+
+                $project = Project::create([
+                    'title'       => $data['title'],
+                    'category'    => $data['category'] ?? null,
+                    'image'       => $data['image'] ?? null,
+                    'description' => $data['description'] ?? null,
+                    'sort_order'  => $data['sort_order'] ?? 0,
+                    'status'      => $data['status'] ?? '1',
+                ]);
+
+                // Resize Project image
+                if (!empty($data['image'])) {
+                    $this->resizeImage($data['image']);
+                }
+
+                $this->redirect(static::getUrl());
+            });
+    }
+
+    public function editProjectAction(): Action {
+        return Action::make('editProject')
+            ->modalHeading('Edit Project')
+            ->modalWidth('4xl')
+            ->schema($this->projectFormSchema())
+            ->mountUsing(function ($form, $arguments) {
+
+                $projectId = $arguments['projectId'] ?? null;
+
+                if (!$projectId) {
+                    return;
+                }
+
+                $project = Project::findOrFail($projectId);
+
+                $form->fill([
+                    'title'       => $project->title,
+                    'image'       => $project->image,
+                    'description' => $project->description,
+                    'sort_order'  => $project->sort_order,
+                    'status'      => (string) $project->status,
+                ]);
+            })
+
+            ->action(function (array $data, $arguments): void {
+
+                $projectId = $arguments['projectId'] ?? null;
+
+                if (!$projectId) {
+                    return;
+                }
+
+                $project = Project::findOrFail($projectId);
+
+                $project->update([
+                    'title'       => $data['title'],
+                    'image'       => $data['image'] ?? $project->image,
+                    'description' => $data['description'] ?? null,
+                    'sort_order'  => $data['sort_order'] ?? 0,
+                    'status'      => $data['status'] ?? '1',
+                ]);
+
+                // Resize image only when supplied
+                if (!empty($data['image'])) {
+                    $this->resizeImage($data['image']);
+                }
+
+                $this->redirect(static::getUrl());
+            });
+    }
+
 
     //Apartments
     protected function apartmentFormSchema(): array {
@@ -205,16 +326,20 @@ class Configuration extends Page implements HasForms, HasActions {
                     }
                 });
         }
-
-    //Timeline
-    protected function timelineFormSchema(): array {
+    
+        //Timeline    
+        protected function timelineFormSchema(): array {
         return [
             Grid::make(4)
                 ->schema([
-                    TextInput::make('year')->label('Year')->required()->maxLength(5)->columnSpan(1),
-                    TextInput::make('title')->label('Title')->required()->maxLength(255)->columnSpan(2),                    
+                    Select::make('year')->label('Year')->options(
+                            collect(range(2000, 2026))
+                                ->mapWithKeys(fn ($year) => [$year => $year])
+                                ->toArray()
+                        )->required()->columnSpan(1),                    
+                    TextInput::make('title')->label('Title')->required()->maxLength(255)->columnSpan(2),
                     TextInput::make('sort_order')->label('Sort Order')->numeric()->default(0)->columnSpan(1),
-                    Textarea::make('description')->label('Description')->rows(3)->columnSpan(2),
+                    Textarea::make('description')->label('Description')->rows(3)->columnSpan(4),
                     FileUpload::make('image')->label('Timeline Thumb')->image()->disk('public')->directory('timeline')->visibility('public')
                         ->getUploadedFileNameForStorageUsing(
                             fn ($file, $get) =>
@@ -224,7 +349,7 @@ class Configuration extends Page implements HasForms, HasActions {
                                 . '.'
                                 . $file->getClientOriginalExtension()
                         )
-                        ->columnSpan(2),
+                        ->columnSpan(4),
                 ]),
         ];
     }
@@ -350,6 +475,19 @@ class Configuration extends Page implements HasForms, HasActions {
 
     public function getCardSections(): array {
         return [
+            [
+                'heading' => 'Projects',
+                'singular' => 'Project',
+                'model' => Project::class,
+                'orderBy' => 'sort_order',
+                'title' => 'title',
+                'add_action' => 'addProject',
+                'edit_action' => 'editProject',
+                'edit_argument' => 'projectId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument' => 'projectId',
+                'extra' => null,
+            ],
             [
                 'heading' => 'Apartments',
                 'singular' => 'Apartment',

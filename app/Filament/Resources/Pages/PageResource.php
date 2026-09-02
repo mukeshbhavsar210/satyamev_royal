@@ -42,25 +42,26 @@ class PageResource extends Resource {
         return $schema
             ->components([
                 Section::make('Page Details')
-                    ->schema([
-                        Grid::make(3)
+                    ->schema([                       
+                        Grid::make(4)
                             ->schema([
                                 TextInput::make('title')->required()->maxLength(100)
                                     ->afterStateUpdated(function ($state, callable $set) {
                                         $set('slug', Str::slug($state));
-                                    })->columnSpan(2),
+                                    })->columnSpan(3),
 
                                 Select::make('status')
                                     ->options([
                                         'draft' => 'Draft',
                                         'published' => 'Published',
                                     ])
-                                    ->default('draft')->required()->columnSpan(1), 
+                                    ->default('published')->required()->columnSpan(1), 
 
-                                RichEditor::make('content')->columnSpan(2),
-                                
+                                RichEditor::make('content')->columnSpan(4),
                                 Hidden::make('slug')->default(fn () => \Illuminate\Support\Str::slug(request()->input('title', ''))),
 
+                                TextInput::make('featured_title')->maxLength(255)->columnSpan(4),
+                                Textarea::make('featured_description')->rows(3)->columnSpan(2),
                                 FileUpload::make('featured_image')->label('Featured Image')->image()->disk('public')
                                     ->directory('pages')->visibility('public')
                                     ->getUploadedFileNameForStorageUsing(function ($file, $get) {
@@ -69,94 +70,83 @@ class PageResource extends Resource {
                                         $date = now()->format('Y-m-d');
                                         $extension = $file->getClientOriginalExtension();
                                         return $slug . '-' . $date . '.' . $extension;
-                                    })->columnSpan(1),
+                                    })->columnSpan(2),
+                                ]),
+                        ])->columnSpanFull()->collapsible(),
 
-                                Textarea::make('meta_description')->rows(3)->columnSpan(2),
-                                TextInput::make('meta_title')->maxLength(255)->columnSpan(1),
-                            ])->columnSpan(3),                                                                           
-                ])->columnSpanFull()->collapsible(),
+                    Section::make('Gallery')
+                        ->schema([
+                            Placeholder::make('images_preview')->hiddenLabel()->label('Preview')
+                                ->content(function ($record) {
+                                    if (!$record || $record->images->isEmpty()) {
+                                        return 'No images uploaded.';
+                                    }
 
-                Section::make('Gallery')
-                    ->schema([
-                        Placeholder::make('images_preview')->hiddenLabel()->label('Preview')
-                            ->content(function ($record) {
-                                if (!$record || $record->images->isEmpty()) {
-                                    return 'No images uploaded.';
-                                }
+                                    $html = '<h2 style="font-size:18px; margin-bottom:10px;">Uploaded Images</h2>
+                                            <div style="display:grid; grid-template-columns:repeat(6, 1fr); gap:10px; margin-top:10px;">';
 
-                                $html = '<h2 style="font-size:18px; margin-bottom:10px;">
-                                            Uploaded Images
-                                        </h2>
+                                        foreach ($record->images as $image) {
+                                            $url = Storage::url($image->image);
+                                            $html .= '<img src="' . $url . '" style="width:150px; height:150px; object-fit:cover; border-radius:8px;">';}
+                                    $html .= '</div>';
 
-                                        <div style="
-                                            display:grid;
-                                            grid-template-columns:repeat(6, 1fr);
-                                            gap:10px;
-                                            margin-top:10px;
-                                        ">';
+                                    return new \Illuminate\Support\HtmlString($html);
+                                })->columnSpan(1),
 
-                                    foreach ($record->images as $image) {
-                                        $url = Storage::url($image->image);
-                                        $html .= '<img src="' . $url . '" style="width:150px; height:150px; object-fit:cover; border-radius:8px;">';}
-                                $html .= '</div>';
-
-                                return new \Illuminate\Support\HtmlString($html);
-                            })->columnSpan(1),
-
-                        Repeater::make('images')
-                            ->relationship('images')
-                            ->schema([
-                                FileUpload::make('image')
-                                    ->hiddenLabel()->image()->disk('public')->directory('pages/images')->required()
-                                    ->afterStateUpdated(function ($state, $get, $set) {
-                                        if (empty($state)) {
-                                            return;
-                                        }
-
-                                        $path = is_array($state)
-                                            ? reset($state)
-                                            : $state;
-
-                                        if (!$path) {
-                                            return;
-                                        }
-
-                                        $sourcePath = Storage::disk('public')->path($path);
-
-                                        if (!file_exists($sourcePath)) {
-                                            return;
-                                        }
-
-                                        $manager = new ImageManager(
-                                            new Driver()
-                                        );
-
-                                        $sizes = [500, 800, 1080, 1600, 1920];
-                                        $random = Str::random(6);
-                                        $generatedImages = [];
-
-                                        foreach ($sizes as $width) {
-                                            $filename = "{$random}-{$width}.webp";
-                                            $relativePath = "pages/images/{$filename}";
-                                            $fullPath = Storage::disk('public')->path($relativePath);
-                                            $image = $manager->read($sourcePath);
-
-                                            // Don't enlarge smaller images
-                                            if ($image->width() > $width) {
-                                                $image->scale(width: $width);
+                            Repeater::make('images')
+                                ->relationship('images')
+                                ->schema([
+                                    FileUpload::make('image')
+                                        ->hiddenLabel()->image()->disk('public')->directory('pages/images')->required()
+                                        ->afterStateUpdated(function ($state, $get, $set) {
+                                            if (empty($state)) {
+                                                return;
                                             }
 
-                                            $image->toWebp(85)->save($fullPath);
-                                            $generatedImages[$width] = $relativePath;
-                                        }
+                                            $path = is_array($state)
+                                                ? reset($state)
+                                                : $state;
 
-                                        // Store JSON in the repeater field
-                                        $set('image', $generatedImages);
+                                            if (!$path) {
+                                                return;
+                                            }
 
-                                        // Delete original uploaded image
-                                        Storage::disk('public')->delete($path);
-                                    }),                                    
-                                ])->reorderable(),
+                                            $sourcePath = Storage::disk('public')->path($path);
+
+                                            if (!file_exists($sourcePath)) {
+                                                return;
+                                            }
+
+                                            $manager = new ImageManager(
+                                                new Driver()
+                                            );
+
+                                            $sizes = [500, 800, 1080, 1600, 1920];
+                                            $random = Str::random(6);
+                                            $generatedImages = [];
+
+                                            foreach ($sizes as $width) {
+                                                $filename = "{$random}-{$width}.webp";
+                                                $relativePath = "pages/images/{$filename}";
+                                                $fullPath = Storage::disk('public')->path($relativePath);
+                                                $image = $manager->read($sourcePath);
+
+                                                // Don't enlarge smaller images
+                                                if ($image->width() > $width) {
+                                                    $image->scale(width: $width);
+                                                }
+
+                                                $image->toWebp(85)->save($fullPath);
+                                                $generatedImages[$width] = $relativePath;
+                                            }
+
+                                            // Store JSON in the repeater field
+                                            $set('image', $generatedImages);
+
+                                            // Delete original uploaded image
+                                            Storage::disk('public')->delete($path);
+                                        }),                                    
+                                    ])->reorderable(),
             ])->columnSpanFull()->collapsible(),
         ]);
     }   
@@ -164,9 +154,12 @@ class PageResource extends Resource {
     public static function table(Table $table): Table {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')->searchable()->sortable(),                
-                Tables\Columns\TextColumn::make('status')->badge(),
-                Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable(),
+                Tables\Columns\ImageColumn::make('featured_image')->label('Image')->disk('public')->circular()->size(80)->width(130),
+                Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('content')->formatStateUsing(fn ($state) => \Illuminate\Support\Str::limit(strip_tags($state), 70))->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('title')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('status')->badge()->width(120),
+                Tables\Columns\TextColumn::make('created_at')->date()->sortable()->width(150),
             ])
             ->actions([
                 EditAction::make()->iconButton(),

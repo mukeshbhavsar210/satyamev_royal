@@ -7,32 +7,69 @@ use App\Models\Project;
 use App\Models\Apartment;
 use App\Models\Setting;
 use App\Models\Slide;
+use App\Http\Controllers\FeedbackController;
 
 Route::get('/', function () {
-    $timelines = Timeline::orderBy('sort_order')->get();
-    $floatingTips = Apartment::where('status', 1)->get();
-    $apartments = Apartment::where('status', 1)->where('category', 'ongoing')->take(5)->get();
+    $timelines = Timeline::orderBy('sort_order')->get();    
+    $floatingTips = Project::whereIn('category', [
+            'ongoing',
+            'upcoming',
+            'completed',
+        ])
+        ->select('category')
+        ->distinct()
+        ->get();
 
-    return view('home.index', compact('floatingTips', 'apartments', 'timelines'));
+    //$floatingTips = Apartment::where('show', 'yes')->get();
+    // $floatingTips = Apartment::where('show', 'yes')
+    //     ->with('project')
+    //     ->whereHas('project', function ($query) {
+    //         $query->whereIn('category', ['ongoing', 'upcoming', 'completed']);
+    //     })
+    //     ->get();
+    $apartments = Apartment::where('show', 'yes')->with('project')
+        ->whereHas('project', function ($query) {
+            $query->where('category', 'ongoing');
+        })
+        ->take(5)->get();
+
+        
+
+    return view('pages.home', compact('floatingTips', 'apartments', 'timelines'));
 })->name('home');
 
 
+Route::get('/contact', function () {
+    $contact = Setting::first();
+    return view('pages.contact', compact('contact'));
+})->name('contact');
+
+
 Route::get('/apartments', function () {
-    $query = Apartment::query();
-    $allowedStatuses = ['ongoing','completed','upcoming',];
+
+    $query = Apartment::with('project')
+        ->where('show', 'yes');
+
+    // Status / Project Category filter
+    $allowedStatuses = ['ongoing', 'completed', 'upcoming'];
     $selectedStatus = request('status');
 
     if (in_array($selectedStatus, $allowedStatuses)) {
-        $query->where('category', $selectedStatus);
+        $query->whereHas('project', function ($q) use ($selectedStatus) {
+            $q->where('category', $selectedStatus);
+        });
     }
 
     // Bedroom filter
     $selectedBedroom = request('bed');
+
     if (request()->filled('bed')) {
         $query->where('rooms', $selectedBedroom);
     }
 
+    // Sort
     $selectedSort = request('sort_by');
+
     match ($selectedSort) {
         'smallest_area' => $query->orderBy('area', 'asc'),
         'largest_area'  => $query->orderBy('area', 'desc'),
@@ -41,20 +78,30 @@ Route::get('/apartments', function () {
 
     $apartments = $query->get();
 
-    $floatingTips = Apartment::select('category')->distinct()->get();
+    // Get categories from Projects table
+    $floatingTips = \App\Models\Project::select('category')
+        ->whereNotNull('category')
+        ->whereIn('category', $allowedStatuses)
+        ->distinct()
+        ->get();
 
     if (request()->ajax()) {
         return view('apartments.list', compact('apartments'))->render();
     }
 
-    return view('apartments.index', compact('apartments','floatingTips','selectedStatus','selectedBedroom','selectedSort'));
+    return view('pages.apartments.index', compact(
+        'apartments',
+        'floatingTips',
+        'selectedStatus',
+        'selectedBedroom',
+        'selectedSort'
+    ));
 })->name('apartments');
-
 
 Route::get('/apartments/{apartment}', function (Apartment $apartment) {
     $apartment->load('apartmentImages');
 
-    return view('apartments.details', compact('apartment'));
+    return view('pages.apartments.details', compact('apartment'));
 })->name('apartments.details');
 
 
@@ -62,5 +109,9 @@ Route::get('/{slug}', function ($slug) {
     $page = Page::where('slug', $slug)->where('status', 'published')->firstOrFail();
     $settings = Setting::first();
 
-    return view('pages.show', compact('page', 'settings'));
-});
+    return view('pages.page', compact('page', 'settings'));
+})->name('pages');
+
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+
+Route::redirect('/admin', '/admin/configuration');
