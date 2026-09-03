@@ -20,12 +20,11 @@ class Apartment extends Model {
         return $this->belongsTo(Apartment::class, 'apartment_id');
     }
 
-    // public function project() {
-    //     return $this->belongsTo(Project::class);
-    // }
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
 
-    public function project()
-{
-    return $this->belongsTo(Project::class, 'project_id');
-}
+    // public function project() {
+    //     return $this->belongsTo(Project::class, 'project_id');
+    // }
 }

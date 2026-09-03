@@ -44,6 +44,10 @@ class SettingResource extends Resource{
     protected static ?string $model = Setting::class;
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;    
 
+    public static function canViewAny(): bool {
+        return auth()->user()?->role === 'admin';
+    }
+
     public static function form(Schema $schema): Schema {    
         return $schema
         ->components([
@@ -51,43 +55,41 @@ class SettingResource extends Resource{
                     ->tabs([
                         Tab::make('Details')
                             ->schema([
-                                Grid::make(3)
+                                Section::make('Details')
                                     ->schema([ 
-                                        Placeholder::make('Corporate Address')->hiddenLabel()
-                                            ->content(new HtmlString('                                                
-                                                <h1 style="font-size:18px;font-weight:600;margin-bottom:10px;">Details</h1>
-                                                <hr style="color:#ccc;">
-                                            '))->columnSpanFull(),
-                                        TextInput::make('company_name')->label('Company Name')->columnSpan(2),
-                                        TextInput::make('email')->label('Email')->columnSpan(1),
+                                        Grid::make(3)
+                                            ->schema([                                                 
+                                                TextInput::make('company_name')->label('Company Name')->columnSpan(2),
+                                                TextInput::make('email')->label('Email')->columnSpan(1),
 
-                                        TextInput::make('business_line')->label('Business Line')->columnSpan(2),
-                                        TextInput::make('mobile')->label('Mobile')->tel()->columnSpan(1),
+                                                TextInput::make('business_line')->label('Business Line')->columnSpan(2),
+                                                TextInput::make('mobile')->label('Mobile')->tel()->columnSpan(1),
 
-                                        TextInput::make('experience_line')->label('Experience')->columnSpan(2),
+                                                TextInput::make('experience_line')->label('Experience')->columnSpan(2),
+                                                TextInput::make('rera')->label('Rera')->columnSpan(1),      
+                                                Grid::make(2)
+                                                    ->schema([
+                                                        TextInput::make('phone')->label('Phone')->tel()->columnSpan(1),
+                                                        TextInput::make('whatsapp')->label('Whatsapp')->tel()->columnSpan(1),
+                                                    ]),
+                                            ])->columnSpan(1),
+                                    ]),
 
-                                        Grid::make(2)
-                                            ->schema([
-                                                TextInput::make('phone')->label('Phone')->tel()->columnSpan(1),
-                                                TextInput::make('whatsapp')->label('Whatsapp')->tel()->columnSpan(1),
-                                            ]),
-                                        
-                                        Placeholder::make('Corporate Address')->hiddenLabel()
-                                            ->content(new HtmlString('                                                
-                                                <h1 style="font-size:18px;font-weight:600;margin-bottom:10px; margin-top:30px;">Address</h1>
-                                                <hr style="color:#ccc;">
-                                            '))->columnSpanFull(),
+                                     Section::make('Address')
+                                        ->schema([ 
+                                            Grid::make(3)
+                                                ->schema([                                                 
+                                                    TextInput::make('address_line1')->label('Address Line 1')->columnSpan(2),                                        
+                                                    TextInput::make('since')->label('Since')->columnSpan(1),
 
-                                        TextInput::make('address_line1')->label('Address Line 1')->columnSpan(2),                                        
-                                        TextInput::make('since')->label('Since')->columnSpan(1),
-
-                                        TextInput::make('address_line2')->label('Address Line 2')->columnSpan(2), 
-                                        TextInput::make('punch_line1')->label('Punch Line 1')->columnSpan(1),
-                                                                               
-                                        TextInput::make('foreign_office')->label('Foreign Office')->columnSpan(2),
-                                        TextInput::make('punch_line2')->label('Punch Line 2')->columnSpan(1),                                                                        
-                                    ])->columnSpan(1),
-                            ]),
+                                                    TextInput::make('address_line2')->label('Address Line 2')->columnSpan(2), 
+                                                    TextInput::make('punch_line1')->label('Punch Line 1')->columnSpan(1),
+                                                                                        
+                                                    TextInput::make('foreign_office')->label('Foreign Office')->columnSpan(2),
+                                                    TextInput::make('punch_line2')->label('Punch Line 2')->columnSpan(1),                                                            
+                                                ]),
+                                        ]),
+                                ]),                               
 
                         Tab::make('Banners')
                             ->schema([
@@ -370,56 +372,72 @@ class SettingResource extends Resource{
                                     ])->contained(false),
                             ]),
 
-                            Tab::make('Social')
-                                ->schema([
-                                    Section::make('Social Accounts')
-                                        ->schema([
-                                            Grid::make(2)
-                                                ->schema([
-                                                    TextInput::make('linkedin')->label('LinkedIn')->url(),
-                                                    TextInput::make('facebook')->label('Facebook')->url(),
-                                                    TextInput::make('instagram')->label('Instagram')->url(),
-                                                    TextInput::make('youtube')->label('YouTube')->url(),                                                
-                                                ]),                                        
-                                        ])->contained(false),
-                                ]),
+                        Tab::make('Social')
+                            ->schema([
+                                Section::make('Social Accounts')
+                                    ->schema([
+                                        Grid::make(2)
+                                            ->schema([
+                                                TextInput::make('linkedin')->label('LinkedIn')->url(),
+                                                TextInput::make('facebook')->label('Facebook')->url(),
+                                                TextInput::make('instagram')->label('Instagram')->url(),
+                                                TextInput::make('youtube')->label('YouTube')->url(),                                                
+                                            ]),                                        
+                                    ])->contained(false),
+                            ]),
 
-                            Tab::make('Preloader/Cookies')
-                                ->schema([
-                                    Section::make('Preloader')
-                                        ->schema([
-                                            Grid::make(5)
-                                                ->schema([  
-                                                    ToggleButtons::make('preloader')->label('Preloader')
-                                                        ->options([
-                                                            1 => 'Yes',
-                                                            0 => 'No',
-                                                        ])->inline()->default(0)->required()->columnSpan(1),                                                        
-                                                    TextInput::make('preloader_line1')->label('Preloader Line 1')->columnSpan(1),
-                                                    TextInput::make('preloader_line2')->label('Preloader Line 2')->columnSpan(1),
-                                                    ColorPicker::make('preloader_color')->label('Preloader Color')->columnSpan(1),  
-                                                    Action::make('setPreloader')->label('Default Preloader')->requiresConfirmation()->extraAttributes([ 'class' => 'set-default-btn', ])
+                        Tab::make('Preloader/Cookies')
+                            ->schema([
+                                Section::make('')
+                                    ->schema([
+                                        Grid::make(3)
+                                            ->schema([  
+                                                    Section::make('Preloader')
+                                                    ->schema([ 
+                                                        ToggleButtons::make('preloader')->label('Preloader')
+                                                            ->options([
+                                                                1 => 'Yes',
+                                                                0 => 'No',
+                                                            ])->inline()->default(0)->required()->columnSpan(1),                                                        
+                                                        TextInput::make('preloader_line1')->label('Preloader Line 1')->columnSpan(1),
+                                                        TextInput::make('preloader_line2')->label('Preloader Line 2')->columnSpan(1),
+                                                        ColorPicker::make('preloader_color')->label('Preloader Color')->columnSpan(1),
+                                                        Action::make('setPreloader')->label('Default Preloader')->requiresConfirmation()->extraAttributes([ 'class' => 'set-default-btn', ])
                                                             ->action(function () {
                                                                 $setting = Setting::first();
                                                                 if ($setting) {
                                                                     $setting->update([
                                                                         'preloader_color' => '#340c24',
-                                                                    ])->columnSpan(1);
+                                                                    ]);
                                                                 }
-                                                        }),                                                                                                                                                                                                    
-                                                ]),                                            
-                                        ])->contained(false),
+                                                            }),
+                                                        ]),                                                            
 
-                                        Section::make('Cookies')
-                                            ->schema([
-                                                ToggleButtons::make('cookies')->label('Cookies')
-                                                    ->options([
-                                                        1 => 'Yes',
-                                                        0 => 'No',
-                                                    ])->inline()->default(0)->required()->columnSpan(1),     
-                                            ])->contained(false),
-                                ]),
-                        
+                                                        Section::make('Arch Color')
+                                                            ->schema([
+                                                                ColorPicker::make('arch_color')->label('Arch Color')->columnSpan(1),                                                                                                                                        
+                                                                Action::make('setArchcolor')->label('Default')->requiresConfirmation()->extraAttributes([ 'class' => 'set-default-btn', ])
+                                                                    ->action(function () {
+                                                                        $setting = Setting::first();
+                                                                        if ($setting) {
+                                                                            $setting->update([
+                                                                                'arch_color' => '#5bcedb',
+                                                                            ]);
+                                                                        }
+                                                                    }),                                                            
+                                                            ])->columnSpan(1),
+
+                                                        Section::make('Cookies')
+                                                            ->schema([
+                                                                ToggleButtons::make('cookies')->label('Cookies')
+                                                                    ->options([
+                                                                        1 => 'Yes',
+                                                                        0 => 'No',
+                                                                    ])->inline()->default(0)->required()->columnSpan(1),
+                                                            ])->columnSpan(1),
+                                            ])->columnSpan(1),                                                
+                                    ])->contained(false),                                        
+                            ]),
 
                         Tab::make('Theme')
                             ->schema([

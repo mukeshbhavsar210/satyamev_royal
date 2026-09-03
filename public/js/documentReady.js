@@ -1,51 +1,4 @@
 $(document).ready(function () {
-
-    const galleries = document.querySelectorAll('[data-parallax-image]');
-
-    if (!galleries.length) {
-        return;
-
-    }
-
-    const observer = new IntersectionObserver(
-        function (entries) {
-
-            entries.forEach(function (entry) {
-
-                const gallery = entry.target;
-
-                if (entry.isIntersecting) {
-                    gallery.classList.add('is-visible');
-                    gallery.classList.add('is-active');
-                    gallery.classList.remove('is-out');
-
-                } else {
-                    const rect = gallery.getBoundingClientRect();
-
-                    if (rect.bottom < 0) {
-                        gallery.classList.remove('is-active');
-                        gallery.classList.add('is-out');
-                    } else {
-                        gallery.classList.remove('is-active');
-                        gallery.classList.remove('is-out');
-                    }
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.15
-        }
-    );
-
-    galleries.forEach(function (gallery) {
-        observer.observe(gallery);
-    });
-    
-    //Parellel scrolling end 
-
-
     $('.filter-dropdown-toggle').on('click', function (e) {
         e.stopPropagation();
 
@@ -368,4 +321,50 @@ $(document).on('click', '.apartment-filters a', function (e) {
             $('#apartments-list').removeClass('is-loading');
         }
     });
+
+
+    const galleries = document.querySelectorAll('[data-parallax-image]');
+
+    if (!galleries.length) {
+        return;
+
+    }
+
+    const observer = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                const gallery = entry.target;
+
+                if (entry.isIntersecting) {
+                    gallery.classList.add('is-visible');
+                    gallery.classList.add('is-active');
+                    gallery.classList.remove('is-out');
+
+                } else {
+                    const rect = gallery.getBoundingClientRect();
+
+                    if (rect.bottom < 0) {
+                        gallery.classList.remove('is-active');
+                        gallery.classList.add('is-out');
+                    } else {
+                        gallery.classList.remove('is-active');
+                        gallery.classList.remove('is-out');
+                    }
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    galleries.forEach(function (gallery) {
+        observer.observe(gallery);
+    });
+    
+    //Parellel scrolling end 
 });
