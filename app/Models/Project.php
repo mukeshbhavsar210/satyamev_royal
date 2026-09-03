@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model {
+
     protected $fillable = [
-        'title','category','image','pdf','rera','completion','units','location','description','status'
+        'title','category','location','image','pdf','units','rera','completion','description','show'
     ];
 
     // public function apartments() {

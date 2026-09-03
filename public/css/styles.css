@@ -4732,9 +4732,7 @@ figcaption {
   position: relative;
   overflow: clip;
 }
-.cookies_card_title {
-  
-}
+.cookies_card_title .a1 { font-size:50px !important; margin-bottom: 5px !important; }
 .cookies {
   z-index: 99;
   pointer-events: none;

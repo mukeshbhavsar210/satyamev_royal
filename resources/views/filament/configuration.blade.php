@@ -85,7 +85,7 @@
                                                 -
                                             @endif
                                         </td>                                        
-                                         <td class="project-table_actions">                                            
+                                         <td class="project-table_actions">  
                                             <x-filament::button
                                                 size="sm"
                                                 wire:click="mountAction(

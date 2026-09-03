@@ -10,32 +10,11 @@ use App\Models\Slide;
 use App\Http\Controllers\FeedbackController;
 
 Route::get('/', function () {
-    $timelines = Timeline::orderBy('sort_order')->get();    
-    $floatingTips = Project::whereIn('category', [
-            'ongoing',
-            'upcoming',
-            'completed',
-        ])
-        ->select('category')
-        ->distinct()
-        ->get();
+    $timelines = Timeline::orderBy('sort_order')->get();        
+    $floatingTips = Project::where('show', 'yes')->whereIn('category', ['ongoing', 'upcoming', 'completed'])->take(12)->get();
+    $projects = Project::where('show', 'yes')->where('category', 'ongoing')->take(5)->get();    
 
-    //$floatingTips = Apartment::where('show', 'yes')->get();
-    // $floatingTips = Apartment::where('show', 'yes')
-    //     ->with('project')
-    //     ->whereHas('project', function ($query) {
-    //         $query->whereIn('category', ['ongoing', 'upcoming', 'completed']);
-    //     })
-    //     ->get();
-    $apartments = Apartment::where('show', 'yes')->with('project')
-        ->whereHas('project', function ($query) {
-            $query->where('category', 'ongoing');
-        })
-        ->take(5)->get();
-
-        
-
-    return view('pages.home', compact('floatingTips', 'apartments', 'timelines'));
+    return view('pages.home', compact('floatingTips', 'projects', 'timelines'));
 })->name('home');
 
 

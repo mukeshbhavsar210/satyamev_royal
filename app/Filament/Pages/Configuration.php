@@ -43,34 +43,58 @@ class Configuration extends Page implements HasForms, HasActions {
                     Grid::make(1)
                         ->schema([
                             TextInput::make('title')->label('Project Title')->required()->maxLength(255),
+                            TextInput::make('location')->label('Location')->required()->maxLength(255),
                             TextInput::make('description')->label('Description'),
-                            FileUpload::make('image')->label('Project Image')->image()->imageEditor()
-                                    ->imageEditorAspectRatios([
-                                        '1920:700',
-                                    ])
-                                    ->disk('public')
-                                    ->directory('settings/projects')
-                                    ->visibility('public')
-                                    ->getUploadedFileNameForStorageUsing(
-                                        fn ($file, $get) =>
-                                            Str::slug($get('title'))
-                                            . '-'
-                                            . now()->format('YmdHis')
-                                            . '.'
-                                            . $file->getClientOriginalExtension()
-                                    ),
+                            TextInput::make('rera')->label('Rera'),
+
+                            Grid::make(2)
+                                ->schema([                                
+                                    FileUpload::make('image')->label('Project Image')->acceptedFileTypes(['image/*','application/pdf',])
+                                        ->disk('public')->directory('projects')->visibility('public')
+                                        ->directory(fn ($get) => 'projects')
+                                        ->getUploadedFileNameForStorageUsing(
+                                            function ($file, $get, $record) {
+                                                $title = $get('title') ?? 'project';
+                                                return Str::slug($title)
+                                                    . '.'
+                                                    . $file->getClientOriginalExtension();
+                                            }
+                                        )->columnSpan(1),
+
+                                        FileUpload::make('pdf')
+                                            ->label('Project PDF')
+                                            ->acceptedFileTypes(['application/pdf'])
+                                            ->disk('public')
+                                            ->directory('projects')
+                                            ->visibility('public')
+                                            ->downloadable()
+                                            ->openable()
+                                            ->getUploadedFileNameForStorageUsing(
+                                                fn ($file, $get) =>
+                                                    Str::slug($get('title'))                                                    
+                                                    . '.pdf'
+                                            ),                                        
+                                ]),
                         ])->columnSpan(3),
                     Grid::make(1)
                         ->schema([
-                            TextInput::make('size')->label('Size'),
-                            TextInput::make('sort_order')->label('Sort Order')->numeric()->default(1),
-                            Select::make('status')
-                                ->label('Status')
+                            Select::make('category')->label('Category')
                                 ->options([
-                                    '1' => 'Active',
-                                    '0' => 'Block',
+                                    'ongoing' => 'Ongoing',
+                                    'upcoming' => 'Upcoming',
+                                    'completed' => 'Completed',
                                 ])
-                                ->default('1')->required(),
+                                ->default('ongoing')->required(),
+                                                        
+                            TextInput::make('units')->label('Units'),
+                            DatePicker::make('completion')->label('Completion')->displayFormat('F Y')->format('Y-m')->native(false)->closeOnDateSelection()->columnSpan(1),
+
+                            Select::make('show')->label('Show on Page')
+                                ->options([
+                                    'yes' => 'Yes',
+                                    'no' => 'No',
+                                ])
+                                ->default('yes')->required(),
                         ])->columnSpan(1),
                 ]),
         ];
@@ -89,9 +113,12 @@ class Configuration extends Page implements HasForms, HasActions {
                     'title'       => $data['title'],
                     'category'    => $data['category'] ?? null,
                     'image'       => $data['image'] ?? null,
-                    'description' => $data['description'] ?? null,
-                    'sort_order'  => $data['sort_order'] ?? 0,
-                    'status'      => $data['status'] ?? '1',
+                    'pdf'         => $data['pdf'] ?? null,
+                    'units'       => $data['units'] ?? null,
+                    'rera'         => $data['rera'] ?? null,
+                    'completion'  => $data['completion'] ?? null,
+                    'description' => $data['description'] ?? null,                    
+                    'show'        => $data['show'] ?? 'yes',
                 ]);
 
                 // Resize Project image
@@ -108,9 +135,10 @@ class Configuration extends Page implements HasForms, HasActions {
             ->modalHeading('Edit Project')
             ->modalWidth('4xl')
             ->schema($this->projectFormSchema())
+
             ->mountUsing(function ($form, $arguments) {
 
-                $projectId = $arguments['projectId'] ?? null;
+                $projectId = $arguments['recordId'] ?? null;
 
                 if (!$projectId) {
                     return;
@@ -120,15 +148,20 @@ class Configuration extends Page implements HasForms, HasActions {
 
                 $form->fill([
                     'title'       => $project->title,
+                    'category'    => $project->category,
+                    'location'    => $project->location,
                     'image'       => $project->image,
+                    'pdf'         => $project->pdf,
+                    'rera'        => $project->rera,                    
+                    'completion'  => $project->completion,
+                    'units'       => $project->units,                    
                     'description' => $project->description,
-                    'sort_order'  => $project->sort_order,
-                    'status'      => (string) $project->status,
+                    'show'      => (string) $project->show,                    
                 ]);
             })
 
             ->action(function (array $data, $arguments): void {
-                $projectId = $arguments['projectId'] ?? null;
+                $projectId = $arguments['recordId'] ?? null;
 
                 if (!$projectId) {
                     return;
@@ -138,14 +171,19 @@ class Configuration extends Page implements HasForms, HasActions {
 
                 $project->update([
                     'title'       => $data['title'],
+                    'category'    => $data['category'] ?? $project->category,
                     'image'       => $data['image'] ?? $project->image,
-                    'description' => $data['description'] ?? null,
-                    'sort_order'  => $data['sort_order'] ?? 0,
-                    'status'      => $data['status'] ?? '1',
+                    'rera'        => $data['rera'] ?? $project->rera,
+                    'pdf'         => $data['pdf'] ?? $project->pdf,
+                    'completion'  => $data['completion'] ?? $project->completion,
+                    'units'       => $data['units'] ?? $project->units,
+                    'location'    => $data['location'] ?? $project->location,
+                    'description' => $data['description'] ?? null,                    
+                    'show'        => $data['show'] ?? $project->show,
                 ]);
 
-                // Resize image only when supplied
-                if (!empty($data['image'])) {
+                // Resize image only when a new image is supplied
+                if (!empty($data['image']) && $data['image'] !== $project->image) {
                     $this->resizeImage($data['image']);
                 }
 
@@ -157,12 +195,11 @@ class Configuration extends Page implements HasForms, HasActions {
     //Apartments
     protected function apartmentFormSchema(): array {
         return [
-            Grid::make(3)
+            Grid::make(4)
                 ->schema([
                     Grid::make(2)
                         ->schema([
-                            TextInput::make('apartment_name')->label('Apartment Name')->required()->maxLength(255)->columnSpan(2),
-                            TextInput::make('location')->label('Location')->maxLength(255)->columnSpan(2),
+                            TextInput::make('apartment_name')->label('Apartment Name')->required()->maxLength(255)->columnSpan(2),                            
                             Textarea::make('description')->label('Apartment Details')->rows(2)->columnSpan(2),
                             FileUpload::make('image')->label('Thumb')->image()->imageEditor()
                                 ->imageEditorAspectRatios([
@@ -192,31 +229,22 @@ class Configuration extends Page implements HasForms, HasActions {
                                         . '.'
                                         . $file->getClientOriginalExtension()
                                 )->dehydrated()->columnSpan(1),
-                        ])->columnSpan(2),
+                        ])->columnSpan(3),
                     Grid::make(2)
                         ->schema([       
                             Select::make('project_id')->label('Project')->placeholder('Select Project')
                                 ->options(
-                                    \App\Models\Project::query()
-                                        ->pluck('project_name', 'id')
-                                        ->toArray()
+                                    \App\Models\Project::query()->pluck('title', 'id')->toArray()
                                 )->searchable()->preload()->required()->columnSpan(2),             
-                            Select::make('category')->label('Category')->placeholder('Select Category')
+                                                        
+                            TextInput::make('rooms')->label('Rooms')->maxLength(10)->columnSpan(2),
+                            TextInput::make('area')->label('Area')->maxLength(10)->columnSpan(2),                            
+                             Select::make('show')->label('Show on Page')
                                 ->options([
-                                    'ongoing'   => 'Ongoing',
-                                    'upcoming'  => 'Upcoming',
-                                    'completed' => 'Completed',
+                                    'yes' => 'Yes',
+                                    'no' => 'No',
                                 ])
-                                ->required() ->default('ongoing')->columnSpan(2),
-                            DatePicker::make('completion')->label('Completion')->displayFormat('F Y')->format('Y-m')->native(false)->closeOnDateSelection()->columnSpan(1),
-                            TextInput::make('rooms')->label('Rooms')->maxLength(10)->columnSpan(1),
-                            TextInput::make('area')->label('Area')->maxLength(10)->columnSpan(1),
-                            TextInput::make('units')->label('Units')->maxLength(10)->columnSpan(1),
-                            Select::make('status')->label('Status')->placeholder('Select')
-                                ->options([
-                                    '1' => 'Active',
-                                    '0' => 'Block',
-                                ]) ->default(1)->columnSpan(2),
+                                ->default('yes')->required()->columnSpan(2),                            
                         ])->columnSpan(1),
                 ]),
         ];
@@ -422,46 +450,115 @@ class Configuration extends Page implements HasForms, HasActions {
 
                 $this->redirect(static::getUrl());
             });
-    }                 
-        
-    public function deleteRecordAction(): Action {
-        return Action::make('deleteRecord')
-            ->requiresConfirmation()->modalHeading('Delete Record')->modalDescription('Are you sure you want to delete this record?')
-            ->modalSubmitActionLabel('Delete')->color('danger')
+    }  
+    
+    public function deleteRecordAction(): Action
+{
+    return Action::make('deleteRecord')
+        ->requiresConfirmation()
+        ->modalHeading('Delete Record')
+        ->modalDescription('Are you sure you want to delete this record?')
+        ->modalSubmitActionLabel('Delete')
+        ->color('danger')
 
-            ->action(function (array $arguments): void {
-                $modelClass = $arguments['model'] ?? null;
-                $recordId   = $arguments['recordId'] ?? null;
+        ->action(function (array $arguments): void {
 
-                if (! $modelClass || ! $recordId) {
-                    return;
-                }
+            $modelClass = $arguments['model'] ?? null;
+            $recordId   = $arguments['recordId'] ?? null;
 
-                $record = $modelClass::findOrFail($recordId);
+            if (! $modelClass || ! $recordId) {
+                return;
+            }
 
-                if (! empty($record->image)) {
-                    $this->deleteImage($record->image);
-                }
+            $record = $modelClass::findOrFail($recordId);
 
-                if ($record instanceof Apartment) {
-                    foreach ($record->images as $image) {
-                        $this->deleteImage($image->image);
+            /*
+            |--------------------------------------------------------------------------
+            | Delete main image
+            |--------------------------------------------------------------------------
+            */
+
+            if (! empty($record->image)) {
+                $this->deleteFile($record->image);
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | Delete PDF
+            |--------------------------------------------------------------------------
+            */
+
+            if ($record instanceof Apartment && ! empty($record->pdf)) {
+                $this->deleteFile($record->pdf);
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | Delete Apartment Gallery
+            |--------------------------------------------------------------------------
+            */
+
+            if ($record instanceof Apartment) {
+
+                foreach ($record->images as $image) {
+                    if (! empty($image->image)) {
+                        $this->deleteFile($image->image);
                     }
-                    $record->images()->delete();
                 }
 
-                $record->delete();
+                $record->images()->delete();
+            }
 
-                $this->redirect(static::getUrl());
-            });
-        }
+            /*
+            |--------------------------------------------------------------------------
+            | Delete Record
+            |--------------------------------------------------------------------------
+            */
+
+            $record->delete();
+
+            $this->redirect(static::getUrl());
+        });
+}
+        
+    // public function deleteRecordAction(): Action {
+    //     return Action::make('deleteRecord')
+    //         ->requiresConfirmation()->modalHeading('Delete Record')->modalDescription('Are you sure you want to delete this record?')
+    //         ->modalSubmitActionLabel('Delete')->color('danger')
+
+    //         ->action(function (array $arguments): void {
+    //             $modelClass = $arguments['model'] ?? null;
+    //             $recordId   = $arguments['recordId'] ?? null;
+
+    //             if (! $modelClass || ! $recordId) {
+    //                 return;
+    //             }
+
+    //             $record = $modelClass::findOrFail($recordId);
+
+    //             if (! empty($record->image)) {
+    //                 $this->deleteImage($record->image);
+    //             }
+
+    //             if ($record instanceof Apartment) {
+    //                 foreach ($record->images as $image) {
+    //                     $this->deleteImage($image->image);
+    //                 }
+    //                 $record->images()->delete();
+    //             }
+                
+    //             $record->delete();
+
+    //             $this->redirect(static::getUrl());
+    //         });
+    //     }
 
     
-        protected function deleteImage(?string $imagePath): void {
-        if (! empty($imagePath)) {
-            Storage::disk('public')->delete($imagePath);
-        }
-    }
+    //     protected function deleteImage(?string $imagePath): void {
+    //     if (! empty($imagePath)) {
+    //         Storage::disk('public')->delete($imagePath);
+    //     }
+    // }
 
     protected function resizeImage(string $imagePath): void {
         if (!Storage::disk('public')->exists($imagePath)) {
@@ -477,8 +574,7 @@ class Configuration extends Page implements HasForms, HasActions {
             [
                 'heading' => 'Projects',
                 'singular' => 'Project',
-                'model' => Project::class,
-                'orderBy' => 'sort_order',
+                'model' => Project::class,                
                 'title' => 'title',
                 'add_action' => 'addProject',
                 'edit_action' => 'editProject',
