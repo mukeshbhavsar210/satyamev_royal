@@ -3,8 +3,10 @@
 namespace App\Filament\Pages;
 
 use App\Models\Apartment;
-use App\Models\Timeline;
+use App\Models\Why;
 use App\Models\Project;
+use App\Models\Testimonial;
+use App\Models\Event;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
@@ -34,6 +36,7 @@ class Configuration extends Page implements HasForms, HasActions {
     protected static ?string $navigationLabel = 'Configuration';
     protected static ?string $title = 'Configuration';
     protected string $view = 'filament.configuration';
+    public $activeTab = 0;
 
     //Projects
     protected function projectFormSchema(): array {
@@ -45,12 +48,18 @@ class Configuration extends Page implements HasForms, HasActions {
                             TextInput::make('title')->label('Project Title')->required()->maxLength(255),
                             TextInput::make('location')->label('Location')->required()->maxLength(255),
                             TextInput::make('description')->label('Description'),
-                            TextInput::make('rera')->label('Rera'),
+                            Grid::make(6)
+                                ->schema([
+                                    TextInput::make('rera')->label('Rera')->columnSpan(3),
+                                    TextInput::make('year')->label('Year')->numeric()->columnSpan(2),
+                                    Toggle::make('timeline')->label('Timeline')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required()->columnSpan(1),
+                                ]),
 
                             Grid::make(2)
                                 ->schema([                                
-                                    FileUpload::make('image')->label('Project Image')->acceptedFileTypes(['image/*','application/pdf',])
+                                    FileUpload::make('image')->label('Image')->acceptedFileTypes(['image/*','application/pdf',])
                                         ->disk('public')->directory('projects')->visibility('public')
+                                        ->helperText('Size: 1000×700px. Max file size: 2 MB')
                                         ->directory(fn ($get) => 'projects')
                                         ->getUploadedFileNameForStorageUsing(
                                             function ($file, $get, $record) {
@@ -62,7 +71,7 @@ class Configuration extends Page implements HasForms, HasActions {
                                         )->columnSpan(1),
 
                                         FileUpload::make('pdf')
-                                            ->label('Project PDF')
+                                            ->label('PDF')
                                             ->acceptedFileTypes(['application/pdf'])
                                             ->disk('public')
                                             ->directory('projects')
@@ -89,12 +98,7 @@ class Configuration extends Page implements HasForms, HasActions {
                             TextInput::make('units')->label('Units'),
                             DatePicker::make('completion')->label('Completion')->displayFormat('F Y')->format('Y-m')->native(false)->closeOnDateSelection()->columnSpan(1),
 
-                            Select::make('show')->label('Show on Page')
-                                ->options([
-                                    'yes' => 'Yes',
-                                    'no' => 'No',
-                                ])
-                                ->default('yes')->required(),
+                            Toggle::make('show')->label('Show on Page')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required(),
                         ])->columnSpan(1),
                 ]),
         ];
@@ -106,17 +110,18 @@ class Configuration extends Page implements HasForms, HasActions {
             ->modalHeading('Add Project')
             ->modalWidth('4xl')
             ->schema($this->projectFormSchema())
-
             ->action(function (array $data): void {
-
                 $project = Project::create([
                     'title'       => $data['title'],
                     'category'    => $data['category'] ?? null,
+                    'location'    => $data['location'] ?? null,
                     'image'       => $data['image'] ?? null,
                     'pdf'         => $data['pdf'] ?? null,
                     'units'       => $data['units'] ?? null,
-                    'rera'         => $data['rera'] ?? null,
+                    'rera'        => $data['rera'] ?? null,
                     'completion'  => $data['completion'] ?? null,
+                    'year'        => $data['year'] ?? null,
+                    'timeline'    => $data['timeline'] ?? null,
                     'description' => $data['description'] ?? null,                    
                     'show'        => $data['show'] ?? 'yes',
                 ]);
@@ -156,7 +161,9 @@ class Configuration extends Page implements HasForms, HasActions {
                     'completion'  => $project->completion,
                     'units'       => $project->units,                    
                     'description' => $project->description,
-                    'show'      => (string) $project->show,                    
+                    'year'        => $project->year,
+                    'timeline'    => $project->timeline,
+                    'show'       => (string) $project->show,                    
                 ]);
             })
 
@@ -178,8 +185,10 @@ class Configuration extends Page implements HasForms, HasActions {
                     'completion'  => $data['completion'] ?? $project->completion,
                     'units'       => $data['units'] ?? $project->units,
                     'location'    => $data['location'] ?? $project->location,
-                    'description' => $data['description'] ?? null,                    
+                    'description' => $data['description'] ?? null,
                     'show'        => $data['show'] ?? $project->show,
+                    'year'        => $data['year'] ?? $project->year,
+                    'timeline'    => $data['timeline'] ?? $project->timeline,
                 ]);
 
                 // Resize image only when a new image is supplied
@@ -191,34 +200,33 @@ class Configuration extends Page implements HasForms, HasActions {
             });
     }
 
-
     //Apartments
     protected function apartmentFormSchema(): array {
         return [
-            Grid::make(4)
+            Grid::make(2)
                 ->schema([
                     Grid::make(2)
+                        ->schema([                            
+                            Select::make('project_id')->label('Project')->placeholder('Select Project')
+                                ->options(
+                                    \App\Models\Project::query()->pluck('title', 'id')->toArray()
+                                )->searchable()->preload()->required()->columnSpan(2),
+                            Textarea::make('description')->label('Details')->rows(3)->columnSpan(2),                            
+                        ])->columnSpan(1),
+                    Grid::make(2)
                         ->schema([
-                            TextInput::make('apartment_name')->label('Apartment Name')->required()->maxLength(255)->columnSpan(2),                            
-                            Textarea::make('description')->label('Apartment Details')->rows(2)->columnSpan(2),
-                            FileUpload::make('image')->label('Thumb')->image()->imageEditor()
-                                ->imageEditorAspectRatios([
-                                    '600:500',
-                                ])
-                                ->disk('public')->directory('apartments/thumb')->visibility('public')
-                                ->getUploadedFileNameForStorageUsing(
-                                    fn ($file, $get) =>
-                                        \Illuminate\Support\Str::slug($get('apartment_name'))
-                                        . '-'
-                                        . now()->format('Y-m-d')
-                                        . '.'
-                                        . $file->getClientOriginalExtension()
-                                )->columnSpan(1),
-                            FileUpload::make('gallery')->label('Image Gallery')->image()->multiple()->reorderable()->appendFiles()->imageEditor()
-                                ->imageEditorAspectRatios([
-                                    '1000:800',
-                                ])
+                             Grid::make(5)
+                                    ->schema([
+                                        TextInput::make('rooms')->label('Rooms')->maxLength(10)->columnSpan(2),
+                                        TextInput::make('area')->label('Area')->maxLength(10)->columnSpan(2),
+                                        Toggle::make('show')->label('Show')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required()->columnSpan(1),
+                                    ])->columnSpan(2),
+                            
+                            FileUpload::make('gallery')->label('Gallery Images')->image()->multiple()
+                                ->maxFiles(5)->reorderable()->appendFiles()->imageEditor()
+                                ->imageEditorAspectRatios(['1000:800',])
                                 ->disk('public')->directory('apartments/gallery')->visibility('public')
+                                ->helperText('Max 5 images. Size: 1000×800px. Max file size: 2 MB')
                                 ->getUploadedFileNameForStorageUsing(
                                     fn ($file, $get) =>
                                         \Illuminate\Support\Str::slug($get('apartment_name'))
@@ -228,23 +236,7 @@ class Configuration extends Page implements HasForms, HasActions {
                                         . \Illuminate\Support\Str::random(3)
                                         . '.'
                                         . $file->getClientOriginalExtension()
-                                )->dehydrated()->columnSpan(1),
-                        ])->columnSpan(3),
-                    Grid::make(2)
-                        ->schema([       
-                            Select::make('project_id')->label('Project')->placeholder('Select Project')
-                                ->options(
-                                    \App\Models\Project::query()->pluck('title', 'id')->toArray()
-                                )->searchable()->preload()->required()->columnSpan(2),             
-                                                        
-                            TextInput::make('rooms')->label('Rooms')->maxLength(10)->columnSpan(2),
-                            TextInput::make('area')->label('Area')->maxLength(10)->columnSpan(2),                            
-                             Select::make('show')->label('Show on Page')
-                                ->options([
-                                    'yes' => 'Yes',
-                                    'no' => 'No',
-                                ])
-                                ->default('yes')->required()->columnSpan(2),                            
+                                )->dehydrated()->columnSpan(2),                               
                         ])->columnSpan(1),
                 ]),
         ];
@@ -254,18 +246,12 @@ class Configuration extends Page implements HasForms, HasActions {
         return Action::make('addApartment')->label('Add Apartment')->modalHeading('Add Apartment')
             ->modalWidth('4xl')->schema($this->apartmentFormSchema())
             ->action(function (array $data) {
-                $apartment = Apartment::create([
-                    'apartment_name' => $data['apartment_name'],                    
-                    'project_id'     => $data['project_id'],
-                    'category'       => $data['category'],
-                    'image'          => $data['image'] ?? null,
-                    'location'       => $data['location'],
+                $apartment = Apartment::create([                    
+                    'project_id'     => $data['project_id'],                                                            
                     'rooms'          => $data['rooms'],
-                    'area'           => $data['area'],
-                    'units'          => $data['units'],                    
-                    'description'    => $data['description'],
-                    'completion'     => $data['completion'],
-                    'status'         => $data['status'],
+                    'area'           => $data['area'],                    
+                    'description'    => $data['description'],                    
+                    'show'         => $data['show'],
                 ]);
 
                 // Resize thumbnail
@@ -285,281 +271,340 @@ class Configuration extends Page implements HasForms, HasActions {
         }    
 
     
-        public function editApartmentAction(): Action {
-            return Action::make('editApartment')
-                ->modalHeading('Edit Apartment')->modalWidth('4xl')->schema($this->apartmentFormSchema())
-                ->mountUsing(function ($form, $arguments) {
-                    // Check what was passed
-                    $apartmentId = $arguments['apartmentId'] ?? null;
+    public function editApartmentAction(): Action {
+        return Action::make('editApartment')
+            ->modalHeading('Edit Apartment')->modalWidth('4xl')->schema($this->apartmentFormSchema())
+            ->mountUsing(function ($form, $arguments) {
+                // Check what was passed
+                $apartmentId = $arguments['apartmentId'] ?? null;
 
-                    if (! $apartmentId) {
-                        return;
+                if (! $apartmentId) {
+                    return;
+                }
+
+                $apartment = Apartment::findOrFail($apartmentId);
+
+                $form->fill([                        
+                    'project_id'     => $apartment->project_id,                        
+                    'image'         => $apartment->image,                        
+                    'rooms'         => $apartment->rooms,
+                    'area'          => $apartment->area,                        
+                    'description'   => $apartment->description,                        
+                    'gallery'      => $apartment->images()->orderBy('sort_order')->pluck('image')->toArray(),
+                    'show'       => (string) $apartment->show,
+                ]);
+            })
+
+            ->action(function (array $data, $arguments) {
+                $apartmentId = $arguments['apartmentId'] ?? null;
+
+                if (! $apartmentId) {
+                    return;
+                }
+
+                $apartment = Apartment::findOrFail($apartmentId);
+
+                $apartment->update([                        
+                    'project_id'     => $data['project_id'],
+                    'category'       => $data['category'],
+                    'image'          => $data['image'] ?? $apartment->image,                        
+                    'rooms'          => $data['rooms'],
+                    'area'           => $data['area'],                        
+                    'description'    => $data['description'],                        
+                    'show'           => $data['show'],
+                ]);
+
+                // Update gallery
+                $apartment->images()->delete();
+
+                foreach ($data['gallery'] ?? [] as $index => $image) {
+                    if (Storage::disk('public')->exists($image)) {
+                        $fullPath = Storage::disk('public')->path($image);
+                        Image::read($fullPath)->cover(1000, 700)->save($fullPath);
                     }
 
-                    $apartment = Apartment::findOrFail($apartmentId);
-
-                    $form->fill([
-                        'apartment_name' => $apartment->apartment_name,
-                        'project_id'     => $apartment->project_id,
-                        'category'      => $apartment->category,
-                        'image'         => $apartment->image,
-                        'location'      => $apartment->location,
-                        'rooms'         => $apartment->rooms,
-                        'area'          => $apartment->area,
-                        'units'         => $apartment->units,
-                        'description'   => $apartment->description,
-                        'completion'    => $apartment->completion,
-                        'gallery'      => $apartment->images()->orderBy('sort_order')->pluck('image')->toArray(),
-                        'status'       => (string) $apartment->status,
+                    $apartment->images()->create([
+                        'image'      => $image,
+                        'sort_order' => $index,
                     ]);
-                })
-
-                ->action(function (array $data, $arguments) {
-                    $apartmentId = $arguments['apartmentId'] ?? null;
-
-                    if (! $apartmentId) {
-                        return;
-                    }
-
-                    $apartment = Apartment::findOrFail($apartmentId);
-
-                    $apartment->update([
-                        'apartment_name' => $data['apartment_name'],
-                        'project_id'     => $data['project_id'],
-                        'category'       => $data['category'],
-                        'image'          => $data['image'] ?? $apartment->image,
-                        'location'     => $data['location'],
-                        'rooms'     => $data['rooms'],
-                        'area'     => $data['area'],
-                        'units'     => $data['units'],
-                        'description'  => $data['description'],
-                        'completion'  => $data['completion'],                        
-                        'status'       => $data['status'],
-                    ]);
-
-                    // Update gallery
-                    $apartment->images()->delete();
-
-                    foreach ($data['gallery'] ?? [] as $index => $image) {
-                        if (Storage::disk('public')->exists($image)) {
-                            $fullPath = Storage::disk('public')->path($image);
-                            Image::read($fullPath)->cover(1000, 700)->save($fullPath);
-                        }
-
-                        $apartment->images()->create([
-                            'image'      => $image,
-                            'sort_order' => $index,
-                        ]);
-                    }
-                });
-        }
+                }
+            });
+    }
     
-        //Timeline    
-        protected function timelineFormSchema(): array {
+    //Why
+    protected function whyFormSchema(): array {
         return [
-            Grid::make(4)
+            Grid::make(3)
                 ->schema([
-                    Select::make('year')->label('Year')->options(
-                            collect(range(2000, 2026))
-                                ->mapWithKeys(fn ($year) => [$year => $year])
-                                ->toArray()
-                        )->required()->columnSpan(1),                    
-                    TextInput::make('title')->label('Title')->required()->maxLength(255)->columnSpan(2),
-                    TextInput::make('sort_order')->label('Sort Order')->numeric()->default(0)->columnSpan(1),
-                    Textarea::make('description')->label('Description')->rows(3)->columnSpan(4),
-                    FileUpload::make('image')->label('Timeline Thumb')->image()->disk('public')->directory('timeline')->visibility('public')
-                        ->getUploadedFileNameForStorageUsing(
-                            fn ($file, $get) =>
-                                \Illuminate\Support\Str::slug($get('title'))
-                                . '-'
-                                . $get('year')
-                                . '.'
-                                . $file->getClientOriginalExtension()
-                        )
-                        ->columnSpan(4),
+                    TextInput::make('title')->label('Title')->columnSpan(2),
+                    TextInput::make('icon')->label('Icon')->columnSpan(1),
+                    Textarea::make('description')->label('Description')->rows(3)->columnSpan(3),
                 ]),
         ];
     }
 
-    public function addTimelineAction(): Action {
-        return Action::make('addTimeline')
-            ->label('Add Timeline')
-            ->modalHeading('Add Timeline')
+    public function addWhyAction(): Action {
+        return Action::make('addWhy')
+            ->label('Add Why')
+            ->modalHeading('Add Why')
             ->modalWidth('4xl')
-            ->schema($this->timelineFormSchema())
+            ->schema($this->whyFormSchema())
 
             ->action(function (array $data): void {
-                Timeline::create([
-                    'title'       => $data['title'],
-                    'year'        => $data['year'],
+                Why::create([
+                    'icon'        => $data['icon'],
+                    'title'        => $data['title'],
                     'description' => $data['description'] ?? null,
-                    'image'       => $data['image'] ?? null,
-                    'sort_order'  => $data['sort_order'] ?? 0,
-                ]);
-
-                // Resize image
-                if (!empty($data['image'])) {
-                    $this->resizeImage($data['image']);
-                }
+                ]);               
 
                 $this->redirect(static::getUrl());
             });
     }
 
-    public function editTimelineAction(): Action {
-        return Action::make('editTimeline')
-            ->modalHeading('Edit Timeline')
+    public function editWhyAction(): Action {
+        return Action::make('editWhychoose')
+            ->modalHeading('Edit Why')
             ->modalWidth('4xl')
-            ->schema($this->timelineFormSchema())
-
+            ->schema($this->whyFormSchema())
             ->mountUsing(function ($form, $arguments) {
+                $whyId = $arguments['$whyId'] ?? null;
 
-                $timelineId = $arguments['timelineId'] ?? null;
-
-                if (! $timelineId) {
+                if (! $whyId) {
                     return;
                 }
 
-                $timeline = Timeline::findOrFail($timelineId);
+                $why = Why::findOrFail($whyId);
+
+                $form->fill([        
+                    'icon'        => $why->icon,
+                    'title'       => $why->title,
+                    'description' => $why->description,                                        
+                ]);
+            })            
+           
+            ->mountUsing(function (Schema $form, array $arguments): void {
+                $record = Why::findOrFail($arguments['recordId']);
 
                 $form->fill([
-                    'title'       => $timeline->title,
-                    'year'        => $timeline->year,
-                    'description' => $timeline->description,
-                    'image'       => $timeline->image,
-                    'sort_order'  => $timeline->sort_order,
+                    'icon' => $record->icon,
+                    'title' => $record->title,
+                    'description' => $record->description,
+                ]);
+            })
+            ->action(function (array $data, array $arguments): void {
+                $record = Why::findOrFail($arguments['recordId']);
+
+                $record->update($data);
+            });
+    }
+
+
+    //Testimonials
+    protected function testimonialFormSchema(): array {
+        return [
+            Grid::make(6)
+                ->schema([                   
+                    TextInput::make('name')->label('Name')->required()->maxLength(255)->columnSpan(3),
+                    TextInput::make('designation')->label('Designation')->columnSpan(2),
+                    Toggle::make('show')->label('Show')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required()->columnSpan(1),
+
+                    TextArea::make('description')->label('Description')->columnSpan(3),
+                    FileUpload::make('image')->label('Image')->image()->disk('public')
+                        ->directory('settings/testimonial')
+                        ->visibility('public')
+                        ->helperText('Size: 300×300px. Max file size: 1 MB')
+                        ->getUploadedFileNameForStorageUsing(
+                            fn ($file, $get) =>
+                                Str::slug($get('name'))
+                                . '.'
+                                . $file->getClientOriginalExtension()
+                        )
+                        ->columnSpan(3),                    
+                ]),
+        ];
+    }
+
+    public function addTestimonialAction(): Action {
+        return Action::make('addTestimonial')
+            ->label('Add Testimonial')
+            ->modalHeading('Add Testimonial')
+            ->modalWidth('4xl')
+            ->schema($this->testimonialFormSchema())
+            ->action(function (array $data): void {
+                $testimonial = Testimonial::create([
+                    'name'        => $data['name'],
+                    'designation' => $data['designation'],
+                    'image'       => $data['image'] ?? null,
+                    'description' => $data['description'] ?? null,                    
+                    'show'        => $data['show'] ?? 'yes',
+                ]);
+               
+                $this->redirect(static::getUrl());
+            });
+    }
+
+    public function editTestimonialAction(): Action {
+        return Action::make('editWhychoose')
+            ->modalHeading('Edit Testimonial')
+            ->modalWidth('4xl')
+            ->schema($this->testimonialFormSchema())
+            ->mountUsing(function ($form, $arguments) {
+                $testimonialId = $arguments['testimonialId'] ?? null;
+
+                if (!$testimonialId) {
+                    return;
+                }
+
+                $testimonial = Testimonial::findOrFail($testimonialId);
+
+                $form->fill([
+                    'name'        => $testimonial->name,
+                    'designation' => $testimonial->designation,
+                    'image'       => $testimonial->image,
+                    'description' => $testimonial->description,                    
+                    'show'        => (string) $testimonial->show,
                 ]);
             })
 
-            ->action(function (array $data, $arguments): void {
-                $timelineId = $arguments['timelineId'] ?? null;
+            ->mountUsing(function (Schema $form, array $arguments): void {
+                $record = Testimonial::findOrFail($arguments['recordId']);
 
-                if (! $timelineId) {
+                $form->fill([                    
+                    'name' => $record->name,
+                    'designation' => $record->designation,
+                    'image' => $record->image,
+                    'description' => $record->description,
+                    'show' => (string) $record->show,
+                ]);
+            })
+            ->action(function (array $data, array $arguments): void {
+                $record = Testimonial::findOrFail($arguments['recordId']);
+
+                $record->update($data);
+            });
+    }   
+
+
+    //Events
+    protected function eventFormSchema(): array {
+        return [
+            Grid::make(6)
+                ->schema([
+                    TextInput::make('title')->label('Event Title')->required()->maxLength(255)->columnSpan(5),
+                    Toggle::make('show')->label('Show')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required()->columnSpan(1),
+                    
+                    FileUpload::make('image')->label('Image')->image()->disk('public')
+                        ->directory('settings/events')
+                        ->visibility('public')
+                        ->helperText('Size: 1000×600px. Max file size: 1 MB')
+                        ->getUploadedFileNameForStorageUsing(
+                            fn ($file, $get) =>
+                                Str::slug($get('title'))
+                                . '.'
+                                . $file->getClientOriginalExtension()
+                        )
+                        ->columnSpan(3),
+                    TextArea::make('description')->label('Description')->columnSpan(3),
+                ]),
+        ];
+    }
+
+    public function addEventAction(): Action {
+        return Action::make('addEvent')
+            ->label('Add Event')
+            ->modalHeading('Add Event')
+            ->modalWidth('4xl')
+            ->schema($this->eventFormSchema())
+            ->action(function (array $data): void {
+                $event = Event::create([
+                    'title'        => $data['title'],                    
+                    'image'       => $data['image'] ?? null,
+                    'description' => $data['description'] ?? null,                    
+                    'show'        => $data['show'] ?? 'yes',
+                ]);
+               
+                $this->redirect(static::getUrl());
+            });
+    }
+
+    public function editEventAction(): Action {
+        return Action::make('editEvent')
+            ->modalHeading('Edit Event')
+            ->modalWidth('4xl')
+            ->schema($this->eventFormSchema())
+            ->mountUsing(function ($form, $arguments) {
+                $eventId = $arguments['eventId'] ?? null;
+
+                if (!$eventId) {
                     return;
                 }
 
-                $timeline = Timeline::findOrFail($timelineId);
+                $event = Event::findOrFail($eventId);
 
-                $timeline->update([
-                    'title'       => $data['title'],
-                    'year'        => $data['year'],
-                    'description' => $data['description'] ?? null,
-                    'image'       => $data['image'] ?? $timeline->image,
-                    'sort_order'  => $data['sort_order'] ?? 0,
+                $form->fill([
+                    'title'        => $event->title,                    
+                    'image'       => $event->image,
+                    'description' => $event->description,                    
+                    'show'        => (string) $event->show,
                 ]);
+            })
+
+            ->mountUsing(function (Schema $form, array $arguments): void {
+                $record = Event::findOrFail($arguments['recordId']);
+
+                $form->fill([                    
+                    'title' => $record->title,                    
+                    'image' => $record->image,
+                    'description' => $record->description,
+                    'show' => (string) $record->show,
+                ]);
+            })
+            ->action(function (array $data, array $arguments): void {
+                $record = Event::findOrFail($arguments['recordId']);
+                $record->update($data);
+            });
+    }   
+    
+    //Delete Record
+    public function deleteRecordAction(): Action {
+        return Action::make('deleteRecord')
+            ->requiresConfirmation()->modalHeading('Delete Record')->modalDescription('Are you sure you want to delete this record?')
+            ->modalSubmitActionLabel('Delete')->color('danger')
+
+            ->action(function (array $arguments): void {
+                $modelClass = $arguments['model'] ?? null;
+                $recordId   = $arguments['recordId'] ?? null;
+
+                if (! $modelClass || ! $recordId) {
+                    return;
+                }
+
+                $record = $modelClass::findOrFail($recordId);
+
+                if (! empty($record->image)) {
+                    $this->deleteImage($record->image);
+                }
+
+                if ($record instanceof Apartment) {
+                    foreach ($record->images as $image) {
+                        $this->deleteImage($image->image);
+                    }
+                    $record->images()->delete();
+                }
+                
+                $record->delete();
 
                 $this->redirect(static::getUrl());
             });
-    }  
+        }
     
-    public function deleteRecordAction(): Action
-{
-    return Action::make('deleteRecord')
-        ->requiresConfirmation()
-        ->modalHeading('Delete Record')
-        ->modalDescription('Are you sure you want to delete this record?')
-        ->modalSubmitActionLabel('Delete')
-        ->color('danger')
+        protected function deleteImage(?string $imagePath): void {
+        if (! empty($imagePath)) {
+            Storage::disk('public')->delete($imagePath);
+        }
+    }
 
-        ->action(function (array $arguments): void {
-
-            $modelClass = $arguments['model'] ?? null;
-            $recordId   = $arguments['recordId'] ?? null;
-
-            if (! $modelClass || ! $recordId) {
-                return;
-            }
-
-            $record = $modelClass::findOrFail($recordId);
-
-            /*
-            |--------------------------------------------------------------------------
-            | Delete main image
-            |--------------------------------------------------------------------------
-            */
-
-            if (! empty($record->image)) {
-                $this->deleteFile($record->image);
-            }
-
-            /*
-            |--------------------------------------------------------------------------
-            | Delete PDF
-            |--------------------------------------------------------------------------
-            */
-
-            if ($record instanceof Apartment && ! empty($record->pdf)) {
-                $this->deleteFile($record->pdf);
-            }
-
-            /*
-            |--------------------------------------------------------------------------
-            | Delete Apartment Gallery
-            |--------------------------------------------------------------------------
-            */
-
-            if ($record instanceof Apartment) {
-
-                foreach ($record->images as $image) {
-                    if (! empty($image->image)) {
-                        $this->deleteFile($image->image);
-                    }
-                }
-
-                $record->images()->delete();
-            }
-
-            /*
-            |--------------------------------------------------------------------------
-            | Delete Record
-            |--------------------------------------------------------------------------
-            */
-
-            $record->delete();
-
-            $this->redirect(static::getUrl());
-        });
-}
-        
-    // public function deleteRecordAction(): Action {
-    //     return Action::make('deleteRecord')
-    //         ->requiresConfirmation()->modalHeading('Delete Record')->modalDescription('Are you sure you want to delete this record?')
-    //         ->modalSubmitActionLabel('Delete')->color('danger')
-
-    //         ->action(function (array $arguments): void {
-    //             $modelClass = $arguments['model'] ?? null;
-    //             $recordId   = $arguments['recordId'] ?? null;
-
-    //             if (! $modelClass || ! $recordId) {
-    //                 return;
-    //             }
-
-    //             $record = $modelClass::findOrFail($recordId);
-
-    //             if (! empty($record->image)) {
-    //                 $this->deleteImage($record->image);
-    //             }
-
-    //             if ($record instanceof Apartment) {
-    //                 foreach ($record->images as $image) {
-    //                     $this->deleteImage($image->image);
-    //                 }
-    //                 $record->images()->delete();
-    //             }
-                
-    //             $record->delete();
-
-    //             $this->redirect(static::getUrl());
-    //         });
-    //     }
-
-    
-    //     protected function deleteImage(?string $imagePath): void {
-    //     if (! empty($imagePath)) {
-    //         Storage::disk('public')->delete($imagePath);
-    //     }
-    // }
-
+    //resize Record
     protected function resizeImage(string $imagePath): void {
         if (!Storage::disk('public')->exists($imagePath)) {
             return;
@@ -570,19 +615,7 @@ class Configuration extends Page implements HasForms, HasActions {
     }
 
     public function getCardSections(): array {
-        return [
-            [
-                'heading' => 'Projects',
-                'singular' => 'Project',
-                'model' => Project::class,                
-                'title' => 'title',
-                'add_action' => 'addProject',
-                'edit_action' => 'editProject',
-                'edit_argument' => 'projectId',
-                'delete_action' => 'deleteRecord',
-                'delete_argument' => 'projectId',
-                'extra' => null,
-            ],
+        return [            
             [
                 'heading' => 'Apartments',
                 'singular' => 'Apartment',
@@ -597,18 +630,55 @@ class Configuration extends Page implements HasForms, HasActions {
                 'extra' => null,
             ],
             [
-                'heading' => 'Timeline',
-                'singular' => 'Timeline',
-                'model' => Timeline::class,
+                'heading' => 'Projects',
+                'singular' => 'Project',
+                'model' => Project::class,                
+                'title' => 'title',
+                'add_action' => 'addProject',
+                'edit_action' => 'editProject',
+                'edit_argument' => 'projectId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument' => 'projectId',
+                'extra' => null,
+            ],
+            [
+                'heading' => 'Why',
+                'singular' => 'Why',
+                'model' => Why::class,                
+                'title' => 'title',
+                'add_action' => 'addWhy',
+                'edit_action' => 'editWhy',
+                'edit_argument' => '$whyId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument'=> '$whyId',
+                'extra' => 'year',
+            ],
+            [
+                'heading' => 'Testimonial',
+                'singular' => 'Testimonial',
+                'model' => Testimonial::class,
                 'orderBy' => 'sort_order',
                 'title' => 'title',
-                'add_action' => 'addTimeline',
-                'edit_action' => 'editTimeline',
-                'edit_argument' => 'timelineId',
+                'add_action' => 'addTestimonial',
+                'edit_action' => 'editTestimonial',
+                'edit_argument' => 'testimonialId',
                 'delete_action' => 'deleteRecord',
-                'delete_argument'=> 'timelineId',
-                'extra' => 'year',
-            ]
+                'delete_argument' => 'testimonialId',
+                'extra' => null,
+            ],
+            [
+                'heading' => 'Event',
+                'singular' => 'Event',
+                'model' => Event::class,
+                'orderBy' => 'sort_order',
+                'title' => 'title',
+                'add_action' => 'addEvent',
+                'edit_action' => 'editEvent',
+                'edit_argument' => 'eventId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument' => 'eventId',
+                'extra' => null,
+            ],
         ];
     }
 

@@ -47,8 +47,10 @@ class UserResource extends Resource {
                                 Select::make('role')->label('Role')
                                     ->options([
                                         'user' => 'User',
+                                        'author' => 'Author',
                                         'admin' => 'Admin',
                                     ])->default('user')->required()->columnSpan(1),
+                                    
                                 TextInput::make('name')->label('Name')->required()->maxLength(50)->columnSpan(2),
                                 TextInput::make('email')->label('Email')->email()->required()->unique(ignoreRecord: true)->maxLength(50)->columnSpan(2),                                
                                 TextInput::make('password')->label('Password')->password()->revealable()->required(fn (string $operation): bool => $operation === 'create')

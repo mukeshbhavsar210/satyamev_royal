@@ -45,7 +45,7 @@ class SettingResource extends Resource{
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;    
 
     public static function canViewAny(): bool {
-        return auth()->user()?->role === 'admin';
+        return auth()->user()?->role === 'admin' || auth()->user()?->role === 'author';
     }
 
     public static function form(Schema $schema): Schema {    
@@ -65,17 +65,16 @@ class SettingResource extends Resource{
                                                 TextInput::make('business_line')->label('Business Line')->columnSpan(2),
                                                 TextInput::make('mobile')->label('Mobile')->tel()->columnSpan(1),
 
-                                                TextInput::make('experience_line')->label('Experience')->columnSpan(2),
-                                                TextInput::make('rera')->label('Rera')->columnSpan(1),      
+                                                TextInput::make('experience_line')->label('Experience')->columnSpan(2),                                                     
                                                 Grid::make(2)
                                                     ->schema([
                                                         TextInput::make('phone')->label('Phone')->tel()->columnSpan(1),
                                                         TextInput::make('whatsapp')->label('Whatsapp')->tel()->columnSpan(1),
                                                     ]),
                                             ])->columnSpan(1),
-                                    ]),
+                                    ])->collapsible(),
 
-                                     Section::make('Address')
+                                    Section::make('Address')
                                         ->schema([ 
                                             Grid::make(3)
                                                 ->schema([                                                 
@@ -88,8 +87,19 @@ class SettingResource extends Resource{
                                                     TextInput::make('foreign_office')->label('Foreign Office')->columnSpan(2),
                                                     TextInput::make('punch_line2')->label('Punch Line 2')->columnSpan(1),                                                            
                                                 ]),
-                                        ]),
-                                ]),                               
+                                        ])->collapsible(),
+
+                                    Section::make('Google Map')
+                                        ->schema([                                             
+                                            TextArea::make('google_map')->label('Copy Paste Google Map')->rows(4)->columnSpanFull(),
+                                        ])->collapsible(),
+                                ]),    
+                        Tab::make('About us')
+                            ->schema([                                          
+                                RichEditor::make('aboutus')->label('About Us')->columnSpanFull()
+                                    ->toolbarButtons(['bold','italic','underline','bulletList','orderedList','link','h2','h3','undo','redo',
+                                ])->disabled(false),
+                        ]),                           
 
                         Tab::make('Banners')
                             ->schema([
@@ -99,7 +109,7 @@ class SettingResource extends Resource{
                                             ->schema([                                                
                                                 Section::make('Hero')
                                                     ->schema([
-                                                        Placeholder::make('hero_preview')->hiddenLabel()                                                                    
+                                                        Placeholder::make('hero_preview')->hiddenLabel()
                                                             ->content(function () {
                                                                 $hero = \App\Models\Setting::first()?->hero;
 
@@ -377,14 +387,14 @@ class SettingResource extends Resource{
                                 Section::make('Social Accounts')
                                     ->schema([
                                         Grid::make(2)
-                                            ->schema([
-                                                TextInput::make('linkedin')->label('LinkedIn')->url(),
-                                                TextInput::make('facebook')->label('Facebook')->url(),
-                                                TextInput::make('instagram')->label('Instagram')->url(),
-                                                TextInput::make('youtube')->label('YouTube')->url(),                                                
-                                            ]),                                        
-                                    ])->contained(false),
-                            ]),
+                                        ->schema([
+                                            TextInput::make('linkedin')->label('LinkedIn')->url(),
+                                            TextInput::make('facebook')->label('Facebook')->url(),
+                                            TextInput::make('instagram')->label('Instagram')->url(),
+                                            TextInput::make('youtube')->label('YouTube')->url(),                                                
+                                        ]),                                        
+                                ])->contained(false),
+                        ]),
 
                         Tab::make('Preloader/Cookies')
                             ->schema([

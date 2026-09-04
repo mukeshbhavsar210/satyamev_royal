@@ -4,17 +4,15 @@
             <div class="apart-card_c">
                 <div class="apart-card_t">
                      <div class="apart-card_info">
-                        <h3 class="h5">{{ $apartment->apartment_name }}</h3>
-                    </div>
-                    <div class="u-4"></div>
-                    <p class="l2 reg a-center">{{ $apartment->project?->title ?? '-' }}</p>                    
+                        <h3 class="h5">{{ $apartment->project->title }}</h3>
+                    </div>                                        
                 </div>
                 <div class="u-16"></div>                
 
                 <div class="apart-card_img">
                     <div class="apart-card_img_prim">
-                        @if($apartment->image)
-                            <img src="{{ asset('storage/' . $apartment->image) }}" loading="eager" alt="" alt="{{ $apartment->apartment_name }}" class="img contain_cover">
+                        @if($apartment->project->image)
+                            <img src="{{ asset('storage/' . $apartment->project->image) }}" loading="eager" alt="" alt="{{ $apartment->project->title }}" class="img contain_cover">
                         @else
                             <span>No image</span>
                         @endif
@@ -31,7 +29,7 @@
                     @endif                    
                     @if($apartment->units)
                         <div class="apart-card_data-list">
-                            <p class="l2 reg a-center"><span>Units: {{ $apartment->units }}</span></p>
+                            <p class="l2 reg a-center"><span>Units: {{ $apartment->project->units }}</span></p>
                         </div>
                     @endif
                     <div class="u-16"></div>

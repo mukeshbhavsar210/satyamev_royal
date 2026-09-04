@@ -14,10 +14,12 @@
                   <div class="u-48"></div>
                   <div class="u-272 b-mob"></div>
                   <div class="lot-s_info_header_num">
-                    <h3 class="h3">{{ $apartment->apartment_name }}</h3>
+                    <h3 class="h3">{{ $apartment->project->title }}</h3>
                   </div>
-                  <div class="u-24"></div>
-                  <h3 class="l2 reg"><span>{{ $apartment->project->location }}</span></h3>
+                  <div class="u-16"></div>
+                  <h3 class="l2"><span>{{ $apartment->project->location }}</span></h3>
+                  <div class="u-12"></div>
+                  <h3 class="l2 reg"><span>{{ $apartment->project->rera }}</span></h3>
                 </div>
 
                 <div data-lenis-scroll="" class="lot-s_info_t scrollbar-none lenis">
@@ -30,9 +32,9 @@
                     </div>
                     
                     <div class="data-item">
-                      <h4 class="l1 reg">Project</h4>
+                      <h4 class="l1 reg">Size</h4>
                       <div class="u-16"></div>
-                      <h6 class="h6">{{ $apartment->project->title }}</h6>
+                      <h6 class="h6">{{ $apartment->area }}</h6>
                     </div>
 
                     <div class="data-item">
@@ -125,9 +127,9 @@
               <div class="lot-s_media_c">
                 <div class="lot-s_media_layout">
                   <div class="grid _5-columns">
-                    <div hover-pin-trigger="" hover-media-item="" class="lot-s_media_layout_img-prim theme_on-color">
-                        @if($apartment->image)                            
-                            <img src="{{ asset('storage/' . $apartment->image) }}" alt="{{ $apartment->project_name }}" class="img contain">
+                    <div class="lot-s_media_layout_img-prim theme_on-color">
+                        @if($apartment->project->image)                            
+                            <img src="{{ asset('storage/' . $apartment->project->image) }}" alt="{{ $apartment->project->title }}" class="img contain">
                         @endif                                            
                     </div>                    
                   </div>
@@ -135,16 +137,11 @@
                 </div>
 
                 <div class="lot-media-cms w-dyn-list">                  
-                  <div role="list" class="lot-media-cms_list w-dyn-items">
+                  <div class="lot-media-cms_list w-dyn-items">
                     @if($apartment->apartmentImages->count())
                         @foreach($apartment->apartmentImages as $apartmentImage)
                             <div role="listitem" class="lot-media-cms_list_item w-dyn-item w-dyn-repeater-item">
-                                    <div class="lot-media-item theme_on-color">
-                                        <div class="img-w h-auto">                                        
-                                            <img src="{{ asset('storage/' . $apartmentImage->image) }}" alt="{{ $apartment->project_name }}" class="img h-auto">
-                                        </div>
-                                    </div>
-                                </div>                                
+                                <img src="{{ asset('storage/' . $apartmentImage->image) }}" alt="{{ $apartment->project_name }}" class="img contain">                                
                             </div>
                         @endforeach                    
                     @endif                                    

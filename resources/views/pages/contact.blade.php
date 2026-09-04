@@ -23,16 +23,16 @@
                                 <div class="contact-cms w-dyn-list">
                                     <div role="list" class="contact-cms_list w-dyn-items">
                                         <div role="listitem" class="contact-cms_list_item w-dyn-item">
-                                            <a hover-nav-item="" aria-label="{{ $contact->email }}" href="mailto:{{ $contact->email }}" class="nav-item w-inline-block">
+                                            <a hover-nav-item="" aria-label="{{ setting('email') }}" href="mailto:{{ setting('email') }}" class="nav-item w-inline-block">
                                                 <div class="nav-item_label">
                                                     <div class="nav-item_label_text">
-                                                        <div hover="text" class="l1" aria-label="{{ $contact->email }}">
-                                                            {{ $contact->email }}                                                        
+                                                        <div hover="text" class="l1" aria-label="{{ setting('email') }}">
+                                                            {{ setting('email') }}
                                                         </div>
                                                     </div>
                                                     <div class="nav-item_label_text is-2">
-                                                        <div hover="text" class="l1" aria-label="{{ $contact->email }}">
-                                                            {{ $contact->email }}                                                        
+                                                        <div hover="text" class="l1" aria-label="{{ setting('email') }}">
+                                                            {{ setting('email') }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -52,12 +52,12 @@
                                                 <div class="nav-item_label">
                                                     <div class="nav-item_label_text">
                                                         <div hover="text" class="l1">
-                                                            {{ $contact->address_line1 }} {{ $contact->address_line2 }}
+                                                            {{ setting('address_line1') }} {{ setting('address_line2') }}
                                                         </div>
                                                     </div>
                                                     <div class="nav-item_label_text is-2">
                                                         <div hover="text" class="l1">
-                                                            {{ $contact->address_line1 }} {{ $contact->address_line2 }}
+                                                            {{ setting('address_line1') }} {{ setting('address_line2') }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -70,12 +70,12 @@
                                                 <div class="nav-item_label">
                                                     <div class="nav-item_label_text">
                                                         <div hover="text" class="l1" >
-                                                            {{ $contact->foreign_office }}                                                        
+                                                            {{ setting('foreign_office') }}                                                        
                                                         </div>
                                                     </div>
                                                     <div class="nav-item_label_text is-2">
                                                         <div hover="text" class="l1">
-                                                            {{ $contact->foreign_office }}                                                        
+                                                            {{ setting('foreign_office') }}                                                        
                                                         </div>
                                                     </div>
                                                 </div>
@@ -94,10 +94,10 @@
                                             <a hover-nav-item="" href="tel:+91-{{ $contact->phone }}" class="nav-item w-inline-block">
                                                 <div class="nav-item_label">
                                                     <div class="nav-item_label_text">
-                                                        <div hover="text" class="l1">+91-{{ $contact->phone }}</div>
+                                                        <div hover="text" class="l1">+91-{{ setting('phone') }}</div>
                                                     </div>
                                                     <div class="nav-item_label_text is-2">
-                                                        <div hover="text" class="l1">+91-{{ $contact->phone }}</div>
+                                                        <div hover="text" class="l1">+91-{{ setting('phone') }}</div>
                                                     </div>
                                                 </div>
                                             </a>
@@ -106,16 +106,16 @@
                                             <a hover-nav-item="" href="tel:+91-{{ $contact->mobile }}" class="nav-item w-inline-block">
                                                 <div class="nav-item_label">
                                                     <div class="nav-item_label_text">
-                                                        <div hover="text" class="l1">+91-{{ $contact->mobile }}</div>
+                                                        <div hover="text" class="l1">+91-{{ setting('mobile') }}</div>
                                                     </div>
                                                     <div class="nav-item_label_text is-2">
-                                                        <div hover="text" class="l1">+91-{{ $contact->mobile }}</div>
+                                                        <div hover="text" class="l1">+91-{{ setting('mobile') }}</div>
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>                                    
                                         <div role="listitem" class="contact-cms_list_item w-dyn-item">
-                                            <a hover-nav-item="" href="https://wa.me/{{ $contact->whatsapp }}" class="nav-item w-inline-block">
+                                            <a hover-nav-item="" href="https://wa.me/{{ setting('whatsapp') }}" class="nav-item w-inline-block">
                                                 <div class="nav-item_label">
                                                     <div class="nav-item_label_text">                                                    
                                                         <div hover="text" class="l1">Whatsapp</div>
@@ -192,9 +192,16 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div data-parallax="w" data-scroll-reveal="ctn" data-prevent-flicker="" class="contact-s_map" >
                                 <div data-parallax="img" class="contact-s_map_c">
-                                    <!-- <img src="images/map_sales-office.svg" loading="eager" alt="" class="img h-auto"> -->
+                                    @if(setting('google_map'))
+                                        <iframe src="{{ setting('google_map') }}" width="100%" height="450" style="border:0;"
+                                            allowfullscreen="" loading="lazy"
+                                            referrerpolicy="strict-origin-when-cross-origin">
+                                        </iframe>
+                                    @endif
+                                                                    
                                     <div class="contact-s_map_pin">
                                         <div class="contact-s_map_pin_c theme_on-dark">
                                             <div class="contact-s_map_pin_info">
@@ -203,6 +210,9 @@
                                             </div>
                                             <div data-modal-close="menu" class="logo_symbol ico-28">
                                                 <div class="logo w-embed">
+                                                    
+
+                                                    
                                                     <!-- <svg width="100%" height="100%" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M6.55544 9.1241C4.81712 7.38578 4.69025 4.69428 4.69025 4.69428C4.69025 4.69428 7.38176 4.82115 9.12007 6.55947C10.8584 8.29779 10.9853 10.9893 10.9853 10.9893C10.9853 10.9893 8.29376 10.8624 6.55544 9.1241Z" fill="currentColor"></path>
                                                         <path d="M20 0.00151769L16.1569 8.1194C15.5932 9.31006 15.5931 10.6907 16.1568 11.8814L18.4988 16.8291C17.7735 17.1796 17.1891 17.7755 16.8534 18.5091L11.8814 16.1558C10.6907 15.5923 9.31007 15.5923 8.11946 16.156L0 20V19.177C0 18.3493 0.423339 17.5792 1.12211 17.1356L7.64451 12.9953C9.08249 12.0825 10.9183 12.0824 12.3564 12.9951L14.1067 14.1059L12.9961 12.3565C12.0833 10.9184 12.0833 9.08239 12.9962 7.64431L17.1364 1.12212C17.5799 0.423353 18.3501 1.51793e-05 19.1777 1.51793e-05L20 0.00151769Z"

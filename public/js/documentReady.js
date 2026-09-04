@@ -1,4 +1,26 @@
 $(document).ready(function () {
+    
+    const videos = document.querySelectorAll('video');
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            const video = entry.target;
+
+            if (entry.isIntersecting) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    videos.forEach(function (video) {
+        observer.observe(video);
+    });
+
+
+
     $('.filter-dropdown-toggle').on('click', function (e) {
         e.stopPropagation();
 

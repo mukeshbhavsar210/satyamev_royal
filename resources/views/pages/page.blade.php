@@ -136,9 +136,107 @@
         </section>    
     </section>
 
-   
+    @php
+    $pageImages = $page->images ?? collect();
+@endphp
 
-        @php
+@if ($pageImages->isNotEmpty())
+    <div class="pages_images">
+
+        @foreach ($pageImages as $pageImage)
+
+            @php
+                $extension = strtolower(pathinfo($pageImage->image, PATHINFO_EXTENSION));
+
+                $isVideo = in_array($extension, [
+                    'mp4',
+                    'webm',
+                    'ogg',
+                    'mov',
+                ]);
+            @endphp
+
+            @if ($isVideo)
+
+                {{-- VIDEO --}}
+                <div class="gallery video-gallery">
+                    <div class="gallery-image">
+                        <video
+                            class="project-video"
+                            muted
+                            playsinline
+                            loop
+                            preload="metadata"
+                        >
+                            <source
+                                src="{{ Storage::url($pageImage->image) }}"
+                                type="video/{{ $extension }}"
+                            >
+                        </video>
+                    </div>
+                </div>
+
+            @else
+
+                {{-- IMAGE --}}
+                @php
+                    $filename = pathinfo($pageImage->image, PATHINFO_FILENAME);
+
+                    $baseName = preg_replace('/-\d+$/', '', $filename);
+
+                    $directory = dirname($pageImage->image);
+                    $extension = pathinfo($pageImage->image, PATHINFO_EXTENSION);
+
+                    $sizes = [500, 800, 1080, 1600, 1920];
+
+                    $srcset = [];
+
+                    foreach ($sizes as $size) {
+                        $sizeFile = "{$baseName}-{$size}.{$extension}";
+                        $sizePath = "{$directory}/{$sizeFile}";
+
+                        if (Storage::disk('public')->exists($sizePath)) {
+                            $srcset[] = Storage::url($sizePath) . " {$size}w";
+                        }
+                    }
+
+                    $mainImage = null;
+
+                    foreach ([1920, 1600, 1080, 800, 500] as $size) {
+                        $sizeFile = "{$baseName}-{$size}.{$extension}";
+                        $sizePath = "{$directory}/{$sizeFile}";
+
+                        if (Storage::disk('public')->exists($sizePath)) {
+                            $mainImage = $sizePath;
+                            break;
+                        }
+                    }
+                @endphp
+
+                @if ($mainImage)
+                    <div class="gallery" data-parallax-image>
+                        <div class="gallery-image">
+                            <img
+                                src="{{ Storage::url($mainImage) }}"
+                                srcset="{{ implode(', ', $srcset) }}"
+                                sizes="(max-width: 1920px) 100vw, 1920px"
+                                alt="{{ $page->title }}"
+                                class="img-p"
+                            />
+                        </div>
+                    </div>
+                @endif
+
+            @endif
+
+        @endforeach
+
+    </div>
+@endif
+
+    
+
+        <!-- @php
             $pageImages = $page->images ?? collect();
         @endphp        
 
@@ -188,8 +286,13 @@
                             </div>
                         </div>
                     @endif
+
+                    <video id="project-video" muted playsinline>
+                        <source src="/videos/project.mp4" type="video/mp4">
+                    </video>
+
                 @endforeach
             </div>
-        @endif
+        @endif -->
 </main>   
 @endsection
