@@ -4,12 +4,12 @@
 .card-wrapper .title h1 { font-size: 20px; display: flex; column-gap: 10px;}
 .card-wrapper .title h1 .count { font-size: 11px; background-color: #2563eb; color: #fff; padding:4px; text-align: center; border-radius: 100px; display: block; height: 25px; width: 25px; margin-top: 3px;}
 .card-wrapper .cards { display: flex; gap: 20px; flex-wrap: wrap;  margin-top: 15px;}
+.card-wrapper .cards .disabled img { filter: grayscale(100%); opacity: 0.6; }
 .card-wrapper .cards .apartment { flex: 0 0 calc(23% - 0px); }
 .card-wrapper .cards .timeline { flex: 0 0 calc(23% - 0px); }
 .card-wrapper .cards .image-card { width: 100%; border-radius:5px; cursor: pointer; }
 .card-wrapper .cards .apartment .image-thumb { position: relative; width: 100%; height: 150px; overflow: hidden; }
 .card-wrapper .cards .timeline .image-thumb { position: relative; width: 100%; height: 150px; overflow: hidden; }
-
 .card-wrapper .cards .image-card .image-thumb img {
     width: 100%; border-radius: 10px; 
     height: 100%;

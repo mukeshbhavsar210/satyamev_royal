@@ -20,12 +20,9 @@ $(document).ready(function () {
     });
 
 
-
     $('.filter-dropdown-toggle').on('click', function (e) {
         e.stopPropagation();
-
         let $dropdown = $(this).closest('.apartment-filter-dropdown');
-
         // Close all other dropdowns
         $('.apartment-filter-dropdown')
             .not($dropdown)
@@ -37,7 +34,6 @@ $(document).ready(function () {
 
     $(document).on('click', '.filter_select_drop-down a', function (e) {
         e.preventDefault();
-
         let $item = $(this);
         let filterKey = $item.data('filter'); // status, bedrooms, sort_by
         let value = $item.data('value');
@@ -260,9 +256,7 @@ $(document).ready(function () {
                     .removeClass('in-view')
                     .addClass('out-view');
             }
-
         });
-
     }
 
     // On scroll
@@ -272,7 +266,6 @@ $(document).ready(function () {
 
     // On page load
     animateTimelineImages();
-
     
     $('.timeline-year').on('click', function () {
         let index = $(this).data('index');
@@ -307,9 +300,7 @@ $(document).ready(function () {
 
     $('#cookie-decline').on('click', function () {        
         hideCookieConsent('declined');
-    });
-
-   
+    });   
 });
 
 
@@ -349,16 +340,12 @@ $(document).on('click', '.apartment-filters a', function (e) {
 
     if (!galleries.length) {
         return;
-
     }
 
     const observer = new IntersectionObserver(
         function (entries) {
-
             entries.forEach(function (entry) {
-
                 const gallery = entry.target;
-
                 if (entry.isIntersecting) {
                     gallery.classList.add('is-visible');
                     gallery.classList.add('is-active');
@@ -375,9 +362,7 @@ $(document).on('click', '.apartment-filters a', function (e) {
                         gallery.classList.remove('is-out');
                     }
                 }
-
             });
-
         },
         {
             threshold: 0.15

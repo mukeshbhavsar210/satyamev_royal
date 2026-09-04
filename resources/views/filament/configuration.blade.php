@@ -9,6 +9,7 @@
                 <x-filament::tabs.item wire:click="$set('activeTab', {{ $loop->index }})" :active="(int) $activeTab === $loop->index"
                     class="custom-tab {{ (int) $activeTab === $loop->index ? 'is-active' : '' }}">
                     <span>{{ $section['heading'] }}</span>                    
+                    <x-filament::badge>{{ $count }}</x-filament::badge>
                 </x-filament::tabs.item>
             @endforeach
         </x-filament::tabs>
@@ -17,9 +18,7 @@
             @if((int) $activeTab === $loop->index)
                 <div class="card-section">
                     <div class="card-title">
-                        <h1>{{ $section['heading'] }}
-                            <x-filament::badge>{{ $count }}</x-filament::badge>
-                        </h1>
+                        <h1>{{ $section['heading'] }}</h1>
 
                         <x-filament::button wire:click="mountAction('{{ $section['add_action'] }}')" icon="heroicon-o-plus" class="edit-btn">
                             Add {{ $section['singular'] }}
@@ -320,8 +319,64 @@
                                 </tbody>
                             </table>
                         </div>
+
+                    @elseif($section['model'] === \App\Models\Page::class)
+                        <div class="project-table">
+                            <table class="project-table">
+                                <thead>
+                                    <tr>
+                                        <th width="80">Image</th>
+                                        <th>Title</th>                                    
+                                        <th>Content</th>
+                                        <th width="80">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($section['model']::get() as $record)
+                                        <tr>     
+                                            <td>
+                                                @if($record->image)
+                                                    <img src="{{ Storage::url($record->image) }}" alt="{{ $record->name }}" class="thumb" >
+                                                @endif
+                                            </td>                                                                           
+                                            <td><p>{{ $record->title }}</p></td>
+                                            <td><p>{!! Str::limit($record->content, 70) !!}</p></td>
+                                            <td class="project-table_actions">  
+                                                <x-filament::button
+                                                    size="sm"
+                                                    wire:click="mountAction(
+                                                        '{{ $section['edit_action'] }}',
+                                                        {
+                                                            model: '{{ addslashes($section['model']) }}',
+                                                            recordId: {{ $record->id }}
+                                                        }
+                                                    )"
+                                                >Edit
+                                                </x-filament::button>
+                                                
+                                                @if(auth()->user()?->role === 'admin')
+                                                    <x-filament::button
+                                                        color="danger"
+                                                        size="sm"
+                                                        wire:click="mountAction(
+                                                            '{{ $section['delete_action'] }}',
+                                                            {
+                                                                model: '{{ addslashes($section['model']) }}',
+                                                                recordId: {{ $record->id }}
+                                                            }
+                                                        )"
+                                                    >Delete
+                                                    </x-filament::button>
+                                                @endif
+                                            </td>
+                                        </tr>                                    
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
                     @else
-                        <div class="cards">
+                        <div class="cards" >
                             @foreach($section['model']::get() as $record)
                                 @include('filament.project-card', [
                                     'record' => $record,

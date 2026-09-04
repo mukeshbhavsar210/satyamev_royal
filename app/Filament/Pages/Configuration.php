@@ -7,6 +7,8 @@ use App\Models\Why;
 use App\Models\Project;
 use App\Models\Testimonial;
 use App\Models\Event;
+use App\Models\Page as PageModel;
+use App\Models\PageImage;
 use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\Concerns\InteractsWithActions;
@@ -23,10 +25,13 @@ use Filament\Schemas\Schema;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Illuminate\Validation\Rule;
+use Filament\Forms\Components\Hidden;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
 use Filament\Forms\Components\DatePicker;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class Configuration extends Page implements HasForms, HasActions {
     use InteractsWithForms;
@@ -52,7 +57,12 @@ class Configuration extends Page implements HasForms, HasActions {
                                 ->schema([
                                     TextInput::make('rera')->label('Rera')->columnSpan(3),
                                     TextInput::make('year')->label('Year')->numeric()->columnSpan(2),
-                                    Toggle::make('timeline')->label('Timeline')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required()->columnSpan(1),
+                                    Select::make('show')->label('Show')
+                                        ->options([
+                                            'yes' => 'Yes',
+                                            'no' => 'No',
+                                        ])
+                                        ->default('yes')->required()->columnSpan(1),                                    
                                 ]),
 
                             Grid::make(2)
@@ -97,8 +107,12 @@ class Configuration extends Page implements HasForms, HasActions {
                                                         
                             TextInput::make('units')->label('Units'),
                             DatePicker::make('completion')->label('Completion')->displayFormat('F Y')->format('Y-m')->native(false)->closeOnDateSelection()->columnSpan(1),
-
-                            Toggle::make('show')->label('Show on Page')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required(),
+                            Select::make('show')->label('Show on Page')
+                                ->options([
+                                    'yes' => 'Yes',
+                                    'no' => 'No',
+                                ])
+                                ->default('yes')->required(),
                         ])->columnSpan(1),
                 ]),
         ];
@@ -215,11 +229,16 @@ class Configuration extends Page implements HasForms, HasActions {
                         ])->columnSpan(1),
                     Grid::make(2)
                         ->schema([
-                             Grid::make(5)
+                             Grid::make(3)
                                     ->schema([
-                                        TextInput::make('rooms')->label('Rooms')->maxLength(10)->columnSpan(2),
-                                        TextInput::make('area')->label('Area')->maxLength(10)->columnSpan(2),
-                                        Toggle::make('show')->label('Show')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required()->columnSpan(1),
+                                        TextInput::make('rooms')->label('Rooms')->maxLength(10)->columnSpan(1),
+                                        TextInput::make('area')->label('Area')->maxLength(10)->columnSpan(1),
+                                        Select::make('show')->label('Show')
+                                            ->options([
+                                                'yes' => 'Yes',
+                                                'no' => 'No',
+                                            ])
+                                            ->default('yes')->required()->columnSpan(1),
                                     ])->columnSpan(2),
                             
                             FileUpload::make('gallery')->label('Gallery Images')->image()->multiple()
@@ -305,13 +324,12 @@ class Configuration extends Page implements HasForms, HasActions {
                 $apartment = Apartment::findOrFail($apartmentId);
 
                 $apartment->update([                        
-                    'project_id'     => $data['project_id'],
-                    'category'       => $data['category'],
+                    'project_id'     => $data['project_id'],                    
                     'image'          => $data['image'] ?? $apartment->image,                        
                     'rooms'          => $data['rooms'],
                     'area'           => $data['area'],                        
                     'description'    => $data['description'],                        
-                    'show'           => $data['show'],
+                    'show'           => $data['show'] ?? $apartment->show,
                 ]);
 
                 // Update gallery
@@ -330,6 +348,221 @@ class Configuration extends Page implements HasForms, HasActions {
                 }
             });
     }
+
+
+    //Page
+    protected function pageFormSchema(): array {
+        return [
+            Grid::make(5)
+                ->schema([
+                     TextInput::make('title')->required()->maxLength(100)
+                            ->afterStateUpdated(function ($state, callable $set) {
+                                $set('slug', Str::slug($state));
+                            })->columnSpan(4),
+
+                    Select::make('status')
+                        ->options([
+                            'draft' => 'Draft',
+                            'published' => 'Published',
+                        ])
+                        ->default('published')->required()->columnSpan(1), 
+
+                    RichEditor::make('content')->label('Content')->columnSpanFull()
+                        ->toolbarButtons(['bold','italic','underline','bulletList','orderedList','link','h2','h3','undo','redo',
+                    ]),
+
+                    Hidden::make('slug')->default(fn () => \Illuminate\Support\Str::slug(request()->input('title', ''))),
+                ]),
+
+            Grid::make(2)
+                ->schema([
+                    Grid::make(1)
+                        ->schema([
+                            TextInput::make('featured_title')->maxLength(255),
+                            Textarea::make('featured_description')->rows(5),
+                        ])->columnSpan(1),
+
+                    Grid::make(2)
+                        ->schema([
+                            FileUpload::make('image')->label('Image')->image()->disk('public')
+                                ->directory('pages')->visibility('public')
+                                ->getUploadedFileNameForStorageUsing(function ($file, $get) {
+                                    $title = $get('title');
+                                    $slug = Str::slug($title);
+                                    $date = now()->format('Y-m-d');
+                                    $extension = $file->getClientOriginalExtension();
+                                    return $slug . '-' . $date . '.' . $extension;
+                                })->columnSpan(1),
+
+                            FileUpload::make('video')
+                                ->label('Video')
+                                    ->acceptedFileTypes([
+                                        'image/jpeg','image/png','image/webp','image/gif',
+                                        'video/mp4','video/webm','video/ogg','video/quicktime',
+                                    ])
+                                    ->disk('public')->directory('pages/videos')->visibility('public')
+                                    ->getUploadedFileNameForStorageUsing(function ($file, $get) {
+                                        $title = $get('title') ?? 'page';
+                                        $slug = Str::slug($title);
+                                        $date = now()->format('Y-m-d');
+                                        $extension = $file->getClientOriginalExtension();
+                                        return $slug . '-' . $date . '.' . $extension;
+                                    })->columnSpan(1),
+
+                                    
+                            FileUpload::make('gallery')->label('Gallery Images')->image()->multiple()
+                                ->maxFiles(5)->reorderable()->appendFiles()->imageEditor()
+                                ->imageEditorAspectRatios(['1000:800',])
+                                ->disk('public')->directory('pages/images')->visibility('public')
+                                ->helperText('Max 5 images. Size: 1000×800px. Max file size: 2 MB')
+                                ->getUploadedFileNameForStorageUsing(
+                                    fn ($file, $get) =>
+                                        \Illuminate\Support\Str::slug($get('title'))
+                                        . '-'
+                                        . now()->format('Y-m-d')
+                                        . '-'
+                                        . \Illuminate\Support\Str::random(3)
+                                        . '.'
+                                        . $file->getClientOriginalExtension()
+                                )->dehydrated()->columnSpan(2),
+                        ])->columnSpan(1),
+                ]),
+        ];
+    }
+
+    public function addPageAction(): Action {
+        return Action::make('addPage')
+            ->label('Add Page')
+            ->modalHeading('Add Page')
+            ->modalWidth('4xl')
+            ->schema($this->pageFormSchema())
+            ->action(function (array $data): void {
+                $page = PageModel::create([
+                    'title'                 => $data['title'],
+                    'slug'                  => $data['slug'],
+                    'image'                 => $data['image'] ?? null,
+                    'content'               => $data['content'] ?? null,                    
+                    'featured_title'        => $data['featured_title'],                    
+                    'featured_description'  => $data['featured_description'] ?? null,                    
+                    'status'                => $data['status'] ?? 'published',
+                ]);
+
+                // Resize thumbnail
+                if (!empty($data['image'])) {
+                    $this->resizeImage($data['image']);
+                }               
+
+                /*
+             * Gallery Images
+             */
+            if (!empty($data['gallery'])) {
+
+                $manager = new ImageManager(
+                    new Driver()
+                );
+
+                $sizes = [500, 800, 1080, 1600, 1920];
+
+                foreach ($data['gallery'] as $path) {
+
+                    $sourcePath = Storage::disk('public')->path($path);
+
+                    if (!file_exists($sourcePath)) {
+                        continue;
+                    }
+
+                    $random = Str::random(6);
+
+                    $generatedImages = [];
+
+                    foreach ($sizes as $width) {
+
+                        $filename = "{$random}-{$width}.webp";
+
+                        $relativePath = "pages/images/{$filename}";
+
+                        $fullPath = Storage::disk('public')->path(
+                            $relativePath
+                        );
+
+                        $image = $manager->read($sourcePath);
+
+                        // Don't enlarge smaller images
+                        if ($image->width() > $width) {
+                            $image->scale(width: $width);
+                        }
+
+                        $image->toWebp(85)->save($fullPath);
+
+                        $generatedImages[$width] = $relativePath;
+                    }
+
+
+                    /*
+                     * Save variants in page_images
+                     */
+                    PageImage::create([
+                        'page_id' => $page->id,
+                        'image'   => $generatedImages,
+                    ]);
+
+
+                    /*
+                     * Delete original uploaded image
+                     */
+                    Storage::disk('public')->delete($path);
+                }
+            }
+
+            $this->redirect(static::getUrl());
+        });
+    }
+
+    public function editPageAction(): Action {
+        return Action::make('editPage')
+            ->modalHeading('Edit Page')
+            ->modalWidth('4xl')
+            ->schema($this->pageFormSchema())
+            ->mountUsing(function ($form, $arguments) {
+                $pageId = $arguments['pageId'] ?? null;
+
+                if (!$pageId) {
+                    return;
+                }
+
+                $page = PageModel::findOrFail($pageId);
+
+                $form->fill([
+                    'title'                 => $page->title,
+                    'slug'                  => $page->slug,                    
+                    'image'                 => $page->image,
+                    'content'               => $page->content,
+                    'featured_title'        => $page->featured_title,
+                    'featured_description'  => $page->featured_description,                    
+                    'status'                => (string) $page->status,
+                ]);
+            })
+
+            ->mountUsing(function (Schema $form, array $arguments): void {
+                $record = PageModel::findOrFail($arguments['recordId']);
+
+                $form->fill([                    
+                    'title' => $record->title,
+                    'slug' => $record->slug,
+                    'image' => $record->image,
+                    'content' => $record->content,
+                    'featured_title' => $record->featured_title,
+                    'featured_description' => $record->featured_description,                    
+                    'status' => (string) $record->status,
+                ]);
+            })
+            ->action(function (array $data, array $arguments): void {
+                $record = PageModel::findOrFail($arguments['recordId']);
+                $record->update($data);
+            });
+    }  
+
+
     
     //Why
     protected function whyFormSchema(): array {
@@ -406,7 +639,12 @@ class Configuration extends Page implements HasForms, HasActions {
                 ->schema([                   
                     TextInput::make('name')->label('Name')->required()->maxLength(255)->columnSpan(3),
                     TextInput::make('designation')->label('Designation')->columnSpan(2),
-                    Toggle::make('show')->label('Show')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required()->columnSpan(1),
+                    Select::make('show')->label('Show')
+                        ->options([
+                            'yes' => 'Yes',
+                            'no' => 'No',
+                        ])
+                        ->default('yes')->required()->columnSpan(1),                    
 
                     TextArea::make('description')->label('Description')->columnSpan(3),
                     FileUpload::make('image')->label('Image')->image()->disk('public')
@@ -491,7 +729,12 @@ class Configuration extends Page implements HasForms, HasActions {
             Grid::make(6)
                 ->schema([
                     TextInput::make('title')->label('Event Title')->required()->maxLength(255)->columnSpan(5),
-                    Toggle::make('show')->label('Show')->default(true)->inline(false)->dehydrateStateUsing(fn ($state) => $state ? 'yes' : 'no')->required()->columnSpan(1),
+                    Select::make('show')->label('Show')
+                        ->options([
+                            'yes' => 'Yes',
+                            'no' => 'No',
+                        ])
+                        ->default('yes')->required()->columnSpan(1),                    
                     
                     FileUpload::make('image')->label('Image')->image()->disk('public')
                         ->directory('settings/events')
@@ -564,6 +807,11 @@ class Configuration extends Page implements HasForms, HasActions {
                 $record->update($data);
             });
     }   
+
+
+   
+    
+    
     
     //Delete Record
     public function deleteRecordAction(): Action {
@@ -642,6 +890,19 @@ class Configuration extends Page implements HasForms, HasActions {
                 'extra' => null,
             ],
             [
+                'heading' => 'Pages',
+                'singular' => 'Page',
+                'model' => PageModel::class,
+                'orderBy' => 'sort_order',
+                'title' => 'title',
+                'add_action' => 'addPage',
+                'edit_action' => 'editPage',
+                'edit_argument' => 'pageId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument' => 'pageId',
+                'extra' => null,
+            ],
+            [
                 'heading' => 'Why',
                 'singular' => 'Why',
                 'model' => Why::class,                
@@ -678,7 +939,7 @@ class Configuration extends Page implements HasForms, HasActions {
                 'delete_action' => 'deleteRecord',
                 'delete_argument' => 'eventId',
                 'extra' => null,
-            ],
+            ]            
         ];
     }
 
