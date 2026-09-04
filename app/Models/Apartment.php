@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Apartment extends Model {
-    protected $fillable = [ 'project_id','apartment_name','category','image','rooms','area','description','show'];
+    protected $fillable = [ 'project_id','rooms','area','description','show'];
 
     public function images(): HasMany{
         return $this->hasMany(ApartmentImage::class, 'apartment_id');

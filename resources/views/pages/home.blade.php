@@ -131,6 +131,7 @@
 
     <div class="floating-tips w-dyn-list">
         <div role="list" class="floating-tips_list w-dyn-items">
+            
             @foreach($floatingTips->groupBy('category') as $category => $projects)
                 <div floating-tip="{{ $category }}" role="listitem" class="floating-tip w-dyn-item">
                     <div class="floating-tip-card">
@@ -229,9 +230,11 @@
         </div>
     </section>
 
-    <section data-bg="light" data-snap="" class="section z-2 theme_on-brand" @if(setting('arch_color'))
+    <section data-bg="light" data-snap="" class="section z-2 theme_on-brand" 
+        @if(setting('arch_color'))
             style="background-color: {{ setting('arch_color') }}"
         @endif>
+
         <div class="container">
             <div class="benefits-w">
                 <div class="benefits-s">                
@@ -290,7 +293,7 @@
                                         <div class="benefit-slide_c">
                                             <div class="u-24 b-desk"></div>
                                             <div class="benefit-slide_img">
-                                                <div data-slider="img" class="img-w">
+                                                <div data-scroll-reveal="slide" data-slider="img" class="img-w">
                                                     @if($value->image)
                                                         <a href="/apartments">
                                                             <img src="{{ Storage::url($value->image) }}" loading="eager" alt="{{ $value->title }}" sizes="100vw" class="img" >
@@ -304,9 +307,9 @@
                                         <div class="u-48 b-desk"></div>
 
                                         <div class="benefit-slide_b">                                                
-                                            <div class="benefit-slide_desc">
-                                                <p data-scroll-reveal="p" data-slider="p" class="p1 a-center"><b>Size: {{ $value->area }}</b></p>
+                                            <div class="benefit-slide_desc">                                            
                                                 <p data-scroll-reveal="p" data-slider="p" class="p1 a-center">Location: {{ $value->location }}</p>
+                                                <p data-scroll-reveal="p" data-slider="p" class="p1 a-center"><b>Size: {{ $value->description }}</b></p>
                                             </div>                                                
                                         </div>
                                     </div>

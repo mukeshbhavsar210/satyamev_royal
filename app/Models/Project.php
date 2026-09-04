@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model {
 
     protected $fillable = [
-        'title','category','location','image','pdf','units','rera','completion','description','show'
+        'title','category','location','image','pdf','units','rera','completion','description','year','timeline','show'
     ];
 
     // public function apartments() {

@@ -57,11 +57,14 @@ class PageResource extends Resource {
                                     ])
                                     ->default('published')->required()->columnSpan(1), 
 
-                                RichEditor::make('content')->columnSpan(4),
+                                RichEditor::make('content')->label('Content')->columnSpanFull()
+                                    ->toolbarButtons(['bold','italic','underline','bulletList','orderedList','link','h2','h3','undo','redo',
+                                ]),
+
                                 Hidden::make('slug')->default(fn () => \Illuminate\Support\Str::slug(request()->input('title', ''))),
 
                                 TextInput::make('featured_title')->maxLength(255)->columnSpan(4),
-                                Textarea::make('featured_description')->rows(3)->columnSpan(2),
+                                Textarea::make('featured_description')->rows(3)->columnSpan(4),
                                 FileUpload::make('featured_image')->label('Featured Image')->image()->disk('public')
                                     ->directory('pages')->visibility('public')
                                     ->getUploadedFileNameForStorageUsing(function ($file, $get) {
@@ -71,6 +74,32 @@ class PageResource extends Resource {
                                         $extension = $file->getClientOriginalExtension();
                                         return $slug . '-' . $date . '.' . $extension;
                                     })->columnSpan(2),
+
+                                    FileUpload::make('video')
+                                        ->label('Featured Image / Video')
+                                            ->acceptedFileTypes([
+                                                'image/jpeg',
+                                                'image/png',
+                                                'image/webp',
+                                                'image/gif',
+                                                'video/mp4',
+                                                'video/webm',
+                                                'video/ogg',
+                                                'video/quicktime',
+                                            ])
+                                            ->disk('public')
+                                            ->directory('pages')
+                                            ->visibility('public')
+                                            ->getUploadedFileNameForStorageUsing(function ($file, $get) {
+
+                                                $title = $get('title') ?? 'page';
+                                                $slug = Str::slug($title);
+                                                $date = now()->format('Y-m-d');
+                                                $extension = $file->getClientOriginalExtension();
+
+                                                return $slug . '-' . $date . '.' . $extension;
+                                            })
+                                        ->columnSpan(2),
                                 ]),
                         ])->columnSpanFull()->collapsible(),
 

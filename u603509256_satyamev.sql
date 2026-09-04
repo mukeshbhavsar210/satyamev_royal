@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 04, 2026 at 09:36 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: 127.0.0.1:3306
+-- Generation Time: Sep 04, 2026 at 07:35 AM
+-- Server version: 11.8.8-MariaDB-log
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `satyamev_royal`
+-- Database: `u603509256_satyamev`
 --
 
 -- --------------------------------------------------------
@@ -43,7 +43,8 @@ CREATE TABLE `apartments` (
 --
 
 INSERT INTO `apartments` (`id`, `project_id`, `rooms`, `area`, `description`, `show`, `created_at`, `updated_at`) VALUES
-(38, 17, 2, 222, 'test', 'yes', '2026-09-03 05:42:39', '2026-09-03 05:42:39');
+(38, 5, 3, 1250, 'test', 'yes', '2026-09-03 11:37:23', '2026-09-03 11:37:23'),
+(39, 7, 4, 1900, 'Awesome 4 BHK property', 'yes', '2026-09-03 13:22:57', '2026-09-03 13:22:57');
 
 -- --------------------------------------------------------
 
@@ -65,9 +66,14 @@ CREATE TABLE `apartment_images` (
 --
 
 INSERT INTO `apartment_images` (`id`, `apartment_id`, `image`, `sort_order`, `created_at`, `updated_at`) VALUES
-(88, 38, 'apartments/gallery/-2026-09-03-173.webp', 0, '2026-09-03 05:42:40', '2026-09-03 05:42:40'),
-(89, 38, 'apartments/gallery/-2026-09-03-KBn.webp', 1, '2026-09-03 05:42:40', '2026-09-03 05:42:40'),
-(90, 38, 'apartments/gallery/-2026-09-03-LAe.webp', 2, '2026-09-03 05:42:41', '2026-09-03 05:42:41');
+(88, 38, 'apartments/gallery/-2026-09-03-JQF.jpg', 0, '2026-09-03 11:37:23', '2026-09-03 11:37:23'),
+(89, 38, 'apartments/gallery/-2026-09-03-ldx.jpg', 1, '2026-09-03 11:37:23', '2026-09-03 11:37:23'),
+(90, 38, 'apartments/gallery/-2026-09-03-emP.jpg', 2, '2026-09-03 11:37:23', '2026-09-03 11:37:23'),
+(91, 39, 'apartments/gallery/-2026-09-03-XrY.jpg', 0, '2026-09-03 13:22:57', '2026-09-03 13:22:57'),
+(92, 39, 'apartments/gallery/-2026-09-03-sXm.jpg', 1, '2026-09-03 13:22:57', '2026-09-03 13:22:57'),
+(93, 39, 'apartments/gallery/-2026-09-03-LeG.jpg', 2, '2026-09-03 13:22:58', '2026-09-03 13:22:58'),
+(94, 39, 'apartments/gallery/-2026-09-03-cKl.jpg', 3, '2026-09-03 13:22:58', '2026-09-03 13:22:58'),
+(95, 39, 'apartments/gallery/-2026-09-03-yhH.jpg', 4, '2026-09-03 13:22:58', '2026-09-03 13:22:58');
 
 -- --------------------------------------------------------
 
@@ -86,12 +92,16 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('satyamev-cache-356a192b7913b04c54574d18c28d46e6395428ab', 'i:2;', 1788503012),
-('satyamev-cache-356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1788503012;', 1788503012),
-('satyamev-cache-77de68daecd823babbb58edb1c8e14d7106e83bb', 'i:2;', 1788420650),
-('satyamev-cache-77de68daecd823babbb58edb1c8e14d7106e83bb:timer', 'i:1788420650;', 1788420650),
-('satyamev-cache-livewire-rate-limiter:16d36dff9abd246c67dfac3e63b993a169af77e6', 'i:1;', 1788505601),
-('satyamev-cache-livewire-rate-limiter:16d36dff9abd246c67dfac3e63b993a169af77e6:timer', 'i:1788505601;', 1788505601);
+('satyamev_cache_356a192b7913b04c54574d18c28d46e6395428ab', 'i:5;', 1788442368),
+('satyamev_cache_356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1788442368;', 1788442368),
+('satyamev_cache_livewire-rate-limiter:11d6ad6bca43649060b7f4955091554013af5552', 'i:2;', 1788428427),
+('satyamev_cache_livewire-rate-limiter:11d6ad6bca43649060b7f4955091554013af5552:timer', 'i:1788428427;', 1788428427),
+('satyamev_cache_livewire-rate-limiter:1e3da602a55d3a78776cd39aae71013f78303b4e', 'i:1;', 1788442191),
+('satyamev_cache_livewire-rate-limiter:1e3da602a55d3a78776cd39aae71013f78303b4e:timer', 'i:1788442191;', 1788442191),
+('satyamev_cache_livewire-rate-limiter:8254d9bc8f508c01164a8c2f13ab0d8fbbc1bae5', 'i:1;', 1788506700),
+('satyamev_cache_livewire-rate-limiter:8254d9bc8f508c01164a8c2f13ab0d8fbbc1bae5:timer', 'i:1788506700;', 1788506700),
+('satyamev_cache_livewire-rate-limiter:e89fd5f4afcc568ab0f41ee7c0a3ee3c13a4f504', 'i:1;', 1788427293),
+('satyamev_cache_livewire-rate-limiter:e89fd5f4afcc568ab0f41ee7c0a3ee3c13a4f504:timer', 'i:1788427293;', 1788427293);
 
 -- --------------------------------------------------------
 
@@ -126,7 +136,7 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `title`, `image`, `description`, `show`, `created_at`, `updated_at`) VALUES
-(1, 'test', 'settings/events/test.jpg', 'test', 'yes', '2026-09-04 00:53:22', '2026-09-04 00:53:22');
+(1, 'test 2', NULL, 'test 2', 'yes', '2026-09-04 00:53:22', '2026-09-04 06:29:17');
 
 -- --------------------------------------------------------
 
@@ -213,12 +223,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2026_08_20_142057_add_project_id_to_apartments_table', 12),
 (16, '2026_08_20_142217_add_project_id_to_apartments_table', 13),
 (17, '2026_08_20_145303_rename_project_id_to_apartment_id_in_apartment_images_table', 14),
-(18, '2026_08_26_103504_create_page_images_table', 15),
-(19, '2026_09_03_124733_create_timelines_table', 16),
-(20, '2026_09_04_050209_create_whychooses_table', 17),
-(21, '2026_09_04_052524_create_whies_table', 18),
-(22, '2026_09_04_054247_create_testimonials_table', 19),
-(23, '2026_09_04_061402_create_events_table', 20);
+(18, '2026_08_26_103504_create_page_images_table', 15);
 
 -- --------------------------------------------------------
 
@@ -244,7 +249,8 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `title`, `slug`, `content`, `featured_title`, `featured_description`, `featured_image`, `status`, `created_at`, `updated_at`) VALUES
-(25, 'Work', 'work', '<p>test</p>', 'Second Title', 'test', 'pages/work-2026-08-31.webp', 'published', '2026-08-31 12:31:46', '2026-08-31 12:31:46');
+(25, 'Work', 'work', '<p>test</p>', 'Second Title', 'test', 'pages/work-2026-08-31.webp', 'published', '2026-08-31 12:31:46', '2026-08-31 12:31:46'),
+(26, 'Test', 'test', '<p>Test contents</p>', 'Featured Title', 'test', 'pages/test-2026-09-03.jpg', 'published', '2026-09-03 13:32:28', '2026-09-03 13:32:28');
 
 -- --------------------------------------------------------
 
@@ -267,7 +273,11 @@ CREATE TABLE `page_images` (
 
 INSERT INTO `page_images` (`id`, `page_id`, `image`, `sort_order`, `created_at`, `updated_at`) VALUES
 (36, 25, 'pages/images/kpPcp4-500.webp', 0, '2026-08-31 12:31:46', '2026-08-31 12:31:46'),
-(37, 25, 'pages/images/PuTIkX-500.webp', 0, '2026-08-31 12:31:46', '2026-08-31 12:31:46');
+(37, 25, 'pages/images/PuTIkX-500.webp', 0, '2026-08-31 12:31:46', '2026-08-31 12:31:46'),
+(38, 26, 'pages/images/ze1V9z-500.webp', 0, '2026-09-03 13:32:28', '2026-09-03 13:32:28'),
+(39, 26, 'pages/images/bRh6cD-500.webp', 0, '2026-09-03 13:32:28', '2026-09-03 13:32:28'),
+(40, 26, 'pages/images/77tfP5-500.webp', 0, '2026-09-03 13:32:28', '2026-09-03 13:32:28'),
+(41, 26, 'pages/images/0GAPM6-500.webp', 0, '2026-09-03 13:32:28', '2026-09-03 13:32:28');
 
 -- --------------------------------------------------------
 
@@ -292,7 +302,7 @@ CREATE TABLE `projects` (
   `title` varchar(100) NOT NULL,
   `category` enum('ongoing','upcoming','completed') NOT NULL DEFAULT 'ongoing',
   `location` varchar(100) DEFAULT NULL,
-  `image` varchar(200) DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
   `pdf` varchar(200) DEFAULT NULL,
   `units` varchar(11) DEFAULT NULL,
   `rera` varchar(100) DEFAULT NULL,
@@ -310,9 +320,9 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `title`, `category`, `location`, `image`, `pdf`, `units`, `rera`, `completion`, `description`, `year`, `timeline`, `show`, `created_at`, `updated_at`) VALUES
-(17, 'Satyamev Royal 1', 'ongoing', 'Mansarovar Road', 'projects/satyamev-royal-1.webp', 'projects/satyamev-royal-1.pdf', '500', 'RERA', '2026-09', 'Awesome', '2023', 'yes', 'yes', '2026-09-03 05:25:52', '2026-09-03 23:06:30'),
-(18, 'Satyamev Royal 2', 'upcoming', 'Tragad Road', 'projects/satyamev-royal-2.webp', 'projects/satyamev-royal-2.pdf', '400', 'RERA', '2026-09', 'awesome', '2025', 'yes', 'yes', '2026-09-03 05:29:00', '2026-09-03 23:06:21'),
-(19, 'Samarthya Status', 'ongoing', 'IOC Road', 'projects/samarthya-status.jpg', 'projects/samarthya-status.pdf', '600', 'RERA', '2026-09', 'Awesome', '2026', 'yes', 'yes', '2026-09-03 23:03:52', '2026-09-03 23:03:52');
+(5, 'Satyamev Royal 1', 'ongoing', 'Mansarovar road', 'projects/satyamev-royal-1.webp', 'projects/satyamev-royal-1.pdf', '700', 'RERA', '2026-09', 'Awesome Property', '2026', 'yes', 'yes', '2026-09-03 11:28:20', '2026-09-04 04:47:31'),
+(6, 'Satyamev Royal 2', 'ongoing', 'Tragad road', 'projects/satyamev-royal-2.jpg', 'projects/satyamev-royal-2.pdf', '400', 'RERA 123', '2026-09', 'Awesome Property 2', '2024', 'yes', 'yes', '2026-09-03 11:36:55', '2026-09-04 04:47:38'),
+(7, 'Satyamev Royal 10', 'ongoing', 'TP 44, Chandkheda', 'projects/satyamev-royal-10.jpg', 'projects/satyamev-royal-10.pdf', '300', 'RERA', NULL, 'Awesome Property', '2025', 'yes', 'yes', '2026-09-03 13:21:40', '2026-09-04 04:47:45');
 
 -- --------------------------------------------------------
 
@@ -362,6 +372,7 @@ CREATE TABLE `settings` (
   `address_line2` varchar(100) DEFAULT NULL,
   `foreign_office` varchar(100) DEFAULT NULL,
   `business_line` varchar(255) DEFAULT NULL,
+  `google_map` text DEFAULT NULL,
   `linkedin` varchar(100) DEFAULT NULL,
   `facebook` varchar(100) DEFAULT NULL,
   `instagram` varchar(100) DEFAULT NULL,
@@ -393,8 +404,8 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `company_name`, `email`, `phone`, `mobile`, `whatsapp`, `address_line1`, `address_line2`, `foreign_office`, `business_line`, `linkedin`, `facebook`, `instagram`, `youtube`, `theme_template`, `punch_line1`, `punch_line2`, `experience_line`, `ceo_message`, `ceo_name`, `since`, `hero`, `gallery`, `why`, `showcase`, `primary_color`, `secondary_color`, `preloader`, `preloader_line1`, `preloader_line2`, `preloader_color`, `cookies`, `arch_color`, `created_at`, `updated_at`) VALUES
-(1, 'Satyamev Group', 'info@satyamevgroup.com', '9824036846', '9824538519', '9824036846', 'Satyamev Group 301, Anand I-Pride, above Radhe Restaurant,', 'Visat-Tapovan Road, Motera, Ahmedabad – 380019.', '200-4170 Still Creek Drive, Burnaby BC V5C 6C6, Canada', 'Satyamev Group is a leading property developer, committed to creating exceptional living and working spaces in Gujarat.', 'http://www.facebook.com', 'http://www.facebook.com', 'http://www.facebook.com', 'http://www.facebook.com', 'default', 'Crafting Landmarks', 'Creating Legacies', 'More than 25 years of Experiences', 'Our vision is to create exceptional spaces that inspire better living and lasting value. Every project we undertake reflects our commitment to quality, innovation, transparency, and customer trust. We don&#039;t just build buildings—we create communities where families, businesses, and dreams can thrive for generations to come.', 'Jay Patel', '1997', '{\"500\":\"settings\\/hero\\/hero_500.webp\",\"800\":\"settings\\/hero\\/hero_800.webp\",\"1080\":\"settings\\/hero\\/hero_1080.webp\",\"1600\":\"settings\\/hero\\/hero_1600.webp\",\"1920\":\"settings\\/hero\\/hero_1920.webp\"}', '{\"500\":\"settings\\/gallery\\/gallery_500.webp\",\"800\":\"settings\\/gallery\\/gallery_800.webp\",\"1080\":\"settings\\/gallery\\/gallery_1080.webp\",\"1600\":\"settings\\/gallery\\/gallery_1600.webp\",\"1920\":\"settings\\/gallery\\/gallery_1920.webp\"}', '{\"500\":\"settings\\/why\\/why500.webp\",\"800\":\"settings\\/why\\/why800.webp\",\"1080\":\"settings\\/why\\/why1080.webp\",\"1600\":\"settings\\/why\\/why1600.webp\",\"1920\":\"settings\\/why\\/why1920.webp\"}', '{\"500\":\"settings\\/showcase\\/showcase500.webp\",\"800\":\"settings\\/showcase\\/showcase800.webp\",\"1080\":\"settings\\/showcase\\/showcase1080.webp\",\"1600\":\"settings\\/showcase\\/showcase1600.webp\",\"1920\":\"settings\\/showcase\\/showcase1920.webp\"}', '#000000', '#FFFFFF', 1, 'Crafting Landmarks', 'Creating Legacies', '#340c24', 1, '', '2026-08-12 14:49:50', '2026-09-02 06:07:29');
+INSERT INTO `settings` (`id`, `company_name`, `email`, `phone`, `mobile`, `whatsapp`, `address_line1`, `address_line2`, `foreign_office`, `business_line`, `google_map`, `linkedin`, `facebook`, `instagram`, `youtube`, `theme_template`, `punch_line1`, `punch_line2`, `experience_line`, `ceo_message`, `ceo_name`, `since`, `hero`, `gallery`, `why`, `showcase`, `primary_color`, `secondary_color`, `preloader`, `preloader_line1`, `preloader_line2`, `preloader_color`, `cookies`, `arch_color`, `created_at`, `updated_at`) VALUES
+(1, 'Satyamev Group', 'info@satyamevgroup.com', '9824036846', '9824538519', '9824036846', 'Satyamev Group 301, Anand I-Pride, above Radhe Restaurant,', 'Visat-Tapovan Road, Motera, Ahmedabad – 380019.', '200-4170 Still Creek Drive, Burnaby BC V5C 6C6, Canada', 'Satyamev Group is a leading property developer, committed to creating exceptional living and working spaces in Gujarat.', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.410096723922!2d72.56492787514354!3d23.11868077910652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e83bef4f45bcb%3A0xc192409abf8ab93d!2sShlok%20Heights!5e0!3m2!1sen!2sin!4v1788437460826!5m2!1sen!2sin', 'http://www.facebook.com', 'http://www.facebook.com', 'http://www.facebook.com', 'http://www.facebook.com', 'default', 'Crafting Landmarks', 'Creating Legacies', 'More than 25 years of Experiences', 'Our vision is to create exceptional spaces that inspire better living and lasting value. Every project we undertake reflects our commitment to quality, innovation, transparency, and customer trust. We don&#039;t just build buildings—we create communities where families, businesses, and dreams can thrive for generations to come.', 'Jay Patel', '1997', '{\"500\":\"settings\\/hero\\/hero_500.webp\",\"800\":\"settings\\/hero\\/hero_800.webp\",\"1080\":\"settings\\/hero\\/hero_1080.webp\",\"1600\":\"settings\\/hero\\/hero_1600.webp\",\"1920\":\"settings\\/hero\\/hero_1920.webp\"}', '{\"500\":\"settings\\/gallery\\/gallery_500.webp\",\"800\":\"settings\\/gallery\\/gallery_800.webp\",\"1080\":\"settings\\/gallery\\/gallery_1080.webp\",\"1600\":\"settings\\/gallery\\/gallery_1600.webp\",\"1920\":\"settings\\/gallery\\/gallery_1920.webp\"}', '{\"500\":\"settings\\/why\\/why500.webp\",\"800\":\"settings\\/why\\/why800.webp\",\"1080\":\"settings\\/why\\/why1080.webp\",\"1600\":\"settings\\/why\\/why1600.webp\",\"1920\":\"settings\\/why\\/why1920.webp\"}', '{\"500\":\"settings\\/showcase\\/showcase500.webp\",\"800\":\"settings\\/showcase\\/showcase800.webp\",\"1080\":\"settings\\/showcase\\/showcase1080.webp\",\"1600\":\"settings\\/showcase\\/showcase1600.webp\",\"1920\":\"settings\\/showcase\\/showcase1920.webp\"}', '#000000', '#FFFFFF', 1, 'Crafting Landmarks', 'Creating Legacies', '#340c24', 1, '#5bcedb', '2026-08-12 14:49:50', '2026-09-03 13:26:44');
 
 -- --------------------------------------------------------
 
@@ -431,8 +442,8 @@ CREATE TABLE `users` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `role` enum('admin','author','user') NOT NULL DEFAULT 'user',
   `password` varchar(255) NOT NULL,
+  `role` enum('admin','author','user') NOT NULL DEFAULT 'user',
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -442,9 +453,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `role`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'mukeshbhavsar210@gmail.com', NULL, 'admin', '$2y$12$JGSMbvnpgQEWOgJDIsuzse0kMuDeZx8joFOHx8rY3Pu0t7vuOQTri', 'EE9uMtiLrUTeeXBBDHZXudCCuvSWasoX97OSIyqf1SOE1gTqBVeWbB30EEzd', '2026-08-10 06:40:31', '2026-08-10 06:40:31'),
-(3, 'Hardik Shah', 'hardikshah@gmail.com', NULL, 'user', '$2y$12$LX2bTBguoe0tqLSipomAhOwQYoYPdciKlW9RzdtMOXxyAvm/86grS', NULL, '2026-09-03 01:46:23', '2026-09-03 01:46:23');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Mukesh Bhavsar', 'mukeshbhavsar210@gmail.com', NULL, '$2y$12$TEdCCGRU0djfOyRzaRbN5uvxMyrk8EZOKYFZQglL2Om297l6/sUl6', 'admin', 'rDWS2HzZIvbBj5eBJd79kxen8TT3tB1SmK57vE9MD30ALeCdH7lT2fGpHpd4', '2026-08-10 06:40:31', '2026-09-03 09:39:25'),
+(5, 'Hardikbhai Shah', 'hardikshah@gmail.com', NULL, '$2y$12$BTW1HlVncco2X9niMRq8beBeRSEmXye5qflQBLd5AwzxrGjTSG5Bu', 'author', NULL, '2026-09-03 13:28:25', '2026-09-04 07:21:02');
 
 -- --------------------------------------------------------
 
@@ -599,13 +610,13 @@ ALTER TABLE `whies`
 -- AUTO_INCREMENT for table `apartments`
 --
 ALTER TABLE `apartments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `apartment_images`
 --
 ALTER TABLE `apartment_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -629,25 +640,25 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `page_images`
 --
 ALTER TABLE `page_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -665,7 +676,7 @@ ALTER TABLE `testimonials`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `whies`

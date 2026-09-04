@@ -10,7 +10,7 @@ use App\Models\Slide;
 use App\Http\Controllers\FeedbackController;
 
 Route::get('/', function () {
-    $timelines = Timeline::orderBy('sort_order')->get();        
+    $timelines = Project::where('show', 'yes')->get();        
     $floatingTips = Project::where('show', 'yes')->whereIn('category', ['ongoing', 'upcoming', 'completed'])->take(12)->get();
     $projects = Project::where('show', 'yes')->where('category', 'ongoing')->take(5)->get();    
 
@@ -25,7 +25,6 @@ Route::get('/contact', function () {
 
 
 Route::get('/apartments', function () {
-
     $query = Apartment::with('project')
         ->where('show', 'yes');
 
@@ -91,6 +90,7 @@ Route::get('/{slug}', function ($slug) {
     return view('pages.page', compact('page', 'settings'));
 })->name('pages');
 
+
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
-Route::redirect('/admin', '/admin/configuration');
+//Route::redirect('/admin', '/admin/configuration');
