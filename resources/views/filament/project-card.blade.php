@@ -1,6 +1,10 @@
-<div class="image-card {{ $section['heading'] == 'Apartments' ? 'apartment' : 'timeline' }}">
-    <div class="image-thumb">
+<div @class([
+    'image-card',
+        $section['heading'] == 'Apartments' ? 'apartment' : 'timeline',
+        'disabled' => $record->show === 'no',
+    ])>
 
+    <div class="image-thumb">
         @php
             $image = in_array($section['heading'], ['Apartments', 'Timeline'])
                 ? $record->project?->image

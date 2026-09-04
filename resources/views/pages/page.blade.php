@@ -120,8 +120,8 @@
                         <div data-sort="" data-filter="" class="apart-s_cms">
                             <div class="w_bg">
                                 <div data-parallax="w" class="img-w">
-                                    @if($page->featured_image)
-                                        <img src="{{ \Illuminate\Support\Facades\Storage::url($page->featured_image) }}" alt="{{ $page->title }}" loading="eager" alt="Showcase" sizes="(max-width: 1920px) 100vw, 1920px" class="img-p">
+                                    @if($page->image)
+                                        <img src="{{ \Illuminate\Support\Facades\Storage::url($page->image) }}" alt="{{ $page->title }}" loading="eager" alt="Showcase" sizes="(max-width: 1920px) 100vw, 1920px" class="img-p">
                                     @endif
 
                                     <div class="img-over-grad from-top _4x"></div>
@@ -136,163 +136,48 @@
         </section>    
     </section>
 
-    @php
-    $pageImages = $page->images ?? collect();
-@endphp
-
-@if ($pageImages->isNotEmpty())
-    <div class="pages_images">
-
-        @foreach ($pageImages as $pageImage)
-
-            @php
-                $extension = strtolower(pathinfo($pageImage->image, PATHINFO_EXTENSION));
-
-                $isVideo = in_array($extension, [
-                    'mp4',
-                    'webm',
-                    'ogg',
-                    'mov',
-                ]);
-            @endphp
-
-            @if ($isVideo)
-
-                {{-- VIDEO --}}
-                <div class="gallery video-gallery">
-                    <div class="gallery-image">
-                        <video
-                            class="project-video"
-                            muted
-                            playsinline
-                            loop
-                            preload="metadata"
-                        >
-                            <source
-                                src="{{ Storage::url($pageImage->image) }}"
-                                type="video/{{ $extension }}"
-                            >
-                        </video>
-                    </div>
-                </div>
-
-            @else
-
-                {{-- IMAGE --}}
-                @php
-                    $filename = pathinfo($pageImage->image, PATHINFO_FILENAME);
-
-                    $baseName = preg_replace('/-\d+$/', '', $filename);
-
-                    $directory = dirname($pageImage->image);
-                    $extension = pathinfo($pageImage->image, PATHINFO_EXTENSION);
-
-                    $sizes = [500, 800, 1080, 1600, 1920];
-
-                    $srcset = [];
-
-                    foreach ($sizes as $size) {
-                        $sizeFile = "{$baseName}-{$size}.{$extension}";
-                        $sizePath = "{$directory}/{$sizeFile}";
-
-                        if (Storage::disk('public')->exists($sizePath)) {
-                            $srcset[] = Storage::url($sizePath) . " {$size}w";
-                        }
-                    }
-
-                    $mainImage = null;
-
-                    foreach ([1920, 1600, 1080, 800, 500] as $size) {
-                        $sizeFile = "{$baseName}-{$size}.{$extension}";
-                        $sizePath = "{$directory}/{$sizeFile}";
-
-                        if (Storage::disk('public')->exists($sizePath)) {
-                            $mainImage = $sizePath;
-                            break;
-                        }
-                    }
-                @endphp
-
-                @if ($mainImage)
-                    <div class="gallery" data-parallax-image>
-                        <div class="gallery-image">
-                            <img
-                                src="{{ Storage::url($mainImage) }}"
-                                srcset="{{ implode(', ', $srcset) }}"
-                                sizes="(max-width: 1920px) 100vw, 1920px"
-                                alt="{{ $page->title }}"
-                                class="img-p"
-                            />
-                        </div>
-                    </div>
-                @endif
-
-            @endif
-
-        @endforeach
-
-    </div>
-@endif
-
-    
-
-        <!-- @php
+        @php
             $pageImages = $page->images ?? collect();
-        @endphp        
+        @endphp
 
         @if ($pageImages->isNotEmpty())
             <div class="pages_images">
                 @foreach ($pageImages as $pageImage)
                     @php
-                        $filename = pathinfo($pageImage->image, PATHINFO_FILENAME);
+                        $images = $pageImage->image ?? [];
 
-                        // Remove size suffix: -500, -800, -1080, etc.
-                        $baseName = preg_replace('/-\d+$/', '', $filename);
+                        $srcset = collect($images)
+                            ->sortKeys()
+                            ->map(fn ($path, $size) => Storage::url($path) . " {$size}w")
+                            ->implode(', ');
 
-                        $directory = dirname($pageImage->image);
-                        $extension = pathinfo($pageImage->image, PATHINFO_EXTENSION);
-
-                        $sizes = [500, 800, 1080, 1600, 1920];
-
-                        $srcset = [];
-
-                        foreach ($sizes as $size) {
-                            $sizeFile = "{$baseName}-{$size}.{$extension}";
-                            $sizePath = "{$directory}/{$sizeFile}";
-
-                            if (Storage::disk('public')->exists($sizePath)) {
-                                $srcset[] = Storage::url($sizePath) . " {$size}w";
-                            }
-                        }
-
-                        // Prefer 1920, then 1600, etc.
-                        $mainImage = null;
-
-                        foreach ([1920, 1600, 1080, 800, 500] as $size) {
-                            $sizeFile = "{$baseName}-{$size}.{$extension}";
-                            $sizePath = "{$directory}/{$sizeFile}";
-
-                            if (Storage::disk('public')->exists($sizePath)) {
-                                $mainImage = $sizePath;
-                                break;
-                            }
-                        }
+                        // Prefer the largest available image
+                        $mainImage =
+                            $images[1920]
+                            ?? $images[1600]
+                            ?? $images[1080]
+                            ?? $images[800]
+                            ?? $images[500]
+                            ?? null;
                     @endphp
 
                     @if ($mainImage)
-                        <div class="gallery" data-parallax-image>
+                        <div class="gallery2" data-parallax-image>
                             <div class="gallery-image">
-                                <img src="{{ Storage::url($mainImage) }}" srcset="{{ implode(', ', $srcset) }}" sizes="(max-width: 1920px) 100vw, 1920px" alt="{{ $page->title }}" class="img-p" />
+                                <img src="{{ Storage::url($mainImage) }}" srcset="{{ $srcset }}"
+                                    sizes="(max-width: 500px) 500px,
+                                        (max-width: 800px) 800px,
+                                        (max-width: 1080px) 1080px,
+                                        (max-width: 1600px) 1600px,
+                                        1920px"
+                                    alt="{{ $page->title }}" class="img-p"
+                                />
                             </div>
                         </div>
                     @endif
-
-                    <video id="project-video" muted playsinline>
-                        <source src="/videos/project.mp4" type="video/mp4">
-                    </video>
-
                 @endforeach
             </div>
-        @endif -->
+        @endif
+
 </main>   
 @endsection
