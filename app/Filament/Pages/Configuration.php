@@ -7,6 +7,7 @@ use App\Models\Why;
 use App\Models\Project;
 use App\Models\Testimonial;
 use App\Models\Event;
+use App\Models\User;
 use App\Models\Page as PageModel;
 use App\Models\PageImage;
 use BackedEnum;
@@ -32,6 +33,7 @@ use Intervention\Image\Laravel\Facades\Image;
 use Filament\Forms\Components\DatePicker;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use Illuminate\Support\Facades\Hash;
 
 class Configuration extends Page implements HasForms, HasActions {
     use InteractsWithForms;
@@ -42,6 +44,99 @@ class Configuration extends Page implements HasForms, HasActions {
     protected static ?string $title = 'Configuration';
     protected string $view = 'filament.configuration';
     public $activeTab = 0;
+
+    public function getCardSections(): array {
+        return [            
+            [
+                'heading' => 'Apartments',
+                'singular' => 'Apartment',
+                'model' => Apartment::class,
+                'orderBy' => 'id',
+                'title' => 'apartment_name',
+                'add_action' => 'addApartment',
+                'edit_action' => 'editApartment',
+                'edit_argument' => 'apartmentId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument'=> 'apartmentId',
+                'extra' => null,
+            ],
+            [
+                'heading' => 'Projects',
+                'singular' => 'Project',
+                'model' => Project::class,                
+                'title' => 'title',
+                'add_action' => 'addProject',
+                'edit_action' => 'editProject',
+                'edit_argument' => 'projectId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument' => 'projectId',
+                'extra' => null,
+            ],
+            [
+                'heading' => 'Pages',
+                'singular' => 'Page',
+                'model' => PageModel::class,
+                'orderBy' => 'sort_order',
+                'title' => 'title',
+                'add_action' => 'addPage',
+                'edit_action' => 'editPage',
+                'edit_argument' => 'pageId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument' => 'pageId',
+                'extra' => null,
+            ],
+            [
+                'heading' => 'Users',
+                'singular' => 'User',
+                'model' => User::class,                
+                'title' => 'title',
+                'add_action' => 'addUser',
+                'edit_action' => 'editUser',
+                'edit_argument' => '$userId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument'=> '$userId',
+                'extra' => 'year',
+            ],
+            [
+                'heading' => 'Why',
+                'singular' => 'Why',
+                'model' => Why::class,                
+                'title' => 'title',
+                'add_action' => 'addWhy',
+                'edit_action' => 'editWhy',
+                'edit_argument' => '$whyId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument'=> '$whyId',
+                'extra' => 'year',
+            ],
+            [
+                'heading' => 'Testimonial',
+                'singular' => 'Testimonial',
+                'model' => Testimonial::class,
+                'orderBy' => 'sort_order',
+                'title' => 'title',
+                'add_action' => 'addTestimonial',
+                'edit_action' => 'editTestimonial',
+                'edit_argument' => 'testimonialId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument' => 'testimonialId',
+                'extra' => null,
+            ],
+            [
+                'heading' => 'Event',
+                'singular' => 'Event',
+                'model' => Event::class,
+                'orderBy' => 'sort_order',
+                'title' => 'title',
+                'add_action' => 'addEvent',
+                'edit_action' => 'editEvent',
+                'edit_argument' => 'eventId',
+                'delete_action' => 'deleteRecord',
+                'delete_argument' => 'eventId',
+                'extra' => null,
+            ]            
+        ];
+    }
 
     //Projects
     protected function projectFormSchema(): array {
@@ -563,6 +658,82 @@ class Configuration extends Page implements HasForms, HasActions {
     }  
 
 
+    //Why
+    protected function userFormSchema(): array {
+        return [
+            Grid::make(2)
+                ->schema([
+                    TextInput::make('name')->label('Name')->required()->maxLength(50)->columnSpan(1),
+                    Select::make('role')->label('Role')
+                        ->options([
+                            'user' => 'User',
+                            'author' => 'Author',
+                            'admin' => 'Admin',
+                        ])->default('user')->required()->columnSpan(1),                    
+                    TextInput::make('email')->label('Email')->email()->required()->unique(ignoreRecord: true)->maxLength(50)->columnSpan(1),
+                    TextInput::make('password')->label('Password')->password()->revealable()->required(fn (string $operation): bool => $operation === 'create')
+                        ->dehydrated(fn ($state) => filled($state))
+                        ->dehydrateStateUsing(fn ($state) => Hash::make($state))->columnSpan(1),
+                ]),
+        ];
+    }
+
+    public function addUserAction(): Action {
+        return Action::make('addUser')
+            ->label('Add User')
+            ->modalHeading('Add User')
+            ->modalWidth('4xl')
+            ->schema($this->userFormSchema())
+            ->action(function (array $data): void {
+                User::create([
+                    'role'        => $data['role'],
+                    'name'        => $data['name'],
+                    'email'       => $data['email'],
+                    'password'    => $data['password'],                    
+                ]);               
+
+                $this->redirect(static::getUrl());
+            });
+    }
+
+    public function editUserAction(): Action {
+        return Action::make('editUser')
+            ->modalHeading('Edit User')
+            ->modalWidth('4xl')
+            ->schema($this->userFormSchema())
+            ->mountUsing(function ($form, $arguments) {
+                $userId = $arguments['$userId'] ?? null;
+
+                if (! $userId) {
+                    return;
+                }
+
+                $user = User::findOrFail($userId);
+
+                $form->fill([                            
+                    'role'       => $user->role,
+                    'name'       => $user->name,
+                    'email'      => $user->email,
+                    'password'   => $user->password,
+                ]);
+            })            
+           
+            ->mountUsing(function (Schema $form, array $arguments): void {
+                $record = User::findOrFail($arguments['recordId']);
+
+                $form->fill([                    
+                    'role' => $record->role,
+                    'name' => $record->name,
+                    'email' => $record->email,
+                    'password' => $record->password,
+                ]);
+            })
+            ->action(function (array $data, array $arguments): void {
+                $record = User::findOrFail($arguments['recordId']);
+                $record->update($data);
+            });
+    }
+
     
     //Why
     protected function whyFormSchema(): array {
@@ -808,10 +979,6 @@ class Configuration extends Page implements HasForms, HasActions {
             });
     }   
 
-
-   
-    
-    
     
     //Delete Record
     public function deleteRecordAction(): Action {
@@ -860,87 +1027,6 @@ class Configuration extends Page implements HasForms, HasActions {
 
         $fullPath = Storage::disk('public')->path($imagePath);
         Image::read($fullPath)->cover(1000, 700)->save($fullPath);
-    }
-
-    public function getCardSections(): array {
-        return [            
-            [
-                'heading' => 'Apartments',
-                'singular' => 'Apartment',
-                'model' => Apartment::class,
-                'orderBy' => 'id',
-                'title' => 'apartment_name',
-                'add_action' => 'addApartment',
-                'edit_action' => 'editApartment',
-                'edit_argument' => 'apartmentId',
-                'delete_action' => 'deleteRecord',
-                'delete_argument'=> 'apartmentId',
-                'extra' => null,
-            ],
-            [
-                'heading' => 'Projects',
-                'singular' => 'Project',
-                'model' => Project::class,                
-                'title' => 'title',
-                'add_action' => 'addProject',
-                'edit_action' => 'editProject',
-                'edit_argument' => 'projectId',
-                'delete_action' => 'deleteRecord',
-                'delete_argument' => 'projectId',
-                'extra' => null,
-            ],
-            [
-                'heading' => 'Pages',
-                'singular' => 'Page',
-                'model' => PageModel::class,
-                'orderBy' => 'sort_order',
-                'title' => 'title',
-                'add_action' => 'addPage',
-                'edit_action' => 'editPage',
-                'edit_argument' => 'pageId',
-                'delete_action' => 'deleteRecord',
-                'delete_argument' => 'pageId',
-                'extra' => null,
-            ],
-            [
-                'heading' => 'Why',
-                'singular' => 'Why',
-                'model' => Why::class,                
-                'title' => 'title',
-                'add_action' => 'addWhy',
-                'edit_action' => 'editWhy',
-                'edit_argument' => '$whyId',
-                'delete_action' => 'deleteRecord',
-                'delete_argument'=> '$whyId',
-                'extra' => 'year',
-            ],
-            [
-                'heading' => 'Testimonial',
-                'singular' => 'Testimonial',
-                'model' => Testimonial::class,
-                'orderBy' => 'sort_order',
-                'title' => 'title',
-                'add_action' => 'addTestimonial',
-                'edit_action' => 'editTestimonial',
-                'edit_argument' => 'testimonialId',
-                'delete_action' => 'deleteRecord',
-                'delete_argument' => 'testimonialId',
-                'extra' => null,
-            ],
-            [
-                'heading' => 'Event',
-                'singular' => 'Event',
-                'model' => Event::class,
-                'orderBy' => 'sort_order',
-                'title' => 'title',
-                'add_action' => 'addEvent',
-                'edit_action' => 'editEvent',
-                'edit_argument' => 'eventId',
-                'delete_action' => 'deleteRecord',
-                'delete_argument' => 'eventId',
-                'extra' => null,
-            ]            
-        ];
     }
 
     protected function afterSave(): void {

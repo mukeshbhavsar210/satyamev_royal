@@ -147,6 +147,70 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        @elseif($section['model'] === \App\Models\User::class)
+                        <div class="project-table">
+                            <table class="project-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>                                        
+                                        <th width="80">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($section['model']::get() as $record)
+                                        <tr>                                                                                
+                                            <td>{{ $record->name }}</td>
+                                            <td>{{ $record->email }}</td>
+                                            <td>
+    @php
+        $class = match (strtolower($record->role)) {
+            'user' => 'role-user',
+            'author' => 'role-author',
+            'admin' => 'role-admin',
+            default => '',
+        };
+    @endphp
+
+    <span class="project-category {{ $class }}">
+        {{ ucfirst($record->role) }}
+    </span>
+</td>
+                                            <td class="project-table_actions">  
+                                                <x-filament::button
+                                                    size="sm"
+                                                    wire:click="mountAction(
+                                                        '{{ $section['edit_action'] }}',
+                                                        {
+                                                            model: '{{ addslashes($section['model']) }}',
+                                                            recordId: {{ $record->id }}
+                                                        }
+                                                    )"
+                                                >Edit
+                                                </x-filament::button>
+                                                
+                                                @if(auth()->user()?->role === 'admin')
+                                                    <x-filament::button
+                                                        color="danger"
+                                                        size="sm"
+                                                        wire:click="mountAction(
+                                                            '{{ $section['delete_action'] }}',
+                                                            {
+                                                                model: '{{ addslashes($section['model']) }}',
+                                                                recordId: {{ $record->id }}
+                                                            }
+                                                        )"
+                                                    >Delete
+                                                    </x-filament::button>
+                                                @endif
+                                            </td>
+                                        </tr>                                    
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     
                     @elseif($section['model'] === \App\Models\Why::class)
                         <div class="project-table">
