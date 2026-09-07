@@ -32,7 +32,7 @@ class AdminPanelProvider extends PanelProvider {
             ->renderHook(
                 PanelsRenderHook::HEAD_END,
                 fn (): string => Blade::render(
-                    '<link rel="stylesheet" href="{{ asset("css/admin.css") }}">'
+                    '<link rel="stylesheet" href="{{ asset("css/admin2.css") }}">'
                 ),
             )         
             ->login()
