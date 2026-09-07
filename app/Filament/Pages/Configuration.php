@@ -65,7 +65,6 @@ class Configuration extends Page implements HasForms, HasActions {
                         'delete_argument' => 'apartmentId',
                         'extra' => null,
                     ],
-
                     [
                         'heading' => 'Projects',
                         'singular' => 'Project',
@@ -122,7 +121,6 @@ class Configuration extends Page implements HasForms, HasActions {
                         'delete_argument' => 'whyId',
                         'extra' => 'year',
                     ],
-
                     [
                         'heading' => 'Testimonials',
                         'singular' => 'Testimonial',
@@ -150,141 +148,9 @@ class Configuration extends Page implements HasForms, HasActions {
                         'extra' => null,
                     ],        
                 ],
-            ],
-            
+            ],        
         ];
-    }
-
-    public function getCardSectionsOld(): array {
-        return [                        
-                [
-                    'heading' => 'Apartments and Projects',
-                    'children' => [          
-                        [
-                            'heading' => 'Apartments',
-                            'singular' => 'Apartment',
-                            'model' => Apartment::class,
-                            'orderBy' => 'id',
-                            'title' => 'apartment_name',
-                            'add_action' => 'addApartment',
-                            'edit_action' => 'editApartment',
-                            'edit_argument' => 'apartmentId',
-                            'delete_action' => 'deleteRecord',
-                            'delete_argument'=> 'apartmentId',
-                            'extra' => null,
-                        ],
-                        [
-                            'heading' => 'Projects',
-                            'singular' => 'Project',
-                            'model' => Project::class,                
-                            'title' => 'title',
-                            'add_action' => 'addProject',
-                            'edit_action' => 'editProject',
-                            'edit_argument' => 'projectId',
-                            'delete_action' => 'deleteRecord',
-                            'delete_argument' => 'projectId',
-                            'extra' => null,
-                        ],
-                    ],
-                ],
-
-                'heading' => 'Others',
-                'children' => [
-                    [
-                        'heading' => 'Why',
-                        'singular' => 'Why',
-                        'model' => Why::class,                
-                        'title' => 'title',
-                        'add_action' => 'addWhy',
-                        'edit_action' => 'editWhy',
-                        'edit_argument' => '$whyId',
-                        'delete_action' => 'deleteRecord',
-                        'delete_argument'=> '$whyId',
-                        'extra' => 'year',
-                    ],
-                    [
-                        'heading' => 'Testimonials',
-                        'singular' => 'Testimonial',
-                        'model' => Testimonial::class,
-                        'orderBy' => 'sort_order',
-                        'title' => 'title',
-                        'add_action' => 'addTestimonial',
-                        'edit_action' => 'editTestimonial',
-                        'edit_argument' => 'testimonialId',
-                        'delete_action' => 'deleteRecord',
-                        'delete_argument' => 'testimonialId',
-                        'extra' => null,
-                    ],
-                ],            
-
-                // 'heading' => 'Others',
-                //     'children' => [                              
-                //         [
-                //             'heading' => 'Why',
-                //             'singular' => 'Why',
-                //             'model' => Why::class,                
-                //             'title' => 'title',
-                //             'add_action' => 'addWhy',
-                //             'edit_action' => 'editWhy',
-                //             'edit_argument' => '$whyId',
-                //             'delete_action' => 'deleteRecord',
-                //             'delete_argument'=> '$whyId',
-                //             'extra' => 'year',
-                //         ],
-                //         [
-                //             'heading' => 'Testimonials',
-                //             'singular' => 'Testimonial',
-                //             'model' => Testimonial::class,
-                //             'orderBy' => 'sort_order',
-                //             'title' => 'title',
-                //             'add_action' => 'addTestimonial',
-                //             'edit_action' => 'editTestimonial',
-                //             'edit_argument' => 'testimonialId',
-                //             'delete_action' => 'deleteRecord',
-                //             'delete_argument' => 'testimonialId',
-                //             'extra' => null,
-                //         ],
-                //         [
-                //             'heading' => 'Events',
-                //             'singular' => 'Event',
-                //             'model' => Event::class,
-                //             'orderBy' => 'sort_order',
-                //             'title' => 'title',
-                //             'add_action' => 'addEvent',
-                //             'edit_action' => 'editEvent',
-                //             'edit_argument' => 'eventId',
-                //             'delete_action' => 'deleteRecord',
-                //             'delete_argument' => 'eventId',
-                //             'extra' => null,
-                //         ],                    
-                //     ],
-                    [
-                        'heading' => 'Pages',
-                        'singular' => 'Page',
-                        'model' => PageModel::class,
-                        'orderBy' => 'sort_order',
-                        'title' => 'title',
-                        'add_action' => 'addPage',
-                        'edit_action' => 'editPage',
-                        'edit_argument' => 'pageId',
-                        'delete_action' => 'deleteRecord',
-                        'delete_argument' => 'pageId',
-                        'extra' => null,
-                    ],
-                    [
-                        'heading' => 'Users',
-                        'singular' => 'User',
-                        'model' => User::class,                
-                        'title' => 'title',
-                        'add_action' => 'addUser',
-                        'edit_action' => 'editUser',
-                        'edit_argument' => '$userId',
-                        'delete_action' => 'deleteRecord',
-                        'delete_argument'=> '$userId',
-                        'extra' => 'year',
-                    ],            
-        ];
-    }
+    }    
 
     //Projects
     protected function projectFormSchema(): array {
@@ -293,20 +159,21 @@ class Configuration extends Page implements HasForms, HasActions {
                 ->schema([
                     Grid::make(1)
                         ->schema([
-                            TextInput::make('title')->label('Project Title')->required()->maxLength(255),
-                            TextInput::make('location')->label('Location')->required()->maxLength(255),
-                            TextInput::make('description')->label('Description'),
                             Grid::make(6)
                                 ->schema([
-                                    TextInput::make('rera')->label('Rera')->columnSpan(3),
-                                    TextInput::make('year')->label('Year')->numeric()->columnSpan(2),
-                                    Select::make('show')->label('Show')
+                                    Select::make('category')->label('Category')
                                         ->options([
-                                            'yes' => 'Yes',
-                                            'no' => 'No',
+                                            'ongoing' => 'Ongoing',
+                                            'upcoming' => 'Upcoming',
+                                            'completed' => 'Completed',
                                         ])
-                                        ->default('yes')->required()->columnSpan(1),                                    
+                                        ->default('ongoing')->required()->columnSpan(2),
+                                    TextInput::make('title')->label('Project Title')->required()->maxLength(255)->columnSpan(4),
                                 ]),
+                            
+                            TextInput::make('location')->label('Location')->required()->maxLength(255),
+                            TextInput::make('description')->label('Description'),
+                            TextInput::make('rera')->label('Rera'),                            
 
                             Grid::make(2)
                                 ->schema([                                
@@ -340,22 +207,22 @@ class Configuration extends Page implements HasForms, HasActions {
                         ])->columnSpan(3),
                     Grid::make(1)
                         ->schema([
-                            Select::make('category')->label('Category')
-                                ->options([
-                                    'ongoing' => 'Ongoing',
-                                    'upcoming' => 'Upcoming',
-                                    'completed' => 'Completed',
-                                ])
-                                ->default('ongoing')->required(),
-                                                        
+                            DatePicker::make('completion')->label('Completion Date')->displayFormat('F Y')->format('Y-m')->native(false)->closeOnDateSelection()->columnSpan(1),
                             TextInput::make('units')->label('Units'),
-                            DatePicker::make('completion')->label('Completion')->displayFormat('F Y')->format('Y-m')->native(false)->closeOnDateSelection()->columnSpan(1),
+                            TextInput::make('year')->label('Year for Timeline')->numeric()->columnSpan(1),   
+                             Select::make('show')->label('Show Timeline')
+                                    ->options([
+                                        'yes' => 'Yes',
+                                        'no' => 'No',
+                                    ])
+                                    ->default('yes')->required()->columnSpan(1),
+
                             Select::make('show')->label('Show on Page')
                                 ->options([
                                     'yes' => 'Yes',
                                     'no' => 'No',
                                 ])
-                                ->default('yes')->required(),
+                                ->default('yes')->required(),                           
                         ])->columnSpan(1),
                 ]),
         ];
@@ -468,22 +335,7 @@ class Configuration extends Page implements HasForms, HasActions {
                                 ->options(
                                     \App\Models\Project::query()->pluck('title', 'id')->toArray()
                                 )->searchable()->preload()->required()->columnSpan(2),
-                            Textarea::make('description')->label('Details')->rows(3)->columnSpan(2),                            
-                        ])->columnSpan(1),
-                    Grid::make(2)
-                        ->schema([
-                             Grid::make(3)
-                                    ->schema([
-                                        TextInput::make('rooms')->label('Rooms')->maxLength(10)->columnSpan(1),
-                                        TextInput::make('area')->label('Area')->maxLength(10)->columnSpan(1),
-                                        Select::make('show')->label('Show')
-                                            ->options([
-                                                'yes' => 'Yes',
-                                                'no' => 'No',
-                                            ])
-                                            ->default('yes')->required()->columnSpan(1),
-                                    ])->columnSpan(2),
-                            
+
                             FileUpload::make('gallery')->label('Gallery Images')->image()->multiple()
                                 ->maxFiles(5)->reorderable()->appendFiles()->imageEditor()
                                 ->imageEditorAspectRatios(['1000:800',])
@@ -498,7 +350,22 @@ class Configuration extends Page implements HasForms, HasActions {
                                         . \Illuminate\Support\Str::random(3)
                                         . '.'
                                         . $file->getClientOriginalExtension()
-                                )->dehydrated()->columnSpan(2),                               
+                                )->dehydrated()->columnSpan(2),                             
+                        ])->columnSpan(1),
+                    Grid::make(2)
+                        ->schema([
+                             Grid::make(3)
+                                    ->schema([
+                                        TextInput::make('rooms')->label('Rooms')->maxLength(10)->columnSpan(1),
+                                        TextInput::make('area')->label('Area')->maxLength(10)->columnSpan(1),
+                                        Select::make('show')->label('Show')
+                                            ->options([
+                                                'yes' => 'Yes',
+                                                'no' => 'No',
+                                            ])
+                                            ->default('yes')->required()->columnSpan(1),
+                                    ])->columnSpan(2),
+                            Textarea::make('description')->label('Details')->rows(3)->columnSpan(2),                                                          
                         ])->columnSpan(1),
                 ]),
         ];
