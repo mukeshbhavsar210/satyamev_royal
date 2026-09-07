@@ -1,28 +1,22 @@
 <div @class([
-    'image-card',
-        $section['heading'] == 'Apartments' ? 'apartment' : 'timeline',
-        'disabled' => $record->show === 'no',
+    'image-card', 'disabled' => $record->show === 'no',
     ])>
 
     <div class="image-thumb">
         @php
-            $image = in_array($section['heading'], ['Apartments', 'Timeline'])
+            $image = in_array($section['heading'], ['Apartments'])
                 ? $record->project?->image
                 : $record->image;
         @endphp
 
         @if($image)
-            <img
-                src="{{ asset('storage/' . $image) }}"
-                alt="{{ $record->project?->title }}"
-            >
+            <img src="{{ asset('storage/' . $image) }}" alt="{{ $record->project?->title }}" >
         @else
             <p>No Image</p>
         @endif
 
         <div class="overlay">
-            <x-filament::button
-                class="edit-btn"
+            <x-filament::button class="edit-btn"
                 wire:click="mountAction(
                     '{{ $section['edit_action'] }}',
                     {
@@ -34,9 +28,7 @@
             </x-filament::button>
 
             @if(auth()->user()?->role === 'admin')
-                <x-filament::button
-                    class="delete-btn"
-                    color="danger"
+                <x-filament::button class="delete-btn" color="danger"
                     wire:click="mountAction(
                         '{{ $section['delete_action'] }}',
                         {
@@ -51,13 +43,9 @@
         </div>
     </div>
 
-    <h3 class="title">
-        {{ $record->project?->title }}        
-    </h3>
+    <h3 class="title">{{ $record->project?->title }}</h3>
 
     @if($section['extra'])
-        <p class="small-title">
-            {{ $record->{$section['extra']} }}
-        </p>
+        <p class="small-title">{{ $record->{$section['extra']} }}</p>
     @endif
 </div>
